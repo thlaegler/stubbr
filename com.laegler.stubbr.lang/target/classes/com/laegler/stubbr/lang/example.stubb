@@ -1,0 +1,117 @@
+package com.laegler.stubbr.example
+
+project MyExample {
+	packageName org.example.stubbr
+	prefix Exmpl
+	version v0.0.1-SNAPSHOT
+	author "Thomas Laegler"
+	eMail "thomas.laeger@googlemail.com"
+	
+	globals
+
+	stakeholders
+		organizations
+			organization Softwarehaus
+		groups
+			group Developers
+		roles
+			role Developer
+		persons
+			person Hans
+
+	management
+		projects
+			businessModel bizModel {
+				suffix biz
+			}
+		sourceCodeManagement
+			attribute Git {
+				attribute URL {value "github.com"}
+			}
+		issueManagement
+			attribute Jira {
+				attribute  URL {value "jira.de"}
+			}
+		continousIntegration
+			attribute Jenkins{
+				attribute  Verzion {value  ""}
+			}
+	environment
+		infrastructure
+			attribute Ubuntu {value "lalal"}
+			attribute Verzion {value  "4.04" }
+			attribute Wildfly {value "10.0.0"}
+		envVariables
+			attribute a5 {value "Test" }
+			attribute test {value "Test"}
+		runtime
+			java MyJava {
+				label "MyJava"
+				jdkVersion v8.102
+				jvm 1.8
+			}
+	
+	structure 
+		nestedParentProject
+	
+	persistence
+		databases
+			database exampleMysql {
+				label "Stubbr Example MySQL-Connection"
+				type mySql
+				version v5.5-i
+			}
+		datasources
+			attribute exampleMysqlDS {
+				attribute Type {value "MySQL"}
+				attribute Verzion {value "5.5"}
+			}
+		persistenceUnit
+			attribute somethingPU { value ""}
+		entityModel
+			entity User {
+//				attribute id { primaryKey javaType long }
+//				attribute ^name { javaType java.util.String }
+				attribute gaga { javaType boolean }
+				attribute ref { type Bar }
+			}
+			entity Bar {
+				attribute Account { primaryKey javaType long }
+//				attribute ^name { javaType String }
+//				attribute aCollection { javaType java.util.List }
+			}
+
+	ui
+		framework JSF
+		view Startseite {
+			associatedEntities User
+			outputText WillkommensText {value "Herzlich Willkommen!"}
+			listView MitarbeiterListe {}
+		}
+		view LoginScreen {
+			associatedEntities User
+			inputField Benutzername {}
+			inputField Passwort {}
+			button ButtonSubmitCredentials {}
+		}
+		transition StartGotoLogin {
+			from Startseite to LoginScreen
+		}
+//		transition StartGotoLogin {
+//			triggerAction Login from MyExample.LoginScreen.ButtonSubmitCredentials to java.util.Date.
+//		}
+	
+	behavior
+		feature Login {
+			label "As User I want to log-in to internal Area."
+			scenario notRegistered {
+				label "As not-registered User I cant log-in"
+				given UnregisteredUser { label "" in das Formularelement }
+				when tryToLogin { actor Developer die Seite }
+				then loginFailed { actor Developer should die Seite }
+			}
+		}
+	
+
+}
+

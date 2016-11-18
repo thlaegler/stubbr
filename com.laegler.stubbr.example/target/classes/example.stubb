@@ -1,0 +1,179 @@
+package com.laegler.stubbr.example
+
+project MyExample {
+	packageName org.example.stubbr
+	prefix Exmpl
+	version v0.0.1-SNAPSHOT
+	author "Thomas Laegler"
+	eMail "thomas.laeger@googlemail.com"
+	
+	globals {
+		loggerName log
+		//loggerType org.slf4j.Logger
+		//useSpringMVC
+	}
+	stakeholders {
+		organizations
+			organization Softwarehaus
+		groups
+			group Developers
+		roles
+			role Developer
+		persons
+			person Hans
+			person Tester1
+			person Tester2
+	}
+	management {
+		projects
+			businessModel bizModel {
+				suffix biz
+			}
+		sourceCodeManagement
+			attribute Git {
+				attribute URL {value "github.com"}
+			}
+		issueManagement
+			attribute Jira {
+				attribute  URL {value "jira.de"}
+			}
+		continousIntegration
+			attribute Jenkins{
+				attribute  Verzion {value  ""}
+			}
+	}
+	environment {
+		infrastructure
+			attribute Ubuntu {value "lalal"}
+			attribute Verzion {value  "4.04" }
+			attribute Wildfly {value "10.0.0"}
+		envVariables
+			attribute a5 {value "Test" }
+			attribute test {value "Test"}
+		runtime
+			java MyJava {
+				label "MyJava"
+				jdkVersion v8.102
+				jvm 1.8
+			}
+	}
+	structure {
+		nestedParentProject
+	}
+	persistence {
+		databases
+			database exampleMysql {
+				label "Stubbr Example MySQL-Connection"
+				type mySql
+				version v5.5-i
+			}
+		datasources
+			attribute exampleMysqlDS {
+				attribute Type {value "MySQL"}
+				attribute Verzion {value "5.5"}
+			}
+		persistenceUnit
+			attribute somethingPU { value ""}
+		entity User {
+//				attribute id { primaryKey javaType long }
+//				attribute ^name { javaType java.util.String }
+			attribute gaga { javaType boolean }
+			attribute ref { type Bar }
+		}
+		entity Bar {
+			attribute Account { primaryKey javaType long }
+//				attribute ^name { javaType String }
+//				attribute aCollection { javaType java.util.List }
+		}
+		//customIds
+		idType long
+		
+	}
+//	business {
+//		process lala {}
+//	}
+	ui {
+		framework JSF
+		view Startseite {
+			associatedEntities User
+			outputText WillkommensText {value "Herzlich Willkommen!"}
+			listView MitarbeiterListe {}
+		}
+		view LoginScreen {
+			associatedEntities User
+			inputField Benutzername {}
+			inputField Passwort {}
+			button ButtonSubmitCredentials {}
+		}
+		view LoginFailed {
+			outputText loginFailed {}
+		}
+		view LoginSuccessful {
+			outputText loginSuccessful {}
+		}
+		transition StartGotoLogin {
+			from Startseite to LoginScreen
+		}
+//		transition StartGotoLogin {
+//			triggerAction Login from MyExample.LoginScreen.ButtonSubmitCredentials to java.util.Date.
+//		}
+	}
+	webservices
+		rest MyFirstRestAPI {
+			specification "/src/example.yaml"
+			languages jaxrs-resteasy,java
+			basepath "http://test.com"
+			exclude Bar
+			transferobjects entity SpecialDTO {
+				attribute gaga { javaType boolean }
+				attribute bar { type Bar }
+			}
+		}
+		soap MyFirstSoapService {
+			specification "/src/example.wsdl"
+			namespace "http://test.com"
+			exclude Bar
+			transferobjects entity SpecialSoapDTO {
+				attribute gaga { javaType boolean }
+				attribute bar { type Bar }
+			}
+		}
+	
+	behavior
+		feature Login {
+			label "As User I want to log-in to internal Area."
+			
+			scenario unregisteredUserCantLogin {
+				label "As not-registered User I can't log-in"
+				given UnregisteredUser { label "" actor Tester2 }
+				when openLogin { actor Tester2 action opens element LoginScreen }
+				when inputUsername { actor Tester2 action enters value "tester2" into element MyExample.LoginScreen.Benutzername }
+				when inputPassword { actor Tester2 action enters value "rightPassword" into element MyExample.LoginScreen.Passwort }
+				then loginFailed { element LoginFailed should action opens }
+			}
+			
+			scenario wrongPasswordCantLogin {
+				label "As registered User I can't log-in when password is wrong"
+				given registeredUser { label "" actor Tester1}
+				when openLogin { actor Tester1 action opens element LoginScreen }
+				when inputUsername { actor Tester1 action enters value "tester1" into element MyExample.LoginScreen.Benutzername }
+				when inputPassword { actor Tester1 action enters value "wrongPassword" into element MyExample.LoginScreen.Passwort }
+				then loginSuccessful { element LoginSuccessful should action opens }
+			}
+			
+			scenario registeredUserCanLogin {
+				label "As not-registered User I can't log-in"
+				given registeredUser { label "" actor Tester1}
+				when openLogin { actor Tester1 action opens element LoginScreen }
+				when inputUsername { actor Tester1 action enters value "tester1" into element MyExample.LoginScreen.Benutzername }
+				when inputPassword { actor Tester1 action enters value "rightPassword" into element MyExample.LoginScreen.Passwort }
+				then loginSuccessful { element LoginSuccessful should action opens }
+			}
+		}
+		feature FooBar {
+			specification "/src/example.feature"
+		}
+		specifications "/src/example.feature"
+	
+}
+

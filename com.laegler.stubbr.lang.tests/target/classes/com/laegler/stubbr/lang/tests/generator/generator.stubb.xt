@@ -1,0 +1,16 @@
+/* XPECT_SETUP com.laegler.stubbr.lang.tests.generator.StubbrGeneratorTest END_SETUP */
+
+XPECT simple
+
+String SingleLine Expectation
+XPECT simple --> foo bar
+
+String Multiline Expectation
+XPECT simpleString ---
+	Hello, this
+		is some Multiline
+	String
+---
+
+
+XPECT simpleCSV --> foo, bar, baz, aa
