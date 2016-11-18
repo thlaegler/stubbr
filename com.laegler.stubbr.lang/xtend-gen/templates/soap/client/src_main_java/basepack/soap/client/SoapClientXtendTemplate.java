@@ -19,6 +19,14 @@ public class SoapClientXtendTemplate extends AbstractXtendTemplate {
     super(stubbr, project);
     this.entity = entity;
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("package ");
+    String _basePackage = null;
+    if (project!=null) {
+      _basePackage=project.getBasePackage();
+    }
+    _builder.append(_basePackage, "");
+    this.setHeader(_builder.toString());
+    StringConcatenation _builder_1 = new StringConcatenation();
     String _name = null;
     if (entity!=null) {
       _name=entity.getName();
@@ -27,24 +35,24 @@ public class SoapClientXtendTemplate extends AbstractXtendTemplate {
     if (_name!=null) {
       _firstUpper=StringExtensions.toFirstUpper(_name);
     }
-    _builder.append(_firstUpper, "");
-    _builder.append("SoapClient");
-    this.setFileName(_builder.toString());
-    StringConcatenation _builder_1 = new StringConcatenation();
-    _builder_1.append("/src/main/java/");
-    String _basePackage = null;
+    _builder_1.append(_firstUpper, "");
+    _builder_1.append("SoapClient");
+    this.setFileName(_builder_1.toString());
+    StringConcatenation _builder_2 = new StringConcatenation();
+    _builder_2.append("/src/main/java/");
+    String _basePackage_1 = null;
     if (project!=null) {
-      _basePackage=project.getBasePackage();
+      _basePackage_1=project.getBasePackage();
     }
     String _path = null;
-    if (_basePackage!=null) {
-      _path=this.toPath(_basePackage);
+    if (_basePackage_1!=null) {
+      _path=this.toPath(_basePackage_1);
     }
-    _builder_1.append(_path, "");
-    _builder_1.append("/");
-    this.setRelativPath(_builder_1.toString());
-    StringConcatenation _builder_2 = new StringConcatenation();
-    _builder_2.append("SOAP client for entity ");
+    _builder_2.append(_path, "");
+    _builder_2.append("/");
+    this.setRelativPath(_builder_2.toString());
+    StringConcatenation _builder_3 = new StringConcatenation();
+    _builder_3.append("SOAP client for entity ");
     String _name_1 = null;
     if (entity!=null) {
       _name_1=entity.getName();
@@ -53,30 +61,22 @@ public class SoapClientXtendTemplate extends AbstractXtendTemplate {
     if (_name_1!=null) {
       _firstUpper_1=StringExtensions.toFirstUpper(_name_1);
     }
-    _builder_2.append(_firstUpper_1, "");
-    this.setDocumentation(_builder_2.toString());
+    _builder_3.append(_firstUpper_1, "");
+    this.setDocumentation(_builder_3.toString());
     String _template = this.getTemplate();
-    this.setContent(_template);
+    String _withImports = this.withImports(_template);
+    this.setContent(_withImports);
   }
   
   private String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("package ");
+    _builder.append("import ");
     Project _project = this.getProject();
     String _basePackage = null;
     if (_project!=null) {
       _basePackage=_project.getBasePackage();
     }
     _builder.append(_basePackage, "");
-    _builder.newLineIfNotEmpty();
-    _builder.newLine();
-    _builder.append("import ");
-    Project _project_1 = this.getProject();
-    String _basePackage_1 = null;
-    if (_project_1!=null) {
-      _basePackage_1=_project_1.getBasePackage();
-    }
-    _builder.append(_basePackage_1, "");
     _builder.append(".*");
     _builder.newLineIfNotEmpty();
     _builder.append("import ");
@@ -102,7 +102,7 @@ public class SoapClientXtendTemplate extends AbstractXtendTemplate {
     String _javaDocType = this.getJavaDocType();
     _builder.append(_javaDocType, "");
     _builder.newLineIfNotEmpty();
-    _builder.append("public class ");
+    _builder.append("class ");
     String _fileName = this.getFileName();
     _builder.append(_fileName, "");
     _builder.append(" {");

@@ -2,6 +2,7 @@ package templates.faces.src_main_java.basepack.faces.presenter;
 
 import com.laegler.stubbr.lang.genmodel.Project;
 import com.laegler.stubbr.lang.genmodel.StubbrRegistry;
+import com.laegler.stubbr.lang.stubbrLang.Stubb;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import templates.AbstractXtendTemplate;
 
@@ -14,6 +15,7 @@ public class AbstractPresenterXtendTemplate extends AbstractXtendTemplate {
     super(stubbr, project);
     this.setFileName("AbstractPresenter");
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("package ");
     String _basePackage = null;
     if (project!=null) {
       _basePackage=project.getBasePackage();
@@ -42,18 +44,28 @@ public class AbstractPresenterXtendTemplate extends AbstractXtendTemplate {
   
   private String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("import de.citysquire.common.constant.CQConstant");
-    _builder.newLine();
-    _builder.append("import de.citysquire.common.exception.CQException");
-    _builder.newLine();
-    _builder.append("import de.citysquire.common.fix.RoleType");
-    _builder.newLine();
-    _builder.append("import de.citysquire.domain.config.CQConfig");
-    _builder.newLine();
-    _builder.append("import de.citysquire.domain.config.CQSeverity");
-    _builder.newLine();
-    _builder.append("import de.citysquire.domain.security.SecurityContext");
-    _builder.newLine();
+    _builder.append("import ");
+    Project _project = this.getProject();
+    String _basePackage = null;
+    if (_project!=null) {
+      _basePackage=_project.getBasePackage();
+    }
+    _builder.append(_basePackage, "");
+    _builder.append(".*");
+    _builder.newLineIfNotEmpty();
+    _builder.append("import ");
+    StubbrRegistry _stubbr = this.getStubbr();
+    Stubb _stubb = null;
+    if (_stubbr!=null) {
+      _stubb=_stubbr.getStubb();
+    }
+    String _packageName = null;
+    if (_stubb!=null) {
+      _packageName=_stubb.getPackageName();
+    }
+    _builder.append(_packageName, "");
+    _builder.append(".business.config.Severity");
+    _builder.newLineIfNotEmpty();
     _builder.append("import java.text.MessageFormat");
     _builder.newLine();
     _builder.append("import java.util.Map");
@@ -76,15 +88,9 @@ public class AbstractPresenterXtendTemplate extends AbstractXtendTemplate {
     _builder.newLine();
     _builder.append("import javax.servlet.http.HttpServletRequest");
     _builder.newLine();
-    _builder.append("import org.slf4j.Logger");
-    _builder.newLine();
-    _builder.append("import de.citysquire.domain.bean.AbstractBean");
-    _builder.newLine();
     _builder.append("import org.joda.time.DateTime");
     _builder.newLine();
     _builder.append("import org.apache.commons.lang.exception.ExceptionUtils");
-    _builder.newLine();
-    _builder.append("import de.citysquire.domain.config.CQResult");
     _builder.newLine();
     _builder.newLine();
     String _javaDocType = this.getJavaDocType();
@@ -94,25 +100,53 @@ public class AbstractPresenterXtendTemplate extends AbstractXtendTemplate {
     _builder.newLine();
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("@Inject");
+    _builder.append("@");
+    String _asImport = this.asImport("javax.inject.Inject");
+    _builder.append(_asImport, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("protected ");
+    String _loggerType = this.getLoggerType();
+    String _asImport_1 = this.asImport(_loggerType);
+    _builder.append(_asImport_1, "\t");
+    _builder.append(" ");
+    String _loggerName = this.getLoggerName();
+    _builder.append(_loggerName, "\t");
+    _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("protected Logger logger");
-    _builder.newLine();
+    _builder.append("@");
+    String _asImport_2 = this.asImport("javax.inject.Inject");
+    _builder.append(_asImport_2, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("protected ");
+    StubbrRegistry _stubbr_1 = this.getStubbr();
+    Stubb _stubb_1 = null;
+    if (_stubbr_1!=null) {
+      _stubb_1=_stubbr_1.getStubb();
+    }
+    String _packageName_1 = null;
+    if (_stubb_1!=null) {
+      _packageName_1=_stubb_1.getPackageName();
+    }
+    String _plus = (_packageName_1 + ".business.config.Config");
+    String _asImport_3 = this.asImport(_plus);
+    _builder.append(_asImport_3, "\t");
+    _builder.append(" config");
+    _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("@Inject");
-    _builder.newLine();
+    _builder.append("@");
+    String _asImport_4 = this.asImport("javax.inject.Inject");
+    _builder.append(_asImport_4, "\t");
+    _builder.newLineIfNotEmpty();
     _builder.append("\t");
-    _builder.append("protected CQConfig config");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("@Inject");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("protected SecurityContext securityContext");
-    _builder.newLine();
+    _builder.append("protected ");
+    String _asImport_5 = this.asImport("org.jboss.security.SecurityContext");
+    _builder.append(_asImport_5, "\t");
+    _builder.append(" securityContext");
+    _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("\t");
     _builder.append("@PostConstruct");
@@ -126,17 +160,23 @@ public class AbstractPresenterXtendTemplate extends AbstractXtendTemplate {
     _builder.newLine();
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("def abstract AbstractBean getBean()");
-    _builder.newLine();
+    _builder.append("def abstract ");
+    Project _project_1 = this.getProject();
+    String _basePackage_1 = null;
+    if (_project_1!=null) {
+      _basePackage_1=_project_1.getBasePackage();
+    }
+    String _plus_1 = (_basePackage_1 + ".bean.AbstractViewBean");
+    String _asImport_6 = this.asImport(_plus_1);
+    _builder.append(_asImport_6, "\t");
+    _builder.append(" getBean()");
+    _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("\t");
     _builder.append("def void onViewLoad(ComponentSystemEvent event) {");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("initView");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("getBean().requestIp = requestIp");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("}");
@@ -146,8 +186,11 @@ public class AbstractPresenterXtendTemplate extends AbstractXtendTemplate {
     _builder.append("protected def String getRequestIp() {");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("val HttpServletRequest httpServletRequest = facesContext.externalContext.request as HttpServletRequest");
-    _builder.newLine();
+    _builder.append("val ");
+    String _asImport_7 = this.asImport("javax.servlet.http.HttpServletRequest");
+    _builder.append(_asImport_7, "\t\t");
+    _builder.append(" httpServletRequest = facesContext.externalContext.request as HttpServletRequest");
+    _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
     _builder.append("return httpServletRequest.remoteAddr");
     _builder.newLine();
@@ -183,7 +226,7 @@ public class AbstractPresenterXtendTemplate extends AbstractXtendTemplate {
     _builder.append("} else {");
     _builder.newLine();
     _builder.append("\t\t\t");
-    _builder.append("CQConstant.PATH_DESKTOP + \'/\' + roleType.typeName + \'/\' + page + \'.xhtml\'");
+    _builder.append("Config.PATH_DESKTOP + \'/\' + roleType.typeName + \'/\' + page + \'.xhtml\'");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("}");
@@ -241,8 +284,10 @@ public class AbstractPresenterXtendTemplate extends AbstractXtendTemplate {
     _builder.newLine();
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("logger.error(\'handleException() with {}\', e)");
-    _builder.newLine();
+    String _loggerName_1 = this.getLoggerName();
+    _builder.append(_loggerName_1, "\t\t");
+    _builder.append(".error(\'handleException() with {}\', e)");
+    _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
     _builder.append("val FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, summary, detail)");
     _builder.newLine();
@@ -303,8 +348,10 @@ public class AbstractPresenterXtendTemplate extends AbstractXtendTemplate {
     _builder.append("protected def String getClientIp() {");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("logger.trace(\'getClientIp() called.\')");
-    _builder.newLine();
+    String _loggerName_2 = this.getLoggerName();
+    _builder.append(_loggerName_2, "\t\t");
+    _builder.append(".trace(\'getClientIp() called.\')");
+    _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
     _builder.append("val HttpServletRequest request = FacesContext.currentInstance.externalContext.request as HttpServletRequest");
     _builder.newLine();
@@ -353,8 +400,10 @@ public class AbstractPresenterXtendTemplate extends AbstractXtendTemplate {
     _builder.append("} catch (Exception e1) {");
     _builder.newLine();
     _builder.append("\t\t\t");
-    _builder.append("logger.warn(\'Resource-Key not found: {}\', key)");
-    _builder.newLine();
+    String _loggerName_3 = this.getLoggerName();
+    _builder.append(_loggerName_3, "\t\t\t");
+    _builder.append(".warn(\'Resource-Key not found: {}\', key)");
+    _builder.newLineIfNotEmpty();
     _builder.append("\t\t\t");
     _builder.append("try {");
     _builder.newLine();
@@ -365,8 +414,10 @@ public class AbstractPresenterXtendTemplate extends AbstractXtendTemplate {
     _builder.append("} catch (Exception e2) {");
     _builder.newLine();
     _builder.append("\t\t\t\t");
-    _builder.append("logger.error(\'Message-Key not found: {}\', key)");
-    _builder.newLine();
+    String _loggerName_4 = this.getLoggerName();
+    _builder.append(_loggerName_4, "\t\t\t\t");
+    _builder.append(".error(\'Message-Key not found: {}\', key)");
+    _builder.newLineIfNotEmpty();
     _builder.append("\t\t\t\t");
     _builder.append("return \'???\' + key + \'???\'");
     _builder.newLine();
@@ -532,8 +583,11 @@ public class AbstractPresenterXtendTemplate extends AbstractXtendTemplate {
     _builder.append("@PermitAll");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("protected def long getHttpPostParam(String paramName) throws CQException {");
-    _builder.newLine();
+    _builder.append("protected def long getHttpPostParam(String paramName) throws ");
+    String _asImport_8 = this.asImport("java.lang.RuntimeException");
+    _builder.append(_asImport_8, "\t");
+    _builder.append(" {");
+    _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
     _builder.append("val long paramId = 0;");
     _builder.newLine();
@@ -554,8 +608,11 @@ public class AbstractPresenterXtendTemplate extends AbstractXtendTemplate {
     _builder.append("} catch (Throwable e) {");
     _builder.newLine();
     _builder.append("\t\t\t\t");
-    _builder.append("throw new CQException(\'parseHttpPostParamId(\' + paramIdString + \') failed to parse given ID to long.\',");
-    _builder.newLine();
+    _builder.append("throw new ");
+    String _asImport_9 = this.asImport("java.lang.RuntimeException");
+    _builder.append(_asImport_9, "\t\t\t\t");
+    _builder.append("(\'parseHttpPostParamId(\' + paramIdString + \') failed to parse given ID to long.\',");
+    _builder.newLineIfNotEmpty();
     _builder.append("\t\t\t\t\t");
     _builder.append("e);");
     _builder.newLine();

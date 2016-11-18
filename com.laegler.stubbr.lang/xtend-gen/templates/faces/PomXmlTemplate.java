@@ -158,6 +158,36 @@ public class PomXmlTemplate extends PomXmlTemplateBase {
     _builder.append("<dependency>");
     _builder.newLine();
     _builder.append("\t\t");
+    _builder.append("<groupId>${project.groupId}</groupId>");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("<artifactId>");
+    StubbrRegistry _stubbr_3 = this.getStubbr();
+    Stubb _stubb_3 = null;
+    if (_stubbr_3!=null) {
+      _stubb_3=_stubbr_3.getStubb();
+    }
+    String _name_4 = null;
+    if (_stubb_3!=null) {
+      _name_4=_stubb_3.getName();
+    }
+    String _lowerCase_3 = null;
+    if (_name_4!=null) {
+      _lowerCase_3=_name_4.toLowerCase();
+    }
+    _builder.append(_lowerCase_3, "\t\t");
+    _builder.append("-business</artifactId>");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("<version>${project.version}</version>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("</dependency>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<dependency>");
+    _builder.newLine();
+    _builder.append("\t\t");
     _builder.append("<groupId>org.wildfly.bom</groupId>");
     _builder.newLine();
     _builder.append("\t\t");
@@ -210,6 +240,11 @@ public class PomXmlTemplate extends PomXmlTemplateBase {
     _builder.newLine();
     _builder.append("\t");
     _builder.append("</dependency>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<!-- Servlet/JSF/Faces -->");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("<dependency>");
@@ -312,6 +347,46 @@ public class PomXmlTemplate extends PomXmlTemplateBase {
     _builder.newLine();
     _builder.append("\t");
     _builder.append("</dependency>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<!-- Barcode/QR-Code -->");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<dependency>");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("<groupId>net.glxn</groupId>");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("<artifactId>qrgen</artifactId>");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("<version>1.4</version>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("</dependency>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<dependency>");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("<groupId>net.sf.barcode4j</groupId>");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("<artifactId>barcode4j-light</artifactId>");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("<version>2.0</version>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("</dependency>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<!-- Utilities -->");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("<dependency>");

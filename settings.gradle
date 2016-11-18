@@ -1,0 +1,3 @@
+include 'com.laegler.stubbr.lang'
+include 'com.laegler.stubbr.lang.ide'
+include 'com.laegler.stubbr.lang.idea'

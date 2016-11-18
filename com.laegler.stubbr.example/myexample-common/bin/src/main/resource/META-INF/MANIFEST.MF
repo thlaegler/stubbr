@@ -1,7 +1,0 @@
-# Generated with Stubbr
-# OSGi Manifest descriptor
-# {{{Version: 0.0.1-SNAPSHOT}}}
-# {{{Date: 16.11.2016 - 15:09:38}}}
-Manifest-Version: 1.0
-Class-Path: 
-

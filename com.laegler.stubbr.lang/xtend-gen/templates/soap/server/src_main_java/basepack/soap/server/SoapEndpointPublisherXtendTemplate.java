@@ -19,56 +19,43 @@ public class SoapEndpointPublisherXtendTemplate extends AbstractXtendTemplate {
     super(stubbr, project);
     this.setFileName("SoapEndpointPublisher");
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("/src/main/java/");
+    _builder.append("package ");
     String _basePackage = null;
     if (project!=null) {
       _basePackage=project.getBasePackage();
     }
-    String _path = null;
-    if (_basePackage!=null) {
-      _path=this.toPath(_basePackage);
+    _builder.append(_basePackage, "");
+    this.setHeader(_builder.toString());
+    StringConcatenation _builder_1 = new StringConcatenation();
+    _builder_1.append("/src/main/java/");
+    String _basePackage_1 = null;
+    if (project!=null) {
+      _basePackage_1=project.getBasePackage();
     }
-    _builder.append(_path, "");
-    _builder.append("/");
-    this.setRelativPath(_builder.toString());
+    String _path = null;
+    if (_basePackage_1!=null) {
+      _path=this.toPath(_basePackage_1);
+    }
+    _builder_1.append(_path, "");
+    _builder_1.append("/");
+    this.setRelativPath(_builder_1.toString());
     this.setDocumentation("SOAP endpoint publisher");
     String _template = this.getTemplate();
-    this.setContent(_template);
+    String _withImports = this.withImports(_template);
+    this.setContent(_withImports);
   }
   
   private String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("package ");
+    _builder.append("import ");
     Project _project = this.getProject();
     String _basePackage = null;
     if (_project!=null) {
       _basePackage=_project.getBasePackage();
     }
     _builder.append(_basePackage, "");
-    _builder.newLineIfNotEmpty();
-    _builder.newLine();
-    _builder.append("import ");
-    Project _project_1 = this.getProject();
-    String _basePackage_1 = null;
-    if (_project_1!=null) {
-      _basePackage_1=_project_1.getBasePackage();
-    }
-    _builder.append(_basePackage_1, "");
     _builder.append(".*");
     _builder.newLineIfNotEmpty();
-    _builder.append("import ");
-    Project _project_2 = this.getProject();
-    String _basePackage_2 = null;
-    if (_project_2!=null) {
-      _basePackage_2=_project_2.getBasePackage();
-    }
-    _builder.append(_basePackage_2, "");
-    _builder.append(".impl.UserSoapImpl");
-    _builder.newLineIfNotEmpty();
-    _builder.append("import javax.inject.Inject");
-    _builder.newLine();
-    _builder.append("import javax.xml.ws.Endpoint");
-    _builder.newLine();
     _builder.append("import com.google.gson.annotations.Since");
     _builder.newLine();
     _builder.append("import com.google.gson.annotations.Until");
@@ -84,7 +71,6 @@ public class SoapEndpointPublisherXtendTemplate extends AbstractXtendTemplate {
     _builder.append(_fileName, "");
     _builder.append(" {");
     _builder.newLineIfNotEmpty();
-    _builder.append("\t");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("/**");
@@ -111,7 +97,9 @@ public class SoapEndpointPublisherXtendTemplate extends AbstractXtendTemplate {
       }
       for(final Entity entity : _entities) {
         _builder.append("\t\t");
-        _builder.append("Endpoint.publish(\'http://localhost:9999/ws/");
+        String _asImport = this.asImport("javax.xml.ws.Endpoint");
+        _builder.append(_asImport, "\t\t");
+        _builder.append(".publish(\'http://localhost:9999/ws/");
         String _name = null;
         if (entity!=null) {
           _name=entity.getName();
@@ -122,6 +110,12 @@ public class SoapEndpointPublisherXtendTemplate extends AbstractXtendTemplate {
         }
         _builder.append(_lowerCase, "\t\t");
         _builder.append("\', new ");
+        Project _project_1 = this.getProject();
+        String _basePackage_1 = null;
+        if (_project_1!=null) {
+          _basePackage_1=_project_1.getBasePackage();
+        }
+        String _plus = (_basePackage_1 + ".impl.");
         String _name_1 = null;
         if (entity!=null) {
           _name_1=entity.getName();
@@ -130,8 +124,11 @@ public class SoapEndpointPublisherXtendTemplate extends AbstractXtendTemplate {
         if (_name_1!=null) {
           _firstUpper=StringExtensions.toFirstUpper(_name_1);
         }
-        _builder.append(_firstUpper, "\t\t");
-        _builder.append("SoapImpl())");
+        String _plus_1 = (_plus + _firstUpper);
+        String _plus_2 = (_plus_1 + "SoapImpl");
+        String _asImport_1 = this.asImport(_plus_2);
+        _builder.append(_asImport_1, "\t\t");
+        _builder.append("())");
         _builder.newLineIfNotEmpty();
       }
     }

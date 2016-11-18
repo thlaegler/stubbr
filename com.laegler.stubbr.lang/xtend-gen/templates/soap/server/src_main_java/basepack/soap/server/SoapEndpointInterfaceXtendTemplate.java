@@ -35,20 +35,28 @@ public class SoapEndpointInterfaceXtendTemplate extends AbstractXtendTemplate {
     _builder.append("Soap");
     this.setFileName(_builder.toString());
     StringConcatenation _builder_1 = new StringConcatenation();
-    _builder_1.append("/src/main/java/");
+    _builder_1.append("package ");
     String _basePackage = null;
     if (project!=null) {
       _basePackage=project.getBasePackage();
     }
-    String _path = null;
-    if (_basePackage!=null) {
-      _path=this.toPath(_basePackage);
-    }
-    _builder_1.append(_path, "");
-    _builder_1.append("/");
-    this.setRelativPath(_builder_1.toString());
+    _builder_1.append(_basePackage, "");
+    this.setHeader(_builder_1.toString());
     StringConcatenation _builder_2 = new StringConcatenation();
-    _builder_2.append("SOAP endpoint interface for entity ");
+    _builder_2.append("/src/main/java/");
+    String _basePackage_1 = null;
+    if (project!=null) {
+      _basePackage_1=project.getBasePackage();
+    }
+    String _path = null;
+    if (_basePackage_1!=null) {
+      _path=this.toPath(_basePackage_1);
+    }
+    _builder_2.append(_path, "");
+    _builder_2.append("/");
+    this.setRelativPath(_builder_2.toString());
+    StringConcatenation _builder_3 = new StringConcatenation();
+    _builder_3.append("SOAP endpoint interface for entity ");
     String _name_1 = null;
     if (entity!=null) {
       _name_1=entity.getName();
@@ -57,30 +65,22 @@ public class SoapEndpointInterfaceXtendTemplate extends AbstractXtendTemplate {
     if (_name_1!=null) {
       _firstUpper_1=StringExtensions.toFirstUpper(_name_1);
     }
-    _builder_2.append(_firstUpper_1, "");
-    this.setDocumentation(_builder_2.toString());
+    _builder_3.append(_firstUpper_1, "");
+    this.setDocumentation(_builder_3.toString());
     String _template = this.getTemplate();
-    this.setContent(_template);
+    String _withImports = this.withImports(_template);
+    this.setContent(_withImports);
   }
   
   private String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("package ");
+    _builder.append("import ");
     Project _project = this.getProject();
     String _basePackage = null;
     if (_project!=null) {
       _basePackage=_project.getBasePackage();
     }
     _builder.append(_basePackage, "");
-    _builder.newLineIfNotEmpty();
-    _builder.newLine();
-    _builder.append("import ");
-    Project _project_1 = this.getProject();
-    String _basePackage_1 = null;
-    if (_project_1!=null) {
-      _basePackage_1=_project_1.getBasePackage();
-    }
-    _builder.append(_basePackage_1, "");
     _builder.append(".*");
     _builder.newLineIfNotEmpty();
     _builder.append("import ");
@@ -94,14 +94,27 @@ public class SoapEndpointInterfaceXtendTemplate extends AbstractXtendTemplate {
       _packageName=_stubb.getPackageName();
     }
     _builder.append(_packageName, "");
-    _builder.append(".persistence.dto.");
+    _builder.append(".model.entity.*");
+    _builder.newLineIfNotEmpty();
+    _builder.append("import ");
+    StubbrRegistry _stubbr_1 = this.getStubbr();
+    Stubb _stubb_1 = null;
+    if (_stubbr_1!=null) {
+      _stubb_1=_stubbr_1.getStubb();
+    }
+    String _packageName_1 = null;
+    if (_stubb_1!=null) {
+      _packageName_1=_stubb_1.getPackageName();
+    }
+    _builder.append(_packageName_1, "");
+    _builder.append(".business.object.");
     String _name = null;
     if (this.entity!=null) {
       _name=this.entity.getName();
     }
     String _firstUpper = StringExtensions.toFirstUpper(_name);
     _builder.append(_firstUpper, "");
-    _builder.append("Dto");
+    _builder.append("BusinessObject");
     _builder.newLineIfNotEmpty();
     _builder.append("import javax.jws.WebMethod");
     _builder.newLine();
@@ -166,7 +179,7 @@ public class SoapEndpointInterfaceXtendTemplate extends AbstractXtendTemplate {
     }
     String _firstUpper_2 = StringExtensions.toFirstUpper(_name_2);
     _builder.append(_firstUpper_2, "\t");
-    _builder.append("Dto ");
+    _builder.append("BusinessObject ");
     String _name_3 = null;
     if (this.entity!=null) {
       _name_3=this.entity.getName();

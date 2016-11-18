@@ -1,0 +1,830 @@
+grammar com.laegler.stubbr.lang.StubbrLang with org.eclipse.xtext.xbase.Xbase
+//Xtype
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+import "http://www.eclipse.org/xtext/common/JavaVMTypes" as javaType
+generate stubbrLang "http://www.laegler.com/stubbr/lang/StubbrLang"
+
+Stubb:
+	'package' importedNamespace=QualifiedName
+	
+	importSection=XImportSection?
+	
+	'project' name=QualifiedName '{'
+		('label' label=STRING)?
+		('documentation' documentation=STRING)?
+		('packageName' packageName=QualifiedName)?
+		('prefix' prefix=ID)?
+		('version' version=VERSION)?
+		('author' author=STRING)?
+		('eMail' email=STRING)?
+		('language' languages+=Locale (',' languages+=Locale)*)?
+		(globals=ChapterGlobals)?
+		(Stakeholders=ChapterStakeholder)?
+		(projectManagement=ChapterProjectManagement)?
+		(environment=ChapterEnvironment)?
+		(structure=ChapterProjectStructure)?
+		(persistence=ChapterPersistence)?
+		(business=ChapterBusinessProcesses)?
+		(presentation=ChapterPresentation)?
+		(webservice=ChapterWebservice)?
+		(behavior=ChapterBehavior)?
+		(testing=ChapterTesting)?
+	'}'
+;
+enum Locale:
+	DE='deutsch' |
+	EN='english' |
+	ES='español' |
+	RU='русский'
+;
+Chapter:
+	ChapterGlobals |
+	ChapterStakeholder |
+	ChapterProjectManagement |
+	ChapterEnvironment |
+	ChapterProjectStructure |
+	ChapterPersistence |
+	ChapterPresentation |
+	ChapterWebservice |
+	ChapterBehavior |
+	ChapterTesting
+;
+ChapterGlobals:
+	'globals' '{'
+		('loggerName' loggerName=ID)?
+		('loggerType' loggerType=QualifiedName)?
+		(useSpringMVC?='useSpringMVC')?
+	'}'
+;
+ChapterProjectManagement:
+	'management' '{'
+		('projects' project+=DevProject*)?
+		('sourceCodeManagement' scm+=Level1Attribute*)?
+		('issueManagement' issueManagement+=Level1Attribute*)?
+		('continousIntegration' ci+=Level1Attribute*)?
+	'}'
+;
+DevProject:
+	project=DevProjectType name=QualifiedName '{'
+		('label' label=STRING)?
+		('documentation' documentation=STRING)?
+		('suffix' suffix=QualifiedName)?
+	'}'
+;
+enum DevProjectType:
+	PARENT='parent' |
+	DOCS='documentation' |
+	ANNOTATIONS='annotations' |
+	COMMONS='commons' |
+	DATA_MODEL='dataModel' |
+	PERSISTENCE='persistence' |
+	BUSINESS_MODEL='businessModel' |
+	BUSINESS='business' |
+	PROCESS='process' |
+	MATLAB='matlab' |
+	WEB='webProject' |
+	REST_GENERATE='restGenerator' |
+	REST_SERVICE='restService' |
+	REST_CLIENT='restClient' |
+	SOAP_SERVICE='soapService' |
+	SOAP__CLIENT='soapClient' |
+	EAR='ear' |
+	DOCKER='docker'
+;
+ChapterProjectStructure:
+	'structure' '{'
+		(isNestedParent?='nestedParentProject')?
+		('properties' testMethods+=Level1Attribute*)?
+	'}'
+;
+ChapterPersistence:
+	'persistence' '{'
+		('databases' databases+=Database*)?
+		('datasources' datasources+=Level1Attribute*)?
+		('persistenceUnit' persistenceUnits+=Level1Attribute*)?
+		entities+=Entity*
+		enumerations+=Enumeration*
+		relationships+=Relationship*
+		(customIds?='customIds')?
+		('idType' javaType=JvmTypeReference)?
+	'}'
+;
+ChapterTesting:
+	'testing' '{'
+		('testMethods' testMethods+=Level1Attribute*)?
+		('testCases' testCases+=Level1Attribute*)?
+	'}'
+;
+// Stakeholders
+ChapterStakeholder:
+	'stakeholders' '{'
+		('organizations' organizations+=Organization*)?
+		('groups' groups+=Group*)?
+		('roles' roles+=Role*)?
+		('persons' persons+=Person*)?
+	'}'
+;
+Stakeholder:
+	Organization |
+	Group |
+	Role |
+	Person
+;
+Organization:
+	'organization' name=QualifiedName
+	attributes+=Level1Attribute*
+;
+Group:
+	'group' name=QualifiedName
+	attributes+=Level1Attribute*
+;
+Role:
+	'role' name=QualifiedName
+	attributes+=Level1Attribute*
+;
+Person:
+	'person' name=QualifiedName
+	attributes+=Level1Attribute*
+;
+// Environment
+ChapterEnvironment:
+	'environment' '{'
+		('infrastructure' infrastructure+=Level1Attribute*)?
+		('envVariables' testMethods+=Level1Attribute*)?
+		('runtime' runtime=Runtime)?
+	'}'
+;
+// Runtime
+Runtime:
+	'java' name=QualifiedName '{'
+		('label' label=STRING)?
+		('documentation' documentation=STRING)?
+		('jdkVersion' jdkVersion=VERSION)?
+		('jvm' jvm=JvmEnum)?
+		('version' version=VERSION)?
+	'}'
+;
+enum JvmEnum:
+	JAVA_SE_1_8='1.8' |
+	JAVA_SE_1_7='1.7' |
+	JAVA_SE_1_6='1.6'
+;
+// Database
+Database:
+	'database' name=QualifiedName '{'
+		('label' label=STRING)?
+		('documentation' documentation=STRING)?
+		('type' type=DatabaseEnum)?
+		('version' version=VERSION)?
+	'}'
+;
+enum DatabaseEnum:
+	MYSQL='mySql' |
+	MONGO_DB='mongoDb' |
+	ORACLE_DB='oracleDb' |
+	H2='h2';
+Entity:
+	'entity' name=QualifiedName ('extends' superType=JvmTypeReference)? '{'
+		('label' label=STRING)?
+		('documentation' documentation=STRING)?
+		attributes+=Attribute*
+	'}'
+;
+Enumeration:
+	'enumeration' name=QualifiedName '{'
+		('label' label=STRING)?
+		('documentation' documentation=STRING)?
+		(enumValues+=ID (',' enumValues+=ID)*)?
+	'}'
+;
+Attribute:
+	'attribute' name=QualifiedName '{'
+		('label' label=STRING)?
+		('documentation' documentation=STRING)?
+		(primaryKey?='primaryKey')?
+		(
+			('type' type=[Entity|QualifiedName]) |
+			('javaType' javaType=JvmTypeReference)
+//			('javaType' javaType=[javaType::JvmType|QualifiedName])
+		)?
+	'}'
+;
+Relationship:
+	'relationship' name=QualifiedName '{'
+		('label' label=STRING)?
+		('documentation' documentation=STRING)?
+		'from' from=[Entity|QualifiedName]
+		'to' to=[Entity|QualifiedName]
+		('action' action=XBlockExpression)?
+		('type' type=JvmTypeReference)?
+	'}'
+;
+enum BaseTypeEnum:
+	STRING='String' |
+	BOOLEAN='boolean' |
+	LIST='List';
+
+Level1Attribute:
+	'attribute' name=QualifiedName '{'
+		('label' label=STRING)?
+		('documentation' documentation=STRING)?
+		('value' value=STRING)?
+		attributes+=Level1Attribute*
+	'}'
+;
+// Business Processes
+ChapterBusinessProcesses:
+	'business' '{'
+		processes+=BusinessProcess*
+	'}'
+;
+BusinessProcess:
+	'process' name=QualifiedName '{'
+		('label' label=STRING)?
+		('documentation' documentation=STRING)?
+		(pools+=Pool+ | flowNodes+=FlowNode+)
+	'}'
+;
+
+Pool:
+	{Poool}
+	'pool' name=QualifiedName '{'
+		('label' label=STRING)?
+		('documentation' documentation=STRING)?
+		('actor' actor=[Stakeholder|QualifiedName])?
+		(initializing?='initializing')?
+		(flowNodes+=FlowNode)*
+	'}'
+;
+FlowNode:
+	Activity
+	| Gateway
+	| Event
+	| Lane
+;
+Lane:
+	'lane' name=QualifiedName '{'
+		('label' label=STRING)?
+		('documentation' documentation=STRING)?
+		('actor' actor=[Stakeholder|QualifiedName])?
+		(initializing?='initializing')?
+		(flowNodes+=FlowNode)+
+	'}'
+;
+Event:
+	(eventType=EventType)
+	('type' eventDefinitionType=EventDefinitionType)?
+	(nonInterrupting?='non-interrupting')?
+	name=ID? (label=STRING)? ('view' dialog=[View|QualifiedName])?
+		(attachments+=Attachment)*
+;
+Activity:
+	Task
+	| CallActivity
+	| SubProcess
+;
+Task:
+	(taskType=TaskType) name=ID? (label=STRING)? ('view' dialog=[View|QualifiedName])?
+		(attachments+=Attachment)*
+;
+CallActivity:
+	'callactivity' name=ID? (label=STRING)? ('calling' calledElement=[BusinessProcess|QualifiedName])
+		(attachments+=Attachment)*
+;
+SubProcess:
+	'subprocess' name=QualifiedName '{'
+		('label' label=STRING)?
+		//('documentation' documentation=STRING)?
+		(attachments+=Attachment)*
+		(flowNodes+=FlowNode)+
+	'}'
+;
+Gateway:
+	GatewayDiverging | GatewayConverging
+;
+GatewayDiverging:
+	(gatewayType=GatewayType) name=ID? (label=STRING)?
+		(attachments+=Attachment)*
+		(options+=Option)+
+	(gatewayConverging=GatewayConverging)
+;
+GatewayConverging:
+	('merge' gatewayType=GatewayType) name=ID? (label=STRING)?
+		(attachments+=Attachment)*
+;
+OptionFlowNode:
+	Activity | Event | GatewayDiverging
+;
+Option:
+	'option' (default?='default')? name=ID? (label=STRING)?
+		(flowNodes+=OptionFlowNode)*
+;
+Attachment:
+	SendMessage
+	| SendData
+	| DataIO
+	| Annotation
+	| Documentation
+	| Flow
+;
+InteractionNode:
+	Task | Event | Pool
+;
+SendMessage:
+	'send message' name=ID? (label=STRING)? ('to' receivingElement=[InteractionNode|QualifiedName]) ('datatype' dataType=JvmTypeReference)?
+;
+SendData:
+	'send data' name=ID? (label=STRING)? ('to' receivingElement=[FlowNode|QualifiedName]) ('datatype' dataType=JvmTypeReference)?
+;
+DataIO:
+	(dataIoType=DataIOType) name=ID? (label=STRING)? ('datatype' javaType=JvmTypeReference)?
+;
+Annotation:
+	'annotation' name=ID? text=STRING
+;
+Documentation:
+	'documentation' name=ID? text=STRING
+;
+Flow:
+	'flow'name=ID? (label=STRING)? ('to' targetRef=[FlowNode|QualifiedName])
+;
+enum TaskType:
+	BLANK='task'
+	| BUSINESSRULE='business rule task'
+	| MANUAL='manual task'
+	| RECEIVE='receive task'
+	| SCRIPT='script task'
+	| SEND='send task'
+	| SERVICE='service task'
+	| USER='user task'
+;
+enum EventType:
+	EVENT='event'
+	| START='start event'
+	| THROW='throwing event'
+	| CATCH='catching event'
+	| INTERMEDIATE_CATCH='intermediate catching event'
+	| INTERMEDIATE_THROW='intermediate throwing event'
+	| END='end event'
+;
+
+enum EventDefinitionType:
+	BLANK="blank"
+	| MESSAGE='message'
+	| TIMER='timer'
+	| ERROR='error'
+	| ESCALATION='escalation'
+	| CANCEL='cancel'
+	| COMPENSATION='compensation'
+	| CONDITIONAL='conditional'
+	| LINK='link'
+	| SIGNAL='signal'
+	| TERMINATE='terminate'
+	| MULTIPLE='multiple'
+	| PARALLEL_MULTIPLE='parallel multiple'
+;
+enum GatewayType:
+	BLANK='gateway'
+	| PARALLEL='parallel'
+	| PARALLEL='and'
+	| INCLUSIVE='inclusive'
+	| INCLUSIVE='or gateway'
+	| EXCLUSIVE='exclusive'
+	| EXCLUSIVE='xor'
+	| EVENTBASED='eventbased'
+	| COMPLEX='complex'
+;
+enum DataIOType:
+	BLANK='data input/output'
+	| INPUT='data input'
+	| OUTPUT='data output'
+;
+enum FormatType:
+	BLANK='FormatType not specified'
+	| BPMN='BPMN'
+	| BPEL='BPEL'
+	| JBPM='JBPM'
+	| UML='UML'
+;
+enum EditorType:
+	BLANK='TargetType not specified'
+	| BPMNMODELER='Eclipse BPMN-Modeler'
+	| YOAQIANG='Yoaqiang'
+	| SIGNAVIO='Signavio Process Editor'
+	| MODELIO='Modelio'
+	| VISIO='Microsoft Visio'
+	| ADONIS='Adonis'
+	| ARIS='ARIS Express'
+	| ACTIVITI='Activiti Modeler'
+	| SPARX='Sparx Enterprise Architect'
+;
+enum ModelType:
+	BLANK='ModelType not specified'
+	| PROCESS='process'
+	| COLLABORATION='collaboration'
+	| CHOREOGRAPHY='choreography'
+;
+DiDiagramElement:
+	DiDiagram
+	| DiPlane
+	| DiPlaneElement
+	| DiBounds
+	| DiWaypoint
+;
+DiDiagram:
+	'diagram' name=ID? (label=STRING)?
+		(plane=DiPlane)
+//	'end' 'diagram'
+;
+DiPlane:
+	'plane' name=ID? ('for' bpmnElement=[BusinessProcess|QualifiedName])?
+		(planeElements+=DiPlaneElement)+
+//	'end' 'plane'
+;
+DiPlaneElement:
+	DiShape
+	| DiEdge
+;
+DiShape:
+	'shape' name=ID? ('for' flowNode=[FlowNode|QualifiedName])?
+		(
+			(bounds=DiBounds) &
+			(isExpanded?='expanded')? &
+			(isHorizontal?='horizontal')?
+		)
+//	'end' 'shape'
+;
+DiEdge:
+	'edge' (name=ID) ('for' sequenceFlow=[SequenceFlow|QualifiedName]) ('from' sourceDiagramShape=[DiShape|QualifiedName]) ('to' targetDiagramShape=[DiShape|QualifiedName])
+		(waypoints+=DiWaypoint)+
+//	'end' 'edge'
+;
+DiBounds:
+	'bounds'
+	(
+		('x' x=INT) &
+		('y' y=INT) &
+		('width' width=INT) &
+		('height' height=INT)
+	)
+//	'end' 'bounds'
+;
+DiWaypoint:
+	'waypoint'
+	(
+		('x' x=INT) &
+		('y' y=INT)
+	)
+//	'end' 'waypoint'
+;
+SequenceFlow:
+	'sequence flow' name=ID? (label=STRING)? ('from' sourceRef=[FlowNode|QualifiedName]) ('to' targetRef=[FlowNode|QualifiedName])
+;
+// Presentation
+ChapterPresentation:
+	'ui' '{'
+		('framework' uiFramework=UiFramework)?
+		layouts+=Layout*
+		stylings+=Styling*
+		views+=View*
+		transitions+=Transition*
+	'}'
+;
+enum UiFramework:
+	JSF='JSF' |
+	ANGULAR_JS='AngularJS';
+
+Layout:
+	'layout' name=QualifiedName '{'
+		('label' label=STRING)?
+		('documentation' documentation=STRING)?
+		('type' type=STRING)?
+	'}'
+;
+Styling:
+	'styling' name=QualifiedName '{'
+		('label' label=STRING)?
+		('documentation' documentation=STRING)?
+		('baseColor' baseColor=STRING)?
+		('highLightColor' highLightColor=STRING)?
+		('textColor' textColor=STRING)?
+		('fontSize' fontSize=STRING)?
+	'}'
+;
+UiElement:
+	View | Element;
+
+View:
+	'view' name=QualifiedName '{'
+		('label' label=STRING)?
+		('documentation' documentation=STRING)?
+		('layout' layout=[Layout|QualifiedName])?
+		('styling' styling=[Styling|QualifiedName])?
+		('associatedEntities' assocEntities+=[Entity|QualifiedName] (',' assocEntities+=[Entity|QualifiedName])*)?
+		elements+=Element*
+	'}';
+
+Transition:
+	'transition' name=QualifiedName '{'
+		(
+			('from' from=[UiElement|QualifiedName]
+			'to' to=[UiElement|QualifiedName]) |
+			('triggerAction' name=QualifiedName 'from' triggerElement=[UiElement|QualifiedName] ('to' target=JvmTypeReference)? ('callToAction' callToAction=XBlockExpression)?)?
+		)
+	'}'
+;
+	//	StartSection returns Section:
+//	'Startabschnitt' name=QualifiedName ('mit dem Label' label=STRING)?;
+//
+//Section:
+//	'Abschnitt' name=QualifiedName ('mit dem Label' label=STRING)?
+//	('Beschreibung:' documentation=STRING)?
+//	(formElements+=Element)+;
+Element:
+	ListView |
+	OutputText |
+	Button |
+	InputField |
+	RadioButtonGroup |
+	CheckBoxGroup |
+	Upload |
+	Name |
+	Birthday |
+	Address;
+
+ListView:
+	'listView' name=QualifiedName '{'
+		('label' label=STRING)?
+		('documentation' documentation=STRING)?
+		(
+			('titelBar' type=[Entity|QualifiedName]) |
+			('values' javaType=JvmTypeReference)
+			('valuesFromAction' action=JvmTypeReference)
+		)?
+		('width' width=INT)?
+		('height' height=INT)?
+	'}';
+OutputText:
+	'outputText' name=QualifiedName '{'
+		('label' label=STRING)?
+		('documentation' documentation=STRING)?
+		('value' value=STRING)?
+		('style' style=[Styling|QualifiedName])?
+		('width' width=INT)?
+		('height' height=INT)?
+	'}';
+Button:
+	'button' name=QualifiedName '{'
+		('label' label=STRING)?
+		('documentation' documentation=STRING)?
+		('action' value=STRING)?
+		('style' style=[Styling|QualifiedName])?
+		('width' width=INT)?
+		('height' height=INT)?
+	'}';
+InputField:
+	'inputField' name=QualifiedName '{'
+		('label' label=STRING)?
+		('documentation' documentation=STRING)?
+		(
+			('type' type=[Entity|QualifiedName]) |
+			('javaType' javaType=[javaType::JvmType|QualifiedName])
+		)?
+		('width' width=INT)?
+		('height' height=INT)?
+	'}';
+Name:
+	'name' name=QualifiedName '{'
+		('label' label=STRING)?
+		('documentation' documentation=STRING)?
+		(
+			('type' type=[Entity|QualifiedName]) |
+			('javaType' javaType=[javaType::JvmType|QualifiedName])
+		)?
+		('width' width=INT)?
+		('height' height=INT)?
+	'}';
+
+Birthday:
+	'birthday' name=QualifiedName '{'
+		('label' label=STRING)?
+		('documentation' documentation=STRING)?
+		(
+			('type' type=[Entity|QualifiedName]) |
+			('javaType' javaType=[javaType::JvmType|QualifiedName])
+			)?
+		('width' width=INT)?
+		('height' height=INT)?
+	'}';
+
+Address:
+	'address' name=QualifiedName '{'
+		('label' label=STRING)?
+		('documentation' documentation=STRING)?
+		(
+			('type' type=[Entity|QualifiedName]) |
+			('javaType' javaType=[javaType::JvmType|QualifiedName])
+		)?
+		('width' width=INT)?
+		('height' height=INT)?
+	'}';
+
+RadioButtonGroup:
+	'radioButtonGroup' name=QualifiedName '{'
+		('label' label=STRING)?
+		('documentation' documentation=STRING)?
+		(
+			('type' type=[Entity|QualifiedName]) |
+			('javaType' javaType=[javaType::JvmType|QualifiedName])
+		)?
+		('width' width=INT)?
+		('height' height=INT)?
+	'}';
+
+CheckBoxGroup:
+	'checkBoxGruppe' name=QualifiedName '{'
+		('label' label=STRING)?
+		('documentation' documentation=STRING)?
+		(
+			('type' type=[Entity|QualifiedName]) |
+			('javaType' javaType=[javaType::JvmType|QualifiedName])
+		)?
+		('width' width=INT)?
+		('height' height=INT)?
+	'}';
+
+Upload:
+	'upload' name=QualifiedName '{'
+		('label' label=STRING)?
+		('documentation' documentation=STRING)?
+		(
+			('type' type=[Entity|QualifiedName]) |
+			('javaType' javaType=[javaType::JvmType|QualifiedName])
+		)?
+		('width' width=INT)?
+		('height' height=INT)?
+	'}';
+//WebService
+ChapterWebservice:
+	'webservices'
+		webservices+=Webservice*
+;
+Webservice:
+	RestWebservice | SoapWebservice
+;
+RestWebservice:
+	'rest' name=QualifiedName '{'
+		('label' label=STRING)?
+		('documentation' documentation=STRING)?
+		'specification' specification=STRING
+		'languages' languages+=RestLanguage (',' languages+=RestLanguage)*
+		'basepath' basepath=STRING
+		'exclude' excludeEntities+=[Entity|QualifiedName] (',' excludeEntities+=[Entity|QualifiedName])*
+		'transferobjects' dtos+=Entity*
+	'}'
+;
+enum RestLanguage:
+	RESTEASY_SERVER='jaxrs-resteasy' |
+	JAXRS_SERVER='jaxrs-spec' |
+	PHP_SERVER='lumen' |
+	JAVA_CLIENT='java' |
+	ANDROID_CLIENT='android' |
+	IOS_CLIENT='swift' |
+	PHP_CLIENT='php' |
+	HTML2_CLIENT='html2'
+;
+
+SoapWebservice:
+	'soap' name=QualifiedName '{'
+		('label' label=STRING)?
+		('documentation' documentation=STRING)?
+		'specification' specification=STRING
+		'namespace' namespace=STRING
+		'exclude' excludeEntities+=[Entity|QualifiedName] (',' excludeEntities+=[Entity|QualifiedName])*
+		'transferobjects' dtos+=Entity*
+	'}'
+;
+//Behavior
+ChapterBehavior:
+	'behavior'
+		(features+=Feature*)?
+		('specifications' specifications+=STRING (',' specifications+=STRING)*)?
+;
+Feature:
+	'feature' name=QualifiedName '{'
+		('label' label=STRING)?
+		('documentation' documentation=STRING)?
+		('specification' specification=STRING)?
+		(scenarios+=Scenario*)
+	'}'
+;
+Scenario:
+	'scenario' name=QualifiedName '{'
+		('label' label=STRING)?
+		('documentation' documentation=STRING)?
+		givenSteps+=GivenStep*
+		whenSteps+=WhenStep*
+		thenSteps+=ThenStep*
+	'}';
+
+Step:
+	GivenStep | WhenStep | ThenStep
+;
+GivenStep:
+	'given' name=QualifiedName '{'
+		('label' label=STRING)?
+		('documentation' documentation=STRING)?
+		(
+			('actor' actor=[Stakeholder|QualifiedName]) |
+			('element' actorElement=[UiElement|QualifiedName]) |
+			(objectWildcard=STRING)
+		)
+	'}';
+WhenStep:
+	'when' name=QualifiedName '{'
+		('label' label=STRING)?
+		('documentation' documentation=STRING)?
+		(
+			('actor' actor=[Stakeholder|QualifiedName]) |
+			('element' actorElement=[UiElement|QualifiedName]) |
+			(objectWildcard=STRING)
+		)
+		(
+			'action' action=BehaviorAction
+		)
+		(
+			'value' value=STRING
+		)?
+		(
+			(('into')? 'element' subjectElement=[UiElement|QualifiedName]) |
+			(subjectWildcard=STRING)
+		)
+	'}';
+ThenStep:
+	'then' name=QualifiedName '{'
+		('label' label=STRING)?
+		('documentation' documentation=STRING)?
+		(
+			('actor' actor=[Stakeholder|QualifiedName]) |
+			('element' actorElement=[UiElement|QualifiedName]) |
+			(objectWildcard=STRING)
+		)
+		'should'
+		(
+			'action' action=BehaviorAction
+		)
+		(
+			'value' value=STRING
+		)?
+		(
+			(('into')? 'element' subjectElement=[UiElement|QualifiedName]) |
+			(subjectWildcard=STRING)
+		)?
+	'}'
+;
+
+enum BehaviorAction:
+	OPENS='opens' |
+	ENTERS='enters' |
+	ENABLED='enables' |
+	CLICKS='clicks' |
+	SELECTS='selects' |
+	FOCUSES='focuses' |
+	GETS_ENABLED='gets enabled' |
+	GETS_CLICKED='gets klicked' |
+	GETS_SELECTED='gets selected' |
+	IS_FOCUSED='is focused' |
+	BE_VISIBLE='be visible' |
+	BE_OPENED='be opened'
+;
+terminal VERSION:
+	'v' ('0'..'9')+ ('.' ('0'..'9')+)* ('-')? (ID)?;
+
+terminal INT returns ecore::EInt:
+	'0'..'9' ('0'..'9'|'_')*; 
+//terminal MY_ID:
+//	'h1.' (' ' ID)+ '.' '\r'? '\n';
+//
+//terminal H1:
+//	'\r'? '\n' 'h1.';
+//
+//terminal H2:
+//	'\r'? '\n' 'h2.';
+//
+//terminal H3:
+//	'\r'? '\n' 'h3.';
+//
+//terminal ID:
+//	('A'..'Z' | 'a'..'z') ('A'..'Z' | 'a'..'z' | '_' | '-' | '0'..'9')*;
+//
+//terminal NEWLINE:
+//// New line on DOS or Unix 
+//	'\r'? '\n';
+//
+//terminal WS:
+//	(' ' | '\t')+;
+
+	//terminal SL_COMMENT:
+// Single line comment
+//    '//' !('\n' | '\r')*;

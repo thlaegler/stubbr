@@ -27,7 +27,7 @@ import templates._common.src_main_resource.meta_inf.ManifestMfTemplateBase;
 import templates._common.src_main_resource.meta_inf.PersistenceXmlTemplateBase;
 import templates.model.DotProjectTemplate;
 import templates.model.PomXmlTemplate;
-import templates.model.src_main_java.basepack.model.entity.EntityTemplate;
+import templates.model.src_main_java.basepack.model.entity.EntityXtendTemplate;
 
 /**
  * Project Generator for Model Project
@@ -168,8 +168,8 @@ public class ModelProjectGenerator extends AbstractProjectGenerator {
           }
           if (_files_1!=null) {
             Project _project_16 = this.getProject();
-            EntityTemplate _entityTemplate = new EntityTemplate(this.stubbr, _project_16, entity);
-            _files_1.add(_entityTemplate);
+            EntityXtendTemplate _entityXtendTemplate = new EntityXtendTemplate(this.stubbr, _project_16, entity);
+            _files_1.add(_entityXtendTemplate);
           }
         };
         _entities.forEach(_function);

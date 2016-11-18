@@ -1,6 +1,7 @@
 package com.laegler.stubbr.lang.wsdl;
 
 import com.google.common.base.Objects;
+import io.swagger.models.Swagger;
 import java.io.File;
 import java.util.logging.Logger;
 import javax.inject.Inject;
@@ -18,7 +19,7 @@ public class WsdlParserHelper {
   @Inject
   private Logger log;
   
-  public /* Swagger */Object parse(final String specFile) {
+  public Swagger parse(final String specFile) {
     Object _xblockexpression = null;
     {
       String _replaceAll = specFile.replaceAll("%22", "");

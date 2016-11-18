@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: com.laegler.stubbr.lang.ui
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: com.laegler.stubbr.lang.ui; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: com.laegler.stubbr.lang,
+ com.laegler.stubbr.lang.ide,
+ org.eclipse.xtext.ui,
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.xtext.ui.codetemplates.ui,
+ org.eclipse.ui.editors;bundle-version="3.5.0",
+ org.eclipse.ui.ide;bundle-version="3.5.0",
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtext.common.types.ui,
+ org.eclipse.xtend.lib;resolution:=optional,
+ org.eclipse.ui,
+ org.eclipse.xtext.xbase.ui,
+ org.eclipse.compare,
+ org.eclipse.xtext.builder,
+ org.eclipse.jdt.debug.ui
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.laegler.stubbr.lang.ui.contentassist,
+ com.laegler.stubbr.lang.ui.internal,
+ com.laegler.stubbr.lang.ui.quickfix
+Bundle-Activator: com.laegler.stubbr.lang.ui.internal.LangActivator

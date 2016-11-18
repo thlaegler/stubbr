@@ -27,7 +27,11 @@ import templates._common.src_main_resource.meta_inf.EjbJarXmlTemplateBase;
 import templates._common.src_main_resource.meta_inf.ManifestMfTemplateBase;
 import templates._common.src_main_resource.meta_inf.PersistenceXmlTemplateBase;
 import templates.business.PomXmlTemplate;
+import templates.business.src_main_java_basepack.business.config.ConfigXtendTemplate;
+import templates.business.src_main_java_basepack.business.config.EnvironmentXtendTemplate;
+import templates.business.src_main_java_basepack.business.config.SeverityXtendTemplate;
 import templates.business.src_main_java_basepack.business.controller.EntityControllerXtendTemplate;
+import templates.business.src_main_java_basepack.business.object.BusinessObjectXtendTemplate;
 
 /**
  * Project generator for business project
@@ -146,8 +150,14 @@ public class BusinessProjectGenerator extends AbstractProjectGenerator {
         EclipseWstProjectFacetCoreXmlTemplateBase _eclipseWstProjectFacetCoreXmlTemplateBase = new EclipseWstProjectFacetCoreXmlTemplateBase(this.stubbr, _project_17);
         Project _project_18 = this.getProject();
         PomXmlTemplate _pomXmlTemplate = new PomXmlTemplate(this.stubbr, _project_18);
+        Project _project_19 = this.getProject();
+        ConfigXtendTemplate _configXtendTemplate = new ConfigXtendTemplate(this.stubbr, _project_19);
+        Project _project_20 = this.getProject();
+        EnvironmentXtendTemplate _environmentXtendTemplate = new EnvironmentXtendTemplate(this.stubbr, _project_20);
+        Project _project_21 = this.getProject();
+        SeverityXtendTemplate _severityXtendTemplate = new SeverityXtendTemplate(this.stubbr, _project_21);
         _files.addAll(
-          Collections.<AbstractTemplate>unmodifiableList(CollectionLiterals.<AbstractTemplate>newArrayList(_readmeMdTemplateBase, _intellijProjectImlFileBase, _dotGitignoreTemplateBase, _eclipseDotClasspathTemplateBase, _eclipseDotProjectTemplateBase, _readmeMdTemplateBase_1, _intellijProjectImlFileBase_1, _dotGitignoreTemplateBase_1, _eclipseDotClasspathTemplateBase_1, _manifestMfTemplateBase, _ejbJarXmlTemplateBase, _persistenceXmlTemplateBase, _eclipseCoreResourcesPrefsTemplateBase, _eclipseJdtCorePrefsTemplateBase, _eclipseM2eCorePrefsTemplateBase, _eclipseWstProjectFacetCorePrefsTemplateBase, _eclipseWstProjectFacetCoreXmlTemplateBase, _pomXmlTemplate)));
+          Collections.<AbstractTemplate>unmodifiableList(CollectionLiterals.<AbstractTemplate>newArrayList(_readmeMdTemplateBase, _intellijProjectImlFileBase, _dotGitignoreTemplateBase, _eclipseDotClasspathTemplateBase, _eclipseDotProjectTemplateBase, _readmeMdTemplateBase_1, _intellijProjectImlFileBase_1, _dotGitignoreTemplateBase_1, _eclipseDotClasspathTemplateBase_1, _manifestMfTemplateBase, _ejbJarXmlTemplateBase, _persistenceXmlTemplateBase, _eclipseCoreResourcesPrefsTemplateBase, _eclipseJdtCorePrefsTemplateBase, _eclipseM2eCorePrefsTemplateBase, _eclipseWstProjectFacetCorePrefsTemplateBase, _eclipseWstProjectFacetCoreXmlTemplateBase, _pomXmlTemplate, _configXtendTemplate, _environmentXtendTemplate, _severityXtendTemplate)));
       }
       Stubb _stubb = null;
       if (this.stubbr!=null) {
@@ -163,15 +173,18 @@ public class BusinessProjectGenerator extends AbstractProjectGenerator {
       }
       if (_entities!=null) {
         final Consumer<Entity> _function = (Entity entity) -> {
-          Project _project_19 = this.getProject();
+          Project _project_22 = this.getProject();
           List<AbstractTemplate> _files_1 = null;
-          if (_project_19!=null) {
-            _files_1=_project_19.getFiles();
+          if (_project_22!=null) {
+            _files_1=_project_22.getFiles();
           }
           if (_files_1!=null) {
-            Project _project_20 = this.getProject();
-            EntityControllerXtendTemplate _entityControllerXtendTemplate = new EntityControllerXtendTemplate(this.stubbr, _project_20, entity);
-            _files_1.add(_entityControllerXtendTemplate);
+            Project _project_23 = this.getProject();
+            EntityControllerXtendTemplate _entityControllerXtendTemplate = new EntityControllerXtendTemplate(this.stubbr, _project_23, entity);
+            Project _project_24 = this.getProject();
+            BusinessObjectXtendTemplate _businessObjectXtendTemplate = new BusinessObjectXtendTemplate(this.stubbr, _project_24, entity);
+            _files_1.addAll(
+              Collections.<AbstractTemplate>unmodifiableList(CollectionLiterals.<AbstractTemplate>newArrayList(_entityControllerXtendTemplate, _businessObjectXtendTemplate)));
           }
         };
         _entities.forEach(_function);

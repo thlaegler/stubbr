@@ -191,13 +191,6 @@ public class BehaviorFeatureStepsXtendTemplate extends AbstractXtendTemplate {
                 _builder.append(_annotation, "\t");
                 _builder.newLineIfNotEmpty();
                 _builder.append("\t");
-                _builder.append("public def void ");
-                _builder.append(stepMethodName, "\t");
-                _builder.append("() throws Throwable {");
-                _builder.newLineIfNotEmpty();
-                _builder.append("\t");
-                _builder.append("\t");
-                _builder.append("// TODO ");
                 Stakeholder _actor = null;
                 if (given!=null) {
                   _actor=given.getActor();
@@ -206,21 +199,13 @@ public class BehaviorFeatureStepsXtendTemplate extends AbstractXtendTemplate {
                 if (_actor!=null) {
                   _name_1=_actor.getName();
                 }
-                _builder.append(_name_1, "\t\t");
-                _builder.newLineIfNotEmpty();
-                _builder.append("\t");
-                _builder.append("\t");
-                _builder.append("throw new PendingException");
-                _builder.newLine();
-                _builder.append("\t");
-                _builder.append("}");
-                _builder.newLine();
-                _builder.append("\t");
-                boolean _add = this.stepMethods.add(stepMethodName);
-                _builder.append(_add, "\t");
+                String _method = this.toMethod(stepMethodName, _name_1);
+                _builder.append(_method, "\t");
                 _builder.newLineIfNotEmpty();
               }
             }
+            _builder.append("\t");
+            _builder.newLine();
           }
         }
         {
@@ -249,13 +234,6 @@ public class BehaviorFeatureStepsXtendTemplate extends AbstractXtendTemplate {
                 _builder.append(_annotation_1, "\t");
                 _builder.newLineIfNotEmpty();
                 _builder.append("\t");
-                _builder.append("public def void ");
-                _builder.append(stepMethodName_1, "\t");
-                _builder.append("() throws Throwable {");
-                _builder.newLineIfNotEmpty();
-                _builder.append("\t");
-                _builder.append("\t");
-                _builder.append("// TODO ");
                 Stakeholder _actor_1 = null;
                 if (when!=null) {
                   _actor_1=when.getActor();
@@ -264,21 +242,13 @@ public class BehaviorFeatureStepsXtendTemplate extends AbstractXtendTemplate {
                 if (_actor_1!=null) {
                   _name_2=_actor_1.getName();
                 }
-                _builder.append(_name_2, "\t\t");
-                _builder.newLineIfNotEmpty();
-                _builder.append("\t");
-                _builder.append("\t");
-                _builder.append("throw new PendingException");
-                _builder.newLine();
-                _builder.append("\t");
-                _builder.append("}");
-                _builder.newLine();
-                _builder.append("\t");
-                boolean _add_1 = this.stepMethods.add(stepMethodName_1);
-                _builder.append(_add_1, "\t");
+                String _method_1 = this.toMethod(stepMethodName_1, _name_2);
+                _builder.append(_method_1, "\t");
                 _builder.newLineIfNotEmpty();
               }
             }
+            _builder.append("\t");
+            _builder.newLine();
           }
         }
         {
@@ -307,13 +277,6 @@ public class BehaviorFeatureStepsXtendTemplate extends AbstractXtendTemplate {
                 _builder.append(_annotation_2, "\t");
                 _builder.newLineIfNotEmpty();
                 _builder.append("\t");
-                _builder.append("public def void ");
-                _builder.append(stepMethodName_2, "\t");
-                _builder.append("() throws Throwable {");
-                _builder.newLineIfNotEmpty();
-                _builder.append("\t");
-                _builder.append("\t");
-                _builder.append("// TODO ");
                 Stakeholder _actor_2 = null;
                 if (then!=null) {
                   _actor_2=then.getActor();
@@ -322,26 +285,38 @@ public class BehaviorFeatureStepsXtendTemplate extends AbstractXtendTemplate {
                 if (_actor_2!=null) {
                   _name_3=_actor_2.getName();
                 }
-                _builder.append(_name_3, "\t\t");
-                _builder.newLineIfNotEmpty();
-                _builder.append("\t");
-                _builder.append("\t");
-                _builder.append("throw new PendingException");
-                _builder.newLine();
-                _builder.append("\t");
-                _builder.append("}");
-                _builder.newLine();
-                _builder.append("\t");
-                boolean _add_2 = this.stepMethods.add(stepMethodName_2);
-                _builder.append(_add_2, "\t");
+                String _method_2 = this.toMethod(stepMethodName_2, _name_3);
+                _builder.append(_method_2, "\t");
                 _builder.newLineIfNotEmpty();
               }
             }
+            _builder.append("\t");
+            _builder.newLine();
           }
         }
+        _builder.append("\t");
         _builder.newLine();
       }
     }
+    _builder.append("}");
+    _builder.newLine();
+    return _builder.toString();
+  }
+  
+  private String toMethod(final String stepMethodName, final String actor) {
+    this.stepMethods.add(stepMethodName);
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("public def void ");
+    _builder.append(stepMethodName, "");
+    _builder.append("() throws Throwable {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("// TODO ");
+    _builder.append(actor, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("throw new PendingException");
+    _builder.newLine();
     _builder.append("}");
     _builder.newLine();
     return _builder.toString();

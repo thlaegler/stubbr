@@ -35,20 +35,29 @@ public class SoapEndpointImplXtendTemplate extends AbstractXtendTemplate {
     _builder.append("SoapImpl");
     this.setFileName(_builder.toString());
     StringConcatenation _builder_1 = new StringConcatenation();
-    _builder_1.append("/src/main/java/");
+    _builder_1.append("package ");
     String _basePackage = null;
     if (project!=null) {
       _basePackage=project.getBasePackage();
     }
-    String _path = null;
-    if (_basePackage!=null) {
-      _path=this.toPath(_basePackage);
-    }
-    _builder_1.append(_path, "");
-    _builder_1.append("/impl/");
-    this.setRelativPath(_builder_1.toString());
+    _builder_1.append(_basePackage, "");
+    _builder_1.append(".impl");
+    this.setHeader(_builder_1.toString());
     StringConcatenation _builder_2 = new StringConcatenation();
-    _builder_2.append("SOAP endpoint implementation for entity ");
+    _builder_2.append("/src/main/java/");
+    String _basePackage_1 = null;
+    if (project!=null) {
+      _basePackage_1=project.getBasePackage();
+    }
+    String _path = null;
+    if (_basePackage_1!=null) {
+      _path=this.toPath(_basePackage_1);
+    }
+    _builder_2.append(_path, "");
+    _builder_2.append("/impl/");
+    this.setRelativPath(_builder_2.toString());
+    StringConcatenation _builder_3 = new StringConcatenation();
+    _builder_3.append("SOAP endpoint implementation for entity ");
     String _name_1 = null;
     if (entity!=null) {
       _name_1=entity.getName();
@@ -57,31 +66,22 @@ public class SoapEndpointImplXtendTemplate extends AbstractXtendTemplate {
     if (_name_1!=null) {
       _firstUpper_1=StringExtensions.toFirstUpper(_name_1);
     }
-    _builder_2.append(_firstUpper_1, "");
-    this.setDocumentation(_builder_2.toString());
+    _builder_3.append(_firstUpper_1, "");
+    this.setDocumentation(_builder_3.toString());
     String _template = this.getTemplate();
-    this.setContent(_template);
+    String _withImports = this.withImports(_template);
+    this.setContent(_withImports);
   }
   
   private String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("package ");
+    _builder.append("import ");
     Project _project = this.getProject();
     String _basePackage = null;
     if (_project!=null) {
       _basePackage=_project.getBasePackage();
     }
     _builder.append(_basePackage, "");
-    _builder.append(".impl");
-    _builder.newLineIfNotEmpty();
-    _builder.newLine();
-    _builder.append("import ");
-    Project _project_1 = this.getProject();
-    String _basePackage_1 = null;
-    if (_project_1!=null) {
-      _basePackage_1=_project_1.getBasePackage();
-    }
-    _builder.append(_basePackage_1, "");
     _builder.append(".*");
     _builder.newLineIfNotEmpty();
     _builder.append("import ");
@@ -140,7 +140,7 @@ public class SoapEndpointImplXtendTemplate extends AbstractXtendTemplate {
       _packageName_2=_stubb_2.getPackageName();
     }
     _builder.append(_packageName_2, "");
-    _builder.append(".persistence.dto.");
+    _builder.append(".business.controller.");
     String _name_2 = null;
     if (this.entity!=null) {
       _name_2=this.entity.getName();
@@ -150,7 +150,30 @@ public class SoapEndpointImplXtendTemplate extends AbstractXtendTemplate {
       _firstUpper_2=StringExtensions.toFirstUpper(_name_2);
     }
     _builder.append(_firstUpper_2, "");
-    _builder.append("Dto");
+    _builder.append("Controller");
+    _builder.newLineIfNotEmpty();
+    _builder.append("import ");
+    StubbrRegistry _stubbr_3 = this.getStubbr();
+    Stubb _stubb_3 = null;
+    if (_stubbr_3!=null) {
+      _stubb_3=_stubbr_3.getStubb();
+    }
+    String _packageName_3 = null;
+    if (_stubb_3!=null) {
+      _packageName_3=_stubb_3.getPackageName();
+    }
+    _builder.append(_packageName_3, "");
+    _builder.append(".business.object.");
+    String _name_3 = null;
+    if (this.entity!=null) {
+      _name_3=this.entity.getName();
+    }
+    String _firstUpper_3 = null;
+    if (_name_3!=null) {
+      _firstUpper_3=StringExtensions.toFirstUpper(_name_3);
+    }
+    _builder.append(_firstUpper_3, "");
+    _builder.append("BusinessObject");
     _builder.newLineIfNotEmpty();
     _builder.append("import javax.inject.Inject");
     _builder.newLine();
@@ -177,41 +200,13 @@ public class SoapEndpointImplXtendTemplate extends AbstractXtendTemplate {
     _builder.append(_javaDocType, "");
     _builder.newLineIfNotEmpty();
     _builder.append("@WebService(endpointInterface = \'");
-    Project _project_2 = this.getProject();
-    String _basePackage_2 = null;
-    if (_project_2!=null) {
-      _basePackage_2=_project_2.getBasePackage();
+    Project _project_1 = this.getProject();
+    String _basePackage_1 = null;
+    if (_project_1!=null) {
+      _basePackage_1=_project_1.getBasePackage();
     }
-    _builder.append(_basePackage_2, "");
+    _builder.append(_basePackage_1, "");
     _builder.append(".");
-    String _name_3 = null;
-    if (this.entity!=null) {
-      _name_3=this.entity.getName();
-    }
-    String _firstUpper_3 = null;
-    if (_name_3!=null) {
-      _firstUpper_3=StringExtensions.toFirstUpper(_name_3);
-    }
-    _builder.append(_firstUpper_3, "");
-    _builder.append("Soap\', targetNamespace = \'");
-    Project _project_3 = this.getProject();
-    String _basePackage_3 = null;
-    if (_project_3!=null) {
-      _basePackage_3=_project_3.getBasePackage();
-    }
-    String _namespace = null;
-    if (_basePackage_3!=null) {
-      _namespace=this.toNamespace(_basePackage_3);
-    }
-    _builder.append(_namespace, "");
-    _builder.append("\')");
-    _builder.newLineIfNotEmpty();
-    _builder.append("@SOAPBinding(style = Style.DOCUMENT, use=Use.LITERAL)");
-    _builder.newLine();
-    _builder.append("public class ");
-    String _fileName = this.getFileName();
-    _builder.append(_fileName, "");
-    _builder.append(" implements ");
     String _name_4 = null;
     if (this.entity!=null) {
       _name_4=this.entity.getName();
@@ -221,14 +216,25 @@ public class SoapEndpointImplXtendTemplate extends AbstractXtendTemplate {
       _firstUpper_4=StringExtensions.toFirstUpper(_name_4);
     }
     _builder.append(_firstUpper_4, "");
-    _builder.append("Soap {");
+    _builder.append("Soap\', targetNamespace = \'");
+    Project _project_2 = this.getProject();
+    String _basePackage_2 = null;
+    if (_project_2!=null) {
+      _basePackage_2=_project_2.getBasePackage();
+    }
+    String _namespace = null;
+    if (_basePackage_2!=null) {
+      _namespace=this.toNamespace(_basePackage_2);
+    }
+    _builder.append(_namespace, "");
+    _builder.append("\')");
     _builder.newLineIfNotEmpty();
+    _builder.append("@SOAPBinding(style = Style.DOCUMENT, use=Use.LITERAL)");
     _builder.newLine();
-    _builder.append("\t");
-    _builder.append("@Inject");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("private ");
+    _builder.append("class ");
+    String _fileName = this.getFileName();
+    _builder.append(_fileName, "");
+    _builder.append(" implements ");
     String _name_5 = null;
     if (this.entity!=null) {
       _name_5=this.entity.getName();
@@ -237,17 +243,64 @@ public class SoapEndpointImplXtendTemplate extends AbstractXtendTemplate {
     if (_name_5!=null) {
       _firstUpper_5=StringExtensions.toFirstUpper(_name_5);
     }
-    _builder.append(_firstUpper_5, "\t");
-    _builder.append("Service ");
+    _builder.append(_firstUpper_5, "");
+    _builder.append("Soap {");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("@Inject");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("private ");
     String _name_6 = null;
     if (this.entity!=null) {
       _name_6=this.entity.getName();
     }
-    String _firstLower = null;
+    String _firstUpper_6 = null;
     if (_name_6!=null) {
-      _firstLower=StringExtensions.toFirstLower(_name_6);
+      _firstUpper_6=StringExtensions.toFirstUpper(_name_6);
+    }
+    _builder.append(_firstUpper_6, "\t");
+    _builder.append("Controller ");
+    String _name_7 = null;
+    if (this.entity!=null) {
+      _name_7=this.entity.getName();
+    }
+    String _firstLower = null;
+    if (_name_7!=null) {
+      _firstLower=StringExtensions.toFirstLower(_name_7);
     }
     _builder.append(_firstLower, "\t");
+    _builder.append("Controller ");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("@Inject");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("@Deprecated");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("private ");
+    String _name_8 = null;
+    if (this.entity!=null) {
+      _name_8=this.entity.getName();
+    }
+    String _firstUpper_7 = null;
+    if (_name_8!=null) {
+      _firstUpper_7=StringExtensions.toFirstUpper(_name_8);
+    }
+    _builder.append(_firstUpper_7, "\t");
+    _builder.append("Service ");
+    String _name_9 = null;
+    if (this.entity!=null) {
+      _name_9=this.entity.getName();
+    }
+    String _firstLower_1 = null;
+    if (_name_9!=null) {
+      _firstLower_1=StringExtensions.toFirstLower(_name_9);
+    }
+    _builder.append(_firstLower_1, "\t");
     _builder.append("Service");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
@@ -256,15 +309,15 @@ public class SoapEndpointImplXtendTemplate extends AbstractXtendTemplate {
     _builder.newLine();
     _builder.append("\t ");
     _builder.append("* Get ");
-    String _name_7 = null;
+    String _name_10 = null;
     if (this.entity!=null) {
-      _name_7=this.entity.getName();
+      _name_10=this.entity.getName();
     }
-    String _firstUpper_6 = null;
-    if (_name_7!=null) {
-      _firstUpper_6=StringExtensions.toFirstUpper(_name_7);
+    String _firstUpper_8 = null;
+    if (_name_10!=null) {
+      _firstUpper_8=StringExtensions.toFirstUpper(_name_10);
     }
-    _builder.append(_firstUpper_6, "\t ");
+    _builder.append(_firstUpper_8, "\t ");
     _builder.append(" with given ID.");
     _builder.newLineIfNotEmpty();
     _builder.append("\t ");
@@ -272,15 +325,15 @@ public class SoapEndpointImplXtendTemplate extends AbstractXtendTemplate {
     _builder.newLine();
     _builder.append("\t");
     _builder.append("override def ");
-    String _name_8 = null;
+    String _name_11 = null;
     if (this.entity!=null) {
-      _name_8=this.entity.getName();
+      _name_11=this.entity.getName();
     }
-    String _firstLower_1 = null;
-    if (_name_8!=null) {
-      _firstLower_1=StringExtensions.toFirstLower(_name_8);
+    String _firstLower_2 = null;
+    if (_name_11!=null) {
+      _firstLower_2=StringExtensions.toFirstLower(_name_11);
     }
-    _builder.append(_firstLower_1, "\t");
+    _builder.append(_firstLower_2, "\t");
     _builder.append("Get(");
     {
       EList<Attribute> _attributes = null;
@@ -309,23 +362,23 @@ public class SoapEndpointImplXtendTemplate extends AbstractXtendTemplate {
             if (attribute!=null) {
               _type=attribute.getType();
             }
-            String _name_9 = null;
+            String _name_12 = null;
             if (_type!=null) {
-              _name_9=_type.getName();
+              _name_12=_type.getName();
             }
-            _builder.append(_name_9, "\t");
+            _builder.append(_name_12, "\t");
           }
         }
         _builder.append(" ");
-        String _name_10 = null;
+        String _name_13 = null;
         if (attribute!=null) {
-          _name_10=attribute.getName();
+          _name_13=attribute.getName();
         }
-        String _firstLower_2 = null;
-        if (_name_10!=null) {
-          _firstLower_2=StringExtensions.toFirstLower(_name_10);
+        String _firstLower_3 = null;
+        if (_name_13!=null) {
+          _firstLower_3=StringExtensions.toFirstLower(_name_13);
         }
-        _builder.append(_firstLower_2, "\t");
+        _builder.append(_firstLower_3, "\t");
         _builder.append(", ");
       }
     }
@@ -333,30 +386,30 @@ public class SoapEndpointImplXtendTemplate extends AbstractXtendTemplate {
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
     _builder.append("val ");
-    String _name_11 = null;
+    String _name_14 = null;
     if (this.entity!=null) {
-      _name_11=this.entity.getName();
+      _name_14=this.entity.getName();
     }
-    String _firstUpper_7 = StringExtensions.toFirstUpper(_name_11);
-    _builder.append(_firstUpper_7, "\t\t");
+    String _firstUpper_9 = StringExtensions.toFirstUpper(_name_14);
+    _builder.append(_firstUpper_9, "\t\t");
     _builder.append(" ");
-    String _name_12 = null;
+    String _name_15 = null;
     if (this.entity!=null) {
-      _name_12=this.entity.getName();
+      _name_15=this.entity.getName();
     }
-    String _firstLower_3 = StringExtensions.toFirstLower(_name_12);
-    _builder.append(_firstLower_3, "\t\t");
-    _builder.append("Dto = ");
-    String _name_13 = null;
-    if (this.entity!=null) {
-      _name_13=this.entity.getName();
-    }
-    String _firstLower_4 = null;
-    if (_name_13!=null) {
-      _firstLower_4=StringExtensions.toFirstLower(_name_13);
-    }
+    String _firstLower_4 = StringExtensions.toFirstLower(_name_15);
     _builder.append(_firstLower_4, "\t\t");
-    _builder.append("Service.findOne(");
+    _builder.append("BusinessObject = ");
+    String _name_16 = null;
+    if (this.entity!=null) {
+      _name_16=this.entity.getName();
+    }
+    String _firstLower_5 = null;
+    if (_name_16!=null) {
+      _firstLower_5=StringExtensions.toFirstLower(_name_16);
+    }
+    _builder.append(_firstLower_5, "\t\t");
+    _builder.append("Service.findById(");
     EList<Attribute> _attributes_1 = null;
     if (this.entity!=null) {
       _attributes_1=this.entity.getAttributes();
@@ -365,26 +418,26 @@ public class SoapEndpointImplXtendTemplate extends AbstractXtendTemplate {
     if (_attributes_1!=null) {
       _get=_attributes_1.get(0);
     }
-    String _name_14 = null;
+    String _name_17 = null;
     if (_get!=null) {
-      _name_14=_get.getName();
+      _name_17=_get.getName();
     }
-    String _firstLower_5 = null;
-    if (_name_14!=null) {
-      _firstLower_5=StringExtensions.toFirstLower(_name_14);
+    String _firstLower_6 = null;
+    if (_name_17!=null) {
+      _firstLower_6=StringExtensions.toFirstLower(_name_17);
     }
-    _builder.append(_firstLower_5, "\t\t");
+    _builder.append(_firstLower_6, "\t\t");
     _builder.append(")");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
     _builder.append("return ");
-    String _name_15 = null;
+    String _name_18 = null;
     if (this.entity!=null) {
-      _name_15=this.entity.getName();
+      _name_18=this.entity.getName();
     }
-    String _firstLower_6 = StringExtensions.toFirstLower(_name_15);
-    _builder.append(_firstLower_6, "\t\t");
-    _builder.append("Dto");
+    String _firstLower_7 = StringExtensions.toFirstLower(_name_18);
+    _builder.append(_firstLower_7, "\t\t");
+    _builder.append("BusinessObject");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("}");
@@ -395,15 +448,15 @@ public class SoapEndpointImplXtendTemplate extends AbstractXtendTemplate {
     _builder.newLine();
     _builder.append("\t ");
     _builder.append("* Create new ");
-    String _name_16 = null;
+    String _name_19 = null;
     if (this.entity!=null) {
-      _name_16=this.entity.getName();
+      _name_19=this.entity.getName();
     }
-    String _firstUpper_8 = null;
-    if (_name_16!=null) {
-      _firstUpper_8=StringExtensions.toFirstUpper(_name_16);
+    String _firstUpper_10 = null;
+    if (_name_19!=null) {
+      _firstUpper_10=StringExtensions.toFirstUpper(_name_19);
     }
-    _builder.append(_firstUpper_8, "\t ");
+    _builder.append(_firstUpper_10, "\t ");
     _builder.append(".");
     _builder.newLineIfNotEmpty();
     _builder.append("\t ");
@@ -411,15 +464,15 @@ public class SoapEndpointImplXtendTemplate extends AbstractXtendTemplate {
     _builder.newLine();
     _builder.append("\t");
     _builder.append("override def ");
-    String _name_17 = null;
+    String _name_20 = null;
     if (this.entity!=null) {
-      _name_17=this.entity.getName();
+      _name_20=this.entity.getName();
     }
-    String _firstLower_7 = null;
-    if (_name_17!=null) {
-      _firstLower_7=StringExtensions.toFirstLower(_name_17);
+    String _firstLower_8 = null;
+    if (_name_20!=null) {
+      _firstLower_8=StringExtensions.toFirstLower(_name_20);
     }
-    _builder.append(_firstLower_7, "\t");
+    _builder.append(_firstLower_8, "\t");
     _builder.append("Post(");
     {
       EList<Attribute> _attributes_2 = null;
@@ -448,23 +501,23 @@ public class SoapEndpointImplXtendTemplate extends AbstractXtendTemplate {
             if (attribute_1!=null) {
               _type_1=attribute_1.getType();
             }
-            String _name_18 = null;
+            String _name_21 = null;
             if (_type_1!=null) {
-              _name_18=_type_1.getName();
+              _name_21=_type_1.getName();
             }
-            _builder.append(_name_18, "\t");
+            _builder.append(_name_21, "\t");
           }
         }
         _builder.append(" ");
-        String _name_19 = null;
+        String _name_22 = null;
         if (attribute_1!=null) {
-          _name_19=attribute_1.getName();
+          _name_22=attribute_1.getName();
         }
-        String _firstLower_8 = null;
-        if (_name_19!=null) {
-          _firstLower_8=StringExtensions.toFirstLower(_name_19);
+        String _firstLower_9 = null;
+        if (_name_22!=null) {
+          _firstLower_9=StringExtensions.toFirstLower(_name_22);
         }
-        _builder.append(_firstLower_8, "\t");
+        _builder.append(_firstLower_9, "\t");
         _builder.append(", ");
       }
     }
@@ -481,15 +534,15 @@ public class SoapEndpointImplXtendTemplate extends AbstractXtendTemplate {
     _builder.newLine();
     _builder.append("\t ");
     _builder.append("* Update given ");
-    String _name_20 = null;
+    String _name_23 = null;
     if (this.entity!=null) {
-      _name_20=this.entity.getName();
+      _name_23=this.entity.getName();
     }
-    String _firstUpper_9 = null;
-    if (_name_20!=null) {
-      _firstUpper_9=StringExtensions.toFirstUpper(_name_20);
+    String _firstUpper_11 = null;
+    if (_name_23!=null) {
+      _firstUpper_11=StringExtensions.toFirstUpper(_name_23);
     }
-    _builder.append(_firstUpper_9, "\t ");
+    _builder.append(_firstUpper_11, "\t ");
     _builder.append(".");
     _builder.newLineIfNotEmpty();
     _builder.append("\t ");
@@ -497,15 +550,15 @@ public class SoapEndpointImplXtendTemplate extends AbstractXtendTemplate {
     _builder.newLine();
     _builder.append("\t");
     _builder.append("override def ");
-    String _name_21 = null;
+    String _name_24 = null;
     if (this.entity!=null) {
-      _name_21=this.entity.getName();
+      _name_24=this.entity.getName();
     }
-    String _firstLower_9 = null;
-    if (_name_21!=null) {
-      _firstLower_9=StringExtensions.toFirstLower(_name_21);
+    String _firstLower_10 = null;
+    if (_name_24!=null) {
+      _firstLower_10=StringExtensions.toFirstLower(_name_24);
     }
-    _builder.append(_firstLower_9, "\t");
+    _builder.append(_firstLower_10, "\t");
     _builder.append("Put(");
     {
       EList<Attribute> _attributes_3 = null;
@@ -534,23 +587,23 @@ public class SoapEndpointImplXtendTemplate extends AbstractXtendTemplate {
             if (attribute_2!=null) {
               _type_2=attribute_2.getType();
             }
-            String _name_22 = null;
+            String _name_25 = null;
             if (_type_2!=null) {
-              _name_22=_type_2.getName();
+              _name_25=_type_2.getName();
             }
-            _builder.append(_name_22, "\t");
+            _builder.append(_name_25, "\t");
           }
         }
         _builder.append(" ");
-        String _name_23 = null;
+        String _name_26 = null;
         if (attribute_2!=null) {
-          _name_23=attribute_2.getName();
+          _name_26=attribute_2.getName();
         }
-        String _firstLower_10 = null;
-        if (_name_23!=null) {
-          _firstLower_10=StringExtensions.toFirstLower(_name_23);
+        String _firstLower_11 = null;
+        if (_name_26!=null) {
+          _firstLower_11=StringExtensions.toFirstLower(_name_26);
         }
-        _builder.append(_firstLower_10, "\t");
+        _builder.append(_firstLower_11, "\t");
         _builder.append(", ");
       }
     }
@@ -567,15 +620,15 @@ public class SoapEndpointImplXtendTemplate extends AbstractXtendTemplate {
     _builder.newLine();
     _builder.append("\t ");
     _builder.append("* Delete given ");
-    String _name_24 = null;
+    String _name_27 = null;
     if (this.entity!=null) {
-      _name_24=this.entity.getName();
+      _name_27=this.entity.getName();
     }
-    String _firstUpper_10 = null;
-    if (_name_24!=null) {
-      _firstUpper_10=StringExtensions.toFirstUpper(_name_24);
+    String _firstUpper_12 = null;
+    if (_name_27!=null) {
+      _firstUpper_12=StringExtensions.toFirstUpper(_name_27);
     }
-    _builder.append(_firstUpper_10, "\t ");
+    _builder.append(_firstUpper_12, "\t ");
     _builder.append(".");
     _builder.newLineIfNotEmpty();
     _builder.append("\t ");
@@ -583,15 +636,15 @@ public class SoapEndpointImplXtendTemplate extends AbstractXtendTemplate {
     _builder.newLine();
     _builder.append("\t");
     _builder.append("override def ");
-    String _name_25 = null;
+    String _name_28 = null;
     if (this.entity!=null) {
-      _name_25=this.entity.getName();
+      _name_28=this.entity.getName();
     }
-    String _firstLower_11 = null;
-    if (_name_25!=null) {
-      _firstLower_11=StringExtensions.toFirstLower(_name_25);
+    String _firstLower_12 = null;
+    if (_name_28!=null) {
+      _firstLower_12=StringExtensions.toFirstLower(_name_28);
     }
-    _builder.append(_firstLower_11, "\t");
+    _builder.append(_firstLower_12, "\t");
     _builder.append("Delete(");
     {
       EList<Attribute> _attributes_4 = null;
@@ -620,39 +673,39 @@ public class SoapEndpointImplXtendTemplate extends AbstractXtendTemplate {
             if (attribute_3!=null) {
               _type_3=attribute_3.getType();
             }
-            String _name_26 = null;
+            String _name_29 = null;
             if (_type_3!=null) {
-              _name_26=_type_3.getName();
+              _name_29=_type_3.getName();
             }
-            _builder.append(_name_26, "\t");
+            _builder.append(_name_29, "\t");
           }
         }
         _builder.append(" ");
-        String _name_27 = null;
+        String _name_30 = null;
         if (attribute_3!=null) {
-          _name_27=attribute_3.getName();
+          _name_30=attribute_3.getName();
         }
-        String _firstLower_12 = null;
-        if (_name_27!=null) {
-          _firstLower_12=StringExtensions.toFirstLower(_name_27);
+        String _firstLower_13 = null;
+        if (_name_30!=null) {
+          _firstLower_13=StringExtensions.toFirstLower(_name_30);
         }
-        _builder.append(_firstLower_12, "\t");
+        _builder.append(_firstLower_13, "\t");
         _builder.append(", ");
       }
     }
     _builder.append("SecurityContext securityContext) {");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
-    String _name_28 = null;
+    String _name_31 = null;
     if (this.entity!=null) {
-      _name_28=this.entity.getName();
+      _name_31=this.entity.getName();
     }
-    String _firstLower_13 = null;
-    if (_name_28!=null) {
-      _firstLower_13=StringExtensions.toFirstLower(_name_28);
+    String _firstLower_14 = null;
+    if (_name_31!=null) {
+      _firstLower_14=StringExtensions.toFirstLower(_name_31);
     }
-    _builder.append(_firstLower_13, "\t\t");
-    _builder.append("Service.delete(");
+    _builder.append(_firstLower_14, "\t\t");
+    _builder.append("Service.remove(");
     EList<Attribute> _attributes_5 = null;
     if (this.entity!=null) {
       _attributes_5=this.entity.getAttributes();
@@ -661,28 +714,28 @@ public class SoapEndpointImplXtendTemplate extends AbstractXtendTemplate {
     if (_attributes_5!=null) {
       _get_1=_attributes_5.get(0);
     }
-    String _name_29 = null;
+    String _name_32 = null;
     if (_get_1!=null) {
-      _name_29=_get_1.getName();
+      _name_32=_get_1.getName();
     }
-    String _firstLower_14 = null;
-    if (_name_29!=null) {
-      _firstLower_14=StringExtensions.toFirstLower(_name_29);
+    String _firstLower_15 = null;
+    if (_name_32!=null) {
+      _firstLower_15=StringExtensions.toFirstLower(_name_32);
     }
-    _builder.append(_firstLower_14, "\t\t");
+    _builder.append(_firstLower_15, "\t\t");
     _builder.append(")");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
     _builder.append("return \'removed ");
-    String _name_30 = null;
+    String _name_33 = null;
     if (this.entity!=null) {
-      _name_30=this.entity.getName();
+      _name_33=this.entity.getName();
     }
-    String _firstUpper_11 = null;
-    if (_name_30!=null) {
-      _firstUpper_11=StringExtensions.toFirstUpper(_name_30);
+    String _firstUpper_13 = null;
+    if (_name_33!=null) {
+      _firstUpper_13=StringExtensions.toFirstUpper(_name_33);
     }
-    _builder.append(_firstUpper_11, "\t\t");
+    _builder.append(_firstUpper_13, "\t\t");
     _builder.append("\'");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");

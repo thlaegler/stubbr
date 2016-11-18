@@ -77,33 +77,45 @@ public class EntityPresenterXtendTemplate extends AbstractXtendTemplate {
     _builder.newLine();
     _builder.append("import javax.annotation.Generated");
     _builder.newLine();
-    _builder.append("import javax.annotation.security.PermitAll");
-    _builder.newLine();
     _builder.append("import org.slf4j.Logger");
-    _builder.newLine();
-    _builder.append("import javax.enterprise.context.RequestScoped");
     _builder.newLine();
     _builder.newLine();
     String _javaDocType = this.getJavaDocType();
     _builder.append(_javaDocType, "");
     _builder.newLineIfNotEmpty();
-    _builder.append("@RequestScoped");
-    _builder.newLine();
+    _builder.append("@");
+    String _asImport = this.asImport("javax.enterprise.context.RequestScoped");
+    _builder.append(_asImport, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("@");
+    String _asImport_1 = this.asImport("javax.inject.Named");
+    _builder.append(_asImport_1, "");
+    _builder.append("(value = \'presenter.");
+    String _name = null;
+    if (this.entity!=null) {
+      _name=this.entity.getName();
+    }
+    String _lowerCase = null;
+    if (_name!=null) {
+      _lowerCase=_name.toLowerCase();
+    }
+    _builder.append(_lowerCase, "");
+    _builder.append("\')");
+    _builder.newLineIfNotEmpty();
     _builder.append("class ");
     String _fileName = this.getFileName();
     _builder.append(_fileName, "");
     _builder.append(" extends AbstractPresenter {");
     _builder.newLineIfNotEmpty();
-    _builder.append("\t");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("@");
-    String _asImport = this.asImport("javax.inject.Inject");
-    _builder.append(_asImport, "\t");
+    String _asImport_2 = this.asImport("javax.inject.Inject");
+    _builder.append(_asImport_2, "\t");
     _builder.append(" ");
     String _loggerType = this.getLoggerType();
-    String _asImport_1 = this.asImport(_loggerType);
-    _builder.append(_asImport_1, "\t");
+    String _asImport_3 = this.asImport(_loggerType);
+    _builder.append(_asImport_3, "\t");
     _builder.append(" ");
     String _loggerName = this.getLoggerName();
     _builder.append(_loggerName, "\t");
@@ -111,18 +123,37 @@ public class EntityPresenterXtendTemplate extends AbstractXtendTemplate {
     _builder.newLine();
     _builder.append("\t");
     _builder.append("@");
-    String _asImport_2 = this.asImport("javax.annotation.PostConstruct");
-    _builder.append(_asImport_2, "\t");
+    String _asImport_4 = this.asImport("javax.annotation.PostConstruct");
+    _builder.append(_asImport_4, "\t");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
-    _builder.append("public def void init() {");
+    _builder.append("public override void init() {");
     _builder.newLine();
-    _builder.append("\t\t");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("}");
     _builder.newLine();
     _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("override initView() {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("throw new UnsupportedOperationException(\"TODO: auto-generated method stub\")");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("override getBean() {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("throw new UnsupportedOperationException(\"TODO: auto-generated method stub\")");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
     _builder.newLine();
     _builder.append("\t");
     _builder.append("/**");
@@ -137,13 +168,15 @@ public class EntityPresenterXtendTemplate extends AbstractXtendTemplate {
     _builder.append("*/");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("@PermitAll");
-    _builder.newLine();
+    _builder.append("@");
+    String _asImport_5 = this.asImport("javax.annotation.security.PermitAll");
+    _builder.append(_asImport_5, "\t");
+    _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("def String submitSave() {");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("val long id = getHttpPostParam(HttpPostParam.ID)");
+    _builder.append("val long id = getHttpPostParam(\'id\')");
     _builder.newLine();
     _builder.append("\t\t");
     String _loggerName_1 = this.getLoggerName();
@@ -177,13 +210,13 @@ public class EntityPresenterXtendTemplate extends AbstractXtendTemplate {
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("\'/mobile/");
-    String _name = null;
+    String _name_1 = null;
     if (this.entity!=null) {
-      _name=this.entity.getName();
+      _name_1=this.entity.getName();
     }
     String _firstLower = null;
-    if (_name!=null) {
-      _firstLower=StringExtensions.toFirstLower(_name);
+    if (_name_1!=null) {
+      _firstLower=StringExtensions.toFirstLower(_name_1);
     }
     _builder.append(_firstLower, "\t\t");
     _builder.append(".xhtml\'");

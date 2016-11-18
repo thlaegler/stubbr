@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+	<extension point="org.eclipse.emf.ecore.generated_package">
+		<package 
+			uri = "http://www.laegler.com/stubbr/lang/StubbrLang"
+			class = "com.laegler.stubbr.lang.stubbrLang.StubbrLangPackage"
+			genModel = "model/generated/StubbrLang.genmodel" />
+	</extension>
+ <extension
+       id="StubbrLang"
+       point="org.eclipse.core.runtime.products">
+    <product
+          application="org.eclipse.e4.ui.workbench.swt.E4Application"
+          name="Stubbr Product">
+    </product>
+ </extension>
+</plugin>

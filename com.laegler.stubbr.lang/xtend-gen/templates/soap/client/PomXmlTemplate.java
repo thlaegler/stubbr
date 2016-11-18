@@ -176,6 +176,36 @@ public class PomXmlTemplate extends PomXmlTemplateBase {
       _lowerCase_3=_name_4.toLowerCase();
     }
     _builder.append(_lowerCase_3, "\t\t");
+    _builder.append("-business</artifactId>");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("<version>${project.version}</version>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("</dependency>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<dependency>");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("<groupId>${project.groupId}</groupId>");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("<artifactId>");
+    StubbrRegistry _stubbr_4 = this.getStubbr();
+    Stubb _stubb_4 = null;
+    if (_stubbr_4!=null) {
+      _stubb_4=_stubbr_4.getStubb();
+    }
+    String _name_5 = null;
+    if (_stubb_4!=null) {
+      _name_5=_stubb_4.getName();
+    }
+    String _lowerCase_4 = null;
+    if (_name_5!=null) {
+      _lowerCase_4=_name_5.toLowerCase();
+    }
+    _builder.append(_lowerCase_4, "\t\t");
     _builder.append("-soap-server</artifactId>");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
