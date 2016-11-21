@@ -19,7 +19,7 @@ public class PersistenceXmlTemplateBase extends AbstractXmlTemplate {
   public PersistenceXmlTemplateBase(final StubbrRegistry stubbr, final Project project) {
     super(stubbr, project);
     this.setFileName("persistence");
-    this.setRelativPath("/src/main/resource/META-INF/");
+    this.setRelativPath("/src/main/resources/META-INF/");
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
     _builder.newLine();

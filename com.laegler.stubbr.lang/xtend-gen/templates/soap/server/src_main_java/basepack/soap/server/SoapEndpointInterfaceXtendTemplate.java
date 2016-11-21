@@ -179,17 +179,7 @@ public class SoapEndpointInterfaceXtendTemplate extends AbstractXtendTemplate {
     }
     String _firstUpper_2 = StringExtensions.toFirstUpper(_name_2);
     _builder.append(_firstUpper_2, "\t");
-    _builder.append("BusinessObject ");
-    String _name_3 = null;
-    if (this.entity!=null) {
-      _name_3=this.entity.getName();
-    }
-    String _firstLower = null;
-    if (_name_3!=null) {
-      _firstLower=StringExtensions.toFirstLower(_name_3);
-    }
-    _builder.append(_firstLower, "\t");
-    _builder.append("Get(");
+    _builder.append("BusinessObject get(");
     {
       EList<Attribute> _attributes = null;
       if (this.entity!=null) {
@@ -217,23 +207,23 @@ public class SoapEndpointInterfaceXtendTemplate extends AbstractXtendTemplate {
             if (attribute!=null) {
               _type=attribute.getType();
             }
-            String _name_4 = null;
+            String _name_3 = null;
             if (_type!=null) {
-              _name_4=_type.getName();
+              _name_3=_type.getName();
             }
-            _builder.append(_name_4, "\t");
+            _builder.append(_name_3, "\t");
           }
         }
         _builder.append(" ");
-        String _name_5 = null;
+        String _name_4 = null;
         if (attribute!=null) {
-          _name_5=attribute.getName();
+          _name_4=attribute.getName();
         }
-        String _firstLower_1 = null;
-        if (_name_5!=null) {
-          _firstLower_1=StringExtensions.toFirstLower(_name_5);
+        String _firstLower = null;
+        if (_name_4!=null) {
+          _firstLower=StringExtensions.toFirstLower(_name_4);
         }
-        _builder.append(_firstLower_1, "\t");
+        _builder.append(_firstLower, "\t");
         _builder.append(", ");
       }
     }
@@ -245,13 +235,13 @@ public class SoapEndpointInterfaceXtendTemplate extends AbstractXtendTemplate {
     _builder.newLine();
     _builder.append("\t ");
     _builder.append("* Create new ");
-    String _name_6 = null;
+    String _name_5 = null;
     if (this.entity!=null) {
-      _name_6=this.entity.getName();
+      _name_5=this.entity.getName();
     }
     String _firstUpper_3 = null;
-    if (_name_6!=null) {
-      _firstUpper_3=StringExtensions.toFirstUpper(_name_6);
+    if (_name_5!=null) {
+      _firstUpper_3=StringExtensions.toFirstUpper(_name_5);
     }
     _builder.append(_firstUpper_3, "\t ");
     _builder.append(".");
@@ -263,17 +253,7 @@ public class SoapEndpointInterfaceXtendTemplate extends AbstractXtendTemplate {
     _builder.append("@WebMethod");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("def public String ");
-    String _name_7 = null;
-    if (this.entity!=null) {
-      _name_7=this.entity.getName();
-    }
-    String _firstLower_2 = null;
-    if (_name_7!=null) {
-      _firstLower_2=StringExtensions.toFirstLower(_name_7);
-    }
-    _builder.append(_firstLower_2, "\t");
-    _builder.append("Post(");
+    _builder.append("def public String create(");
     {
       EList<Attribute> _attributes_1 = null;
       if (this.entity!=null) {
@@ -301,23 +281,23 @@ public class SoapEndpointInterfaceXtendTemplate extends AbstractXtendTemplate {
             if (attribute_1!=null) {
               _type_1=attribute_1.getType();
             }
-            String _name_8 = null;
+            String _name_6 = null;
             if (_type_1!=null) {
-              _name_8=_type_1.getName();
+              _name_6=_type_1.getName();
             }
-            _builder.append(_name_8, "\t");
+            _builder.append(_name_6, "\t");
           }
         }
         _builder.append(" ");
-        String _name_9 = null;
+        String _name_7 = null;
         if (attribute_1!=null) {
-          _name_9=attribute_1.getName();
+          _name_7=attribute_1.getName();
         }
-        String _firstLower_3 = null;
-        if (_name_9!=null) {
-          _firstLower_3=StringExtensions.toFirstLower(_name_9);
+        String _firstLower_1 = null;
+        if (_name_7!=null) {
+          _firstLower_1=StringExtensions.toFirstLower(_name_7);
         }
-        _builder.append(_firstLower_3, "\t");
+        _builder.append(_firstLower_1, "\t");
         _builder.append(", ");
       }
     }
@@ -329,13 +309,13 @@ public class SoapEndpointInterfaceXtendTemplate extends AbstractXtendTemplate {
     _builder.newLine();
     _builder.append("\t ");
     _builder.append("* Update given ");
-    String _name_10 = null;
+    String _name_8 = null;
     if (this.entity!=null) {
-      _name_10=this.entity.getName();
+      _name_8=this.entity.getName();
     }
     String _firstUpper_4 = null;
-    if (_name_10!=null) {
-      _firstUpper_4=StringExtensions.toFirstUpper(_name_10);
+    if (_name_8!=null) {
+      _firstUpper_4=StringExtensions.toFirstUpper(_name_8);
     }
     _builder.append(_firstUpper_4, "\t ");
     _builder.append(".");
@@ -347,17 +327,7 @@ public class SoapEndpointInterfaceXtendTemplate extends AbstractXtendTemplate {
     _builder.append("@WebMethod");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("def public String ");
-    String _name_11 = null;
-    if (this.entity!=null) {
-      _name_11=this.entity.getName();
-    }
-    String _firstLower_4 = null;
-    if (_name_11!=null) {
-      _firstLower_4=StringExtensions.toFirstLower(_name_11);
-    }
-    _builder.append(_firstLower_4, "\t");
-    _builder.append("Put(");
+    _builder.append("def public String update(");
     {
       EList<Attribute> _attributes_2 = null;
       if (this.entity!=null) {
@@ -385,23 +355,23 @@ public class SoapEndpointInterfaceXtendTemplate extends AbstractXtendTemplate {
             if (attribute_2!=null) {
               _type_2=attribute_2.getType();
             }
-            String _name_12 = null;
+            String _name_9 = null;
             if (_type_2!=null) {
-              _name_12=_type_2.getName();
+              _name_9=_type_2.getName();
             }
-            _builder.append(_name_12, "\t");
+            _builder.append(_name_9, "\t");
           }
         }
         _builder.append(" ");
-        String _name_13 = null;
+        String _name_10 = null;
         if (attribute_2!=null) {
-          _name_13=attribute_2.getName();
+          _name_10=attribute_2.getName();
         }
-        String _firstLower_5 = null;
-        if (_name_13!=null) {
-          _firstLower_5=StringExtensions.toFirstLower(_name_13);
+        String _firstLower_2 = null;
+        if (_name_10!=null) {
+          _firstLower_2=StringExtensions.toFirstLower(_name_10);
         }
-        _builder.append(_firstLower_5, "\t");
+        _builder.append(_firstLower_2, "\t");
         _builder.append(", ");
       }
     }
@@ -413,13 +383,13 @@ public class SoapEndpointInterfaceXtendTemplate extends AbstractXtendTemplate {
     _builder.newLine();
     _builder.append("\t ");
     _builder.append("* Delete given ");
-    String _name_14 = null;
+    String _name_11 = null;
     if (this.entity!=null) {
-      _name_14=this.entity.getName();
+      _name_11=this.entity.getName();
     }
     String _firstUpper_5 = null;
-    if (_name_14!=null) {
-      _firstUpper_5=StringExtensions.toFirstUpper(_name_14);
+    if (_name_11!=null) {
+      _firstUpper_5=StringExtensions.toFirstUpper(_name_11);
     }
     _builder.append(_firstUpper_5, "\t ");
     _builder.append(".");
@@ -431,17 +401,7 @@ public class SoapEndpointInterfaceXtendTemplate extends AbstractXtendTemplate {
     _builder.append("@WebMethod");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("def public String ");
-    String _name_15 = null;
-    if (this.entity!=null) {
-      _name_15=this.entity.getName();
-    }
-    String _firstLower_6 = null;
-    if (_name_15!=null) {
-      _firstLower_6=StringExtensions.toFirstLower(_name_15);
-    }
-    _builder.append(_firstLower_6, "\t");
-    _builder.append("Delete(");
+    _builder.append("def public String delete(");
     {
       EList<Attribute> _attributes_3 = null;
       if (this.entity!=null) {
@@ -469,23 +429,23 @@ public class SoapEndpointInterfaceXtendTemplate extends AbstractXtendTemplate {
             if (attribute_3!=null) {
               _type_3=attribute_3.getType();
             }
-            String _name_16 = null;
+            String _name_12 = null;
             if (_type_3!=null) {
-              _name_16=_type_3.getName();
+              _name_12=_type_3.getName();
             }
-            _builder.append(_name_16, "\t");
+            _builder.append(_name_12, "\t");
           }
         }
         _builder.append(" ");
-        String _name_17 = null;
+        String _name_13 = null;
         if (attribute_3!=null) {
-          _name_17=attribute_3.getName();
+          _name_13=attribute_3.getName();
         }
-        String _firstLower_7 = null;
-        if (_name_17!=null) {
-          _firstLower_7=StringExtensions.toFirstLower(_name_17);
+        String _firstLower_3 = null;
+        if (_name_13!=null) {
+          _firstLower_3=StringExtensions.toFirstLower(_name_13);
         }
-        _builder.append(_firstLower_7, "\t");
+        _builder.append(_firstLower_3, "\t");
         _builder.append(", ");
       }
     }

@@ -39,7 +39,7 @@ class EntityXtendTemplate extends AbstractXtendTemplate {
 			@«asImport('javax.persistence.NamedQuery')»(name = '«entity?.name?.toFirstUpper».findById', query = 'SELECT e FROM «entity?.name?.toLowerCase» e WHERE e.id = :id')
 		])
 		class «fileName» implements «asImport('java.io.Serializable')» {
-			«IF !stubbr?.stubb?.persistence.customIds»
+			«IF !chapterPersistence.customIds»
 				
 				/**
 				 * ID / primary key of entity «entity?.name?.toFirstUpper»
@@ -49,11 +49,10 @@ class EntityXtendTemplate extends AbstractXtendTemplate {
 				private «asImport(stubbr?.stubb?.persistence?.javaType?.getQualifiedName)» id
 			«ENDIF»
 			«FOR Attribute attribute : entity?.attributes»
-				
 				/**
 				 * «attribute?.documentation»
 				 */
-				«IF attribute.primaryKey»
+				«IF attribute.primaryKey && chapterPersistence.customIds»
 					@«asImport('javax.persistence.Id')»
 					@«asImport('javax.persistence.GeneratedValue')»(strategy = «asImport('javax.persistence.GenerationType')».AUTO)
 				«ENDIF»

@@ -19,72 +19,68 @@ class SoapEndpointImplXtendTemplate extends AbstractXtendTemplate {
 	new(StubbrRegistry stubbr, Project project, Entity entity) {
 		super(stubbr, project)
 		this.entity = entity
-		fileName = '''«entity?.name?.toFirstUpper»SoapImpl'''
+		fileName = '''«entityUpper»SoapImpl'''
 		header = '''package «project?.basePackage».impl'''
 		relativPath = '''/src/main/java/«project?.basePackage?.toPath»/impl/'''
-		documentation = '''SOAP endpoint implementation for entity «entity?.name?.toFirstUpper»'''
+		documentation = '''SOAP endpoint implementation for entity «entityUpper»'''
 
 		content = withImports(template)
 	}
 
 	private def String getTemplate() '''
 		import «project?.basePackage».*
-		import «stubbr?.stubb?.packageName».persistence.service.«entity?.name?.toFirstUpper»Service
-		import «stubbr?.stubb?.packageName».model.entity.«entity?.name?.toFirstUpper»
-		import «stubbr?.stubb?.packageName».business.controller.«entity?.name?.toFirstUpper»Controller
-		import «stubbr?.stubb?.packageName».business.object.«entity?.name?.toFirstUpper»BusinessObject
+		import «stubbr?.stubb?.packageName».persistence.service.«entityUpper»Service
+		import «stubbr?.stubb?.packageName».model.entity.*
+		import «stubbr?.stubb?.packageName».model.entity.«entityUpper»
+		import «stubbr?.stubb?.packageName».business.controller.«entityUpper»Controller
+		import «stubbr?.stubb?.packageName».business.object.«entityUpper»BusinessObject
+		import «stubbr?.stubb?.packageName».soap.server.«entityUpper»Soap
 		import javax.inject.Inject
 		import javax.jws.WebMethod
-		import javax.jws.WebService
-		import javax.jws.soap.SOAPBinding
-		import javax.jws.soap.SOAPBinding.Style
 		import javax.ws.rs.core.SecurityContext
-		import javax.jws.soap.SOAPBinding.Use
-		import com.google.gson.annotations.Since
-		import com.google.gson.annotations.Until
-		import javax.annotation.Generated
 		
 		«javaDocType»
-		@WebService(endpointInterface = '«project?.basePackage».«entity?.name?.toFirstUpper»Soap', targetNamespace = '«project?.basePackage?.toNamespace»')
-		@SOAPBinding(style = Style.DOCUMENT, use=Use.LITERAL)
-		class «fileName» implements «entity?.name?.toFirstUpper»Soap {
+		@«asImport('javax.jws.WebService')»(endpointInterface = '«project?.basePackage».«entityUpper»Soap', targetNamespace = '«project?.basePackage?.toNamespace»')
+		@«asImport('javax.jws.soap.SOAPBinding')»(style = «asImport('javax.jws.soap.SOAPBinding.Style')».DOCUMENT, use=«asImport('javax.jws.soap.SOAPBinding.Use')».LITERAL)
+		class «fileName» implements «entityUpper»Soap {
 		
 			@Inject
-			private «entity?.name?.toFirstUpper»Controller «entity?.name?.toFirstLower»Controller 
-		
-			@Inject
-			@Deprecated
-			private «entity?.name?.toFirstUpper»Service «entity?.name?.toFirstLower»Service
+			private «entityUpper»Controller «entityLower»Controller 
 		
 			/**
-			 * Get «entity?.name?.toFirstUpper» with given ID.
+			 * Get «entityUpper» with given ID.
 			 */
-			override def «entity?.name?.toFirstLower»Get(«FOR Attribute attribute : entity?.attributes»«IF attribute?.javaType != null»«attribute?.javaType?.qualifiedName»«ELSE»«attribute?.type?.name»«ENDIF» «attribute?.name?.toFirstLower», «ENDFOR»SecurityContext securityContext) {
-				val «entity?.name.toFirstUpper» «entity?.name.toFirstLower»BusinessObject = «entity?.name?.toFirstLower»Service.findById(«entity?.attributes?.get(0)?.name?.toFirstLower»)
+			override def get(«FOR Attribute attribute : entity?.attributes»«IF attribute?.javaType != null»«attribute?.javaType?.qualifiedName»«ELSE»«attribute?.type?.name»«ENDIF» «attribute?.name?.toFirstLower», «ENDFOR»SecurityContext securityContext) {
+				val «entity?.name.toFirstUpper»BusinessObject «entity?.name.toFirstLower»BusinessObject = «entityLower»Controller.findById(1)
 				return «entity?.name.toFirstLower»BusinessObject
 			}
 		
 			/**
-			 * Create new «entity?.name?.toFirstUpper».
+			 * Create new «entityUpper».
 			 */
-			override def «entity?.name?.toFirstLower»Post(«FOR Attribute attribute : entity?.attributes»«IF attribute?.javaType != null»«attribute?.javaType?.qualifiedName»«ELSE»«attribute?.type?.name»«ENDIF» «attribute?.name?.toFirstLower», «ENDFOR»SecurityContext securityContext) {
+			override def create(«FOR Attribute attribute : entity?.attributes»«IF attribute?.javaType != null»«attribute?.javaType?.qualifiedName»«ELSE»«attribute?.type?.name»«ENDIF» «attribute?.name?.toFirstLower», «ENDFOR»SecurityContext securityContext) {
 			
 			}
 		
 			/**
-			 * Update given «entity?.name?.toFirstUpper».
+			 * Update given «entityUpper».
 			 */
-			override def «entity?.name?.toFirstLower»Put(«FOR Attribute attribute : entity?.attributes»«IF attribute?.javaType != null»«attribute?.javaType?.qualifiedName»«ELSE»«attribute?.type?.name»«ENDIF» «attribute?.name?.toFirstLower», «ENDFOR»SecurityContext securityContext) {
+			override def update(«FOR Attribute attribute : entity?.attributes»«IF attribute?.javaType != null»«attribute?.javaType?.qualifiedName»«ELSE»«attribute?.type?.name»«ENDIF» «attribute?.name?.toFirstLower», «ENDFOR»SecurityContext securityContext) {
 			
 			}
 		
 			/**
-			 * Delete given «entity?.name?.toFirstUpper».
+			 * Delete given «entityUpper».
 			 */
-			override def «entity?.name?.toFirstLower»Delete(«FOR Attribute attribute : entity?.attributes»«IF attribute?.javaType != null»«attribute?.javaType?.qualifiedName»«ELSE»«attribute?.type?.name»«ENDIF» «attribute?.name?.toFirstLower», «ENDFOR»SecurityContext securityContext) {
-				«entity?.name?.toFirstLower»Service.remove(«entity?.attributes?.get(0)?.name?.toFirstLower»)
-				return 'removed «entity?.name?.toFirstUpper»'
+			override def delete(«FOR Attribute attribute : entity?.attributes»«IF attribute?.javaType != null»«attribute?.javaType?.qualifiedName»«ELSE»«attribute?.type?.name»«ENDIF» «attribute?.name?.toFirstLower», «ENDFOR»SecurityContext securityContext) {
+				«entityLower»Controller.remove(1)
+				return 'removed «entityUpper»'
 			}
+
 		}
 	'''
+	
+	private def String getEntityLower() '''«entity?.name?.toFirstLower»'''
+	private def String getEntityUpper() '''«entity?.name?.toFirstUpper»'''
+
 }

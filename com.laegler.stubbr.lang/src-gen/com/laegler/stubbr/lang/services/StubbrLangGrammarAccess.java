@@ -102,29 +102,19 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_25 = (Keyword)cGroup.eContents().get(25);
 		
 		//Stubb:
-		//	'package' importedNamespace=QualifiedName
-		//	importSection=XImportSection?
-		//	'project' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('packageName'
-		//	packageName=QualifiedName)? ('prefix' prefix=ID)? ('version' version=VERSION)? ('author' author=STRING)? ('eMail'
-		//	email=STRING)? ('language' languages+=Locale (',' languages+=Locale)*)?
-		//	globals=ChapterGlobals?
-		//	Stakeholders=ChapterStakeholder?
-		//	projectManagement=ChapterProjectManagement?
-		//	environment=ChapterEnvironment?
-		//	structure=ChapterProjectStructure?
-		//	persistence=ChapterPersistence?
-		//	business=ChapterBusinessProcesses?
-		//	presentation=ChapterPresentation?
-		//	webservice=ChapterWebservice?
-		//	behavior=ChapterBehavior?
-		//	testing=ChapterTesting?
-		//	'}';
+		//	'package' importedNamespace=QualifiedName importSection=XImportSection? 'project' name=QualifiedName '{' ('label'
+		//	label=STRING)? ('documentation' documentation=STRING)? ('packageName' packageName=QualifiedName)? ('prefix'
+		//	prefix=ID)? ('version' version=VERSION)? ('author' author=STRING)? ('eMail' email=STRING)? ('language'
+		//	languages+=Locale (',' languages+=Locale)*)? globals=ChapterGlobals? Stakeholders=ChapterStakeholder?
+		//	projectManagement=ChapterProjectManagement? environment=ChapterEnvironment? structure=ChapterProjectStructure?
+		//	persistence=ChapterPersistence? business=ChapterBusinessProcesses? presentation=ChapterPresentation?
+		//	webservice=ChapterWebservice? behavior=ChapterBehavior? testing=ChapterTesting? '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'package' importedNamespace=QualifiedName importSection=XImportSection? 'project' name=QualifiedName '{' ('label'
-		//label=STRING)? ('documentation' documentation=STRING)? ('packageName' packageName=QualifiedName)? ('prefix' prefix=ID)?
-		//('version' version=VERSION)? ('author' author=STRING)? ('eMail' email=STRING)? ('language' languages+=Locale (','
-		//languages+=Locale)*)? globals=ChapterGlobals? Stakeholders=ChapterStakeholder?
+		//label=STRING)? ('documentation' documentation=STRING)? ('packageName' packageName=QualifiedName)? ('prefix'
+		//prefix=ID)? ('version' version=VERSION)? ('author' author=STRING)? ('eMail' email=STRING)? ('language'
+		//languages+=Locale (',' languages+=Locale)*)? globals=ChapterGlobals? Stakeholders=ChapterStakeholder?
 		//projectManagement=ChapterProjectManagement? environment=ChapterEnvironment? structure=ChapterProjectStructure?
 		//persistence=ChapterPersistence? business=ChapterBusinessProcesses? presentation=ChapterPresentation?
 		//webservice=ChapterWebservice? behavior=ChapterBehavior? testing=ChapterTesting? '}'
@@ -405,8 +395,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//ChapterGlobals:
-		//	'globals' '{' ('loggerName' loggerName=ID)? ('loggerType' loggerType=QualifiedName)?
-		//	useSpringMVC?='useSpringMVC'?
+		//	'globals' '{' ('loggerName' loggerName=ID)? ('loggerType' loggerType=QualifiedName)? useSpringMVC?='useSpringMVC'?
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -476,9 +465,8 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//ChapterProjectManagement:
-		//	'management' '{' ('projects' project+=DevProject*)? ('sourceCodeManagement' scm+=Level1Attribute*)? ('issueManagement'
-		//	issueManagement+=Level1Attribute*)? ('continousIntegration' ci+=Level1Attribute*)?
-		//	'}';
+		//	'management' '{' ('projects' project+=DevProject*)? ('sourceCodeManagement' scm+=Level1Attribute*)?
+		//	('issueManagement' issueManagement+=Level1Attribute*)? ('continousIntegration' ci+=Level1Attribute*)? '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'management' '{' ('projects' project+=DevProject*)? ('sourceCodeManagement' scm+=Level1Attribute*)? ('issueManagement'
@@ -566,8 +554,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//DevProject:
 		//	project=DevProjectType name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)?
-		//	('suffix' suffix=QualifiedName)?
-		//	'}';
+		//	('suffix' suffix=QualifiedName)? '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//project=DevProjectType name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('suffix'
@@ -642,9 +629,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//ChapterProjectStructure:
-		//	'structure' '{'
-		//	isNestedParent?='nestedParentProject'? ('properties' testMethods+=Level1Attribute*)?
-		//	'}';
+		//	'structure' '{' isNestedParent?='nestedParentProject'? ('properties' testMethods+=Level1Attribute*)? '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'structure' '{' isNestedParent?='nestedParentProject'? ('properties' testMethods+=Level1Attribute*)? '}'
@@ -710,12 +695,8 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ChapterPersistence:
 		//	'persistence' '{' ('databases' databases+=Database*)? ('datasources' datasources+=Level1Attribute*)?
-		//	('persistenceUnit' persistenceUnits+=Level1Attribute*)?
-		//	entities+=Entity*
-		//	enumerations+=Enumeration*
-		//	relationships+=Relationship*
-		//	customIds?='customIds'? ('idType' javaType=JvmTypeReference)?
-		//	'}';
+		//	('persistenceUnit' persistenceUnits+=Level1Attribute*)? entities+=Entity* enumerations+=Enumeration*
+		//	relationships+=Relationship* customIds?='customIds'? ('idType' javaType=JvmTypeReference)? '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'persistence' '{' ('databases' databases+=Database*)? ('datasources' datasources+=Level1Attribute*)? ('persistenceUnit'
@@ -820,8 +801,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//ChapterTesting:
-		//	'testing' '{' ('testMethods' testMethods+=Level1Attribute*)? ('testCases' testCases+=Level1Attribute*)?
-		//	'}';
+		//	'testing' '{' ('testMethods' testMethods+=Level1Attribute*)? ('testCases' testCases+=Level1Attribute*)? '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'testing' '{' ('testMethods' testMethods+=Level1Attribute*)? ('testCases' testCases+=Level1Attribute*)? '}'
@@ -884,10 +864,9 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//// Stakeholders
-		//ChapterStakeholder:
+		// ChapterStakeholder:
 		//	'stakeholders' '{' ('organizations' organizations+=Organization*)? ('groups' groups+=Group*)? ('roles' roles+=Role*)?
-		//	('persons' persons+=Person*)?
-		//	'}';
+		//	('persons' persons+=Person*)? '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'stakeholders' '{' ('organizations' organizations+=Organization*)? ('groups' groups+=Group*)? ('roles' roles+=Role*)?
@@ -988,8 +967,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cAttributesLevel1AttributeParserRuleCall_2_0 = (RuleCall)cAttributesAssignment_2.eContents().get(0);
 		
 		//Organization:
-		//	'organization' name=QualifiedName
-		//	attributes+=Level1Attribute*;
+		//	'organization' name=QualifiedName attributes+=Level1Attribute*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'organization' name=QualifiedName attributes+=Level1Attribute*
@@ -1020,8 +998,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cAttributesLevel1AttributeParserRuleCall_2_0 = (RuleCall)cAttributesAssignment_2.eContents().get(0);
 		
 		//Group:
-		//	'group' name=QualifiedName
-		//	attributes+=Level1Attribute*;
+		//	'group' name=QualifiedName attributes+=Level1Attribute*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'group' name=QualifiedName attributes+=Level1Attribute*
@@ -1052,8 +1029,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cAttributesLevel1AttributeParserRuleCall_2_0 = (RuleCall)cAttributesAssignment_2.eContents().get(0);
 		
 		//Role:
-		//	'role' name=QualifiedName
-		//	attributes+=Level1Attribute*;
+		//	'role' name=QualifiedName attributes+=Level1Attribute*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'role' name=QualifiedName attributes+=Level1Attribute*
@@ -1084,8 +1060,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cAttributesLevel1AttributeParserRuleCall_2_0 = (RuleCall)cAttributesAssignment_2.eContents().get(0);
 		
 		//Person:
-		//	'person' name=QualifiedName
-		//	attributes+=Level1Attribute*;
+		//	'person' name=QualifiedName attributes+=Level1Attribute*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'person' name=QualifiedName attributes+=Level1Attribute*
@@ -1126,10 +1101,9 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//// Environment
-		//ChapterEnvironment:
-		//	'environment' '{' ('infrastructure' infrastructure+=Level1Attribute*)? ('envVariables' testMethods+=Level1Attribute*)?
-		//	('runtime' runtime=Runtime)?
-		//	'}';
+		// ChapterEnvironment:
+		//	'environment' '{' ('infrastructure' infrastructure+=Level1Attribute*)? ('envVariables'
+		//	testMethods+=Level1Attribute*)? ('runtime' runtime=Runtime)? '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'environment' '{' ('infrastructure' infrastructure+=Level1Attribute*)? ('envVariables' testMethods+=Level1Attribute*)?
@@ -1211,10 +1185,9 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//// Runtime
-		//Runtime:
+		// Runtime:
 		//	'java' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('jdkVersion'
-		//	jdkVersion=VERSION)? ('jvm' jvm=JvmEnum)? ('version' version=VERSION)?
-		//	'}';
+		//	jdkVersion=VERSION)? ('jvm' jvm=JvmEnum)? ('version' version=VERSION)? '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'java' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('jdkVersion'
@@ -1322,10 +1295,9 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//// Database
-		//Database:
+		// Database:
 		//	'database' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('type'
-		//	type=DatabaseEnum)? ('version' version=VERSION)?
-		//	'}';
+		//	type=DatabaseEnum)? ('version' version=VERSION)? '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'database' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('type'
@@ -1420,9 +1392,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Entity:
 		//	'entity' name=QualifiedName ('extends' superType=JvmTypeReference)? '{' ('label' label=STRING)? ('documentation'
-		//	documentation=STRING)?
-		//	attributes+=Attribute*
-		//	'}';
+		//	documentation=STRING)? attributes+=Attribute* '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'entity' name=QualifiedName ('extends' superType=JvmTypeReference)? '{' ('label' label=STRING)? ('documentation'
@@ -1512,8 +1482,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Enumeration:
 		//	'enumeration' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? (enumValues+=ID
-		//	(',' enumValues+=ID)*)?
-		//	'}';
+		//	(',' enumValues+=ID)*)? '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'enumeration' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? (enumValues+=ID
@@ -1611,8 +1580,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Attribute:
 		//	'attribute' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)?
-		//	primaryKey?='primaryKey'? ('type' type=[Entity|QualifiedName] | 'javaType' javaType=JvmTypeReference)?
-		//	'}';
+		//	primaryKey?='primaryKey'? ('type' type=[Entity|QualifiedName] | 'javaType' javaType=JvmTypeReference)? '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'attribute' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)?
@@ -1728,10 +1696,9 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
 		
 		//Relationship:
-		//	'relationship' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)?
-		//	'from' from=[Entity|QualifiedName]
-		//	'to' to=[Entity|QualifiedName] ('action' action=XBlockExpression)? ('type' type=JvmTypeReference)?
-		//	'}';
+		//	'relationship' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? 'from'
+		//	from=[Entity|QualifiedName] 'to' to=[Entity|QualifiedName] ('action' action=XBlockExpression)? ('type'
+		//	type=JvmTypeReference)? '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'relationship' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? 'from'
@@ -1851,9 +1818,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Level1Attribute:
 		//	'attribute' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('value'
-		//	value=STRING)?
-		//	attributes+=Level1Attribute*
-		//	'}';
+		//	value=STRING)? attributes+=Level1Attribute* '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'attribute' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('value'
@@ -1927,10 +1892,8 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//// Business Processes
-		//ChapterBusinessProcesses:
-		//	'business' '{'
-		//	processes+=BusinessProcess*
-		//	'}';
+		// ChapterBusinessProcesses:
+		//	'business' '{' processes+=BusinessProcess* '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'business' '{' processes+=BusinessProcess* '}'
@@ -1975,8 +1938,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//BusinessProcess:
 		//	'process' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? (pools+=Pool+ |
-		//	flowNodes+=FlowNode+)
-		//	'}';
+		//	flowNodes+=FlowNode+) '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'process' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? (pools+=Pool+ |
@@ -2040,7 +2002,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	public class PoolElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.laegler.stubbr.lang.StubbrLang.Pool");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cFPoolAction_0 = (Action)cGroup.eContents().get(0);
+		private final Action cPooolAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cPoolKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameQualifiedNameParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
@@ -2065,20 +2027,16 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//Pool:
-		//	{FPool}
-		//	'pool' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('actor'
-		//	actor=[Stakeholder|QualifiedName])?
-		//	initializing?='initializing'?
-		//	flowNodes+=FlowNode*
-		//	'}';
+		//	{Poool} 'pool' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('actor'
+		//	actor=[Stakeholder|QualifiedName])? initializing?='initializing'? flowNodes+=FlowNode* '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{FPool} 'pool' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('actor'
+		//{Poool} 'pool' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('actor'
 		//actor=[Stakeholder|QualifiedName])? initializing?='initializing'? flowNodes+=FlowNode* '}'
 		public Group getGroup() { return cGroup; }
 		
-		//{FPool}
-		public Action getFPoolAction_0() { return cFPoolAction_0; }
+		//{Poool}
+		public Action getPooolAction_0() { return cPooolAction_0; }
 		
 		//'pool'
 		public Keyword getPoolKeyword_1() { return cPoolKeyword_1; }
@@ -2155,10 +2113,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cLaneParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		//FlowNode:
-		//	Activity
-		//	| Gateway
-		//	| Event
-		//	| Lane;
+		//	Activity | Gateway | Event | Lane;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//Activity | Gateway | Event | Lane
@@ -2204,10 +2159,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Lane:
 		//	'lane' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('actor'
-		//	actor=[Stakeholder|QualifiedName])?
-		//	initializing?='initializing'?
-		//	flowNodes+=FlowNode+
-		//	'}';
+		//	actor=[Stakeholder|QualifiedName])? initializing?='initializing'? flowNodes+=FlowNode+ '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'lane' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('actor'
@@ -2304,10 +2256,8 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cAttachmentsAttachmentParserRuleCall_6_0 = (RuleCall)cAttachmentsAssignment_6.eContents().get(0);
 		
 		//Event:
-		//	eventType=EventType ('type' eventDefinitionType=EventDefinitionType)?
-		//	nonInterrupting?='non-interrupting'?
-		//	name=ID? label=STRING? ('view' dialog=[View|QualifiedName])?
-		//	attachments+=Attachment*;
+		//	eventType=EventType ('type' eventDefinitionType=EventDefinitionType)? nonInterrupting?='non-interrupting'? name=ID?
+		//	label=STRING? ('view' dialog=[View|QualifiedName])? attachments+=Attachment*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//eventType=EventType ('type' eventDefinitionType=EventDefinitionType)? nonInterrupting?='non-interrupting'? name=ID?
@@ -2379,9 +2329,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSubProcessParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//Activity:
-		//	Task
-		//	| CallActivity
-		//	| SubProcess;
+		//	Task | CallActivity | SubProcess;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//Task | CallActivity | SubProcess
@@ -2414,8 +2362,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cAttachmentsAttachmentParserRuleCall_4_0 = (RuleCall)cAttachmentsAssignment_4.eContents().get(0);
 		
 		//Task:
-		//	taskType=TaskType name=ID? label=STRING? ('view' dialog=[View|QualifiedName])?
-		//	attachments+=Attachment*;
+		//	taskType=TaskType name=ID? label=STRING? ('view' dialog=[View|QualifiedName])? attachments+=Attachment*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//taskType=TaskType name=ID? label=STRING? ('view' dialog=[View|QualifiedName])? attachments+=Attachment*
@@ -2538,14 +2485,13 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//SubProcess:
-		//	'subprocess' name=QualifiedName '{' ('label' label=STRING)?
-		//	//('documentation' documentation=STRING)?
-		//	attachments+=Attachment*
-		//	flowNodes+=FlowNode+
-		//	'}';
+		//	'subprocess' name=QualifiedName '{' ('label' label=STRING)? //('documentation' documentation=STRING)?
+		//
+		//	attachments+=Attachment* flowNodes+=FlowNode+ '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'subprocess' name=QualifiedName '{' ('label' label=STRING)? //('documentation' documentation=STRING)?
+		//
 		//attachments+=Attachment* flowNodes+=FlowNode+ '}'
 		public Group getGroup() { return cGroup; }
 		
@@ -2574,7 +2520,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getLabelSTRINGTerminalRuleCall_3_1_0() { return cLabelSTRINGTerminalRuleCall_3_1_0; }
 		
 		////('documentation' documentation=STRING)?
-		//attachments+=Attachment*
+		// attachments+=Attachment*
 		public Assignment getAttachmentsAssignment_4() { return cAttachmentsAssignment_4; }
 		
 		//Attachment
@@ -2625,9 +2571,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cGatewayConvergingGatewayConvergingParserRuleCall_5_0 = (RuleCall)cGatewayConvergingAssignment_5.eContents().get(0);
 		
 		//GatewayDiverging:
-		//	gatewayType=GatewayType name=ID? label=STRING?
-		//	attachments+=Attachment*
-		//	options+=Option+
+		//	gatewayType=GatewayType name=ID? label=STRING? attachments+=Attachment* options+=Option+
 		//	gatewayConverging=GatewayConverging;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -2686,8 +2630,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cAttachmentsAttachmentParserRuleCall_3_0 = (RuleCall)cAttachmentsAssignment_3.eContents().get(0);
 		
 		//GatewayConverging:
-		//	('merge' gatewayType=GatewayType) name=ID? label=STRING?
-		//	attachments+=Attachment*;
+		//	('merge' gatewayType=GatewayType) name=ID? label=STRING? attachments+=Attachment*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//('merge' gatewayType=GatewayType) name=ID? label=STRING? attachments+=Attachment*
@@ -2749,55 +2692,49 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	public class OptionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.laegler.stubbr.lang.StubbrLang.Option");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cFOptionAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cOptionKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cDefaultAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final Keyword cDefaultDefaultKeyword_2_0 = (Keyword)cDefaultAssignment_2.eContents().get(0);
-		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
-		private final Assignment cLabelAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cLabelSTRINGTerminalRuleCall_4_0 = (RuleCall)cLabelAssignment_4.eContents().get(0);
-		private final Assignment cFlowNodesAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cFlowNodesOptionFlowNodeParserRuleCall_5_0 = (RuleCall)cFlowNodesAssignment_5.eContents().get(0);
+		private final Keyword cOptionKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cDefaultAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cDefaultDefaultKeyword_1_0 = (Keyword)cDefaultAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Assignment cLabelAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cLabelSTRINGTerminalRuleCall_3_0 = (RuleCall)cLabelAssignment_3.eContents().get(0);
+		private final Assignment cFlowNodesAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cFlowNodesOptionFlowNodeParserRuleCall_4_0 = (RuleCall)cFlowNodesAssignment_4.eContents().get(0);
 		
 		//Option:
-		//	{FOption}
-		//	'option' default?='default'? name=ID? label=STRING?
-		//	flowNodes+=OptionFlowNode*;
+		//	'option' default?='default'? name=ID? label=STRING? flowNodes+=OptionFlowNode*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{FOption} 'option' default?='default'? name=ID? label=STRING? flowNodes+=OptionFlowNode*
+		//'option' default?='default'? name=ID? label=STRING? flowNodes+=OptionFlowNode*
 		public Group getGroup() { return cGroup; }
 		
-		//{FOption}
-		public Action getFOptionAction_0() { return cFOptionAction_0; }
-		
 		//'option'
-		public Keyword getOptionKeyword_1() { return cOptionKeyword_1; }
+		public Keyword getOptionKeyword_0() { return cOptionKeyword_0; }
 		
 		//default?='default'?
-		public Assignment getDefaultAssignment_2() { return cDefaultAssignment_2; }
+		public Assignment getDefaultAssignment_1() { return cDefaultAssignment_1; }
 		
 		//'default'
-		public Keyword getDefaultDefaultKeyword_2_0() { return cDefaultDefaultKeyword_2_0; }
+		public Keyword getDefaultDefaultKeyword_1_0() { return cDefaultDefaultKeyword_1_0; }
 		
 		//name=ID?
-		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 		
 		//label=STRING?
-		public Assignment getLabelAssignment_4() { return cLabelAssignment_4; }
+		public Assignment getLabelAssignment_3() { return cLabelAssignment_3; }
 		
 		//STRING
-		public RuleCall getLabelSTRINGTerminalRuleCall_4_0() { return cLabelSTRINGTerminalRuleCall_4_0; }
+		public RuleCall getLabelSTRINGTerminalRuleCall_3_0() { return cLabelSTRINGTerminalRuleCall_3_0; }
 		
 		//flowNodes+=OptionFlowNode*
-		public Assignment getFlowNodesAssignment_5() { return cFlowNodesAssignment_5; }
+		public Assignment getFlowNodesAssignment_4() { return cFlowNodesAssignment_4; }
 		
 		//OptionFlowNode
-		public RuleCall getFlowNodesOptionFlowNodeParserRuleCall_5_0() { return cFlowNodesOptionFlowNodeParserRuleCall_5_0; }
+		public RuleCall getFlowNodesOptionFlowNodeParserRuleCall_4_0() { return cFlowNodesOptionFlowNodeParserRuleCall_4_0; }
 	}
 	public class AttachmentElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.laegler.stubbr.lang.StubbrLang.Attachment");
@@ -2810,12 +2747,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cFlowParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		
 		//Attachment:
-		//	SendMessage
-		//	| SendData
-		//	| DataIO
-		//	| Annotation
-		//	| Documentation
-		//	| Flow;
+		//	SendMessage | SendData | DataIO | Annotation | Documentation | Flow;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//SendMessage | SendData | DataIO | Annotation | Documentation | Flow
@@ -3174,11 +3106,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDiWaypointParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
 		//DiDiagramElement:
-		//	DiDiagram
-		//	| DiPlane
-		//	| DiPlaneElement
-		//	| DiBounds
-		//	| DiWaypoint;
+		//	DiDiagram | DiPlane | DiPlaneElement | DiBounds | DiWaypoint;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//DiDiagram | DiPlane | DiPlaneElement | DiBounds | DiWaypoint
@@ -3211,8 +3139,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cPlaneDiPlaneParserRuleCall_3_0 = (RuleCall)cPlaneAssignment_3.eContents().get(0);
 		
 		//DiDiagram:
-		//	'diagram' name=ID? label=STRING?
-		//	plane=DiPlane;
+		//	'diagram' name=ID? label=STRING? plane=DiPlane;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'diagram' name=ID? label=STRING? plane=DiPlane
@@ -3254,8 +3181,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cPlaneElementsDiPlaneElementParserRuleCall_3_0 = (RuleCall)cPlaneElementsAssignment_3.eContents().get(0);
 		
 		//DiPlane:
-		//	'plane' name=ID? ('for' bpmnElement=[BusinessProcess|QualifiedName])?
-		//	planeElements+=DiPlaneElement+
+		//	'plane' name=ID? ('for' bpmnElement=[BusinessProcess|QualifiedName])? planeElements+=DiPlaneElement+
 		//	//	'end' 'plane'
 		//;
 		@Override public ParserRule getRule() { return rule; }
@@ -3300,8 +3226,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDiEdgeParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//DiPlaneElement:
-		//	DiShape
-		//	| DiEdge;
+		//	DiShape | DiEdge;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//DiShape | DiEdge
@@ -3412,8 +3337,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//DiEdge:
 		//	'edge' name=ID ('for' sequenceFlow=[SequenceFlow|QualifiedName]) ('from' sourceDiagramShape=[DiShape|QualifiedName])
-		//	('to' targetDiagramShape=[DiShape|QualifiedName]) waypoints+=DiWaypoint+
-		//	//	'end' 'edge'
+		//	('to' targetDiagramShape=[DiShape|QualifiedName]) waypoints+=DiWaypoint+ //	'end' 'edge'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -3708,13 +3632,9 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//// Presentation
-		//ChapterPresentation:
-		//	'ui' '{' ('framework' uiFramework=UiFramework)?
-		//	layouts+=Layout*
-		//	stylings+=Styling*
-		//	views+=View*
-		//	transitions+=Transition*
-		//	'}';
+		// ChapterPresentation:
+		//	'ui' '{' ('framework' uiFramework=UiFramework)? layouts+=Layout* stylings+=Styling* views+=View*
+		//	transitions+=Transition* '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'ui' '{' ('framework' uiFramework=UiFramework)? layouts+=Layout* stylings+=Styling* views+=View*
@@ -3883,8 +3803,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		//Styling:
 		//	'styling' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('baseColor'
 		//	baseColor=STRING)? ('highLightColor' highLightColor=STRING)? ('textColor' textColor=STRING)? ('fontSize'
-		//	fontSize=STRING)?
-		//	'}';
+		//	fontSize=STRING)? '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'styling' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('baseColor'
@@ -4040,9 +3959,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		//View:
 		//	'view' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('layout'
 		//	layout=[Layout|QualifiedName])? ('styling' styling=[Styling|QualifiedName])? ('associatedEntities'
-		//	assocEntities+=[Entity|QualifiedName] (',' assocEntities+=[Entity|QualifiedName])*)?
-		//	elements+=Element*
-		//	'}';
+		//	assocEntities+=[Entity|QualifiedName] (',' assocEntities+=[Entity|QualifiedName])*)? elements+=Element* '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'view' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('layout'
@@ -4191,11 +4108,9 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Transition:
-		//	'transition' name=QualifiedName '{' ('from' from=[UiElement|QualifiedName]
-		//	'to' to=[UiElement|QualifiedName] | ('triggerAction' name=QualifiedName 'from'
-		//	triggerElement=[UiElement|QualifiedName] ('to' target=JvmTypeReference)? ('callToAction'
-		//	callToAction=XBlockExpression)?)?)
-		//	'}';
+		//	'transition' name=QualifiedName '{' ('from' from=[UiElement|QualifiedName] 'to' to=[UiElement|QualifiedName] |
+		//	('triggerAction' name=QualifiedName 'from' triggerElement=[UiElement|QualifiedName] ('to' target=JvmTypeReference)?
+		//	('callToAction' callToAction=XBlockExpression)?)?) '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'transition' name=QualifiedName '{' ('from' from=[UiElement|QualifiedName] 'to' to=[UiElement|QualifiedName] |
@@ -4314,13 +4229,15 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cAddressParserRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
 		
 		////	StartSection returns Section:
-		////	'Startabschnitt' name=QualifiedName ('mit dem Label' label=STRING)?;
-		////
+		// //	'Startabschnitt' name=QualifiedName ('mit dem Label' label=STRING)?;
+		// //
+		//
 		////Section:
-		////	'Abschnitt' name=QualifiedName ('mit dem Label' label=STRING)?
+		// //	'Abschnitt' name=QualifiedName ('mit dem Label' label=STRING)?
+		//
 		////	('Beschreibung:' documentation=STRING)?
-		////	(formElements+=Element)+;
-		//Element:
+		// //	(formElements+=Element)+;
+		// Element:
 		//	ListView | OutputText | Button | InputField | RadioButtonGroup | CheckBoxGroup | Upload | Name | Birthday | Address;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -4400,8 +4317,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		//ListView:
 		//	'listView' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('titelBar'
 		//	type=[Entity|QualifiedName] | ('values' javaType=JvmTypeReference) ('valuesFromAction' action=JvmTypeReference))?
-		//	('width' width=INT)? ('height' height=INT)?
-		//	'}';
+		//	('width' width=INT)? ('height' height=INT)? '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'listView' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('titelBar'
@@ -4554,8 +4470,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//OutputText:
 		//	'outputText' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('value'
-		//	value=STRING)? ('style' style=[Styling|QualifiedName])? ('width' width=INT)? ('height' height=INT)?
-		//	'}';
+		//	value=STRING)? ('style' style=[Styling|QualifiedName])? ('width' width=INT)? ('height' height=INT)? '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'outputText' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('value'
@@ -4688,8 +4603,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Button:
 		//	'button' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('action'
-		//	value=STRING)? ('style' style=[Styling|QualifiedName])? ('width' width=INT)? ('height' height=INT)?
-		//	'}';
+		//	value=STRING)? ('style' style=[Styling|QualifiedName])? ('width' width=INT)? ('height' height=INT)? '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'button' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('action' value=STRING)?
@@ -4825,8 +4739,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		//InputField:
 		//	'inputField' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('type'
 		//	type=[Entity|QualifiedName] | 'javaType' javaType=[javaType::JvmType|QualifiedName])? ('width' width=INT)? ('height'
-		//	height=INT)?
-		//	'}';
+		//	height=INT)? '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'inputField' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('type'
@@ -4969,8 +4882,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		//Name:
 		//	'name' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('type'
 		//	type=[Entity|QualifiedName] | 'javaType' javaType=[javaType::JvmType|QualifiedName])? ('width' width=INT)? ('height'
-		//	height=INT)?
-		//	'}';
+		//	height=INT)? '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'name' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('type'
@@ -5113,8 +5025,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		//Birthday:
 		//	'birthday' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('type'
 		//	type=[Entity|QualifiedName] | 'javaType' javaType=[javaType::JvmType|QualifiedName])? ('width' width=INT)? ('height'
-		//	height=INT)?
-		//	'}';
+		//	height=INT)? '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'birthday' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('type'
@@ -5257,8 +5168,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		//Address:
 		//	'address' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('type'
 		//	type=[Entity|QualifiedName] | 'javaType' javaType=[javaType::JvmType|QualifiedName])? ('width' width=INT)? ('height'
-		//	height=INT)?
-		//	'}';
+		//	height=INT)? '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'address' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('type'
@@ -5401,8 +5311,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		//RadioButtonGroup:
 		//	'radioButtonGroup' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('type'
 		//	type=[Entity|QualifiedName] | 'javaType' javaType=[javaType::JvmType|QualifiedName])? ('width' width=INT)? ('height'
-		//	height=INT)?
-		//	'}';
+		//	height=INT)? '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'radioButtonGroup' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('type'
@@ -5545,8 +5454,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		//CheckBoxGroup:
 		//	'checkBoxGruppe' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('type'
 		//	type=[Entity|QualifiedName] | 'javaType' javaType=[javaType::JvmType|QualifiedName])? ('width' width=INT)? ('height'
-		//	height=INT)?
-		//	'}';
+		//	height=INT)? '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'checkBoxGruppe' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('type'
@@ -5689,8 +5597,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		//Upload:
 		//	'upload' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('type'
 		//	type=[Entity|QualifiedName] | 'javaType' javaType=[javaType::JvmType|QualifiedName])? ('width' width=INT)? ('height'
-		//	height=INT)?
-		//	'}';
+		//	height=INT)? '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'upload' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('type'
@@ -5802,9 +5709,8 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cWebservicesWebserviceParserRuleCall_1_0 = (RuleCall)cWebservicesAssignment_1.eContents().get(0);
 		
 		////WebService
-		//ChapterWebservice:
-		//	'webservices'
-		//	webservices+=Webservice*;
+		// ChapterWebservice:
+		//	'webservices' webservices+=Webservice*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'webservices' webservices+=Webservice*
@@ -5881,13 +5787,10 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_17 = (Keyword)cGroup.eContents().get(17);
 		
 		//RestWebservice:
-		//	'rest' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)?
-		//	'specification' specification=STRING
-		//	'languages' languages+=RestLanguage (',' languages+=RestLanguage)*
-		//	'basepath' basepath=STRING
-		//	'exclude' excludeEntities+=[Entity|QualifiedName] (',' excludeEntities+=[Entity|QualifiedName])*
-		//	'transferobjects' dtos+=Entity*
-		//	'}';
+		//	'rest' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? 'specification'
+		//	specification=STRING 'languages' languages+=RestLanguage (',' languages+=RestLanguage)* 'basepath' basepath=STRING
+		//	'exclude' excludeEntities+=[Entity|QualifiedName] (',' excludeEntities+=[Entity|QualifiedName])* 'transferobjects'
+		//	dtos+=Entity* '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'rest' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? 'specification'
@@ -6046,12 +5949,9 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_14 = (Keyword)cGroup.eContents().get(14);
 		
 		//SoapWebservice:
-		//	'soap' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)?
-		//	'specification' specification=STRING
-		//	'namespace' namespace=STRING
-		//	'exclude' excludeEntities+=[Entity|QualifiedName] (',' excludeEntities+=[Entity|QualifiedName])*
-		//	'transferobjects' dtos+=Entity*
-		//	'}';
+		//	'soap' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? 'specification'
+		//	specification=STRING 'namespace' namespace=STRING 'exclude' excludeEntities+=[Entity|QualifiedName] (','
+		//	excludeEntities+=[Entity|QualifiedName])* 'transferobjects' dtos+=Entity* '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'soap' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? 'specification'
@@ -6168,9 +6068,8 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSpecificationsSTRINGTerminalRuleCall_2_2_1_0 = (RuleCall)cSpecificationsAssignment_2_2_1.eContents().get(0);
 		
 		////Behavior
-		//ChapterBehavior:
-		//	'behavior'
-		//	features+=Feature* ('specifications' specifications+=STRING (',' specifications+=STRING)*)?;
+		// ChapterBehavior:
+		//	'behavior' features+=Feature* ('specifications' specifications+=STRING (',' specifications+=STRING)*)?;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'behavior' features+=Feature* ('specifications' specifications+=STRING (',' specifications+=STRING)*)?
@@ -6234,8 +6133,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Feature:
 		//	'feature' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('specification'
-		//	specification=STRING)?
-		//	scenarios+=Scenario* '}';
+		//	specification=STRING)? scenarios+=Scenario* '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'feature' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('specification'
@@ -6324,10 +6222,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Scenario:
 		//	'scenario' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)?
-		//	givenSteps+=GivenStep*
-		//	whenSteps+=WhenStep*
-		//	thenSteps+=ThenStep*
-		//	'}';
+		//	givenSteps+=GivenStep* whenSteps+=WhenStep* thenSteps+=ThenStep* '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'scenario' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? givenSteps+=GivenStep*
@@ -6446,8 +6341,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//GivenStep:
 		//	'given' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('actor'
-		//	actor=[Stakeholder|QualifiedName] | 'element' actorElement=[UiElement|QualifiedName] | objectWildcard=STRING)
-		//	'}';
+		//	actor=[Stakeholder|QualifiedName] | 'element' actorElement=[UiElement|QualifiedName] | objectWildcard=STRING) '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'given' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('actor'
@@ -6582,14 +6476,13 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		//WhenStep:
 		//	'when' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('actor'
 		//	actor=[Stakeholder|QualifiedName] | 'element' actorElement=[UiElement|QualifiedName] | objectWildcard=STRING)
-		//	('action' action=BehaviorAction) ('value' value=STRING)? ('into'? 'element' subjectElement=[UiElement|QualifiedName] |
-		//	subjectWildcard=STRING)
-		//	'}';
+		//	('action' action=BehaviorAction) ('value' value=STRING)? ('into'? 'element' subjectElement=[UiElement|QualifiedName]
+		//	| subjectWildcard=STRING) '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'when' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('actor'
-		//actor=[Stakeholder|QualifiedName] | 'element' actorElement=[UiElement|QualifiedName] | objectWildcard=STRING) ('action'
-		//action=BehaviorAction) ('value' value=STRING)? ('into'? 'element' subjectElement=[UiElement|QualifiedName] |
+		//actor=[Stakeholder|QualifiedName] | 'element' actorElement=[UiElement|QualifiedName] | objectWildcard=STRING)
+		//('action' action=BehaviorAction) ('value' value=STRING)? ('into'? 'element' subjectElement=[UiElement|QualifiedName] |
 		//subjectWildcard=STRING) '}'
 		public Group getGroup() { return cGroup; }
 		
@@ -6774,8 +6667,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		//	'then' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('actor'
 		//	actor=[Stakeholder|QualifiedName] | 'element' actorElement=[UiElement|QualifiedName] | objectWildcard=STRING)
 		//	'should' ('action' action=BehaviorAction) ('value' value=STRING)? ('into'? 'element'
-		//	subjectElement=[UiElement|QualifiedName] | subjectWildcard=STRING)?
-		//	'}';
+		//	subjectElement=[UiElement|QualifiedName] | subjectWildcard=STRING)? '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'then' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('actor'
@@ -6930,10 +6822,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRUCyrillicSmallLetterErCyrillicSmallLetterUCyrillicSmallLetterEsCyrillicSmallLetterEsCyrillicSmallLetterKaCyrillicSmallLetterICyrillicSmallLetterShortIKeyword_3_0 = (Keyword)cRUEnumLiteralDeclaration_3.eContents().get(0);
 		
 		//enum Locale:
-		//	DE='deutsch' |
-		//	EN='english' |
-		//	ES='español' |
-		//	RU='русский';
+		//	DE='deutsch' | EN='english' | ES='español' | RU='русский';
 		public EnumRule getRule() { return rule; }
 		
 		//DE='deutsch' | EN='english' | ES='español' | RU='русский'
@@ -7004,24 +6893,10 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cDOCKERDockerKeyword_17_0 = (Keyword)cDOCKEREnumLiteralDeclaration_17.eContents().get(0);
 		
 		//enum DevProjectType:
-		//	PARENT='parent' |
-		//	DOCS='documentation' |
-		//	ANNOTATIONS='annotations' |
-		//	COMMONS='commons' |
-		//	DATA_MODEL='dataModel' |
-		//	PERSISTENCE='persistence' |
-		//	BUSINESS_MODEL='businessModel' |
-		//	BUSINESS='business' |
-		//	PROCESS='process' |
-		//	MATLAB='matlab' |
-		//	WEB='webProject' |
-		//	REST_GENERATE='restGenerator' |
-		//	REST_SERVICE='restService' |
-		//	REST_CLIENT='restClient' |
-		//	SOAP_SERVICE='soapService' |
-		//	SOAP__CLIENT='soapClient' |
-		//	EAR='ear' |
-		//	DOCKER='docker';
+		//	PARENT='parent' | DOCS='documentation' | ANNOTATIONS='annotations' | COMMONS='commons' | DATA_MODEL='dataModel' |
+		//	PERSISTENCE='persistence' | BUSINESS_MODEL='businessModel' | BUSINESS='business' | PROCESS='process' |
+		//	MATLAB='matlab' | WEB='webProject' | REST_GENERATE='restGenerator' | REST_SERVICE='restService' |
+		//	REST_CLIENT='restClient' | SOAP_SERVICE='soapService' | SOAP__CLIENT='soapClient' | EAR='ear' | DOCKER='docker';
 		public EnumRule getRule() { return rule; }
 		
 		//PARENT='parent' | DOCS='documentation' | ANNOTATIONS='annotations' | COMMONS='commons' | DATA_MODEL='dataModel' |
@@ -7149,9 +7024,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cJAVA_SE_1_616Keyword_2_0 = (Keyword)cJAVA_SE_1_6EnumLiteralDeclaration_2.eContents().get(0);
 		
 		//enum JvmEnum:
-		//	JAVA_SE_1_8='1.8' |
-		//	JAVA_SE_1_7='1.7' |
-		//	JAVA_SE_1_6='1.6';
+		//	JAVA_SE_1_8='1.8' | JAVA_SE_1_7='1.7' | JAVA_SE_1_6='1.6';
 		public EnumRule getRule() { return rule; }
 		
 		//JAVA_SE_1_8='1.8' | JAVA_SE_1_7='1.7' | JAVA_SE_1_6='1.6'
@@ -7188,10 +7061,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cH2H2Keyword_3_0 = (Keyword)cH2EnumLiteralDeclaration_3.eContents().get(0);
 		
 		//enum DatabaseEnum:
-		//	MYSQL='mySql' |
-		//	MONGO_DB='mongoDb' |
-		//	ORACLE_DB='oracleDb' |
-		//	H2='h2';
+		//	MYSQL='mySql' | MONGO_DB='mongoDb' | ORACLE_DB='oracleDb' | H2='h2';
 		public EnumRule getRule() { return rule; }
 		
 		//MYSQL='mySql' | MONGO_DB='mongoDb' | ORACLE_DB='oracleDb' | H2='h2'
@@ -7232,9 +7102,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLISTListKeyword_2_0 = (Keyword)cLISTEnumLiteralDeclaration_2.eContents().get(0);
 		
 		//enum BaseTypeEnum:
-		//	STRING='String' |
-		//	BOOLEAN='boolean' |
-		//	LIST='List';
+		//	STRING='String' | BOOLEAN='boolean' | LIST='List';
 		public EnumRule getRule() { return rule; }
 		
 		//STRING='String' | BOOLEAN='boolean' | LIST='List'
@@ -7279,14 +7147,8 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cUSERUserTaskKeyword_7_0 = (Keyword)cUSEREnumLiteralDeclaration_7.eContents().get(0);
 		
 		//enum TaskType:
-		//	BLANK='task'
-		//	| BUSINESSRULE='business rule task'
-		//	| MANUAL='manual task'
-		//	| RECEIVE='receive task'
-		//	| SCRIPT='script task'
-		//	| SEND='send task'
-		//	| SERVICE='service task'
-		//	| USER='user task';
+		//	BLANK='task' | BUSINESSRULE='business rule task' | MANUAL='manual task' | RECEIVE='receive task' |
+		//	SCRIPT='script task' | SEND='send task' | SERVICE='service task' | USER='user task';
 		public EnumRule getRule() { return rule; }
 		
 		//BLANK='task' | BUSINESSRULE='business rule task' | MANUAL='manual task' | RECEIVE='receive task' | SCRIPT='script task'
@@ -7360,13 +7222,9 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cENDEndEventKeyword_6_0 = (Keyword)cENDEnumLiteralDeclaration_6.eContents().get(0);
 		
 		//enum EventType:
-		//	EVENT='event'
-		//	| START='start event'
-		//	| THROW='throwing event'
-		//	| CATCH='catching event'
-		//	| INTERMEDIATE_CATCH='intermediate catching event'
-		//	| INTERMEDIATE_THROW='intermediate throwing event'
-		//	| END='end event';
+		//	EVENT='event' | START='start event' | THROW='throwing event' | CATCH='catching event' |
+		//	INTERMEDIATE_CATCH='intermediate catching event' | INTERMEDIATE_THROW='intermediate throwing event' |
+		//	END='end event';
 		public EnumRule getRule() { return rule; }
 		
 		//EVENT='event' | START='start event' | THROW='throwing event' | CATCH='catching event' |
@@ -7446,19 +7304,9 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cPARALLEL_MULTIPLEParallelMultipleKeyword_12_0 = (Keyword)cPARALLEL_MULTIPLEEnumLiteralDeclaration_12.eContents().get(0);
 		
 		//enum EventDefinitionType:
-		//	BLANK="blank"
-		//	| MESSAGE='message'
-		//	| TIMER='timer'
-		//	| ERROR='error'
-		//	| ESCALATION='escalation'
-		//	| CANCEL='cancel'
-		//	| COMPENSATION='compensation'
-		//	| CONDITIONAL='conditional'
-		//	| LINK='link'
-		//	| SIGNAL='signal'
-		//	| TERMINATE='terminate'
-		//	| MULTIPLE='multiple'
-		//	| PARALLEL_MULTIPLE='parallel multiple';
+		//	BLANK="blank" | MESSAGE='message' | TIMER='timer' | ERROR='error' | ESCALATION='escalation' | CANCEL='cancel' |
+		//	COMPENSATION='compensation' | CONDITIONAL='conditional' | LINK='link' | SIGNAL='signal' | TERMINATE='terminate' |
+		//	MULTIPLE='multiple' | PARALLEL_MULTIPLE='parallel multiple';
 		public EnumRule getRule() { return rule; }
 		
 		//BLANK="blank" | MESSAGE='message' | TIMER='timer' | ERROR='error' | ESCALATION='escalation' | CANCEL='cancel' |
@@ -7567,15 +7415,8 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cCOMPLEXComplexKeyword_8_0 = (Keyword)cCOMPLEXEnumLiteralDeclaration_8.eContents().get(0);
 		
 		//enum GatewayType:
-		//	BLANK='gateway'
-		//	| PARALLEL='parallel'
-		//	| PARALLEL='and'
-		//	| INCLUSIVE='inclusive'
-		//	| INCLUSIVE='or gateway'
-		//	| EXCLUSIVE='exclusive'
-		//	| EXCLUSIVE='xor'
-		//	| EVENTBASED='eventbased'
-		//	| COMPLEX='complex';
+		//	BLANK='gateway' | PARALLEL='parallel' | PARALLEL='and' | INCLUSIVE='inclusive' | INCLUSIVE='or gateway' |
+		//	EXCLUSIVE='exclusive' | EXCLUSIVE='xor' | EVENTBASED='eventbased' | COMPLEX='complex';
 		public EnumRule getRule() { return rule; }
 		
 		//BLANK='gateway' | PARALLEL='parallel' | PARALLEL='and' | INCLUSIVE='inclusive' | INCLUSIVE='or gateway' |
@@ -7647,9 +7488,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cOUTPUTDataOutputKeyword_2_0 = (Keyword)cOUTPUTEnumLiteralDeclaration_2.eContents().get(0);
 		
 		//enum DataIOType:
-		//	BLANK='data input/output'
-		//	| INPUT='data input'
-		//	| OUTPUT='data output';
+		//	BLANK='data input/output' | INPUT='data input' | OUTPUT='data output';
 		public EnumRule getRule() { return rule; }
 		
 		//BLANK='data input/output' | INPUT='data input' | OUTPUT='data output'
@@ -7688,8 +7527,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cUMLUMLKeyword_4_0 = (Keyword)cUMLEnumLiteralDeclaration_4.eContents().get(0);
 		
 		//enum FormatType:
-		//	BLANK='FormatType not specified'
-		//	| BPMN | BPEL | JBPM | UML;
+		//	BLANK='FormatType not specified' | BPMN | BPEL | JBPM | UML;
 		public EnumRule getRule() { return rule; }
 		
 		//BLANK='FormatType not specified' | BPMN | BPEL | JBPM | UML
@@ -7750,16 +7588,9 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSPARXSparxEnterpriseArchitectKeyword_9_0 = (Keyword)cSPARXEnumLiteralDeclaration_9.eContents().get(0);
 		
 		//enum EditorType:
-		//	BLANK='TargetType not specified'
-		//	| BPMNMODELER='Eclipse BPMN-Modeler'
-		//	| YOAQIANG='Yoaqiang'
-		//	| SIGNAVIO='Signavio Process Editor'
-		//	| MODELIO='Modelio'
-		//	| VISIO='Microsoft Visio'
-		//	| ADONIS='Adonis'
-		//	| ARIS='ARIS Express'
-		//	| ACTIVITI='Activiti Modeler'
-		//	| SPARX='Sparx Enterprise Architect';
+		//	BLANK='TargetType not specified' | BPMNMODELER='Eclipse BPMN-Modeler' | YOAQIANG='Yoaqiang' |
+		//	SIGNAVIO='Signavio Process Editor' | MODELIO='Modelio' | VISIO='Microsoft Visio' | ADONIS='Adonis' |
+		//	ARIS='ARIS Express' | ACTIVITI='Activiti Modeler' | SPARX='Sparx Enterprise Architect';
 		public EnumRule getRule() { return rule; }
 		
 		//BLANK='TargetType not specified' | BPMNMODELER='Eclipse BPMN-Modeler' | YOAQIANG='Yoaqiang' |
@@ -7840,10 +7671,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cCHOREOGRAPHYChoreographyKeyword_3_0 = (Keyword)cCHOREOGRAPHYEnumLiteralDeclaration_3.eContents().get(0);
 		
 		//enum ModelType:
-		//	BLANK='ModelType not specified'
-		//	| PROCESS='process'
-		//	| COLLABORATION='collaboration'
-		//	| CHOREOGRAPHY='choreography';
+		//	BLANK='ModelType not specified' | PROCESS='process' | COLLABORATION='collaboration' | CHOREOGRAPHY='choreography';
 		public EnumRule getRule() { return rule; }
 		
 		//BLANK='ModelType not specified' | PROCESS='process' | COLLABORATION='collaboration' | CHOREOGRAPHY='choreography'
@@ -7882,8 +7710,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cANGULAR_JSAngularJSKeyword_1_0 = (Keyword)cANGULAR_JSEnumLiteralDeclaration_1.eContents().get(0);
 		
 		//enum UiFramework:
-		//	JSF |
-		//	ANGULAR_JS='AngularJS';
+		//	JSF | ANGULAR_JS='AngularJS';
 		public EnumRule getRule() { return rule; }
 		
 		//JSF | ANGULAR_JS='AngularJS'
@@ -7922,14 +7749,8 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cHTML2_CLIENTHtml2Keyword_7_0 = (Keyword)cHTML2_CLIENTEnumLiteralDeclaration_7.eContents().get(0);
 		
 		//enum RestLanguage:
-		//	RESTEASY_SERVER='jaxrs-resteasy' |
-		//	JAXRS_SERVER='jaxrs-spec' |
-		//	PHP_SERVER='lumen' |
-		//	JAVA_CLIENT='java' |
-		//	ANDROID_CLIENT='android' |
-		//	IOS_CLIENT='swift' |
-		//	PHP_CLIENT='php' |
-		//	HTML2_CLIENT='html2';
+		//	RESTEASY_SERVER='jaxrs-resteasy' | JAXRS_SERVER='jaxrs-spec' | PHP_SERVER='lumen' | JAVA_CLIENT='java' |
+		//	ANDROID_CLIENT='android' | IOS_CLIENT='swift' | PHP_CLIENT='php' | HTML2_CLIENT='html2';
 		public EnumRule getRule() { return rule; }
 		
 		//RESTEASY_SERVER='jaxrs-resteasy' | JAXRS_SERVER='jaxrs-spec' | PHP_SERVER='lumen' | JAVA_CLIENT='java' |
@@ -8013,18 +7834,9 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cBE_OPENEDBeOpenedKeyword_11_0 = (Keyword)cBE_OPENEDEnumLiteralDeclaration_11.eContents().get(0);
 		
 		//enum BehaviorAction:
-		//	OPENS='opens' |
-		//	ENTERS='enters' |
-		//	ENABLED='enables' |
-		//	CLICKS='clicks' |
-		//	SELECTS='selects' |
-		//	FOCUSES='focuses' |
-		//	GETS_ENABLED='gets enabled' |
-		//	GETS_CLICKED='gets klicked' |
-		//	GETS_SELECTED='gets selected' |
-		//	IS_FOCUSED='is focused' |
-		//	BE_VISIBLE='be visible' |
-		//	BE_OPENED='be opened';
+		//	OPENS='opens' | ENTERS='enters' | ENABLED='enables' | CLICKS='clicks' | SELECTS='selects' | FOCUSES='focuses' |
+		//	GETS_ENABLED='gets enabled' | GETS_CLICKED='gets klicked' | GETS_SELECTED='gets selected' | IS_FOCUSED='is focused' |
+		//	BE_VISIBLE='be visible' | BE_OPENED='be opened';
 		public EnumRule getRule() { return rule; }
 		
 		//OPENS='opens' | ENTERS='enters' | ENABLED='enables' | CLICKS='clicks' | SELECTS='selects' | FOCUSES='focuses' |
@@ -8353,23 +8165,13 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Stubb:
-	//	'package' importedNamespace=QualifiedName
-	//	importSection=XImportSection?
-	//	'project' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('packageName'
-	//	packageName=QualifiedName)? ('prefix' prefix=ID)? ('version' version=VERSION)? ('author' author=STRING)? ('eMail'
-	//	email=STRING)? ('language' languages+=Locale (',' languages+=Locale)*)?
-	//	globals=ChapterGlobals?
-	//	Stakeholders=ChapterStakeholder?
-	//	projectManagement=ChapterProjectManagement?
-	//	environment=ChapterEnvironment?
-	//	structure=ChapterProjectStructure?
-	//	persistence=ChapterPersistence?
-	//	business=ChapterBusinessProcesses?
-	//	presentation=ChapterPresentation?
-	//	webservice=ChapterWebservice?
-	//	behavior=ChapterBehavior?
-	//	testing=ChapterTesting?
-	//	'}';
+	//	'package' importedNamespace=QualifiedName importSection=XImportSection? 'project' name=QualifiedName '{' ('label'
+	//	label=STRING)? ('documentation' documentation=STRING)? ('packageName' packageName=QualifiedName)? ('prefix'
+	//	prefix=ID)? ('version' version=VERSION)? ('author' author=STRING)? ('eMail' email=STRING)? ('language'
+	//	languages+=Locale (',' languages+=Locale)*)? globals=ChapterGlobals? Stakeholders=ChapterStakeholder?
+	//	projectManagement=ChapterProjectManagement? environment=ChapterEnvironment? structure=ChapterProjectStructure?
+	//	persistence=ChapterPersistence? business=ChapterBusinessProcesses? presentation=ChapterPresentation?
+	//	webservice=ChapterWebservice? behavior=ChapterBehavior? testing=ChapterTesting? '}';
 	public StubbElements getStubbAccess() {
 		return pStubb;
 	}
@@ -8379,10 +8181,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum Locale:
-	//	DE='deutsch' |
-	//	EN='english' |
-	//	ES='español' |
-	//	RU='русский';
+	//	DE='deutsch' | EN='english' | ES='español' | RU='русский';
 	public LocaleElements getLocaleAccess() {
 		return eLocale;
 	}
@@ -8403,8 +8202,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ChapterGlobals:
-	//	'globals' '{' ('loggerName' loggerName=ID)? ('loggerType' loggerType=QualifiedName)?
-	//	useSpringMVC?='useSpringMVC'?
+	//	'globals' '{' ('loggerName' loggerName=ID)? ('loggerType' loggerType=QualifiedName)? useSpringMVC?='useSpringMVC'?
 	//	'}';
 	public ChapterGlobalsElements getChapterGlobalsAccess() {
 		return pChapterGlobals;
@@ -8415,9 +8213,8 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ChapterProjectManagement:
-	//	'management' '{' ('projects' project+=DevProject*)? ('sourceCodeManagement' scm+=Level1Attribute*)? ('issueManagement'
-	//	issueManagement+=Level1Attribute*)? ('continousIntegration' ci+=Level1Attribute*)?
-	//	'}';
+	//	'management' '{' ('projects' project+=DevProject*)? ('sourceCodeManagement' scm+=Level1Attribute*)?
+	//	('issueManagement' issueManagement+=Level1Attribute*)? ('continousIntegration' ci+=Level1Attribute*)? '}';
 	public ChapterProjectManagementElements getChapterProjectManagementAccess() {
 		return pChapterProjectManagement;
 	}
@@ -8428,8 +8225,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//DevProject:
 	//	project=DevProjectType name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)?
-	//	('suffix' suffix=QualifiedName)?
-	//	'}';
+	//	('suffix' suffix=QualifiedName)? '}';
 	public DevProjectElements getDevProjectAccess() {
 		return pDevProject;
 	}
@@ -8439,24 +8235,10 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum DevProjectType:
-	//	PARENT='parent' |
-	//	DOCS='documentation' |
-	//	ANNOTATIONS='annotations' |
-	//	COMMONS='commons' |
-	//	DATA_MODEL='dataModel' |
-	//	PERSISTENCE='persistence' |
-	//	BUSINESS_MODEL='businessModel' |
-	//	BUSINESS='business' |
-	//	PROCESS='process' |
-	//	MATLAB='matlab' |
-	//	WEB='webProject' |
-	//	REST_GENERATE='restGenerator' |
-	//	REST_SERVICE='restService' |
-	//	REST_CLIENT='restClient' |
-	//	SOAP_SERVICE='soapService' |
-	//	SOAP__CLIENT='soapClient' |
-	//	EAR='ear' |
-	//	DOCKER='docker';
+	//	PARENT='parent' | DOCS='documentation' | ANNOTATIONS='annotations' | COMMONS='commons' | DATA_MODEL='dataModel' |
+	//	PERSISTENCE='persistence' | BUSINESS_MODEL='businessModel' | BUSINESS='business' | PROCESS='process' |
+	//	MATLAB='matlab' | WEB='webProject' | REST_GENERATE='restGenerator' | REST_SERVICE='restService' |
+	//	REST_CLIENT='restClient' | SOAP_SERVICE='soapService' | SOAP__CLIENT='soapClient' | EAR='ear' | DOCKER='docker';
 	public DevProjectTypeElements getDevProjectTypeAccess() {
 		return eDevProjectType;
 	}
@@ -8466,9 +8248,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ChapterProjectStructure:
-	//	'structure' '{'
-	//	isNestedParent?='nestedParentProject'? ('properties' testMethods+=Level1Attribute*)?
-	//	'}';
+	//	'structure' '{' isNestedParent?='nestedParentProject'? ('properties' testMethods+=Level1Attribute*)? '}';
 	public ChapterProjectStructureElements getChapterProjectStructureAccess() {
 		return pChapterProjectStructure;
 	}
@@ -8479,12 +8259,8 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//ChapterPersistence:
 	//	'persistence' '{' ('databases' databases+=Database*)? ('datasources' datasources+=Level1Attribute*)?
-	//	('persistenceUnit' persistenceUnits+=Level1Attribute*)?
-	//	entities+=Entity*
-	//	enumerations+=Enumeration*
-	//	relationships+=Relationship*
-	//	customIds?='customIds'? ('idType' javaType=JvmTypeReference)?
-	//	'}';
+	//	('persistenceUnit' persistenceUnits+=Level1Attribute*)? entities+=Entity* enumerations+=Enumeration*
+	//	relationships+=Relationship* customIds?='customIds'? ('idType' javaType=JvmTypeReference)? '}';
 	public ChapterPersistenceElements getChapterPersistenceAccess() {
 		return pChapterPersistence;
 	}
@@ -8494,8 +8270,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ChapterTesting:
-	//	'testing' '{' ('testMethods' testMethods+=Level1Attribute*)? ('testCases' testCases+=Level1Attribute*)?
-	//	'}';
+	//	'testing' '{' ('testMethods' testMethods+=Level1Attribute*)? ('testCases' testCases+=Level1Attribute*)? '}';
 	public ChapterTestingElements getChapterTestingAccess() {
 		return pChapterTesting;
 	}
@@ -8505,10 +8280,9 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//// Stakeholders
-	//ChapterStakeholder:
+	// ChapterStakeholder:
 	//	'stakeholders' '{' ('organizations' organizations+=Organization*)? ('groups' groups+=Group*)? ('roles' roles+=Role*)?
-	//	('persons' persons+=Person*)?
-	//	'}';
+	//	('persons' persons+=Person*)? '}';
 	public ChapterStakeholderElements getChapterStakeholderAccess() {
 		return pChapterStakeholder;
 	}
@@ -8528,8 +8302,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Organization:
-	//	'organization' name=QualifiedName
-	//	attributes+=Level1Attribute*;
+	//	'organization' name=QualifiedName attributes+=Level1Attribute*;
 	public OrganizationElements getOrganizationAccess() {
 		return pOrganization;
 	}
@@ -8539,8 +8312,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Group:
-	//	'group' name=QualifiedName
-	//	attributes+=Level1Attribute*;
+	//	'group' name=QualifiedName attributes+=Level1Attribute*;
 	public GroupElements getGroupAccess() {
 		return pGroup;
 	}
@@ -8550,8 +8322,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Role:
-	//	'role' name=QualifiedName
-	//	attributes+=Level1Attribute*;
+	//	'role' name=QualifiedName attributes+=Level1Attribute*;
 	public RoleElements getRoleAccess() {
 		return pRole;
 	}
@@ -8561,8 +8332,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Person:
-	//	'person' name=QualifiedName
-	//	attributes+=Level1Attribute*;
+	//	'person' name=QualifiedName attributes+=Level1Attribute*;
 	public PersonElements getPersonAccess() {
 		return pPerson;
 	}
@@ -8572,10 +8342,9 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//// Environment
-	//ChapterEnvironment:
-	//	'environment' '{' ('infrastructure' infrastructure+=Level1Attribute*)? ('envVariables' testMethods+=Level1Attribute*)?
-	//	('runtime' runtime=Runtime)?
-	//	'}';
+	// ChapterEnvironment:
+	//	'environment' '{' ('infrastructure' infrastructure+=Level1Attribute*)? ('envVariables'
+	//	testMethods+=Level1Attribute*)? ('runtime' runtime=Runtime)? '}';
 	public ChapterEnvironmentElements getChapterEnvironmentAccess() {
 		return pChapterEnvironment;
 	}
@@ -8585,10 +8354,9 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//// Runtime
-	//Runtime:
+	// Runtime:
 	//	'java' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('jdkVersion'
-	//	jdkVersion=VERSION)? ('jvm' jvm=JvmEnum)? ('version' version=VERSION)?
-	//	'}';
+	//	jdkVersion=VERSION)? ('jvm' jvm=JvmEnum)? ('version' version=VERSION)? '}';
 	public RuntimeElements getRuntimeAccess() {
 		return pRuntime;
 	}
@@ -8598,9 +8366,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum JvmEnum:
-	//	JAVA_SE_1_8='1.8' |
-	//	JAVA_SE_1_7='1.7' |
-	//	JAVA_SE_1_6='1.6';
+	//	JAVA_SE_1_8='1.8' | JAVA_SE_1_7='1.7' | JAVA_SE_1_6='1.6';
 	public JvmEnumElements getJvmEnumAccess() {
 		return eJvmEnum;
 	}
@@ -8610,10 +8376,9 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//// Database
-	//Database:
+	// Database:
 	//	'database' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('type'
-	//	type=DatabaseEnum)? ('version' version=VERSION)?
-	//	'}';
+	//	type=DatabaseEnum)? ('version' version=VERSION)? '}';
 	public DatabaseElements getDatabaseAccess() {
 		return pDatabase;
 	}
@@ -8623,10 +8388,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum DatabaseEnum:
-	//	MYSQL='mySql' |
-	//	MONGO_DB='mongoDb' |
-	//	ORACLE_DB='oracleDb' |
-	//	H2='h2';
+	//	MYSQL='mySql' | MONGO_DB='mongoDb' | ORACLE_DB='oracleDb' | H2='h2';
 	public DatabaseEnumElements getDatabaseEnumAccess() {
 		return eDatabaseEnum;
 	}
@@ -8637,9 +8399,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Entity:
 	//	'entity' name=QualifiedName ('extends' superType=JvmTypeReference)? '{' ('label' label=STRING)? ('documentation'
-	//	documentation=STRING)?
-	//	attributes+=Attribute*
-	//	'}';
+	//	documentation=STRING)? attributes+=Attribute* '}';
 	public EntityElements getEntityAccess() {
 		return pEntity;
 	}
@@ -8650,8 +8410,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Enumeration:
 	//	'enumeration' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? (enumValues+=ID
-	//	(',' enumValues+=ID)*)?
-	//	'}';
+	//	(',' enumValues+=ID)*)? '}';
 	public EnumerationElements getEnumerationAccess() {
 		return pEnumeration;
 	}
@@ -8662,8 +8421,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Attribute:
 	//	'attribute' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)?
-	//	primaryKey?='primaryKey'? ('type' type=[Entity|QualifiedName] | 'javaType' javaType=JvmTypeReference)?
-	//	'}';
+	//	primaryKey?='primaryKey'? ('type' type=[Entity|QualifiedName] | 'javaType' javaType=JvmTypeReference)? '}';
 	public AttributeElements getAttributeAccess() {
 		return pAttribute;
 	}
@@ -8673,10 +8431,9 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Relationship:
-	//	'relationship' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)?
-	//	'from' from=[Entity|QualifiedName]
-	//	'to' to=[Entity|QualifiedName] ('action' action=XBlockExpression)? ('type' type=JvmTypeReference)?
-	//	'}';
+	//	'relationship' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? 'from'
+	//	from=[Entity|QualifiedName] 'to' to=[Entity|QualifiedName] ('action' action=XBlockExpression)? ('type'
+	//	type=JvmTypeReference)? '}';
 	public RelationshipElements getRelationshipAccess() {
 		return pRelationship;
 	}
@@ -8686,9 +8443,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum BaseTypeEnum:
-	//	STRING='String' |
-	//	BOOLEAN='boolean' |
-	//	LIST='List';
+	//	STRING='String' | BOOLEAN='boolean' | LIST='List';
 	public BaseTypeEnumElements getBaseTypeEnumAccess() {
 		return eBaseTypeEnum;
 	}
@@ -8699,9 +8454,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Level1Attribute:
 	//	'attribute' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('value'
-	//	value=STRING)?
-	//	attributes+=Level1Attribute*
-	//	'}';
+	//	value=STRING)? attributes+=Level1Attribute* '}';
 	public Level1AttributeElements getLevel1AttributeAccess() {
 		return pLevel1Attribute;
 	}
@@ -8711,10 +8464,8 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//// Business Processes
-	//ChapterBusinessProcesses:
-	//	'business' '{'
-	//	processes+=BusinessProcess*
-	//	'}';
+	// ChapterBusinessProcesses:
+	//	'business' '{' processes+=BusinessProcess* '}';
 	public ChapterBusinessProcessesElements getChapterBusinessProcessesAccess() {
 		return pChapterBusinessProcesses;
 	}
@@ -8725,8 +8476,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//BusinessProcess:
 	//	'process' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? (pools+=Pool+ |
-	//	flowNodes+=FlowNode+)
-	//	'}';
+	//	flowNodes+=FlowNode+) '}';
 	public BusinessProcessElements getBusinessProcessAccess() {
 		return pBusinessProcess;
 	}
@@ -8736,12 +8486,8 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Pool:
-	//	{FPool}
-	//	'pool' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('actor'
-	//	actor=[Stakeholder|QualifiedName])?
-	//	initializing?='initializing'?
-	//	flowNodes+=FlowNode*
-	//	'}';
+	//	{Poool} 'pool' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('actor'
+	//	actor=[Stakeholder|QualifiedName])? initializing?='initializing'? flowNodes+=FlowNode* '}';
 	public PoolElements getPoolAccess() {
 		return pPool;
 	}
@@ -8751,10 +8497,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//FlowNode:
-	//	Activity
-	//	| Gateway
-	//	| Event
-	//	| Lane;
+	//	Activity | Gateway | Event | Lane;
 	public FlowNodeElements getFlowNodeAccess() {
 		return pFlowNode;
 	}
@@ -8765,10 +8508,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Lane:
 	//	'lane' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('actor'
-	//	actor=[Stakeholder|QualifiedName])?
-	//	initializing?='initializing'?
-	//	flowNodes+=FlowNode+
-	//	'}';
+	//	actor=[Stakeholder|QualifiedName])? initializing?='initializing'? flowNodes+=FlowNode+ '}';
 	public LaneElements getLaneAccess() {
 		return pLane;
 	}
@@ -8778,10 +8518,8 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Event:
-	//	eventType=EventType ('type' eventDefinitionType=EventDefinitionType)?
-	//	nonInterrupting?='non-interrupting'?
-	//	name=ID? label=STRING? ('view' dialog=[View|QualifiedName])?
-	//	attachments+=Attachment*;
+	//	eventType=EventType ('type' eventDefinitionType=EventDefinitionType)? nonInterrupting?='non-interrupting'? name=ID?
+	//	label=STRING? ('view' dialog=[View|QualifiedName])? attachments+=Attachment*;
 	public EventElements getEventAccess() {
 		return pEvent;
 	}
@@ -8791,9 +8529,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Activity:
-	//	Task
-	//	| CallActivity
-	//	| SubProcess;
+	//	Task | CallActivity | SubProcess;
 	public ActivityElements getActivityAccess() {
 		return pActivity;
 	}
@@ -8803,8 +8539,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Task:
-	//	taskType=TaskType name=ID? label=STRING? ('view' dialog=[View|QualifiedName])?
-	//	attachments+=Attachment*;
+	//	taskType=TaskType name=ID? label=STRING? ('view' dialog=[View|QualifiedName])? attachments+=Attachment*;
 	public TaskElements getTaskAccess() {
 		return pTask;
 	}
@@ -8825,11 +8560,9 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//SubProcess:
-	//	'subprocess' name=QualifiedName '{' ('label' label=STRING)?
-	//	//('documentation' documentation=STRING)?
-	//	attachments+=Attachment*
-	//	flowNodes+=FlowNode+
-	//	'}';
+	//	'subprocess' name=QualifiedName '{' ('label' label=STRING)? //('documentation' documentation=STRING)?
+	//
+	//	attachments+=Attachment* flowNodes+=FlowNode+ '}';
 	public SubProcessElements getSubProcessAccess() {
 		return pSubProcess;
 	}
@@ -8849,9 +8582,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//GatewayDiverging:
-	//	gatewayType=GatewayType name=ID? label=STRING?
-	//	attachments+=Attachment*
-	//	options+=Option+
+	//	gatewayType=GatewayType name=ID? label=STRING? attachments+=Attachment* options+=Option+
 	//	gatewayConverging=GatewayConverging;
 	public GatewayDivergingElements getGatewayDivergingAccess() {
 		return pGatewayDiverging;
@@ -8862,8 +8593,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//GatewayConverging:
-	//	('merge' gatewayType=GatewayType) name=ID? label=STRING?
-	//	attachments+=Attachment*;
+	//	('merge' gatewayType=GatewayType) name=ID? label=STRING? attachments+=Attachment*;
 	public GatewayConvergingElements getGatewayConvergingAccess() {
 		return pGatewayConverging;
 	}
@@ -8883,9 +8613,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Option:
-	//	{FOption}
-	//	'option' default?='default'? name=ID? label=STRING?
-	//	flowNodes+=OptionFlowNode*;
+	//	'option' default?='default'? name=ID? label=STRING? flowNodes+=OptionFlowNode*;
 	public OptionElements getOptionAccess() {
 		return pOption;
 	}
@@ -8895,12 +8623,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Attachment:
-	//	SendMessage
-	//	| SendData
-	//	| DataIO
-	//	| Annotation
-	//	| Documentation
-	//	| Flow;
+	//	SendMessage | SendData | DataIO | Annotation | Documentation | Flow;
 	public AttachmentElements getAttachmentAccess() {
 		return pAttachment;
 	}
@@ -8982,14 +8705,8 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum TaskType:
-	//	BLANK='task'
-	//	| BUSINESSRULE='business rule task'
-	//	| MANUAL='manual task'
-	//	| RECEIVE='receive task'
-	//	| SCRIPT='script task'
-	//	| SEND='send task'
-	//	| SERVICE='service task'
-	//	| USER='user task';
+	//	BLANK='task' | BUSINESSRULE='business rule task' | MANUAL='manual task' | RECEIVE='receive task' |
+	//	SCRIPT='script task' | SEND='send task' | SERVICE='service task' | USER='user task';
 	public TaskTypeElements getTaskTypeAccess() {
 		return eTaskType;
 	}
@@ -8999,13 +8716,9 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum EventType:
-	//	EVENT='event'
-	//	| START='start event'
-	//	| THROW='throwing event'
-	//	| CATCH='catching event'
-	//	| INTERMEDIATE_CATCH='intermediate catching event'
-	//	| INTERMEDIATE_THROW='intermediate throwing event'
-	//	| END='end event';
+	//	EVENT='event' | START='start event' | THROW='throwing event' | CATCH='catching event' |
+	//	INTERMEDIATE_CATCH='intermediate catching event' | INTERMEDIATE_THROW='intermediate throwing event' |
+	//	END='end event';
 	public EventTypeElements getEventTypeAccess() {
 		return eEventType;
 	}
@@ -9015,19 +8728,9 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum EventDefinitionType:
-	//	BLANK="blank"
-	//	| MESSAGE='message'
-	//	| TIMER='timer'
-	//	| ERROR='error'
-	//	| ESCALATION='escalation'
-	//	| CANCEL='cancel'
-	//	| COMPENSATION='compensation'
-	//	| CONDITIONAL='conditional'
-	//	| LINK='link'
-	//	| SIGNAL='signal'
-	//	| TERMINATE='terminate'
-	//	| MULTIPLE='multiple'
-	//	| PARALLEL_MULTIPLE='parallel multiple';
+	//	BLANK="blank" | MESSAGE='message' | TIMER='timer' | ERROR='error' | ESCALATION='escalation' | CANCEL='cancel' |
+	//	COMPENSATION='compensation' | CONDITIONAL='conditional' | LINK='link' | SIGNAL='signal' | TERMINATE='terminate' |
+	//	MULTIPLE='multiple' | PARALLEL_MULTIPLE='parallel multiple';
 	public EventDefinitionTypeElements getEventDefinitionTypeAccess() {
 		return eEventDefinitionType;
 	}
@@ -9037,15 +8740,8 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum GatewayType:
-	//	BLANK='gateway'
-	//	| PARALLEL='parallel'
-	//	| PARALLEL='and'
-	//	| INCLUSIVE='inclusive'
-	//	| INCLUSIVE='or gateway'
-	//	| EXCLUSIVE='exclusive'
-	//	| EXCLUSIVE='xor'
-	//	| EVENTBASED='eventbased'
-	//	| COMPLEX='complex';
+	//	BLANK='gateway' | PARALLEL='parallel' | PARALLEL='and' | INCLUSIVE='inclusive' | INCLUSIVE='or gateway' |
+	//	EXCLUSIVE='exclusive' | EXCLUSIVE='xor' | EVENTBASED='eventbased' | COMPLEX='complex';
 	public GatewayTypeElements getGatewayTypeAccess() {
 		return eGatewayType;
 	}
@@ -9055,9 +8751,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum DataIOType:
-	//	BLANK='data input/output'
-	//	| INPUT='data input'
-	//	| OUTPUT='data output';
+	//	BLANK='data input/output' | INPUT='data input' | OUTPUT='data output';
 	public DataIOTypeElements getDataIOTypeAccess() {
 		return eDataIOType;
 	}
@@ -9067,8 +8761,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum FormatType:
-	//	BLANK='FormatType not specified'
-	//	| BPMN | BPEL | JBPM | UML;
+	//	BLANK='FormatType not specified' | BPMN | BPEL | JBPM | UML;
 	public FormatTypeElements getFormatTypeAccess() {
 		return eFormatType;
 	}
@@ -9078,16 +8771,9 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum EditorType:
-	//	BLANK='TargetType not specified'
-	//	| BPMNMODELER='Eclipse BPMN-Modeler'
-	//	| YOAQIANG='Yoaqiang'
-	//	| SIGNAVIO='Signavio Process Editor'
-	//	| MODELIO='Modelio'
-	//	| VISIO='Microsoft Visio'
-	//	| ADONIS='Adonis'
-	//	| ARIS='ARIS Express'
-	//	| ACTIVITI='Activiti Modeler'
-	//	| SPARX='Sparx Enterprise Architect';
+	//	BLANK='TargetType not specified' | BPMNMODELER='Eclipse BPMN-Modeler' | YOAQIANG='Yoaqiang' |
+	//	SIGNAVIO='Signavio Process Editor' | MODELIO='Modelio' | VISIO='Microsoft Visio' | ADONIS='Adonis' |
+	//	ARIS='ARIS Express' | ACTIVITI='Activiti Modeler' | SPARX='Sparx Enterprise Architect';
 	public EditorTypeElements getEditorTypeAccess() {
 		return eEditorType;
 	}
@@ -9097,10 +8783,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum ModelType:
-	//	BLANK='ModelType not specified'
-	//	| PROCESS='process'
-	//	| COLLABORATION='collaboration'
-	//	| CHOREOGRAPHY='choreography';
+	//	BLANK='ModelType not specified' | PROCESS='process' | COLLABORATION='collaboration' | CHOREOGRAPHY='choreography';
 	public ModelTypeElements getModelTypeAccess() {
 		return eModelType;
 	}
@@ -9110,11 +8793,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DiDiagramElement:
-	//	DiDiagram
-	//	| DiPlane
-	//	| DiPlaneElement
-	//	| DiBounds
-	//	| DiWaypoint;
+	//	DiDiagram | DiPlane | DiPlaneElement | DiBounds | DiWaypoint;
 	public DiDiagramElementElements getDiDiagramElementAccess() {
 		return pDiDiagramElement;
 	}
@@ -9124,8 +8803,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DiDiagram:
-	//	'diagram' name=ID? label=STRING?
-	//	plane=DiPlane;
+	//	'diagram' name=ID? label=STRING? plane=DiPlane;
 	public DiDiagramElements getDiDiagramAccess() {
 		return pDiDiagram;
 	}
@@ -9135,8 +8813,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DiPlane:
-	//	'plane' name=ID? ('for' bpmnElement=[BusinessProcess|QualifiedName])?
-	//	planeElements+=DiPlaneElement+
+	//	'plane' name=ID? ('for' bpmnElement=[BusinessProcess|QualifiedName])? planeElements+=DiPlaneElement+
 	//	//	'end' 'plane'
 	//;
 	public DiPlaneElements getDiPlaneAccess() {
@@ -9148,8 +8825,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DiPlaneElement:
-	//	DiShape
-	//	| DiEdge;
+	//	DiShape | DiEdge;
 	public DiPlaneElementElements getDiPlaneElementAccess() {
 		return pDiPlaneElement;
 	}
@@ -9171,8 +8847,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//DiEdge:
 	//	'edge' name=ID ('for' sequenceFlow=[SequenceFlow|QualifiedName]) ('from' sourceDiagramShape=[DiShape|QualifiedName])
-	//	('to' targetDiagramShape=[DiShape|QualifiedName]) waypoints+=DiWaypoint+
-	//	//	'end' 'edge'
+	//	('to' targetDiagramShape=[DiShape|QualifiedName]) waypoints+=DiWaypoint+ //	'end' 'edge'
 	//;
 	public DiEdgeElements getDiEdgeAccess() {
 		return pDiEdge;
@@ -9214,13 +8889,9 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//// Presentation
-	//ChapterPresentation:
-	//	'ui' '{' ('framework' uiFramework=UiFramework)?
-	//	layouts+=Layout*
-	//	stylings+=Styling*
-	//	views+=View*
-	//	transitions+=Transition*
-	//	'}';
+	// ChapterPresentation:
+	//	'ui' '{' ('framework' uiFramework=UiFramework)? layouts+=Layout* stylings+=Styling* views+=View*
+	//	transitions+=Transition* '}';
 	public ChapterPresentationElements getChapterPresentationAccess() {
 		return pChapterPresentation;
 	}
@@ -9230,8 +8901,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum UiFramework:
-	//	JSF |
-	//	ANGULAR_JS='AngularJS';
+	//	JSF | ANGULAR_JS='AngularJS';
 	public UiFrameworkElements getUiFrameworkAccess() {
 		return eUiFramework;
 	}
@@ -9254,8 +8924,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	//Styling:
 	//	'styling' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('baseColor'
 	//	baseColor=STRING)? ('highLightColor' highLightColor=STRING)? ('textColor' textColor=STRING)? ('fontSize'
-	//	fontSize=STRING)?
-	//	'}';
+	//	fontSize=STRING)? '}';
 	public StylingElements getStylingAccess() {
 		return pStyling;
 	}
@@ -9277,9 +8946,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	//View:
 	//	'view' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('layout'
 	//	layout=[Layout|QualifiedName])? ('styling' styling=[Styling|QualifiedName])? ('associatedEntities'
-	//	assocEntities+=[Entity|QualifiedName] (',' assocEntities+=[Entity|QualifiedName])*)?
-	//	elements+=Element*
-	//	'}';
+	//	assocEntities+=[Entity|QualifiedName] (',' assocEntities+=[Entity|QualifiedName])*)? elements+=Element* '}';
 	public ViewElements getViewAccess() {
 		return pView;
 	}
@@ -9289,11 +8956,9 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Transition:
-	//	'transition' name=QualifiedName '{' ('from' from=[UiElement|QualifiedName]
-	//	'to' to=[UiElement|QualifiedName] | ('triggerAction' name=QualifiedName 'from'
-	//	triggerElement=[UiElement|QualifiedName] ('to' target=JvmTypeReference)? ('callToAction'
-	//	callToAction=XBlockExpression)?)?)
-	//	'}';
+	//	'transition' name=QualifiedName '{' ('from' from=[UiElement|QualifiedName] 'to' to=[UiElement|QualifiedName] |
+	//	('triggerAction' name=QualifiedName 'from' triggerElement=[UiElement|QualifiedName] ('to' target=JvmTypeReference)?
+	//	('callToAction' callToAction=XBlockExpression)?)?) '}';
 	public TransitionElements getTransitionAccess() {
 		return pTransition;
 	}
@@ -9303,13 +8968,15 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	////	StartSection returns Section:
-	////	'Startabschnitt' name=QualifiedName ('mit dem Label' label=STRING)?;
-	////
+	// //	'Startabschnitt' name=QualifiedName ('mit dem Label' label=STRING)?;
+	// //
+	//
 	////Section:
-	////	'Abschnitt' name=QualifiedName ('mit dem Label' label=STRING)?
+	// //	'Abschnitt' name=QualifiedName ('mit dem Label' label=STRING)?
+	//
 	////	('Beschreibung:' documentation=STRING)?
-	////	(formElements+=Element)+;
-	//Element:
+	// //	(formElements+=Element)+;
+	// Element:
 	//	ListView | OutputText | Button | InputField | RadioButtonGroup | CheckBoxGroup | Upload | Name | Birthday | Address;
 	public ElementElements getElementAccess() {
 		return pElement;
@@ -9322,8 +8989,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	//ListView:
 	//	'listView' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('titelBar'
 	//	type=[Entity|QualifiedName] | ('values' javaType=JvmTypeReference) ('valuesFromAction' action=JvmTypeReference))?
-	//	('width' width=INT)? ('height' height=INT)?
-	//	'}';
+	//	('width' width=INT)? ('height' height=INT)? '}';
 	public ListViewElements getListViewAccess() {
 		return pListView;
 	}
@@ -9334,8 +9000,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//OutputText:
 	//	'outputText' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('value'
-	//	value=STRING)? ('style' style=[Styling|QualifiedName])? ('width' width=INT)? ('height' height=INT)?
-	//	'}';
+	//	value=STRING)? ('style' style=[Styling|QualifiedName])? ('width' width=INT)? ('height' height=INT)? '}';
 	public OutputTextElements getOutputTextAccess() {
 		return pOutputText;
 	}
@@ -9346,8 +9011,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Button:
 	//	'button' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('action'
-	//	value=STRING)? ('style' style=[Styling|QualifiedName])? ('width' width=INT)? ('height' height=INT)?
-	//	'}';
+	//	value=STRING)? ('style' style=[Styling|QualifiedName])? ('width' width=INT)? ('height' height=INT)? '}';
 	public ButtonElements getButtonAccess() {
 		return pButton;
 	}
@@ -9359,8 +9023,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	//InputField:
 	//	'inputField' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('type'
 	//	type=[Entity|QualifiedName] | 'javaType' javaType=[javaType::JvmType|QualifiedName])? ('width' width=INT)? ('height'
-	//	height=INT)?
-	//	'}';
+	//	height=INT)? '}';
 	public InputFieldElements getInputFieldAccess() {
 		return pInputField;
 	}
@@ -9372,8 +9035,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	//Name:
 	//	'name' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('type'
 	//	type=[Entity|QualifiedName] | 'javaType' javaType=[javaType::JvmType|QualifiedName])? ('width' width=INT)? ('height'
-	//	height=INT)?
-	//	'}';
+	//	height=INT)? '}';
 	public NameElements getNameAccess() {
 		return pName;
 	}
@@ -9385,8 +9047,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	//Birthday:
 	//	'birthday' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('type'
 	//	type=[Entity|QualifiedName] | 'javaType' javaType=[javaType::JvmType|QualifiedName])? ('width' width=INT)? ('height'
-	//	height=INT)?
-	//	'}';
+	//	height=INT)? '}';
 	public BirthdayElements getBirthdayAccess() {
 		return pBirthday;
 	}
@@ -9398,8 +9059,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	//Address:
 	//	'address' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('type'
 	//	type=[Entity|QualifiedName] | 'javaType' javaType=[javaType::JvmType|QualifiedName])? ('width' width=INT)? ('height'
-	//	height=INT)?
-	//	'}';
+	//	height=INT)? '}';
 	public AddressElements getAddressAccess() {
 		return pAddress;
 	}
@@ -9411,8 +9071,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	//RadioButtonGroup:
 	//	'radioButtonGroup' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('type'
 	//	type=[Entity|QualifiedName] | 'javaType' javaType=[javaType::JvmType|QualifiedName])? ('width' width=INT)? ('height'
-	//	height=INT)?
-	//	'}';
+	//	height=INT)? '}';
 	public RadioButtonGroupElements getRadioButtonGroupAccess() {
 		return pRadioButtonGroup;
 	}
@@ -9424,8 +9083,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	//CheckBoxGroup:
 	//	'checkBoxGruppe' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('type'
 	//	type=[Entity|QualifiedName] | 'javaType' javaType=[javaType::JvmType|QualifiedName])? ('width' width=INT)? ('height'
-	//	height=INT)?
-	//	'}';
+	//	height=INT)? '}';
 	public CheckBoxGroupElements getCheckBoxGroupAccess() {
 		return pCheckBoxGroup;
 	}
@@ -9437,8 +9095,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	//Upload:
 	//	'upload' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('type'
 	//	type=[Entity|QualifiedName] | 'javaType' javaType=[javaType::JvmType|QualifiedName])? ('width' width=INT)? ('height'
-	//	height=INT)?
-	//	'}';
+	//	height=INT)? '}';
 	public UploadElements getUploadAccess() {
 		return pUpload;
 	}
@@ -9448,9 +9105,8 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	////WebService
-	//ChapterWebservice:
-	//	'webservices'
-	//	webservices+=Webservice*;
+	// ChapterWebservice:
+	//	'webservices' webservices+=Webservice*;
 	public ChapterWebserviceElements getChapterWebserviceAccess() {
 		return pChapterWebservice;
 	}
@@ -9470,13 +9126,10 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//RestWebservice:
-	//	'rest' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)?
-	//	'specification' specification=STRING
-	//	'languages' languages+=RestLanguage (',' languages+=RestLanguage)*
-	//	'basepath' basepath=STRING
-	//	'exclude' excludeEntities+=[Entity|QualifiedName] (',' excludeEntities+=[Entity|QualifiedName])*
-	//	'transferobjects' dtos+=Entity*
-	//	'}';
+	//	'rest' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? 'specification'
+	//	specification=STRING 'languages' languages+=RestLanguage (',' languages+=RestLanguage)* 'basepath' basepath=STRING
+	//	'exclude' excludeEntities+=[Entity|QualifiedName] (',' excludeEntities+=[Entity|QualifiedName])* 'transferobjects'
+	//	dtos+=Entity* '}';
 	public RestWebserviceElements getRestWebserviceAccess() {
 		return pRestWebservice;
 	}
@@ -9486,14 +9139,8 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum RestLanguage:
-	//	RESTEASY_SERVER='jaxrs-resteasy' |
-	//	JAXRS_SERVER='jaxrs-spec' |
-	//	PHP_SERVER='lumen' |
-	//	JAVA_CLIENT='java' |
-	//	ANDROID_CLIENT='android' |
-	//	IOS_CLIENT='swift' |
-	//	PHP_CLIENT='php' |
-	//	HTML2_CLIENT='html2';
+	//	RESTEASY_SERVER='jaxrs-resteasy' | JAXRS_SERVER='jaxrs-spec' | PHP_SERVER='lumen' | JAVA_CLIENT='java' |
+	//	ANDROID_CLIENT='android' | IOS_CLIENT='swift' | PHP_CLIENT='php' | HTML2_CLIENT='html2';
 	public RestLanguageElements getRestLanguageAccess() {
 		return eRestLanguage;
 	}
@@ -9503,12 +9150,9 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//SoapWebservice:
-	//	'soap' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)?
-	//	'specification' specification=STRING
-	//	'namespace' namespace=STRING
-	//	'exclude' excludeEntities+=[Entity|QualifiedName] (',' excludeEntities+=[Entity|QualifiedName])*
-	//	'transferobjects' dtos+=Entity*
-	//	'}';
+	//	'soap' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? 'specification'
+	//	specification=STRING 'namespace' namespace=STRING 'exclude' excludeEntities+=[Entity|QualifiedName] (','
+	//	excludeEntities+=[Entity|QualifiedName])* 'transferobjects' dtos+=Entity* '}';
 	public SoapWebserviceElements getSoapWebserviceAccess() {
 		return pSoapWebservice;
 	}
@@ -9518,9 +9162,8 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	////Behavior
-	//ChapterBehavior:
-	//	'behavior'
-	//	features+=Feature* ('specifications' specifications+=STRING (',' specifications+=STRING)*)?;
+	// ChapterBehavior:
+	//	'behavior' features+=Feature* ('specifications' specifications+=STRING (',' specifications+=STRING)*)?;
 	public ChapterBehaviorElements getChapterBehaviorAccess() {
 		return pChapterBehavior;
 	}
@@ -9531,8 +9174,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Feature:
 	//	'feature' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('specification'
-	//	specification=STRING)?
-	//	scenarios+=Scenario* '}';
+	//	specification=STRING)? scenarios+=Scenario* '}';
 	public FeatureElements getFeatureAccess() {
 		return pFeature;
 	}
@@ -9543,10 +9185,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Scenario:
 	//	'scenario' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)?
-	//	givenSteps+=GivenStep*
-	//	whenSteps+=WhenStep*
-	//	thenSteps+=ThenStep*
-	//	'}';
+	//	givenSteps+=GivenStep* whenSteps+=WhenStep* thenSteps+=ThenStep* '}';
 	public ScenarioElements getScenarioAccess() {
 		return pScenario;
 	}
@@ -9567,8 +9206,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//GivenStep:
 	//	'given' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('actor'
-	//	actor=[Stakeholder|QualifiedName] | 'element' actorElement=[UiElement|QualifiedName] | objectWildcard=STRING)
-	//	'}';
+	//	actor=[Stakeholder|QualifiedName] | 'element' actorElement=[UiElement|QualifiedName] | objectWildcard=STRING) '}';
 	public GivenStepElements getGivenStepAccess() {
 		return pGivenStep;
 	}
@@ -9580,9 +9218,8 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	//WhenStep:
 	//	'when' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('actor'
 	//	actor=[Stakeholder|QualifiedName] | 'element' actorElement=[UiElement|QualifiedName] | objectWildcard=STRING)
-	//	('action' action=BehaviorAction) ('value' value=STRING)? ('into'? 'element' subjectElement=[UiElement|QualifiedName] |
-	//	subjectWildcard=STRING)
-	//	'}';
+	//	('action' action=BehaviorAction) ('value' value=STRING)? ('into'? 'element' subjectElement=[UiElement|QualifiedName]
+	//	| subjectWildcard=STRING) '}';
 	public WhenStepElements getWhenStepAccess() {
 		return pWhenStep;
 	}
@@ -9595,8 +9232,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	//	'then' name=QualifiedName '{' ('label' label=STRING)? ('documentation' documentation=STRING)? ('actor'
 	//	actor=[Stakeholder|QualifiedName] | 'element' actorElement=[UiElement|QualifiedName] | objectWildcard=STRING)
 	//	'should' ('action' action=BehaviorAction) ('value' value=STRING)? ('into'? 'element'
-	//	subjectElement=[UiElement|QualifiedName] | subjectWildcard=STRING)?
-	//	'}';
+	//	subjectElement=[UiElement|QualifiedName] | subjectWildcard=STRING)? '}';
 	public ThenStepElements getThenStepAccess() {
 		return pThenStep;
 	}
@@ -9606,18 +9242,9 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum BehaviorAction:
-	//	OPENS='opens' |
-	//	ENTERS='enters' |
-	//	ENABLED='enables' |
-	//	CLICKS='clicks' |
-	//	SELECTS='selects' |
-	//	FOCUSES='focuses' |
-	//	GETS_ENABLED='gets enabled' |
-	//	GETS_CLICKED='gets klicked' |
-	//	GETS_SELECTED='gets selected' |
-	//	IS_FOCUSED='is focused' |
-	//	BE_VISIBLE='be visible' |
-	//	BE_OPENED='be opened';
+	//	OPENS='opens' | ENTERS='enters' | ENABLED='enables' | CLICKS='clicks' | SELECTS='selects' | FOCUSES='focuses' |
+	//	GETS_ENABLED='gets enabled' | GETS_CLICKED='gets klicked' | GETS_SELECTED='gets selected' | IS_FOCUSED='is focused' |
+	//	BE_VISIBLE='be visible' | BE_OPENED='be opened';
 	public BehaviorActionElements getBehaviorActionAccess() {
 		return eBehaviorAction;
 	}
@@ -9671,9 +9298,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//OpMultiAssign:
-	//	'+=' | '-=' | '*=' | '/=' | '%=' |
-	//	'<' '<' '=' |
-	//	'>' '>'? '>=';
+	//	'+=' | '-=' | '*=' | '/=' | '%=' | '<' '<' '=' | '>' '>'? '>=';
 	public XbaseGrammarAccess.OpMultiAssignElements getOpMultiAssignAccess() {
 		return gaXbase.getOpMultiAssignAccess();
 	}
@@ -9746,8 +9371,8 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//XRelationalExpression XExpression:
-	//	XOtherOperatorExpression (=> ({XInstanceOfExpression.expression=current} 'instanceof') type=JvmTypeReference |
-	//	=> ({XBinaryOperation.leftOperand=current} feature=[types::JvmIdentifiableElement|OpCompare])
+	//	XOtherOperatorExpression (=> ({XInstanceOfExpression.expression=current} 'instanceof') type=JvmTypeReference | =>
+	//	({XBinaryOperation.leftOperand=current} feature=[types::JvmIdentifiableElement|OpCompare])
 	//	rightOperand=XOtherOperatorExpression)*
 	public XbaseGrammarAccess.XRelationalExpressionElements getXRelationalExpressionAccess() {
 		return gaXbase.getXRelationalExpressionAccess();
@@ -9779,13 +9404,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//OpOther:
-	//	'->'
-	//	| '..<'
-	//	| '>' '..'
-	//	| '..'
-	//	| '=>'
-	//	| '>' (=> ('>' '>') | '>') | '<' (=> ('<' '<') | '<' | '=>') | '<>'
-	//	| '?:';
+	//	'->' | '..<' | '>' '..' | '..' | '=>' | '>' (=> ('>' '>') | '>') | '<' (=> ('<' '<') | '<' | '=>') | '<>' | '?:';
 	public XbaseGrammarAccess.OpOtherElements getOpOtherAccess() {
 		return gaXbase.getOpOtherAccess();
 	}
@@ -9837,8 +9456,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//XUnaryOperation XExpression:
-	//	{XUnaryOperation} feature=[types::JvmIdentifiableElement|OpUnary] operand=XUnaryOperation
-	//	| XCastedExpression
+	//	{XUnaryOperation} feature=[types::JvmIdentifiableElement|OpUnary] operand=XUnaryOperation | XCastedExpression
 	public XbaseGrammarAccess.XUnaryOperationElements getXUnaryOperationAccess() {
 		return gaXbase.getXUnaryOperationAccess();
 	}
@@ -9889,13 +9507,11 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//XMemberFeatureCall XExpression:
 	//	XPrimaryExpression (=> ({XAssignment.assignable=current} ('.' | explicitStatic?="::")
-	//	feature=[types::JvmIdentifiableElement|FeatureCallID] OpSingleAssign) value=XAssignment
-	//	| => ({XMemberFeatureCall.memberCallTarget=current} ("." | nullSafe?="?." | explicitStatic?="::")) ('<'
+	//	feature=[types::JvmIdentifiableElement|FeatureCallID] OpSingleAssign) value=XAssignment | =>
+	//	({XMemberFeatureCall.memberCallTarget=current} ("." | nullSafe?="?." | explicitStatic?="::")) ('<'
 	//	typeArguments+=JvmArgumentTypeReference (',' typeArguments+=JvmArgumentTypeReference)* '>')?
 	//	feature=[types::JvmIdentifiableElement|IdOrSuper] (=> explicitOperationCall?='(' (memberCallArguments+=XShortClosure
-	//	| memberCallArguments+=XExpression (',' memberCallArguments+=XExpression)*)?
-	//	')')?
-	//	memberCallArguments+=XClosure?)*
+	//	| memberCallArguments+=XExpression (',' memberCallArguments+=XExpression)*)? ')')? memberCallArguments+=XClosure?)*
 	public XbaseGrammarAccess.XMemberFeatureCallElements getXMemberFeatureCallAccess() {
 		return gaXbase.getXMemberFeatureCallAccess();
 	}
@@ -9957,12 +9573,8 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//XClosure XExpression:
-	//	=> ({XClosure}
-	//	'[')
-	//	=> ((declaredFormalParameters+=JvmFormalParameter (',' declaredFormalParameters+=JvmFormalParameter)*)?
-	//	explicitSyntax?='|')?
-	//	expression=XExpressionInClosure
-	//	']'
+	//	=> ({XClosure} '[') => ((declaredFormalParameters+=JvmFormalParameter (','
+	//	declaredFormalParameters+=JvmFormalParameter)*)? explicitSyntax?='|')? expression=XExpressionInClosure ']'
 	public XbaseGrammarAccess.XClosureElements getXClosureAccess() {
 		return gaXbase.getXClosureAccess();
 	}
@@ -10003,9 +9615,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//XIfExpression XExpression:
-	//	{XIfExpression}
-	//	'if' '(' if=XExpression ')'
-	//	then=XExpression (=> 'else' else=XExpression)?
+	//	{XIfExpression} 'if' '(' if=XExpression ')' then=XExpression (=> 'else' else=XExpression)?
 	public XbaseGrammarAccess.XIfExpressionElements getXIfExpressionAccess() {
 		return gaXbase.getXIfExpressionAccess();
 	}
@@ -10015,11 +9625,9 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//XSwitchExpression XExpression:
-	//	{XSwitchExpression}
-	//	'switch' (=> ('(' declaredParam=JvmFormalParameter ':') switch=XExpression ')'
-	//	| => (declaredParam=JvmFormalParameter ':')? switch=XExpression) '{'
-	//	cases+=XCasePart* ('default' ':' default=XExpression)?
-	//	'}'
+	//	{XSwitchExpression} 'switch' (=> ('(' declaredParam=JvmFormalParameter ':') switch=XExpression ')' | =>
+	//	(declaredParam=JvmFormalParameter ':')? switch=XExpression) '{' cases+=XCasePart* ('default' ':'
+	//	default=XExpression)? '}'
 	public XbaseGrammarAccess.XSwitchExpressionElements getXSwitchExpressionAccess() {
 		return gaXbase.getXSwitchExpressionAccess();
 	}
@@ -10039,8 +9647,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//XForLoopExpression XExpression:
-	//	=> ({XForLoopExpression}
-	//	'for' '(' declaredParam=JvmFormalParameter ':') forExpression=XExpression ')'
+	//	=> ({XForLoopExpression} 'for' '(' declaredParam=JvmFormalParameter ':') forExpression=XExpression ')'
 	//	eachExpression=XExpression
 	public XbaseGrammarAccess.XForLoopExpressionElements getXForLoopExpressionAccess() {
 		return gaXbase.getXForLoopExpressionAccess();
@@ -10051,10 +9658,9 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//XBasicForLoopExpression XExpression:
-	//	{XBasicForLoopExpression}
-	//	'for' '(' (initExpressions+=XExpressionOrVarDeclaration (',' initExpressions+=XExpressionOrVarDeclaration)*)? ';'
-	//	expression=XExpression? ';' (updateExpressions+=XExpression (',' updateExpressions+=XExpression)*)? ')'
-	//	eachExpression=XExpression
+	//	{XBasicForLoopExpression} 'for' '(' (initExpressions+=XExpressionOrVarDeclaration (','
+	//	initExpressions+=XExpressionOrVarDeclaration)*)? ';' expression=XExpression? ';' (updateExpressions+=XExpression (','
+	//	updateExpressions+=XExpression)*)? ')' eachExpression=XExpression
 	public XbaseGrammarAccess.XBasicForLoopExpressionElements getXBasicForLoopExpressionAccess() {
 		return gaXbase.getXBasicForLoopExpressionAccess();
 	}
@@ -10064,9 +9670,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//XWhileExpression XExpression:
-	//	{XWhileExpression}
-	//	'while' '(' predicate=XExpression ')'
-	//	body=XExpression
+	//	{XWhileExpression} 'while' '(' predicate=XExpression ')' body=XExpression
 	public XbaseGrammarAccess.XWhileExpressionElements getXWhileExpressionAccess() {
 		return gaXbase.getXWhileExpressionAccess();
 	}
@@ -10076,10 +9680,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//XDoWhileExpression XExpression:
-	//	{XDoWhileExpression}
-	//	'do'
-	//	body=XExpression
-	//	'while' '(' predicate=XExpression ')'
+	//	{XDoWhileExpression} 'do' body=XExpression 'while' '(' predicate=XExpression ')'
 	public XbaseGrammarAccess.XDoWhileExpressionElements getXDoWhileExpressionAccess() {
 		return gaXbase.getXDoWhileExpressionAccess();
 	}
@@ -10089,9 +9690,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//XBlockExpression XExpression:
-	//	{XBlockExpression}
-	//	'{' (expressions+=XExpressionOrVarDeclaration ';'?)*
-	//	'}'
+	//	{XBlockExpression} '{' (expressions+=XExpressionOrVarDeclaration ';'?)* '}'
 	public XbaseGrammarAccess.XBlockExpressionElements getXBlockExpressionAccess() {
 		return gaXbase.getXBlockExpressionAccess();
 	}
@@ -10144,9 +9743,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	//XFeatureCall XExpression:
 	//	{XFeatureCall} ('<' typeArguments+=JvmArgumentTypeReference (',' typeArguments+=JvmArgumentTypeReference)* '>')?
 	//	feature=[types::JvmIdentifiableElement|IdOrSuper] (=> explicitOperationCall?='(' (featureCallArguments+=XShortClosure
-	//	| featureCallArguments+=XExpression (',' featureCallArguments+=XExpression)*)?
-	//	')')?
-	//	featureCallArguments+=XClosure?
+	//	| featureCallArguments+=XExpression (',' featureCallArguments+=XExpression)*)? ')')? featureCallArguments+=XClosure?
 	public XbaseGrammarAccess.XFeatureCallElements getXFeatureCallAccess() {
 		return gaXbase.getXFeatureCallAccess();
 	}
@@ -10176,11 +9773,9 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//XConstructorCall XExpression:
-	//	{XConstructorCall}
-	//	'new' constructor=[types::JvmConstructor|QualifiedName] (=> '<' typeArguments+=JvmArgumentTypeReference (','
-	//	typeArguments+=JvmArgumentTypeReference)* '>')? (=> explicitConstructorCall?='(' (arguments+=XShortClosure
-	//	| arguments+=XExpression (',' arguments+=XExpression)*)?
-	//	')')?
+	//	{XConstructorCall} 'new' constructor=[types::JvmConstructor|QualifiedName] (=> '<'
+	//	typeArguments+=JvmArgumentTypeReference (',' typeArguments+=JvmArgumentTypeReference)* '>')? (=>
+	//	explicitConstructorCall?='(' (arguments+=XShortClosure | arguments+=XExpression (',' arguments+=XExpression)*)? ')')?
 	//	arguments+=XClosure?
 	public XbaseGrammarAccess.XConstructorCallElements getXConstructorCallAccess() {
 		return gaXbase.getXConstructorCallAccess();
@@ -10261,10 +9856,8 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//XTryCatchFinallyExpression XExpression:
-	//	{XTryCatchFinallyExpression}
-	//	'try'
-	//	expression=XExpression (catchClauses+=XCatchClause+ (=> 'finally' finallyExpression=XExpression)?
-	//	| 'finally' finallyExpression=XExpression)
+	//	{XTryCatchFinallyExpression} 'try' expression=XExpression (catchClauses+=XCatchClause+ (=> 'finally'
+	//	finallyExpression=XExpression)? | 'finally' finallyExpression=XExpression)
 	public XbaseGrammarAccess.XTryCatchFinallyExpressionElements getXTryCatchFinallyExpressionAccess() {
 		return gaXbase.getXTryCatchFinallyExpressionAccess();
 	}
@@ -10274,8 +9867,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//XSynchronizedExpression XExpression:
-	//	=> ({XSynchronizedExpression}
-	//	'synchronized' '(') param=XExpression ')' expression=XExpression
+	//	=> ({XSynchronizedExpression} 'synchronized' '(') param=XExpression ')' expression=XExpression
 	public XbaseGrammarAccess.XSynchronizedExpressionElements getXSynchronizedExpressionAccess() {
 		return gaXbase.getXSynchronizedExpressionAccess();
 	}
@@ -10317,7 +9909,8 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	/// **
 	// * Dummy rule, for "better" downwards compatibility, since GrammarAccess generates non-static inner classes, 
 	// * which makes downstream grammars break on classloading, when a rule is removed.
-	// * / StaticQualifier:
+	// * /
+	//StaticQualifier:
 	//	(ValidID '::')+;
 	public XbaseGrammarAccess.StaticQualifierElements getStaticQualifierAccess() {
 		return gaXbase.getStaticQualifierAccess();
@@ -10341,8 +9934,8 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//JvmTypeReference:
-	//	JvmParameterizedTypeReference => ({JvmGenericArrayTypeReference.componentType=current} ArrayBrackets)*
-	//	| XFunctionTypeRef;
+	//	JvmParameterizedTypeReference => ({JvmGenericArrayTypeReference.componentType=current} ArrayBrackets)* |
+	//	XFunctionTypeRef;
 	public XtypeGrammarAccess.JvmTypeReferenceElements getJvmTypeReferenceAccess() {
 		return gaXtype.getJvmTypeReferenceAccess();
 	}
@@ -10394,8 +9987,8 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//JvmWildcardTypeReference:
-	//	{JvmWildcardTypeReference} '?' (constraints+=JvmUpperBound constraints+=JvmUpperBoundAnded*
-	//	| constraints+=JvmLowerBound constraints+=JvmLowerBoundAnded*)?;
+	//	{JvmWildcardTypeReference} '?' (constraints+=JvmUpperBound constraints+=JvmUpperBoundAnded* |
+	//	constraints+=JvmLowerBound constraints+=JvmLowerBoundAnded*)?;
 	public XtypeGrammarAccess.JvmWildcardTypeReferenceElements getJvmWildcardTypeReferenceAccess() {
 		return gaXtype.getJvmWildcardTypeReferenceAccess();
 	}
@@ -10513,8 +10106,7 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal STRING:
-	//	'"' ('\\' . | !('\\' | '"'))* '"'? |
-	//	"'" ('\\' . | !('\\' | "'"))* "'"?;
+	//	'"' ('\\' . | !('\\' | '"'))* '"'? | "'" ('\\' . | !('\\' | "'"))* "'"?;
 	public TerminalRule getSTRINGRule() {
 		return gaXtype.getSTRINGRule();
 	}

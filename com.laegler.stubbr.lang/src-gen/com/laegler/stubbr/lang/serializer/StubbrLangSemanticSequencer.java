@@ -37,8 +37,6 @@ import com.laegler.stubbr.lang.stubbrLang.Documentation;
 import com.laegler.stubbr.lang.stubbrLang.Entity;
 import com.laegler.stubbr.lang.stubbrLang.Enumeration;
 import com.laegler.stubbr.lang.stubbrLang.Event;
-import com.laegler.stubbr.lang.stubbrLang.FOption;
-import com.laegler.stubbr.lang.stubbrLang.FPool;
 import com.laegler.stubbr.lang.stubbrLang.Feature;
 import com.laegler.stubbr.lang.stubbrLang.Flow;
 import com.laegler.stubbr.lang.stubbrLang.GatewayConverging;
@@ -51,9 +49,11 @@ import com.laegler.stubbr.lang.stubbrLang.Layout;
 import com.laegler.stubbr.lang.stubbrLang.Level1Attribute;
 import com.laegler.stubbr.lang.stubbrLang.ListView;
 import com.laegler.stubbr.lang.stubbrLang.Name;
+import com.laegler.stubbr.lang.stubbrLang.Option;
 import com.laegler.stubbr.lang.stubbrLang.Organization;
 import com.laegler.stubbr.lang.stubbrLang.OutputText;
 import com.laegler.stubbr.lang.stubbrLang.Person;
+import com.laegler.stubbr.lang.stubbrLang.Poool;
 import com.laegler.stubbr.lang.stubbrLang.RadioButtonGroup;
 import com.laegler.stubbr.lang.stubbrLang.Relationship;
 import com.laegler.stubbr.lang.stubbrLang.RestWebservice;
@@ -237,12 +237,6 @@ public class StubbrLangSemanticSequencer extends XbaseSemanticSequencer {
 			case StubbrLangPackage.EVENT:
 				sequence_Event(context, (Event) semanticObject); 
 				return; 
-			case StubbrLangPackage.FOPTION:
-				sequence_Option(context, (FOption) semanticObject); 
-				return; 
-			case StubbrLangPackage.FPOOL:
-				sequence_Pool(context, (FPool) semanticObject); 
-				return; 
 			case StubbrLangPackage.FEATURE:
 				sequence_Feature(context, (Feature) semanticObject); 
 				return; 
@@ -279,6 +273,9 @@ public class StubbrLangSemanticSequencer extends XbaseSemanticSequencer {
 			case StubbrLangPackage.NAME:
 				sequence_Name(context, (Name) semanticObject); 
 				return; 
+			case StubbrLangPackage.OPTION:
+				sequence_Option(context, (Option) semanticObject); 
+				return; 
 			case StubbrLangPackage.ORGANIZATION:
 				sequence_Organization(context, (Organization) semanticObject); 
 				return; 
@@ -287,6 +284,9 @@ public class StubbrLangSemanticSequencer extends XbaseSemanticSequencer {
 				return; 
 			case StubbrLangPackage.PERSON:
 				sequence_Person(context, (Person) semanticObject); 
+				return; 
+			case StubbrLangPackage.POOOL:
+				sequence_Pool(context, (Poool) semanticObject); 
 				return; 
 			case StubbrLangPackage.RADIO_BUTTON_GROUP:
 				sequence_RadioButtonGroup(context, (RadioButtonGroup) semanticObject); 
@@ -1281,12 +1281,17 @@ public class StubbrLangSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Option returns FOption
+	 *     Option returns Option
 	 *
 	 * Constraint:
-	 *     (default?='default'? name=ID? label=STRING? flowNodes+=OptionFlowNode*)
+	 *     (
+	 *         (default?='default' ((name=ID flowNodes+=OptionFlowNode+) | flowNodes+=OptionFlowNode+)) | 
+	 *         (((default?='default' name=ID) | name=ID)? label=STRING flowNodes+=OptionFlowNode+) | 
+	 *         (name=ID flowNodes+=OptionFlowNode+) | 
+	 *         flowNodes+=OptionFlowNode+
+	 *     )?
 	 */
-	protected void sequence_Option(ISerializationContext context, FOption semanticObject) {
+	protected void sequence_Option(ISerializationContext context, Option semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1341,8 +1346,8 @@ public class StubbrLangSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Pool returns FPool
-	 *     InteractionNode returns FPool
+	 *     Pool returns Poool
+	 *     InteractionNode returns Poool
 	 *
 	 * Constraint:
 	 *     (
@@ -1354,7 +1359,7 @@ public class StubbrLangSemanticSequencer extends XbaseSemanticSequencer {
 	 *         flowNodes+=FlowNode*
 	 *     )
 	 */
-	protected void sequence_Pool(ISerializationContext context, FPool semanticObject) {
+	protected void sequence_Pool(ISerializationContext context, Poool semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

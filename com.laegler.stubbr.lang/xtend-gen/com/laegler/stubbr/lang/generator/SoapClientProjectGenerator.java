@@ -16,6 +16,7 @@ import templates.AbstractTemplate;
 import templates._common.DotGitignoreTemplateBase;
 import templates._common.EclipseDotClasspathTemplateBase;
 import templates._common.EclipseDotProjectTemplateBase;
+import templates._common.GitKeepTemplateBase;
 import templates._common.IntellijProjectImlFileBase;
 import templates._common.ReadmeMdTemplateBase;
 import templates._common.settings.EclipseCoreResourcesPrefsTemplateBase;
@@ -128,9 +129,25 @@ public class SoapClientProjectGenerator extends AbstractProjectGenerator {
         Project _project_10 = this.getProject();
         EclipseWstProjectFacetCoreXmlTemplateBase _eclipseWstProjectFacetCoreXmlTemplateBase = new EclipseWstProjectFacetCoreXmlTemplateBase(this.stubbr, _project_10);
         Project _project_11 = this.getProject();
-        PomXmlTemplate _pomXmlTemplate = new PomXmlTemplate(this.stubbr, _project_11);
+        GitKeepTemplateBase _gitKeepTemplateBase = new GitKeepTemplateBase(this.stubbr, _project_11, "/src/main/java/");
+        Project _project_12 = this.getProject();
+        GitKeepTemplateBase _gitKeepTemplateBase_1 = new GitKeepTemplateBase(this.stubbr, _project_12, "/src/main/src-gen/");
+        Project _project_13 = this.getProject();
+        GitKeepTemplateBase _gitKeepTemplateBase_2 = new GitKeepTemplateBase(this.stubbr, _project_13, "/src/main/xtend-gen/");
+        Project _project_14 = this.getProject();
+        GitKeepTemplateBase _gitKeepTemplateBase_3 = new GitKeepTemplateBase(this.stubbr, _project_14, "/src/main/resources/");
+        Project _project_15 = this.getProject();
+        GitKeepTemplateBase _gitKeepTemplateBase_4 = new GitKeepTemplateBase(this.stubbr, _project_15, "/src/test/java/");
+        Project _project_16 = this.getProject();
+        GitKeepTemplateBase _gitKeepTemplateBase_5 = new GitKeepTemplateBase(this.stubbr, _project_16, "/src/test/src-gen/");
+        Project _project_17 = this.getProject();
+        GitKeepTemplateBase _gitKeepTemplateBase_6 = new GitKeepTemplateBase(this.stubbr, _project_17, "/src/test/xtend-gen/");
+        Project _project_18 = this.getProject();
+        GitKeepTemplateBase _gitKeepTemplateBase_7 = new GitKeepTemplateBase(this.stubbr, _project_18, "/src/test/resources/");
+        Project _project_19 = this.getProject();
+        PomXmlTemplate _pomXmlTemplate = new PomXmlTemplate(this.stubbr, _project_19);
         _files.addAll(
-          Collections.<AbstractTemplate>unmodifiableList(CollectionLiterals.<AbstractTemplate>newArrayList(_readmeMdTemplateBase, _intellijProjectImlFileBase, _dotGitignoreTemplateBase, _eclipseDotClasspathTemplateBase, _eclipseDotProjectTemplateBase, _manifestMfTemplateBase, _eclipseCoreResourcesPrefsTemplateBase, _eclipseJdtCorePrefsTemplateBase, _eclipseM2eCorePrefsTemplateBase, _eclipseWstProjectFacetCoreXmlTemplateBase, _pomXmlTemplate)));
+          Collections.<AbstractTemplate>unmodifiableList(CollectionLiterals.<AbstractTemplate>newArrayList(_readmeMdTemplateBase, _intellijProjectImlFileBase, _dotGitignoreTemplateBase, _eclipseDotClasspathTemplateBase, _eclipseDotProjectTemplateBase, _manifestMfTemplateBase, _eclipseCoreResourcesPrefsTemplateBase, _eclipseJdtCorePrefsTemplateBase, _eclipseM2eCorePrefsTemplateBase, _eclipseWstProjectFacetCoreXmlTemplateBase, _gitKeepTemplateBase, _gitKeepTemplateBase_1, _gitKeepTemplateBase_2, _gitKeepTemplateBase_3, _gitKeepTemplateBase_4, _gitKeepTemplateBase_5, _gitKeepTemplateBase_6, _gitKeepTemplateBase_7, _pomXmlTemplate)));
       }
       Stubb _stubb = null;
       if (this.stubbr!=null) {
@@ -146,14 +163,14 @@ public class SoapClientProjectGenerator extends AbstractProjectGenerator {
       }
       if (_entities!=null) {
         final Consumer<Entity> _function = (Entity entity) -> {
-          Project _project_12 = this.getProject();
+          Project _project_20 = this.getProject();
           List<AbstractTemplate> _files_1 = null;
-          if (_project_12!=null) {
-            _files_1=_project_12.getFiles();
+          if (_project_20!=null) {
+            _files_1=_project_20.getFiles();
           }
           if (_files_1!=null) {
-            Project _project_13 = this.getProject();
-            SoapClientXtendTemplate _soapClientXtendTemplate = new SoapClientXtendTemplate(this.stubbr, _project_13, entity);
+            Project _project_21 = this.getProject();
+            SoapClientXtendTemplate _soapClientXtendTemplate = new SoapClientXtendTemplate(this.stubbr, _project_21, entity);
             _files_1.addAll(
               Collections.<AbstractTemplate>unmodifiableList(CollectionLiterals.<AbstractTemplate>newArrayList(_soapClientXtendTemplate)));
           }

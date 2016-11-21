@@ -10,15 +10,18 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import templates.AbstractTemplate;
 import templates._common.DotGitignoreTemplateBase;
-import templates._common.EclipseDotProjectTemplateBase;
+import templates._common.EclipseDotClasspathTemplateBase;
+import templates._common.GitKeepTemplateBase;
 import templates._common.IntellijProjectImlFileBase;
 import templates._common.ReadmeMdTemplateBase;
 import templates._common.settings.EclipseCoreResourcesPrefsTemplateBase;
 import templates._common.settings.EclipseJdtCorePrefsTemplateBase;
 import templates._common.settings.EclipseM2eCorePrefsTemplateBase;
-import templates._common.settings.EclipseWstProjectFacetCoreXmlTemplateBase;
 import templates._common.src_main_resource.meta_inf.ManifestMfTemplateBase;
+import templates.common.EclipseDotProjectTemplate;
 import templates.common.PomXmlTemplate;
+import templates.common.settings.EclipseWstCommonComponentTemplate;
+import templates.common.settings.EclipseWstProjectFacetCoreXmlTemplate;
 
 /**
  * Project Generator for Common Project
@@ -108,7 +111,7 @@ public class CommonProjectGenerator extends AbstractProjectGenerator {
         Project _project_3 = this.getProject();
         DotGitignoreTemplateBase _dotGitignoreTemplateBase = new DotGitignoreTemplateBase(this.stubbr, _project_3);
         Project _project_4 = this.getProject();
-        EclipseDotProjectTemplateBase _eclipseDotProjectTemplateBase = new EclipseDotProjectTemplateBase(this.stubbr, _project_4);
+        EclipseDotClasspathTemplateBase _eclipseDotClasspathTemplateBase = new EclipseDotClasspathTemplateBase(this.stubbr, _project_4);
         Project _project_5 = this.getProject();
         ManifestMfTemplateBase _manifestMfTemplateBase = new ManifestMfTemplateBase(this.stubbr, _project_5);
         Project _project_6 = this.getProject();
@@ -118,11 +121,31 @@ public class CommonProjectGenerator extends AbstractProjectGenerator {
         Project _project_8 = this.getProject();
         EclipseM2eCorePrefsTemplateBase _eclipseM2eCorePrefsTemplateBase = new EclipseM2eCorePrefsTemplateBase(this.stubbr, _project_8);
         Project _project_9 = this.getProject();
-        EclipseWstProjectFacetCoreXmlTemplateBase _eclipseWstProjectFacetCoreXmlTemplateBase = new EclipseWstProjectFacetCoreXmlTemplateBase(this.stubbr, _project_9);
+        EclipseWstProjectFacetCoreXmlTemplate _eclipseWstProjectFacetCoreXmlTemplate = new EclipseWstProjectFacetCoreXmlTemplate(this.stubbr, _project_9);
         Project _project_10 = this.getProject();
-        PomXmlTemplate _pomXmlTemplate = new PomXmlTemplate(this.stubbr, _project_10);
+        EclipseWstCommonComponentTemplate _eclipseWstCommonComponentTemplate = new EclipseWstCommonComponentTemplate(this.stubbr, _project_10);
+        Project _project_11 = this.getProject();
+        GitKeepTemplateBase _gitKeepTemplateBase = new GitKeepTemplateBase(this.stubbr, _project_11, "/src/main/java/");
+        Project _project_12 = this.getProject();
+        GitKeepTemplateBase _gitKeepTemplateBase_1 = new GitKeepTemplateBase(this.stubbr, _project_12, "/src/main/src-gen/");
+        Project _project_13 = this.getProject();
+        GitKeepTemplateBase _gitKeepTemplateBase_2 = new GitKeepTemplateBase(this.stubbr, _project_13, "/src/main/xtend-gen/");
+        Project _project_14 = this.getProject();
+        GitKeepTemplateBase _gitKeepTemplateBase_3 = new GitKeepTemplateBase(this.stubbr, _project_14, "/src/main/resources/");
+        Project _project_15 = this.getProject();
+        GitKeepTemplateBase _gitKeepTemplateBase_4 = new GitKeepTemplateBase(this.stubbr, _project_15, "/src/test/java/");
+        Project _project_16 = this.getProject();
+        GitKeepTemplateBase _gitKeepTemplateBase_5 = new GitKeepTemplateBase(this.stubbr, _project_16, "/src/test/src-gen/");
+        Project _project_17 = this.getProject();
+        GitKeepTemplateBase _gitKeepTemplateBase_6 = new GitKeepTemplateBase(this.stubbr, _project_17, "/src/test/xtend-gen/");
+        Project _project_18 = this.getProject();
+        GitKeepTemplateBase _gitKeepTemplateBase_7 = new GitKeepTemplateBase(this.stubbr, _project_18, "/src/test/resources/");
+        Project _project_19 = this.getProject();
+        PomXmlTemplate _pomXmlTemplate = new PomXmlTemplate(this.stubbr, _project_19);
+        Project _project_20 = this.getProject();
+        EclipseDotProjectTemplate _eclipseDotProjectTemplate = new EclipseDotProjectTemplate(this.stubbr, _project_20);
         _files.addAll(
-          Collections.<AbstractTemplate>unmodifiableList(CollectionLiterals.<AbstractTemplate>newArrayList(_readmeMdTemplateBase, _intellijProjectImlFileBase, _dotGitignoreTemplateBase, _eclipseDotProjectTemplateBase, _manifestMfTemplateBase, _eclipseCoreResourcesPrefsTemplateBase, _eclipseJdtCorePrefsTemplateBase, _eclipseM2eCorePrefsTemplateBase, _eclipseWstProjectFacetCoreXmlTemplateBase, _pomXmlTemplate)));
+          Collections.<AbstractTemplate>unmodifiableList(CollectionLiterals.<AbstractTemplate>newArrayList(_readmeMdTemplateBase, _intellijProjectImlFileBase, _dotGitignoreTemplateBase, _eclipseDotClasspathTemplateBase, _manifestMfTemplateBase, _eclipseCoreResourcesPrefsTemplateBase, _eclipseJdtCorePrefsTemplateBase, _eclipseM2eCorePrefsTemplateBase, _eclipseWstProjectFacetCoreXmlTemplate, _eclipseWstCommonComponentTemplate, _gitKeepTemplateBase, _gitKeepTemplateBase_1, _gitKeepTemplateBase_2, _gitKeepTemplateBase_3, _gitKeepTemplateBase_4, _gitKeepTemplateBase_5, _gitKeepTemplateBase_6, _gitKeepTemplateBase_7, _pomXmlTemplate, _eclipseDotProjectTemplate)));
       }
       _xblockexpression = this.getProject();
     }

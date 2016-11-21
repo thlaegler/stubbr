@@ -8,7 +8,8 @@
 	Generated with Stubbr
 	Maven project object model (pom.xml) for parent project
 	{{{Version: 0.0.1-SNAPSHOT}}}
-	{{{Date: 18.11.2016 - 16:51:41}}}
+	{{{Date: 21.11.2016 - 22:43:03}}}
+	{{{Generator: templates.parent.PomXmlTemplate}}}
 -->
 	<groupId>org.example.stubbr</groupId>
 	<artifactId>myexample-parent</artifactId>

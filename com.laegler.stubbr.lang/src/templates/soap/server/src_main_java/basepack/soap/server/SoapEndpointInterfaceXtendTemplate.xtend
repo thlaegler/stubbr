@@ -52,25 +52,25 @@ class SoapEndpointInterfaceXtendTemplate extends AbstractXtendTemplate {
 			 * Get «entity?.name?.toFirstUpper» with given ID.
 			 */
 			@WebMethod
-			def public «entity?.name.toFirstUpper»BusinessObject «entity?.name?.toFirstLower»Get(«FOR Attribute attribute : entity?.attributes»«IF attribute?.javaType != null»«attribute?.javaType?.qualifiedName»«ELSE»«attribute?.type?.name»«ENDIF» «attribute?.name?.toFirstLower», «ENDFOR»SecurityContext securityContext)
+			def public «entity?.name.toFirstUpper»BusinessObject get(«FOR Attribute attribute : entity?.attributes»«IF attribute?.javaType != null»«attribute?.javaType?.qualifiedName»«ELSE»«attribute?.type?.name»«ENDIF» «attribute?.name?.toFirstLower», «ENDFOR»SecurityContext securityContext)
 		
 			/**
 			 * Create new «entity?.name?.toFirstUpper».
 			 */
 			@WebMethod
-			def public String «entity?.name?.toFirstLower»Post(«FOR Attribute attribute : entity?.attributes»«IF attribute?.javaType != null»«attribute?.javaType?.qualifiedName»«ELSE»«attribute?.type?.name»«ENDIF» «attribute?.name?.toFirstLower», «ENDFOR»SecurityContext securityContext)
+			def public String create(«FOR Attribute attribute : entity?.attributes»«IF attribute?.javaType != null»«attribute?.javaType?.qualifiedName»«ELSE»«attribute?.type?.name»«ENDIF» «attribute?.name?.toFirstLower», «ENDFOR»SecurityContext securityContext)
 		
 			/**
 			 * Update given «entity?.name?.toFirstUpper».
 			 */
 			@WebMethod
-			def public String «entity?.name?.toFirstLower»Put(«FOR Attribute attribute : entity?.attributes»«IF attribute?.javaType != null»«attribute?.javaType?.qualifiedName»«ELSE»«attribute?.type?.name»«ENDIF» «attribute?.name?.toFirstLower», «ENDFOR»SecurityContext securityContext)
+			def public String update(«FOR Attribute attribute : entity?.attributes»«IF attribute?.javaType != null»«attribute?.javaType?.qualifiedName»«ELSE»«attribute?.type?.name»«ENDIF» «attribute?.name?.toFirstLower», «ENDFOR»SecurityContext securityContext)
 		
 			/**
 			 * Delete given «entity?.name?.toFirstUpper».
 			 */
 			@WebMethod
-			def public String «entity?.name?.toFirstLower»Delete(«FOR Attribute attribute : entity?.attributes»«IF attribute?.javaType != null»«attribute?.javaType?.qualifiedName»«ELSE»«attribute?.type?.name»«ENDIF» «attribute?.name?.toFirstLower», «ENDFOR»SecurityContext securityContext)
+			def public String delete(«FOR Attribute attribute : entity?.attributes»«IF attribute?.javaType != null»«attribute?.javaType?.qualifiedName»«ELSE»«attribute?.type?.name»«ENDIF» «attribute?.name?.toFirstLower», «ENDFOR»SecurityContext securityContext)
 		
 		}
 	'''

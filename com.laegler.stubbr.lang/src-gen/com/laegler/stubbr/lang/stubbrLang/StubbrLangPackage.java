@@ -2140,13 +2140,49 @@ public interface StubbrLangPackage extends EPackage
   int OPTION = 36;
 
   /**
+   * The feature id for the '<em><b>Default</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPTION__DEFAULT = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPTION__NAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Label</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPTION__LABEL = 2;
+
+  /**
+   * The feature id for the '<em><b>Flow Nodes</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPTION__FLOW_NODES = 3;
+
+  /**
    * The number of structural features of the '<em>Option</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OPTION_FEATURE_COUNT = 0;
+  int OPTION_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link com.laegler.stubbr.lang.stubbrLang.impl.AttachmentImpl <em>Attachment</em>}' class.
@@ -4983,14 +5019,14 @@ public interface StubbrLangPackage extends EPackage
   int THEN_STEP_FEATURE_COUNT = STEP_FEATURE_COUNT + 4;
 
   /**
-   * The meta object id for the '{@link com.laegler.stubbr.lang.stubbrLang.impl.FPoolImpl <em>FPool</em>}' class.
+   * The meta object id for the '{@link com.laegler.stubbr.lang.stubbrLang.impl.PooolImpl <em>Poool</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see com.laegler.stubbr.lang.stubbrLang.impl.FPoolImpl
-   * @see com.laegler.stubbr.lang.stubbrLang.impl.StubbrLangPackageImpl#getFPool()
+   * @see com.laegler.stubbr.lang.stubbrLang.impl.PooolImpl
+   * @see com.laegler.stubbr.lang.stubbrLang.impl.StubbrLangPackageImpl#getPoool()
    * @generated
    */
-  int FPOOL = 82;
+  int POOOL = 82;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4999,7 +5035,7 @@ public interface StubbrLangPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FPOOL__NAME = POOL_FEATURE_COUNT + 0;
+  int POOOL__NAME = POOL_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -5008,7 +5044,7 @@ public interface StubbrLangPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FPOOL__LABEL = POOL_FEATURE_COUNT + 1;
+  int POOOL__LABEL = POOL_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Documentation</b></em>' attribute.
@@ -5017,7 +5053,7 @@ public interface StubbrLangPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FPOOL__DOCUMENTATION = POOL_FEATURE_COUNT + 2;
+  int POOOL__DOCUMENTATION = POOL_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Actor</b></em>' reference.
@@ -5026,7 +5062,7 @@ public interface StubbrLangPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FPOOL__ACTOR = POOL_FEATURE_COUNT + 3;
+  int POOOL__ACTOR = POOL_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Initializing</b></em>' attribute.
@@ -5035,7 +5071,7 @@ public interface StubbrLangPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FPOOL__INITIALIZING = POOL_FEATURE_COUNT + 4;
+  int POOOL__INITIALIZING = POOL_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>Flow Nodes</b></em>' containment reference list.
@@ -5044,71 +5080,16 @@ public interface StubbrLangPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FPOOL__FLOW_NODES = POOL_FEATURE_COUNT + 5;
+  int POOOL__FLOW_NODES = POOL_FEATURE_COUNT + 5;
 
   /**
-   * The number of structural features of the '<em>FPool</em>' class.
+   * The number of structural features of the '<em>Poool</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FPOOL_FEATURE_COUNT = POOL_FEATURE_COUNT + 6;
-
-  /**
-   * The meta object id for the '{@link com.laegler.stubbr.lang.stubbrLang.impl.FOptionImpl <em>FOption</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.laegler.stubbr.lang.stubbrLang.impl.FOptionImpl
-   * @see com.laegler.stubbr.lang.stubbrLang.impl.StubbrLangPackageImpl#getFOption()
-   * @generated
-   */
-  int FOPTION = 83;
-
-  /**
-   * The feature id for the '<em><b>Default</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FOPTION__DEFAULT = OPTION_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FOPTION__NAME = OPTION_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Label</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FOPTION__LABEL = OPTION_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Flow Nodes</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FOPTION__FLOW_NODES = OPTION_FEATURE_COUNT + 3;
-
-  /**
-   * The number of structural features of the '<em>FOption</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FOPTION_FEATURE_COUNT = OPTION_FEATURE_COUNT + 4;
+  int POOOL_FEATURE_COUNT = POOL_FEATURE_COUNT + 6;
 
   /**
    * The meta object id for the '{@link com.laegler.stubbr.lang.stubbrLang.Locale <em>Locale</em>}' enum.
@@ -5118,7 +5099,7 @@ public interface StubbrLangPackage extends EPackage
    * @see com.laegler.stubbr.lang.stubbrLang.impl.StubbrLangPackageImpl#getLocale()
    * @generated
    */
-  int LOCALE = 84;
+  int LOCALE = 83;
 
   /**
    * The meta object id for the '{@link com.laegler.stubbr.lang.stubbrLang.DevProjectType <em>Dev Project Type</em>}' enum.
@@ -5128,7 +5109,7 @@ public interface StubbrLangPackage extends EPackage
    * @see com.laegler.stubbr.lang.stubbrLang.impl.StubbrLangPackageImpl#getDevProjectType()
    * @generated
    */
-  int DEV_PROJECT_TYPE = 85;
+  int DEV_PROJECT_TYPE = 84;
 
   /**
    * The meta object id for the '{@link com.laegler.stubbr.lang.stubbrLang.JvmEnum <em>Jvm Enum</em>}' enum.
@@ -5138,7 +5119,7 @@ public interface StubbrLangPackage extends EPackage
    * @see com.laegler.stubbr.lang.stubbrLang.impl.StubbrLangPackageImpl#getJvmEnum()
    * @generated
    */
-  int JVM_ENUM = 86;
+  int JVM_ENUM = 85;
 
   /**
    * The meta object id for the '{@link com.laegler.stubbr.lang.stubbrLang.DatabaseEnum <em>Database Enum</em>}' enum.
@@ -5148,7 +5129,7 @@ public interface StubbrLangPackage extends EPackage
    * @see com.laegler.stubbr.lang.stubbrLang.impl.StubbrLangPackageImpl#getDatabaseEnum()
    * @generated
    */
-  int DATABASE_ENUM = 87;
+  int DATABASE_ENUM = 86;
 
   /**
    * The meta object id for the '{@link com.laegler.stubbr.lang.stubbrLang.BaseTypeEnum <em>Base Type Enum</em>}' enum.
@@ -5158,7 +5139,7 @@ public interface StubbrLangPackage extends EPackage
    * @see com.laegler.stubbr.lang.stubbrLang.impl.StubbrLangPackageImpl#getBaseTypeEnum()
    * @generated
    */
-  int BASE_TYPE_ENUM = 88;
+  int BASE_TYPE_ENUM = 87;
 
   /**
    * The meta object id for the '{@link com.laegler.stubbr.lang.stubbrLang.TaskType <em>Task Type</em>}' enum.
@@ -5168,7 +5149,7 @@ public interface StubbrLangPackage extends EPackage
    * @see com.laegler.stubbr.lang.stubbrLang.impl.StubbrLangPackageImpl#getTaskType()
    * @generated
    */
-  int TASK_TYPE = 89;
+  int TASK_TYPE = 88;
 
   /**
    * The meta object id for the '{@link com.laegler.stubbr.lang.stubbrLang.EventType <em>Event Type</em>}' enum.
@@ -5178,7 +5159,7 @@ public interface StubbrLangPackage extends EPackage
    * @see com.laegler.stubbr.lang.stubbrLang.impl.StubbrLangPackageImpl#getEventType()
    * @generated
    */
-  int EVENT_TYPE = 90;
+  int EVENT_TYPE = 89;
 
   /**
    * The meta object id for the '{@link com.laegler.stubbr.lang.stubbrLang.EventDefinitionType <em>Event Definition Type</em>}' enum.
@@ -5188,7 +5169,7 @@ public interface StubbrLangPackage extends EPackage
    * @see com.laegler.stubbr.lang.stubbrLang.impl.StubbrLangPackageImpl#getEventDefinitionType()
    * @generated
    */
-  int EVENT_DEFINITION_TYPE = 91;
+  int EVENT_DEFINITION_TYPE = 90;
 
   /**
    * The meta object id for the '{@link com.laegler.stubbr.lang.stubbrLang.GatewayType <em>Gateway Type</em>}' enum.
@@ -5198,7 +5179,7 @@ public interface StubbrLangPackage extends EPackage
    * @see com.laegler.stubbr.lang.stubbrLang.impl.StubbrLangPackageImpl#getGatewayType()
    * @generated
    */
-  int GATEWAY_TYPE = 92;
+  int GATEWAY_TYPE = 91;
 
   /**
    * The meta object id for the '{@link com.laegler.stubbr.lang.stubbrLang.DataIOType <em>Data IO Type</em>}' enum.
@@ -5208,7 +5189,7 @@ public interface StubbrLangPackage extends EPackage
    * @see com.laegler.stubbr.lang.stubbrLang.impl.StubbrLangPackageImpl#getDataIOType()
    * @generated
    */
-  int DATA_IO_TYPE = 93;
+  int DATA_IO_TYPE = 92;
 
   /**
    * The meta object id for the '{@link com.laegler.stubbr.lang.stubbrLang.FormatType <em>Format Type</em>}' enum.
@@ -5218,7 +5199,7 @@ public interface StubbrLangPackage extends EPackage
    * @see com.laegler.stubbr.lang.stubbrLang.impl.StubbrLangPackageImpl#getFormatType()
    * @generated
    */
-  int FORMAT_TYPE = 94;
+  int FORMAT_TYPE = 93;
 
   /**
    * The meta object id for the '{@link com.laegler.stubbr.lang.stubbrLang.EditorType <em>Editor Type</em>}' enum.
@@ -5228,7 +5209,7 @@ public interface StubbrLangPackage extends EPackage
    * @see com.laegler.stubbr.lang.stubbrLang.impl.StubbrLangPackageImpl#getEditorType()
    * @generated
    */
-  int EDITOR_TYPE = 95;
+  int EDITOR_TYPE = 94;
 
   /**
    * The meta object id for the '{@link com.laegler.stubbr.lang.stubbrLang.ModelType <em>Model Type</em>}' enum.
@@ -5238,7 +5219,7 @@ public interface StubbrLangPackage extends EPackage
    * @see com.laegler.stubbr.lang.stubbrLang.impl.StubbrLangPackageImpl#getModelType()
    * @generated
    */
-  int MODEL_TYPE = 96;
+  int MODEL_TYPE = 95;
 
   /**
    * The meta object id for the '{@link com.laegler.stubbr.lang.stubbrLang.UiFramework <em>Ui Framework</em>}' enum.
@@ -5248,7 +5229,7 @@ public interface StubbrLangPackage extends EPackage
    * @see com.laegler.stubbr.lang.stubbrLang.impl.StubbrLangPackageImpl#getUiFramework()
    * @generated
    */
-  int UI_FRAMEWORK = 97;
+  int UI_FRAMEWORK = 96;
 
   /**
    * The meta object id for the '{@link com.laegler.stubbr.lang.stubbrLang.RestLanguage <em>Rest Language</em>}' enum.
@@ -5258,7 +5239,7 @@ public interface StubbrLangPackage extends EPackage
    * @see com.laegler.stubbr.lang.stubbrLang.impl.StubbrLangPackageImpl#getRestLanguage()
    * @generated
    */
-  int REST_LANGUAGE = 98;
+  int REST_LANGUAGE = 97;
 
   /**
    * The meta object id for the '{@link com.laegler.stubbr.lang.stubbrLang.BehaviorAction <em>Behavior Action</em>}' enum.
@@ -5268,7 +5249,7 @@ public interface StubbrLangPackage extends EPackage
    * @see com.laegler.stubbr.lang.stubbrLang.impl.StubbrLangPackageImpl#getBehaviorAction()
    * @generated
    */
-  int BEHAVIOR_ACTION = 99;
+  int BEHAVIOR_ACTION = 98;
 
 
   /**
@@ -6949,6 +6930,50 @@ public interface StubbrLangPackage extends EPackage
    * @generated
    */
   EClass getOption();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.laegler.stubbr.lang.stubbrLang.Option#isDefault <em>Default</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Default</em>'.
+   * @see com.laegler.stubbr.lang.stubbrLang.Option#isDefault()
+   * @see #getOption()
+   * @generated
+   */
+  EAttribute getOption_Default();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.laegler.stubbr.lang.stubbrLang.Option#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see com.laegler.stubbr.lang.stubbrLang.Option#getName()
+   * @see #getOption()
+   * @generated
+   */
+  EAttribute getOption_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.laegler.stubbr.lang.stubbrLang.Option#getLabel <em>Label</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Label</em>'.
+   * @see com.laegler.stubbr.lang.stubbrLang.Option#getLabel()
+   * @see #getOption()
+   * @generated
+   */
+  EAttribute getOption_Label();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.laegler.stubbr.lang.stubbrLang.Option#getFlowNodes <em>Flow Nodes</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Flow Nodes</em>'.
+   * @see com.laegler.stubbr.lang.stubbrLang.Option#getFlowNodes()
+   * @see #getOption()
+   * @generated
+   */
+  EReference getOption_FlowNodes();
 
   /**
    * Returns the meta object for class '{@link com.laegler.stubbr.lang.stubbrLang.Attachment <em>Attachment</em>}'.
@@ -8809,134 +8834,80 @@ public interface StubbrLangPackage extends EPackage
   EAttribute getThenStep_SubjectWildcard();
 
   /**
-   * Returns the meta object for class '{@link com.laegler.stubbr.lang.stubbrLang.FPool <em>FPool</em>}'.
+   * Returns the meta object for class '{@link com.laegler.stubbr.lang.stubbrLang.Poool <em>Poool</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>FPool</em>'.
-   * @see com.laegler.stubbr.lang.stubbrLang.FPool
+   * @return the meta object for class '<em>Poool</em>'.
+   * @see com.laegler.stubbr.lang.stubbrLang.Poool
    * @generated
    */
-  EClass getFPool();
+  EClass getPoool();
 
   /**
-   * Returns the meta object for the attribute '{@link com.laegler.stubbr.lang.stubbrLang.FPool#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link com.laegler.stubbr.lang.stubbrLang.Poool#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see com.laegler.stubbr.lang.stubbrLang.FPool#getName()
-   * @see #getFPool()
+   * @see com.laegler.stubbr.lang.stubbrLang.Poool#getName()
+   * @see #getPoool()
    * @generated
    */
-  EAttribute getFPool_Name();
+  EAttribute getPoool_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link com.laegler.stubbr.lang.stubbrLang.FPool#getLabel <em>Label</em>}'.
+   * Returns the meta object for the attribute '{@link com.laegler.stubbr.lang.stubbrLang.Poool#getLabel <em>Label</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Label</em>'.
-   * @see com.laegler.stubbr.lang.stubbrLang.FPool#getLabel()
-   * @see #getFPool()
+   * @see com.laegler.stubbr.lang.stubbrLang.Poool#getLabel()
+   * @see #getPoool()
    * @generated
    */
-  EAttribute getFPool_Label();
+  EAttribute getPoool_Label();
 
   /**
-   * Returns the meta object for the attribute '{@link com.laegler.stubbr.lang.stubbrLang.FPool#getDocumentation <em>Documentation</em>}'.
+   * Returns the meta object for the attribute '{@link com.laegler.stubbr.lang.stubbrLang.Poool#getDocumentation <em>Documentation</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Documentation</em>'.
-   * @see com.laegler.stubbr.lang.stubbrLang.FPool#getDocumentation()
-   * @see #getFPool()
+   * @see com.laegler.stubbr.lang.stubbrLang.Poool#getDocumentation()
+   * @see #getPoool()
    * @generated
    */
-  EAttribute getFPool_Documentation();
+  EAttribute getPoool_Documentation();
 
   /**
-   * Returns the meta object for the reference '{@link com.laegler.stubbr.lang.stubbrLang.FPool#getActor <em>Actor</em>}'.
+   * Returns the meta object for the reference '{@link com.laegler.stubbr.lang.stubbrLang.Poool#getActor <em>Actor</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Actor</em>'.
-   * @see com.laegler.stubbr.lang.stubbrLang.FPool#getActor()
-   * @see #getFPool()
+   * @see com.laegler.stubbr.lang.stubbrLang.Poool#getActor()
+   * @see #getPoool()
    * @generated
    */
-  EReference getFPool_Actor();
+  EReference getPoool_Actor();
 
   /**
-   * Returns the meta object for the attribute '{@link com.laegler.stubbr.lang.stubbrLang.FPool#isInitializing <em>Initializing</em>}'.
+   * Returns the meta object for the attribute '{@link com.laegler.stubbr.lang.stubbrLang.Poool#isInitializing <em>Initializing</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Initializing</em>'.
-   * @see com.laegler.stubbr.lang.stubbrLang.FPool#isInitializing()
-   * @see #getFPool()
+   * @see com.laegler.stubbr.lang.stubbrLang.Poool#isInitializing()
+   * @see #getPoool()
    * @generated
    */
-  EAttribute getFPool_Initializing();
+  EAttribute getPoool_Initializing();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.laegler.stubbr.lang.stubbrLang.FPool#getFlowNodes <em>Flow Nodes</em>}'.
+   * Returns the meta object for the containment reference list '{@link com.laegler.stubbr.lang.stubbrLang.Poool#getFlowNodes <em>Flow Nodes</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Flow Nodes</em>'.
-   * @see com.laegler.stubbr.lang.stubbrLang.FPool#getFlowNodes()
-   * @see #getFPool()
+   * @see com.laegler.stubbr.lang.stubbrLang.Poool#getFlowNodes()
+   * @see #getPoool()
    * @generated
    */
-  EReference getFPool_FlowNodes();
-
-  /**
-   * Returns the meta object for class '{@link com.laegler.stubbr.lang.stubbrLang.FOption <em>FOption</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>FOption</em>'.
-   * @see com.laegler.stubbr.lang.stubbrLang.FOption
-   * @generated
-   */
-  EClass getFOption();
-
-  /**
-   * Returns the meta object for the attribute '{@link com.laegler.stubbr.lang.stubbrLang.FOption#isDefault <em>Default</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Default</em>'.
-   * @see com.laegler.stubbr.lang.stubbrLang.FOption#isDefault()
-   * @see #getFOption()
-   * @generated
-   */
-  EAttribute getFOption_Default();
-
-  /**
-   * Returns the meta object for the attribute '{@link com.laegler.stubbr.lang.stubbrLang.FOption#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see com.laegler.stubbr.lang.stubbrLang.FOption#getName()
-   * @see #getFOption()
-   * @generated
-   */
-  EAttribute getFOption_Name();
-
-  /**
-   * Returns the meta object for the attribute '{@link com.laegler.stubbr.lang.stubbrLang.FOption#getLabel <em>Label</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Label</em>'.
-   * @see com.laegler.stubbr.lang.stubbrLang.FOption#getLabel()
-   * @see #getFOption()
-   * @generated
-   */
-  EAttribute getFOption_Label();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link com.laegler.stubbr.lang.stubbrLang.FOption#getFlowNodes <em>Flow Nodes</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Flow Nodes</em>'.
-   * @see com.laegler.stubbr.lang.stubbrLang.FOption#getFlowNodes()
-   * @see #getFOption()
-   * @generated
-   */
-  EReference getFOption_FlowNodes();
+  EReference getPoool_FlowNodes();
 
   /**
    * Returns the meta object for enum '{@link com.laegler.stubbr.lang.stubbrLang.Locale <em>Locale</em>}'.

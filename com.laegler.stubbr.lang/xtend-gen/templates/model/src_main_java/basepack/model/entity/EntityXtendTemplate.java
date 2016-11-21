@@ -178,16 +178,8 @@ public class EntityXtendTemplate extends AbstractXtendTemplate {
     _builder.append(" {");
     _builder.newLineIfNotEmpty();
     {
-      StubbrRegistry _stubbr = this.getStubbr();
-      Stubb _stubb = null;
-      if (_stubbr!=null) {
-        _stubb=_stubbr.getStubb();
-      }
-      ChapterPersistence _persistence = null;
-      if (_stubb!=null) {
-        _persistence=_stubb.getPersistence();
-      }
-      boolean _isCustomIds = _persistence.isCustomIds();
+      ChapterPersistence _chapterPersistence = this.getChapterPersistence();
+      boolean _isCustomIds = _chapterPersistence.isCustomIds();
       boolean _not = (!_isCustomIds);
       if (_not) {
         _builder.append("\t");
@@ -228,18 +220,18 @@ public class EntityXtendTemplate extends AbstractXtendTemplate {
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("private ");
-        StubbrRegistry _stubbr_1 = this.getStubbr();
-        Stubb _stubb_1 = null;
-        if (_stubbr_1!=null) {
-          _stubb_1=_stubbr_1.getStubb();
+        StubbrRegistry _stubbr = this.getStubbr();
+        Stubb _stubb = null;
+        if (_stubbr!=null) {
+          _stubb=_stubbr.getStubb();
         }
-        ChapterPersistence _persistence_1 = null;
-        if (_stubb_1!=null) {
-          _persistence_1=_stubb_1.getPersistence();
+        ChapterPersistence _persistence = null;
+        if (_stubb!=null) {
+          _persistence=_stubb.getPersistence();
         }
         JvmTypeReference _javaType = null;
-        if (_persistence_1!=null) {
-          _javaType=_persistence_1.getJavaType();
+        if (_persistence!=null) {
+          _javaType=_persistence.getJavaType();
         }
         String _qualifiedName = null;
         if (_javaType!=null) {
@@ -258,8 +250,6 @@ public class EntityXtendTemplate extends AbstractXtendTemplate {
       }
       for(final Attribute attribute : _attributes) {
         _builder.append("\t");
-        _builder.newLine();
-        _builder.append("\t");
         _builder.append("/**");
         _builder.newLine();
         _builder.append("\t");
@@ -276,8 +266,7 @@ public class EntityXtendTemplate extends AbstractXtendTemplate {
         _builder.append("*/");
         _builder.newLine();
         {
-          boolean _isPrimaryKey = attribute.isPrimaryKey();
-          if (_isPrimaryKey) {
+          if ((attribute.isPrimaryKey() && this.getChapterPersistence().isCustomIds())) {
             _builder.append("\t");
             _builder.append("@");
             String _asImport_14 = this.asImport("javax.persistence.Id");

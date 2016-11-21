@@ -21,7 +21,6 @@ import templates._common.src_main_resource.meta_inf.ManifestMfTemplateBase
 import templates._common.src_main_resource.meta_inf.PersistenceXmlTemplateBase
 import templates._common.src_main_webapp.web_inf.FacesConfigXmlTemplateBase
 import templates._common.src_main_webapp.web_inf.WebXmlTemplateBase
-import templates.faces.DotProjectTemplate
 import templates.faces.PomXmlTemplate
 import templates.faces.src_main_java.basepack.faces.SpringAppXtendTemplate
 import templates.faces.src_main_java.basepack.faces.SpringWebXmlXtendTemplate
@@ -40,6 +39,8 @@ import templates.faces.src_test_java_basepack.faces.BehaviorFeatureStepsXtendTem
 import templates.faces.src_test_java_basepack.faces.BehaviorFeatureTemplate
 import templates.faces.src_main_java.basepack.faces.bean.EntityViewBeanXtendTemplate
 import templates.faces.src_main_java.basepack.faces.bean.AbstractViewBeanXtendTemplate
+import templates._common.GitKeepTemplateBase
+import templates.faces.EclipseDotProjectTemplate
 
 /**
  * Project Generator for JSF/Faces Project
@@ -84,9 +85,17 @@ class FacesProjectGenerator extends AbstractProjectGenerator {
 			new EclipseM2eCorePrefsTemplateBase(stubbr, project),
 			new EclipseWstProjectFacetCorePrefsTemplateBase(stubbr, project),
 			new EclipseWstProjectFacetCoreXmlTemplateBase(stubbr, project),
+			new GitKeepTemplateBase(stubbr, project, '/src/main/java/'),
+			new GitKeepTemplateBase(stubbr, project, '/src/main/src-gen/'),
+			new GitKeepTemplateBase(stubbr, project, '/src/main/xtend-gen/'),
+			new GitKeepTemplateBase(stubbr, project, '/src/main/resources/'),
+			new GitKeepTemplateBase(stubbr, project, '/src/test/java/'),
+			new GitKeepTemplateBase(stubbr, project, '/src/test/src-gen/'),
+			new GitKeepTemplateBase(stubbr, project, '/src/test/xtend-gen/'),
+			new GitKeepTemplateBase(stubbr, project, '/src/test/resources/'),
 			// Project-specific singular templates
 			new PomXmlTemplate(stubbr, project),
-			new DotProjectTemplate(stubbr, project),
+			new EclipseDotProjectTemplate(stubbr, project),
 			new WebXmlTemplateBase(stubbr, project),
 			new FacesConfigXmlTemplateBase(stubbr, project),
 			new IndexDesktopXhtmlTemplate(stubbr, project),

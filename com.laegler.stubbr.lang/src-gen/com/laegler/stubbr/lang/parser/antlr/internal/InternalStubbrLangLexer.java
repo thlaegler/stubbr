@@ -6507,11 +6507,11 @@ public class InternalStubbrLangLexer extends Lexer {
         try {
             int _type = RULE_VERSION;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalStubbrLang.g:17401:14: ( 'v' ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )* ( '-' )? ( RULE_ID )? )
-            // InternalStubbrLang.g:17401:16: 'v' ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )* ( '-' )? ( RULE_ID )?
+            // InternalStubbrLang.g:17394:14: ( 'v' ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )* ( '-' )? ( RULE_ID )? )
+            // InternalStubbrLang.g:17394:16: 'v' ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )* ( '-' )? ( RULE_ID )?
             {
             match('v'); 
-            // InternalStubbrLang.g:17401:20: ( '0' .. '9' )+
+            // InternalStubbrLang.g:17394:20: ( '0' .. '9' )+
             int cnt1=0;
             loop1:
             do {
@@ -6525,7 +6525,7 @@ public class InternalStubbrLangLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // InternalStubbrLang.g:17401:21: '0' .. '9'
+            	    // InternalStubbrLang.g:17394:21: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -6541,7 +6541,7 @@ public class InternalStubbrLangLexer extends Lexer {
                 cnt1++;
             } while (true);
 
-            // InternalStubbrLang.g:17401:32: ( '.' ( '0' .. '9' )+ )*
+            // InternalStubbrLang.g:17394:32: ( '.' ( '0' .. '9' )+ )*
             loop3:
             do {
                 int alt3=2;
@@ -6554,10 +6554,10 @@ public class InternalStubbrLangLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalStubbrLang.g:17401:33: '.' ( '0' .. '9' )+
+            	    // InternalStubbrLang.g:17394:33: '.' ( '0' .. '9' )+
             	    {
             	    match('.'); 
-            	    // InternalStubbrLang.g:17401:37: ( '0' .. '9' )+
+            	    // InternalStubbrLang.g:17394:37: ( '0' .. '9' )+
             	    int cnt2=0;
             	    loop2:
             	    do {
@@ -6571,7 +6571,7 @@ public class InternalStubbrLangLexer extends Lexer {
 
             	        switch (alt2) {
             	    	case 1 :
-            	    	    // InternalStubbrLang.g:17401:38: '0' .. '9'
+            	    	    // InternalStubbrLang.g:17394:38: '0' .. '9'
             	    	    {
             	    	    matchRange('0','9'); 
 
@@ -6596,7 +6596,7 @@ public class InternalStubbrLangLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalStubbrLang.g:17401:51: ( '-' )?
+            // InternalStubbrLang.g:17394:51: ( '-' )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -6605,7 +6605,7 @@ public class InternalStubbrLangLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // InternalStubbrLang.g:17401:51: '-'
+                    // InternalStubbrLang.g:17394:51: '-'
                     {
                     match('-'); 
 
@@ -6614,7 +6614,7 @@ public class InternalStubbrLangLexer extends Lexer {
 
             }
 
-            // InternalStubbrLang.g:17401:56: ( RULE_ID )?
+            // InternalStubbrLang.g:17394:56: ( RULE_ID )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -6623,7 +6623,7 @@ public class InternalStubbrLangLexer extends Lexer {
             }
             switch (alt5) {
                 case 1 :
-                    // InternalStubbrLang.g:17401:56: RULE_ID
+                    // InternalStubbrLang.g:17394:56: RULE_ID
                     {
                     mRULE_ID(); 
 
@@ -6648,11 +6648,11 @@ public class InternalStubbrLangLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalStubbrLang.g:17403:10: ( '0' .. '9' ( '0' .. '9' | '_' )* )
-            // InternalStubbrLang.g:17403:12: '0' .. '9' ( '0' .. '9' | '_' )*
+            // InternalStubbrLang.g:17396:10: ( '0' .. '9' ( '0' .. '9' | '_' )* )
+            // InternalStubbrLang.g:17396:12: '0' .. '9' ( '0' .. '9' | '_' )*
             {
             matchRange('0','9'); 
-            // InternalStubbrLang.g:17403:21: ( '0' .. '9' | '_' )*
+            // InternalStubbrLang.g:17396:21: ( '0' .. '9' | '_' )*
             loop6:
             do {
                 int alt6=2;
@@ -6701,10 +6701,10 @@ public class InternalStubbrLangLexer extends Lexer {
         try {
             int _type = RULE_HEX;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalStubbrLang.g:17405:10: ( ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+ ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )? )
-            // InternalStubbrLang.g:17405:12: ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+ ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )?
+            // InternalStubbrLang.g:17398:10: ( ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+ ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )? )
+            // InternalStubbrLang.g:17398:12: ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+ ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )?
             {
-            // InternalStubbrLang.g:17405:12: ( '0x' | '0X' )
+            // InternalStubbrLang.g:17398:12: ( '0x' | '0X' )
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -6732,7 +6732,7 @@ public class InternalStubbrLangLexer extends Lexer {
             }
             switch (alt7) {
                 case 1 :
-                    // InternalStubbrLang.g:17405:13: '0x'
+                    // InternalStubbrLang.g:17398:13: '0x'
                     {
                     match("0x"); 
 
@@ -6740,7 +6740,7 @@ public class InternalStubbrLangLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalStubbrLang.g:17405:18: '0X'
+                    // InternalStubbrLang.g:17398:18: '0X'
                     {
                     match("0X"); 
 
@@ -6750,7 +6750,7 @@ public class InternalStubbrLangLexer extends Lexer {
 
             }
 
-            // InternalStubbrLang.g:17405:24: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+
+            // InternalStubbrLang.g:17398:24: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+
             int cnt8=0;
             loop8:
             do {
@@ -6788,7 +6788,7 @@ public class InternalStubbrLangLexer extends Lexer {
                 cnt8++;
             } while (true);
 
-            // InternalStubbrLang.g:17405:58: ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )?
+            // InternalStubbrLang.g:17398:58: ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -6797,10 +6797,10 @@ public class InternalStubbrLangLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalStubbrLang.g:17405:59: '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) )
+                    // InternalStubbrLang.g:17398:59: '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) )
                     {
                     match('#'); 
-                    // InternalStubbrLang.g:17405:63: ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) )
+                    // InternalStubbrLang.g:17398:63: ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) )
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -6818,7 +6818,7 @@ public class InternalStubbrLangLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // InternalStubbrLang.g:17405:64: ( 'b' | 'B' ) ( 'i' | 'I' )
+                            // InternalStubbrLang.g:17398:64: ( 'b' | 'B' ) ( 'i' | 'I' )
                             {
                             if ( input.LA(1)=='B'||input.LA(1)=='b' ) {
                                 input.consume();
@@ -6842,7 +6842,7 @@ public class InternalStubbrLangLexer extends Lexer {
                             }
                             break;
                         case 2 :
-                            // InternalStubbrLang.g:17405:84: ( 'l' | 'L' )
+                            // InternalStubbrLang.g:17398:84: ( 'l' | 'L' )
                             {
                             if ( input.LA(1)=='L'||input.LA(1)=='l' ) {
                                 input.consume();
@@ -6881,11 +6881,11 @@ public class InternalStubbrLangLexer extends Lexer {
         try {
             int _type = RULE_DECIMAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalStubbrLang.g:17407:14: ( RULE_INT ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )? ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )? )
-            // InternalStubbrLang.g:17407:16: RULE_INT ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )? ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )?
+            // InternalStubbrLang.g:17400:14: ( RULE_INT ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )? ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )? )
+            // InternalStubbrLang.g:17400:16: RULE_INT ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )? ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )?
             {
             mRULE_INT(); 
-            // InternalStubbrLang.g:17407:25: ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )?
+            // InternalStubbrLang.g:17400:25: ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )?
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -6894,7 +6894,7 @@ public class InternalStubbrLangLexer extends Lexer {
             }
             switch (alt12) {
                 case 1 :
-                    // InternalStubbrLang.g:17407:26: ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT
+                    // InternalStubbrLang.g:17400:26: ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT
                     {
                     if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
                         input.consume();
@@ -6905,7 +6905,7 @@ public class InternalStubbrLangLexer extends Lexer {
                         recover(mse);
                         throw mse;}
 
-                    // InternalStubbrLang.g:17407:36: ( '+' | '-' )?
+                    // InternalStubbrLang.g:17400:36: ( '+' | '-' )?
                     int alt11=2;
                     int LA11_0 = input.LA(1);
 
@@ -6938,7 +6938,7 @@ public class InternalStubbrLangLexer extends Lexer {
 
             }
 
-            // InternalStubbrLang.g:17407:58: ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )?
+            // InternalStubbrLang.g:17400:58: ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )?
             int alt13=3;
             int LA13_0 = input.LA(1);
 
@@ -6950,7 +6950,7 @@ public class InternalStubbrLangLexer extends Lexer {
             }
             switch (alt13) {
                 case 1 :
-                    // InternalStubbrLang.g:17407:59: ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' )
+                    // InternalStubbrLang.g:17400:59: ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' )
                     {
                     if ( input.LA(1)=='B'||input.LA(1)=='b' ) {
                         input.consume();
@@ -6974,7 +6974,7 @@ public class InternalStubbrLangLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalStubbrLang.g:17407:87: ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' )
+                    // InternalStubbrLang.g:17400:87: ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' )
                     {
                     if ( input.LA(1)=='D'||input.LA(1)=='F'||input.LA(1)=='L'||input.LA(1)=='d'||input.LA(1)=='f'||input.LA(1)=='l' ) {
                         input.consume();
@@ -7007,10 +7007,10 @@ public class InternalStubbrLangLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalStubbrLang.g:17409:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )* )
-            // InternalStubbrLang.g:17409:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )*
+            // InternalStubbrLang.g:17402:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )* )
+            // InternalStubbrLang.g:17402:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )*
             {
-            // InternalStubbrLang.g:17409:11: ( '^' )?
+            // InternalStubbrLang.g:17402:11: ( '^' )?
             int alt14=2;
             int LA14_0 = input.LA(1);
 
@@ -7019,7 +7019,7 @@ public class InternalStubbrLangLexer extends Lexer {
             }
             switch (alt14) {
                 case 1 :
-                    // InternalStubbrLang.g:17409:11: '^'
+                    // InternalStubbrLang.g:17402:11: '^'
                     {
                     match('^'); 
 
@@ -7037,7 +7037,7 @@ public class InternalStubbrLangLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalStubbrLang.g:17409:44: ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )*
+            // InternalStubbrLang.g:17402:44: ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )*
             loop15:
             do {
                 int alt15=2;
@@ -7086,10 +7086,10 @@ public class InternalStubbrLangLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalStubbrLang.g:17411:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* ( '\"' )? | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* ( '\\'' )? ) )
-            // InternalStubbrLang.g:17411:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* ( '\"' )? | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* ( '\\'' )? )
+            // InternalStubbrLang.g:17404:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* ( '\"' )? | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* ( '\\'' )? ) )
+            // InternalStubbrLang.g:17404:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* ( '\"' )? | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* ( '\\'' )? )
             {
-            // InternalStubbrLang.g:17411:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* ( '\"' )? | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* ( '\\'' )? )
+            // InternalStubbrLang.g:17404:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* ( '\"' )? | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* ( '\\'' )? )
             int alt20=2;
             int LA20_0 = input.LA(1);
 
@@ -7107,10 +7107,10 @@ public class InternalStubbrLangLexer extends Lexer {
             }
             switch (alt20) {
                 case 1 :
-                    // InternalStubbrLang.g:17411:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* ( '\"' )?
+                    // InternalStubbrLang.g:17404:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* ( '\"' )?
                     {
                     match('\"'); 
-                    // InternalStubbrLang.g:17411:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalStubbrLang.g:17404:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop16:
                     do {
                         int alt16=3;
@@ -7126,7 +7126,7 @@ public class InternalStubbrLangLexer extends Lexer {
 
                         switch (alt16) {
                     	case 1 :
-                    	    // InternalStubbrLang.g:17411:21: '\\\\' .
+                    	    // InternalStubbrLang.g:17404:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -7134,7 +7134,7 @@ public class InternalStubbrLangLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalStubbrLang.g:17411:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalStubbrLang.g:17404:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -7154,7 +7154,7 @@ public class InternalStubbrLangLexer extends Lexer {
                         }
                     } while (true);
 
-                    // InternalStubbrLang.g:17411:44: ( '\"' )?
+                    // InternalStubbrLang.g:17404:44: ( '\"' )?
                     int alt17=2;
                     int LA17_0 = input.LA(1);
 
@@ -7163,7 +7163,7 @@ public class InternalStubbrLangLexer extends Lexer {
                     }
                     switch (alt17) {
                         case 1 :
-                            // InternalStubbrLang.g:17411:44: '\"'
+                            // InternalStubbrLang.g:17404:44: '\"'
                             {
                             match('\"'); 
 
@@ -7176,10 +7176,10 @@ public class InternalStubbrLangLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalStubbrLang.g:17411:49: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* ( '\\'' )?
+                    // InternalStubbrLang.g:17404:49: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* ( '\\'' )?
                     {
                     match('\''); 
-                    // InternalStubbrLang.g:17411:54: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalStubbrLang.g:17404:54: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop18:
                     do {
                         int alt18=3;
@@ -7195,7 +7195,7 @@ public class InternalStubbrLangLexer extends Lexer {
 
                         switch (alt18) {
                     	case 1 :
-                    	    // InternalStubbrLang.g:17411:55: '\\\\' .
+                    	    // InternalStubbrLang.g:17404:55: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -7203,7 +7203,7 @@ public class InternalStubbrLangLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalStubbrLang.g:17411:62: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalStubbrLang.g:17404:62: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -7223,7 +7223,7 @@ public class InternalStubbrLangLexer extends Lexer {
                         }
                     } while (true);
 
-                    // InternalStubbrLang.g:17411:79: ( '\\'' )?
+                    // InternalStubbrLang.g:17404:79: ( '\\'' )?
                     int alt19=2;
                     int LA19_0 = input.LA(1);
 
@@ -7232,7 +7232,7 @@ public class InternalStubbrLangLexer extends Lexer {
                     }
                     switch (alt19) {
                         case 1 :
-                            // InternalStubbrLang.g:17411:79: '\\''
+                            // InternalStubbrLang.g:17404:79: '\\''
                             {
                             match('\''); 
 
@@ -7263,12 +7263,12 @@ public class InternalStubbrLangLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalStubbrLang.g:17413:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalStubbrLang.g:17413:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalStubbrLang.g:17406:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalStubbrLang.g:17406:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalStubbrLang.g:17413:24: ( options {greedy=false; } : . )*
+            // InternalStubbrLang.g:17406:24: ( options {greedy=false; } : . )*
             loop21:
             do {
                 int alt21=2;
@@ -7293,7 +7293,7 @@ public class InternalStubbrLangLexer extends Lexer {
 
                 switch (alt21) {
             	case 1 :
-            	    // InternalStubbrLang.g:17413:52: .
+            	    // InternalStubbrLang.g:17406:52: .
             	    {
             	    matchAny(); 
 
@@ -7323,12 +7323,12 @@ public class InternalStubbrLangLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalStubbrLang.g:17415:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalStubbrLang.g:17415:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalStubbrLang.g:17408:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalStubbrLang.g:17408:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalStubbrLang.g:17415:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalStubbrLang.g:17408:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop22:
             do {
                 int alt22=2;
@@ -7341,7 +7341,7 @@ public class InternalStubbrLangLexer extends Lexer {
 
                 switch (alt22) {
             	case 1 :
-            	    // InternalStubbrLang.g:17415:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalStubbrLang.g:17408:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -7361,7 +7361,7 @@ public class InternalStubbrLangLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalStubbrLang.g:17415:40: ( ( '\\r' )? '\\n' )?
+            // InternalStubbrLang.g:17408:40: ( ( '\\r' )? '\\n' )?
             int alt24=2;
             int LA24_0 = input.LA(1);
 
@@ -7370,9 +7370,9 @@ public class InternalStubbrLangLexer extends Lexer {
             }
             switch (alt24) {
                 case 1 :
-                    // InternalStubbrLang.g:17415:41: ( '\\r' )? '\\n'
+                    // InternalStubbrLang.g:17408:41: ( '\\r' )? '\\n'
                     {
-                    // InternalStubbrLang.g:17415:41: ( '\\r' )?
+                    // InternalStubbrLang.g:17408:41: ( '\\r' )?
                     int alt23=2;
                     int LA23_0 = input.LA(1);
 
@@ -7381,7 +7381,7 @@ public class InternalStubbrLangLexer extends Lexer {
                     }
                     switch (alt23) {
                         case 1 :
-                            // InternalStubbrLang.g:17415:41: '\\r'
+                            // InternalStubbrLang.g:17408:41: '\\r'
                             {
                             match('\r'); 
 
@@ -7413,10 +7413,10 @@ public class InternalStubbrLangLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalStubbrLang.g:17417:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalStubbrLang.g:17417:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalStubbrLang.g:17410:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalStubbrLang.g:17410:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalStubbrLang.g:17417:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalStubbrLang.g:17410:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt25=0;
             loop25:
             do {
@@ -7470,8 +7470,8 @@ public class InternalStubbrLangLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalStubbrLang.g:17419:16: ( . )
-            // InternalStubbrLang.g:17419:18: .
+            // InternalStubbrLang.g:17412:16: ( . )
+            // InternalStubbrLang.g:17412:18: .
             {
             matchAny(); 
 

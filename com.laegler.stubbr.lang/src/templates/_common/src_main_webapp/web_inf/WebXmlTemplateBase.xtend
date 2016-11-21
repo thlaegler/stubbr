@@ -15,7 +15,7 @@ class WebXmlTemplateBase extends AbstractXmlTemplate {
 	new(StubbrRegistry stubbr, Project project) {
 		super(stubbr, project)
 		fileName = 'web'
-		relativPath = '/src/main/webapp/META-INF/'
+		relativPath = '/src/main/webapp/WEB-INF/'
 		header = '''
 			<?xml version="1.0" encoding="UTF-8"?>
 			<web-app

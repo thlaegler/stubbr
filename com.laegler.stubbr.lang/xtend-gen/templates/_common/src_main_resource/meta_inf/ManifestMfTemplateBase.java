@@ -15,7 +15,7 @@ public class ManifestMfTemplateBase extends AbstractTemplate {
     super(stubbr, project);
     this.setFileType(FileType.MANIFEST);
     this.setFileName("MANIFEST");
-    this.setRelativPath("/src/main/resource/META-INF/");
+    this.setRelativPath("/src/main/resources/META-INF/");
     this.setDocumentation("OSGi Manifest descriptor");
     String _template = this.getTemplate();
     this.setContent(_template);

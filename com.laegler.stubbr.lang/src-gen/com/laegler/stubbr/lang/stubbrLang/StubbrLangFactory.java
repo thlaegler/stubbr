@@ -762,22 +762,13 @@ public interface StubbrLangFactory extends EFactory
   ThenStep createThenStep();
 
   /**
-   * Returns a new object of class '<em>FPool</em>'.
+   * Returns a new object of class '<em>Poool</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>FPool</em>'.
+   * @return a new object of class '<em>Poool</em>'.
    * @generated
    */
-  FPool createFPool();
-
-  /**
-   * Returns a new object of class '<em>FOption</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>FOption</em>'.
-   * @generated
-   */
-  FOption createFOption();
+  Poool createPoool();
 
   /**
    * Returns the package supported by this factory.

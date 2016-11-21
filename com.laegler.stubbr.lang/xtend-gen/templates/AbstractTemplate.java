@@ -6,6 +6,18 @@ import com.laegler.stubbr.lang.genmodel.FileType;
 import com.laegler.stubbr.lang.genmodel.OverwritePolicy;
 import com.laegler.stubbr.lang.genmodel.Project;
 import com.laegler.stubbr.lang.genmodel.StubbrRegistry;
+import com.laegler.stubbr.lang.stubbrLang.ChapterBehavior;
+import com.laegler.stubbr.lang.stubbrLang.ChapterBusinessProcesses;
+import com.laegler.stubbr.lang.stubbrLang.ChapterEnvironment;
+import com.laegler.stubbr.lang.stubbrLang.ChapterGlobals;
+import com.laegler.stubbr.lang.stubbrLang.ChapterPersistence;
+import com.laegler.stubbr.lang.stubbrLang.ChapterPresentation;
+import com.laegler.stubbr.lang.stubbrLang.ChapterProjectManagement;
+import com.laegler.stubbr.lang.stubbrLang.ChapterProjectStructure;
+import com.laegler.stubbr.lang.stubbrLang.ChapterStakeholder;
+import com.laegler.stubbr.lang.stubbrLang.ChapterTesting;
+import com.laegler.stubbr.lang.stubbrLang.ChapterWebservice;
+import com.laegler.stubbr.lang.stubbrLang.Stubb;
 import java.io.StringWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -183,6 +195,13 @@ public abstract class AbstractTemplate {
         _builder.append(_currentDate, "");
         _builder.append("}}}");
         _builder.newLineIfNotEmpty();
+        String _lineComment_5 = this.fileType.getLineComment();
+        _builder.append(_lineComment_5, "");
+        _builder.append("{{{Generator: ");
+        String _templateName = this.getTemplateName();
+        _builder.append(_templateName, "");
+        _builder.append("}}}");
+        _builder.newLineIfNotEmpty();
         return _builder.toString();
       } else {
         StringConcatenation _builder_1 = new StringConcatenation();
@@ -204,6 +223,12 @@ public abstract class AbstractTemplate {
         _builder_1.append("{{{Date: ");
         String _currentDate_1 = this.getCurrentDate();
         _builder_1.append(_currentDate_1, "\t");
+        _builder_1.append("}}}");
+        _builder_1.newLineIfNotEmpty();
+        _builder_1.append("\t");
+        _builder_1.append("{{{Generator: ");
+        String _templateName_1 = this.getTemplateName();
+        _builder_1.append(_templateName_1, "\t");
         _builder_1.append("}}}");
         _builder_1.newLineIfNotEmpty();
         String _endComment = this.fileType.getEndComment();
@@ -308,6 +333,106 @@ public abstract class AbstractTemplate {
       _xblockexpression = _builder.toString();
     }
     return _xblockexpression;
+  }
+  
+  protected Stubb getStubb() {
+    Stubb _stubb = null;
+    if (this.stubbr!=null) {
+      _stubb=this.stubbr.getStubb();
+    }
+    return _stubb;
+  }
+  
+  protected ChapterGlobals getChapterGlobals() {
+    Stubb _stubb = null;
+    if (this.stubbr!=null) {
+      _stubb=this.stubbr.getStubb();
+    }
+    ChapterGlobals _globals = null;
+    if (_stubb!=null) {
+      _globals=_stubb.getGlobals();
+    }
+    return _globals;
+  }
+  
+  protected ChapterEnvironment getChapterEnvironment() {
+    Stubb _stubb = null;
+    if (this.stubbr!=null) {
+      _stubb=this.stubbr.getStubb();
+    }
+    return _stubb.getEnvironment();
+  }
+  
+  protected ChapterProjectStructure getChapterStructure() {
+    Stubb _stubb = null;
+    if (this.stubbr!=null) {
+      _stubb=this.stubbr.getStubb();
+    }
+    return _stubb.getStructure();
+  }
+  
+  protected ChapterStakeholder getChapterStakeholder() {
+    Stubb _stubb = null;
+    if (this.stubbr!=null) {
+      _stubb=this.stubbr.getStubb();
+    }
+    return _stubb.getStakeholders();
+  }
+  
+  protected ChapterPersistence getChapterPersistence() {
+    Stubb _stubb = null;
+    if (this.stubbr!=null) {
+      _stubb=this.stubbr.getStubb();
+    }
+    return _stubb.getPersistence();
+  }
+  
+  protected ChapterBusinessProcesses getChapterBusiness() {
+    Stubb _stubb = null;
+    if (this.stubbr!=null) {
+      _stubb=this.stubbr.getStubb();
+    }
+    return _stubb.getBusiness();
+  }
+  
+  protected ChapterWebservice getChapterWebservice() {
+    Stubb _stubb = null;
+    if (this.stubbr!=null) {
+      _stubb=this.stubbr.getStubb();
+    }
+    return _stubb.getWebservice();
+  }
+  
+  protected ChapterPresentation getChapterPresentation() {
+    Stubb _stubb = null;
+    if (this.stubbr!=null) {
+      _stubb=this.stubbr.getStubb();
+    }
+    return _stubb.getPresentation();
+  }
+  
+  protected ChapterBehavior getChapterBehavior() {
+    Stubb _stubb = null;
+    if (this.stubbr!=null) {
+      _stubb=this.stubbr.getStubb();
+    }
+    return _stubb.getBehavior();
+  }
+  
+  protected ChapterTesting getChapterTesting() {
+    Stubb _stubb = null;
+    if (this.stubbr!=null) {
+      _stubb=this.stubbr.getStubb();
+    }
+    return _stubb.getTesting();
+  }
+  
+  protected ChapterProjectManagement getChapterProjectManagement() {
+    Stubb _stubb = null;
+    if (this.stubbr!=null) {
+      _stubb=this.stubbr.getStubb();
+    }
+    return _stubb.getProjectManagement();
   }
   
   @Deprecated

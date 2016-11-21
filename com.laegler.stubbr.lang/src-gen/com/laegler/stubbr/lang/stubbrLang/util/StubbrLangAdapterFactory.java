@@ -41,8 +41,6 @@ import com.laegler.stubbr.lang.stubbrLang.Element;
 import com.laegler.stubbr.lang.stubbrLang.Entity;
 import com.laegler.stubbr.lang.stubbrLang.Enumeration;
 import com.laegler.stubbr.lang.stubbrLang.Event;
-import com.laegler.stubbr.lang.stubbrLang.FOption;
-import com.laegler.stubbr.lang.stubbrLang.FPool;
 import com.laegler.stubbr.lang.stubbrLang.Feature;
 import com.laegler.stubbr.lang.stubbrLang.Flow;
 import com.laegler.stubbr.lang.stubbrLang.FlowNode;
@@ -64,6 +62,7 @@ import com.laegler.stubbr.lang.stubbrLang.Organization;
 import com.laegler.stubbr.lang.stubbrLang.OutputText;
 import com.laegler.stubbr.lang.stubbrLang.Person;
 import com.laegler.stubbr.lang.stubbrLang.Pool;
+import com.laegler.stubbr.lang.stubbrLang.Poool;
 import com.laegler.stubbr.lang.stubbrLang.RadioButtonGroup;
 import com.laegler.stubbr.lang.stubbrLang.Relationship;
 import com.laegler.stubbr.lang.stubbrLang.RestWebservice;
@@ -569,14 +568,9 @@ public class StubbrLangAdapterFactory extends AdapterFactoryImpl
         return createThenStepAdapter();
       }
       @Override
-      public Adapter caseFPool(FPool object)
+      public Adapter casePoool(Poool object)
       {
-        return createFPoolAdapter();
-      }
-      @Override
-      public Adapter caseFOption(FOption object)
-      {
-        return createFOptionAdapter();
+        return createPooolAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -1831,31 +1825,16 @@ public class StubbrLangAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.laegler.stubbr.lang.stubbrLang.FPool <em>FPool</em>}'.
+   * Creates a new adapter for an object of class '{@link com.laegler.stubbr.lang.stubbrLang.Poool <em>Poool</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.laegler.stubbr.lang.stubbrLang.FPool
+   * @see com.laegler.stubbr.lang.stubbrLang.Poool
    * @generated
    */
-  public Adapter createFPoolAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link com.laegler.stubbr.lang.stubbrLang.FOption <em>FOption</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see com.laegler.stubbr.lang.stubbrLang.FOption
-   * @generated
-   */
-  public Adapter createFOptionAdapter()
+  public Adapter createPooolAdapter()
   {
     return null;
   }

@@ -722,10 +722,10 @@ public class StubbrLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getGatewayConvergingAccess().getNameAssignment_1(), "rule__GatewayConverging__NameAssignment_1");
 					put(grammarAccess.getGatewayConvergingAccess().getLabelAssignment_2(), "rule__GatewayConverging__LabelAssignment_2");
 					put(grammarAccess.getGatewayConvergingAccess().getAttachmentsAssignment_3(), "rule__GatewayConverging__AttachmentsAssignment_3");
-					put(grammarAccess.getOptionAccess().getDefaultAssignment_2(), "rule__Option__DefaultAssignment_2");
-					put(grammarAccess.getOptionAccess().getNameAssignment_3(), "rule__Option__NameAssignment_3");
-					put(grammarAccess.getOptionAccess().getLabelAssignment_4(), "rule__Option__LabelAssignment_4");
-					put(grammarAccess.getOptionAccess().getFlowNodesAssignment_5(), "rule__Option__FlowNodesAssignment_5");
+					put(grammarAccess.getOptionAccess().getDefaultAssignment_1(), "rule__Option__DefaultAssignment_1");
+					put(grammarAccess.getOptionAccess().getNameAssignment_2(), "rule__Option__NameAssignment_2");
+					put(grammarAccess.getOptionAccess().getLabelAssignment_3(), "rule__Option__LabelAssignment_3");
+					put(grammarAccess.getOptionAccess().getFlowNodesAssignment_4(), "rule__Option__FlowNodesAssignment_4");
 					put(grammarAccess.getSendMessageAccess().getNameAssignment_1(), "rule__SendMessage__NameAssignment_1");
 					put(grammarAccess.getSendMessageAccess().getLabelAssignment_2(), "rule__SendMessage__LabelAssignment_2");
 					put(grammarAccess.getSendMessageAccess().getReceivingElementAssignment_3_1(), "rule__SendMessage__ReceivingElementAssignment_3_1");

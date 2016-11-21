@@ -27,6 +27,7 @@ import templates.AbstractTemplate;
 import templates._common.DotGitignoreTemplateBase;
 import templates._common.EclipseDotClasspathTemplateBase;
 import templates._common.EclipseDotProjectTemplateBase;
+import templates._common.GitKeepTemplateBase;
 import templates._common.IntellijProjectImlFileBase;
 import templates._common.ReadmeMdTemplateBase;
 import templates._common.settings.EclipseCoreResourcesPrefsTemplateBase;
@@ -39,7 +40,7 @@ import templates._common.src_main_resource.meta_inf.ManifestMfTemplateBase;
 import templates._common.src_main_resource.meta_inf.PersistenceXmlTemplateBase;
 import templates._common.src_main_webapp.web_inf.FacesConfigXmlTemplateBase;
 import templates._common.src_main_webapp.web_inf.WebXmlTemplateBase;
-import templates.faces.DotProjectTemplate;
+import templates.faces.EclipseDotProjectTemplate;
 import templates.faces.PomXmlTemplate;
 import templates.faces.src_main_java.basepack.faces.SpringAppXtendTemplate;
 import templates.faces.src_main_java.basepack.faces.SpringWebXmlXtendTemplate;
@@ -179,27 +180,43 @@ public class FacesProjectGenerator extends AbstractProjectGenerator {
         Project _project_13 = this.getProject();
         EclipseWstProjectFacetCoreXmlTemplateBase _eclipseWstProjectFacetCoreXmlTemplateBase = new EclipseWstProjectFacetCoreXmlTemplateBase(this.stubbr, _project_13);
         Project _project_14 = this.getProject();
-        PomXmlTemplate _pomXmlTemplate = new PomXmlTemplate(this.stubbr, _project_14);
+        GitKeepTemplateBase _gitKeepTemplateBase = new GitKeepTemplateBase(this.stubbr, _project_14, "/src/main/java/");
         Project _project_15 = this.getProject();
-        DotProjectTemplate _dotProjectTemplate = new DotProjectTemplate(this.stubbr, _project_15);
+        GitKeepTemplateBase _gitKeepTemplateBase_1 = new GitKeepTemplateBase(this.stubbr, _project_15, "/src/main/src-gen/");
         Project _project_16 = this.getProject();
-        WebXmlTemplateBase _webXmlTemplateBase = new WebXmlTemplateBase(this.stubbr, _project_16);
+        GitKeepTemplateBase _gitKeepTemplateBase_2 = new GitKeepTemplateBase(this.stubbr, _project_16, "/src/main/xtend-gen/");
         Project _project_17 = this.getProject();
-        FacesConfigXmlTemplateBase _facesConfigXmlTemplateBase = new FacesConfigXmlTemplateBase(this.stubbr, _project_17);
+        GitKeepTemplateBase _gitKeepTemplateBase_3 = new GitKeepTemplateBase(this.stubbr, _project_17, "/src/main/resources/");
         Project _project_18 = this.getProject();
-        IndexDesktopXhtmlTemplate _indexDesktopXhtmlTemplate = new IndexDesktopXhtmlTemplate(this.stubbr, _project_18);
+        GitKeepTemplateBase _gitKeepTemplateBase_4 = new GitKeepTemplateBase(this.stubbr, _project_18, "/src/test/java/");
         Project _project_19 = this.getProject();
-        IndexMobileXhtmlTemplate _indexMobileXhtmlTemplate = new IndexMobileXhtmlTemplate(this.stubbr, _project_19);
+        GitKeepTemplateBase _gitKeepTemplateBase_5 = new GitKeepTemplateBase(this.stubbr, _project_19, "/src/test/src-gen/");
         Project _project_20 = this.getProject();
-        IndexHtmlTemplate _indexHtmlTemplate = new IndexHtmlTemplate(this.stubbr, _project_20);
+        GitKeepTemplateBase _gitKeepTemplateBase_6 = new GitKeepTemplateBase(this.stubbr, _project_20, "/src/test/xtend-gen/");
         Project _project_21 = this.getProject();
-        IndexXhtmlTemplate _indexXhtmlTemplate = new IndexXhtmlTemplate(this.stubbr, _project_21);
+        GitKeepTemplateBase _gitKeepTemplateBase_7 = new GitKeepTemplateBase(this.stubbr, _project_21, "/src/test/resources/");
         Project _project_22 = this.getProject();
-        AbstractPresenterXtendTemplate _abstractPresenterXtendTemplate = new AbstractPresenterXtendTemplate(this.stubbr, _project_22);
+        PomXmlTemplate _pomXmlTemplate = new PomXmlTemplate(this.stubbr, _project_22);
         Project _project_23 = this.getProject();
-        AbstractViewBeanXtendTemplate _abstractViewBeanXtendTemplate = new AbstractViewBeanXtendTemplate(this.stubbr, _project_23);
+        EclipseDotProjectTemplate _eclipseDotProjectTemplate = new EclipseDotProjectTemplate(this.stubbr, _project_23);
+        Project _project_24 = this.getProject();
+        WebXmlTemplateBase _webXmlTemplateBase = new WebXmlTemplateBase(this.stubbr, _project_24);
+        Project _project_25 = this.getProject();
+        FacesConfigXmlTemplateBase _facesConfigXmlTemplateBase = new FacesConfigXmlTemplateBase(this.stubbr, _project_25);
+        Project _project_26 = this.getProject();
+        IndexDesktopXhtmlTemplate _indexDesktopXhtmlTemplate = new IndexDesktopXhtmlTemplate(this.stubbr, _project_26);
+        Project _project_27 = this.getProject();
+        IndexMobileXhtmlTemplate _indexMobileXhtmlTemplate = new IndexMobileXhtmlTemplate(this.stubbr, _project_27);
+        Project _project_28 = this.getProject();
+        IndexHtmlTemplate _indexHtmlTemplate = new IndexHtmlTemplate(this.stubbr, _project_28);
+        Project _project_29 = this.getProject();
+        IndexXhtmlTemplate _indexXhtmlTemplate = new IndexXhtmlTemplate(this.stubbr, _project_29);
+        Project _project_30 = this.getProject();
+        AbstractPresenterXtendTemplate _abstractPresenterXtendTemplate = new AbstractPresenterXtendTemplate(this.stubbr, _project_30);
+        Project _project_31 = this.getProject();
+        AbstractViewBeanXtendTemplate _abstractViewBeanXtendTemplate = new AbstractViewBeanXtendTemplate(this.stubbr, _project_31);
         _files.addAll(
-          Collections.<AbstractTemplate>unmodifiableList(CollectionLiterals.<AbstractTemplate>newArrayList(_readmeMdTemplateBase, _intellijProjectImlFileBase, _dotGitignoreTemplateBase, _eclipseDotClasspathTemplateBase, _eclipseDotProjectTemplateBase, _manifestMfTemplateBase, _ejbJarXmlTemplateBase, _persistenceXmlTemplateBase, _eclipseCoreResourcesPrefsTemplateBase, _eclipseJdtCorePrefsTemplateBase, _eclipseM2eCorePrefsTemplateBase, _eclipseWstProjectFacetCorePrefsTemplateBase, _eclipseWstProjectFacetCoreXmlTemplateBase, _pomXmlTemplate, _dotProjectTemplate, _webXmlTemplateBase, _facesConfigXmlTemplateBase, _indexDesktopXhtmlTemplate, _indexMobileXhtmlTemplate, _indexHtmlTemplate, _indexXhtmlTemplate, _abstractPresenterXtendTemplate, _abstractViewBeanXtendTemplate)));
+          Collections.<AbstractTemplate>unmodifiableList(CollectionLiterals.<AbstractTemplate>newArrayList(_readmeMdTemplateBase, _intellijProjectImlFileBase, _dotGitignoreTemplateBase, _eclipseDotClasspathTemplateBase, _eclipseDotProjectTemplateBase, _manifestMfTemplateBase, _ejbJarXmlTemplateBase, _persistenceXmlTemplateBase, _eclipseCoreResourcesPrefsTemplateBase, _eclipseJdtCorePrefsTemplateBase, _eclipseM2eCorePrefsTemplateBase, _eclipseWstProjectFacetCorePrefsTemplateBase, _eclipseWstProjectFacetCoreXmlTemplateBase, _gitKeepTemplateBase, _gitKeepTemplateBase_1, _gitKeepTemplateBase_2, _gitKeepTemplateBase_3, _gitKeepTemplateBase_4, _gitKeepTemplateBase_5, _gitKeepTemplateBase_6, _gitKeepTemplateBase_7, _pomXmlTemplate, _eclipseDotProjectTemplate, _webXmlTemplateBase, _facesConfigXmlTemplateBase, _indexDesktopXhtmlTemplate, _indexMobileXhtmlTemplate, _indexHtmlTemplate, _indexXhtmlTemplate, _abstractPresenterXtendTemplate, _abstractViewBeanXtendTemplate)));
       }
       Stubb _stubb = null;
       if (this.stubbr!=null) {
@@ -211,16 +228,16 @@ public class FacesProjectGenerator extends AbstractProjectGenerator {
       }
       boolean _isUseSpringMVC = _globals.isUseSpringMVC();
       if (_isUseSpringMVC) {
-        Project _project_24 = this.getProject();
+        Project _project_32 = this.getProject();
         List<AbstractTemplate> _files_1 = null;
-        if (_project_24!=null) {
-          _files_1=_project_24.getFiles();
+        if (_project_32!=null) {
+          _files_1=_project_32.getFiles();
         }
         if (_files_1!=null) {
-          Project _project_25 = this.getProject();
-          SpringAppXtendTemplate _springAppXtendTemplate = new SpringAppXtendTemplate(this.stubbr, _project_25);
-          Project _project_26 = this.getProject();
-          SpringWebXmlXtendTemplate _springWebXmlXtendTemplate = new SpringWebXmlXtendTemplate(this.stubbr, _project_26);
+          Project _project_33 = this.getProject();
+          SpringAppXtendTemplate _springAppXtendTemplate = new SpringAppXtendTemplate(this.stubbr, _project_33);
+          Project _project_34 = this.getProject();
+          SpringWebXmlXtendTemplate _springWebXmlXtendTemplate = new SpringWebXmlXtendTemplate(this.stubbr, _project_34);
           _files_1.addAll(
             Collections.<AbstractTemplate>unmodifiableList(CollectionLiterals.<AbstractTemplate>newArrayList(_springAppXtendTemplate, _springWebXmlXtendTemplate)));
         }
@@ -239,24 +256,24 @@ public class FacesProjectGenerator extends AbstractProjectGenerator {
       }
       if (_entities!=null) {
         final Consumer<Entity> _function = (Entity entity) -> {
-          Project _project_27 = this.getProject();
+          Project _project_35 = this.getProject();
           List<AbstractTemplate> _files_2 = null;
-          if (_project_27!=null) {
-            _files_2=_project_27.getFiles();
+          if (_project_35!=null) {
+            _files_2=_project_35.getFiles();
           }
           if (_files_2!=null) {
-            Project _project_28 = this.getProject();
-            EntityPresenterXtendTemplate _entityPresenterXtendTemplate = new EntityPresenterXtendTemplate(this.stubbr, _project_28, entity);
-            Project _project_29 = this.getProject();
-            EntityViewBeanXtendTemplate _entityViewBeanXtendTemplate = new EntityViewBeanXtendTemplate(this.stubbr, _project_29, entity);
-            Project _project_30 = this.getProject();
-            EntityListDesktopXhtmlTemplate _entityListDesktopXhtmlTemplate = new EntityListDesktopXhtmlTemplate(this.stubbr, _project_30, entity);
-            Project _project_31 = this.getProject();
-            EntityDetailsDesktopXhtmlTemplate _entityDetailsDesktopXhtmlTemplate = new EntityDetailsDesktopXhtmlTemplate(this.stubbr, _project_31, entity);
-            Project _project_32 = this.getProject();
-            EntityListMobileXhtmlTemplate _entityListMobileXhtmlTemplate = new EntityListMobileXhtmlTemplate(this.stubbr, _project_32, entity);
-            Project _project_33 = this.getProject();
-            EntityDetailsMobileXhtmlTemplate _entityDetailsMobileXhtmlTemplate = new EntityDetailsMobileXhtmlTemplate(this.stubbr, _project_33, entity);
+            Project _project_36 = this.getProject();
+            EntityPresenterXtendTemplate _entityPresenterXtendTemplate = new EntityPresenterXtendTemplate(this.stubbr, _project_36, entity);
+            Project _project_37 = this.getProject();
+            EntityViewBeanXtendTemplate _entityViewBeanXtendTemplate = new EntityViewBeanXtendTemplate(this.stubbr, _project_37, entity);
+            Project _project_38 = this.getProject();
+            EntityListDesktopXhtmlTemplate _entityListDesktopXhtmlTemplate = new EntityListDesktopXhtmlTemplate(this.stubbr, _project_38, entity);
+            Project _project_39 = this.getProject();
+            EntityDetailsDesktopXhtmlTemplate _entityDetailsDesktopXhtmlTemplate = new EntityDetailsDesktopXhtmlTemplate(this.stubbr, _project_39, entity);
+            Project _project_40 = this.getProject();
+            EntityListMobileXhtmlTemplate _entityListMobileXhtmlTemplate = new EntityListMobileXhtmlTemplate(this.stubbr, _project_40, entity);
+            Project _project_41 = this.getProject();
+            EntityDetailsMobileXhtmlTemplate _entityDetailsMobileXhtmlTemplate = new EntityDetailsMobileXhtmlTemplate(this.stubbr, _project_41, entity);
             _files_2.addAll(
               Collections.<AbstractTemplate>unmodifiableList(CollectionLiterals.<AbstractTemplate>newArrayList(_entityPresenterXtendTemplate, _entityViewBeanXtendTemplate, _entityListDesktopXhtmlTemplate, _entityDetailsDesktopXhtmlTemplate, _entityListMobileXhtmlTemplate, _entityDetailsMobileXhtmlTemplate)));
           }
@@ -277,14 +294,14 @@ public class FacesProjectGenerator extends AbstractProjectGenerator {
       }
       if (_views!=null) {
         final Consumer<View> _function_1 = (View view) -> {
-          Project _project_27 = this.getProject();
+          Project _project_35 = this.getProject();
           List<AbstractTemplate> _files_2 = null;
-          if (_project_27!=null) {
-            _files_2=_project_27.getFiles();
+          if (_project_35!=null) {
+            _files_2=_project_35.getFiles();
           }
           if (_files_2!=null) {
-            Project _project_28 = this.getProject();
-            ViewPresenterXtendTemplate _viewPresenterXtendTemplate = new ViewPresenterXtendTemplate(this.stubbr, _project_28, view);
+            Project _project_36 = this.getProject();
+            ViewPresenterXtendTemplate _viewPresenterXtendTemplate = new ViewPresenterXtendTemplate(this.stubbr, _project_36, view);
             _files_2.addAll(
               Collections.<AbstractTemplate>unmodifiableList(CollectionLiterals.<AbstractTemplate>newArrayList(_viewPresenterXtendTemplate)));
           }
@@ -305,24 +322,24 @@ public class FacesProjectGenerator extends AbstractProjectGenerator {
       }
       if (_features!=null) {
         final Consumer<Feature> _function_2 = (Feature feature) -> {
-          Project _project_27 = this.getProject();
+          Project _project_35 = this.getProject();
           List<AbstractTemplate> _files_2 = null;
-          if (_project_27!=null) {
-            _files_2=_project_27.getFiles();
+          if (_project_35!=null) {
+            _files_2=_project_35.getFiles();
           }
           if (_files_2!=null) {
-            Project _project_28 = this.getProject();
-            BehaviorFeatureTemplate _behaviorFeatureTemplate = new BehaviorFeatureTemplate(this.stubbr, _project_28, feature);
+            Project _project_36 = this.getProject();
+            BehaviorFeatureTemplate _behaviorFeatureTemplate = new BehaviorFeatureTemplate(this.stubbr, _project_36, feature);
             _files_2.add(_behaviorFeatureTemplate);
           }
-          Project _project_29 = this.getProject();
+          Project _project_37 = this.getProject();
           List<AbstractTemplate> _files_3 = null;
-          if (_project_29!=null) {
-            _files_3=_project_29.getFiles();
+          if (_project_37!=null) {
+            _files_3=_project_37.getFiles();
           }
           if (_files_3!=null) {
-            Project _project_30 = this.getProject();
-            BehaviorFeatureStepsXtendTemplate _behaviorFeatureStepsXtendTemplate = new BehaviorFeatureStepsXtendTemplate(this.stubbr, _project_30, feature);
+            Project _project_38 = this.getProject();
+            BehaviorFeatureStepsXtendTemplate _behaviorFeatureStepsXtendTemplate = new BehaviorFeatureStepsXtendTemplate(this.stubbr, _project_38, feature);
             _files_3.add(_behaviorFeatureStepsXtendTemplate);
           }
         };
@@ -343,14 +360,14 @@ public class FacesProjectGenerator extends AbstractProjectGenerator {
       if (_specifications!=null) {
         final Consumer<String> _function_3 = (String specification) -> {
           final Feature feature = this.gherkinAdapter.parseToFeature(specification);
-          Project _project_27 = this.getProject();
+          Project _project_35 = this.getProject();
           List<AbstractTemplate> _files_2 = null;
-          if (_project_27!=null) {
-            _files_2=_project_27.getFiles();
+          if (_project_35!=null) {
+            _files_2=_project_35.getFiles();
           }
           if (_files_2!=null) {
-            Project _project_28 = this.getProject();
-            BehaviorFeatureTemplate _behaviorFeatureTemplate = new BehaviorFeatureTemplate(this.stubbr, _project_28, feature);
+            Project _project_36 = this.getProject();
+            BehaviorFeatureTemplate _behaviorFeatureTemplate = new BehaviorFeatureTemplate(this.stubbr, _project_36, feature);
             final Procedure1<BehaviorFeatureTemplate> _function_4 = (BehaviorFeatureTemplate it) -> {
               File _findFile = this.fileHelper.findFile(specification);
               String _fileContent = this.fileHelper.getFileContent(_findFile);
@@ -359,17 +376,17 @@ public class FacesProjectGenerator extends AbstractProjectGenerator {
             BehaviorFeatureTemplate _doubleArrow = ObjectExtensions.<BehaviorFeatureTemplate>operator_doubleArrow(_behaviorFeatureTemplate, _function_4);
             _files_2.add(_doubleArrow);
           }
-          Project _project_29 = this.getProject();
+          Project _project_37 = this.getProject();
           List<AbstractTemplate> _files_3 = null;
-          if (_project_29!=null) {
-            _files_3=_project_29.getFiles();
+          if (_project_37!=null) {
+            _files_3=_project_37.getFiles();
           }
           if (_files_3!=null) {
-            Project _project_30 = this.getProject();
-            BehaviorFeatureStepsXtendTemplate _behaviorFeatureStepsXtendTemplate = new BehaviorFeatureStepsXtendTemplate(this.stubbr, _project_30, feature);
+            Project _project_38 = this.getProject();
+            BehaviorFeatureStepsXtendTemplate _behaviorFeatureStepsXtendTemplate = new BehaviorFeatureStepsXtendTemplate(this.stubbr, _project_38, feature);
             final Procedure1<BehaviorFeatureStepsXtendTemplate> _function_5 = (BehaviorFeatureStepsXtendTemplate it) -> {
-              Project _project_31 = it.getProject();
-              String _generate = this.gherkinAdapter.generate(_project_31, specification);
+              Project _project_39 = it.getProject();
+              String _generate = this.gherkinAdapter.generate(_project_39, specification);
               it.setContent(_generate);
             };
             BehaviorFeatureStepsXtendTemplate _doubleArrow_1 = ObjectExtensions.<BehaviorFeatureStepsXtendTemplate>operator_doubleArrow(_behaviorFeatureStepsXtendTemplate, _function_5);

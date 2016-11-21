@@ -28,17 +28,22 @@ class BusinessObjectXtendTemplate extends AbstractXtendTemplate {
 	}
 
 	private def String getTemplate() '''
+		import «stubbr?.stubb?.packageName».model.entity.«entity?.name?.toFirstUpper»
 		«javaDocType»
 		@«asImport('org.eclipse.xtend.lib.annotations.Accessors')»
 		@«asImport('javax.xml.bind.annotation.XmlRootElement')»
 		class «fileName» implements «asImport('java.io.Serializable')» {
-			
+		
+			new() {
+				super()
+			}
+		
 			new(«entity?.name?.toFirstUpper» «entity?.name?.toFirstLower») {
 				«IF !stubbr?.stubb?.persistence.customIds»
 					this.id = «entity?.name?.toFirstLower».id
 				«ENDIF»
 				«FOR Attribute attribute : entity?.attributes»
-					this.«attribute?.name?.toFirstLower» = «entity?.name?.toFirstLower».id
+					this.«attribute?.name?.toFirstLower» = «entity?.name?.toFirstLower».«attribute?.name?.toFirstLower»
 				«ENDFOR»
 			}
 			

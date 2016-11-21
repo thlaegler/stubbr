@@ -15,7 +15,7 @@ import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import templates.AbstractTemplate;
 import templates._common.DotGitignoreTemplateBase;
 import templates._common.EclipseDotClasspathTemplateBase;
-import templates._common.EclipseDotProjectTemplateBase;
+import templates._common.GitKeepTemplateBase;
 import templates._common.IntellijProjectImlFileBase;
 import templates._common.ReadmeMdTemplateBase;
 import templates._common.settings.EclipseCoreResourcesPrefsTemplateBase;
@@ -26,10 +26,14 @@ import templates._common.settings.EclipseWstProjectFacetCoreXmlTemplateBase;
 import templates._common.src_main_resource.meta_inf.EjbJarXmlTemplateBase;
 import templates._common.src_main_resource.meta_inf.ManifestMfTemplateBase;
 import templates._common.src_main_resource.meta_inf.PersistenceXmlTemplateBase;
+import templates.business.EclipseDotProjectTemplate;
 import templates.business.PomXmlTemplate;
 import templates.business.src_main_java_basepack.business.config.ConfigXtendTemplate;
 import templates.business.src_main_java_basepack.business.config.EnvironmentXtendTemplate;
 import templates.business.src_main_java_basepack.business.config.SeverityXtendTemplate;
+import templates.business.src_main_java_basepack.business.context.RoleXtendTemplate;
+import templates.business.src_main_java_basepack.business.context.UserContextXtendTemplate;
+import templates.business.src_main_java_basepack.business.controller.AbstractControllerXtendTemplate;
 import templates.business.src_main_java_basepack.business.controller.EntityControllerXtendTemplate;
 import templates.business.src_main_java_basepack.business.object.BusinessObjectXtendTemplate;
 
@@ -123,41 +127,63 @@ public class BusinessProjectGenerator extends AbstractProjectGenerator {
         Project _project_4 = this.getProject();
         EclipseDotClasspathTemplateBase _eclipseDotClasspathTemplateBase = new EclipseDotClasspathTemplateBase(this.stubbr, _project_4);
         Project _project_5 = this.getProject();
-        EclipseDotProjectTemplateBase _eclipseDotProjectTemplateBase = new EclipseDotProjectTemplateBase(this.stubbr, _project_5);
+        ReadmeMdTemplateBase _readmeMdTemplateBase_1 = new ReadmeMdTemplateBase(this.stubbr, _project_5);
         Project _project_6 = this.getProject();
-        ReadmeMdTemplateBase _readmeMdTemplateBase_1 = new ReadmeMdTemplateBase(this.stubbr, _project_6);
+        IntellijProjectImlFileBase _intellijProjectImlFileBase_1 = new IntellijProjectImlFileBase(this.stubbr, _project_6);
         Project _project_7 = this.getProject();
-        IntellijProjectImlFileBase _intellijProjectImlFileBase_1 = new IntellijProjectImlFileBase(this.stubbr, _project_7);
+        DotGitignoreTemplateBase _dotGitignoreTemplateBase_1 = new DotGitignoreTemplateBase(this.stubbr, _project_7);
         Project _project_8 = this.getProject();
-        DotGitignoreTemplateBase _dotGitignoreTemplateBase_1 = new DotGitignoreTemplateBase(this.stubbr, _project_8);
+        EclipseDotClasspathTemplateBase _eclipseDotClasspathTemplateBase_1 = new EclipseDotClasspathTemplateBase(this.stubbr, _project_8);
         Project _project_9 = this.getProject();
-        EclipseDotClasspathTemplateBase _eclipseDotClasspathTemplateBase_1 = new EclipseDotClasspathTemplateBase(this.stubbr, _project_9);
+        ManifestMfTemplateBase _manifestMfTemplateBase = new ManifestMfTemplateBase(this.stubbr, _project_9);
         Project _project_10 = this.getProject();
-        ManifestMfTemplateBase _manifestMfTemplateBase = new ManifestMfTemplateBase(this.stubbr, _project_10);
+        EjbJarXmlTemplateBase _ejbJarXmlTemplateBase = new EjbJarXmlTemplateBase(this.stubbr, _project_10);
         Project _project_11 = this.getProject();
-        EjbJarXmlTemplateBase _ejbJarXmlTemplateBase = new EjbJarXmlTemplateBase(this.stubbr, _project_11);
+        PersistenceXmlTemplateBase _persistenceXmlTemplateBase = new PersistenceXmlTemplateBase(this.stubbr, _project_11);
         Project _project_12 = this.getProject();
-        PersistenceXmlTemplateBase _persistenceXmlTemplateBase = new PersistenceXmlTemplateBase(this.stubbr, _project_12);
+        EclipseCoreResourcesPrefsTemplateBase _eclipseCoreResourcesPrefsTemplateBase = new EclipseCoreResourcesPrefsTemplateBase(this.stubbr, _project_12);
         Project _project_13 = this.getProject();
-        EclipseCoreResourcesPrefsTemplateBase _eclipseCoreResourcesPrefsTemplateBase = new EclipseCoreResourcesPrefsTemplateBase(this.stubbr, _project_13);
+        EclipseJdtCorePrefsTemplateBase _eclipseJdtCorePrefsTemplateBase = new EclipseJdtCorePrefsTemplateBase(this.stubbr, _project_13);
         Project _project_14 = this.getProject();
-        EclipseJdtCorePrefsTemplateBase _eclipseJdtCorePrefsTemplateBase = new EclipseJdtCorePrefsTemplateBase(this.stubbr, _project_14);
+        EclipseM2eCorePrefsTemplateBase _eclipseM2eCorePrefsTemplateBase = new EclipseM2eCorePrefsTemplateBase(this.stubbr, _project_14);
         Project _project_15 = this.getProject();
-        EclipseM2eCorePrefsTemplateBase _eclipseM2eCorePrefsTemplateBase = new EclipseM2eCorePrefsTemplateBase(this.stubbr, _project_15);
+        EclipseWstProjectFacetCorePrefsTemplateBase _eclipseWstProjectFacetCorePrefsTemplateBase = new EclipseWstProjectFacetCorePrefsTemplateBase(this.stubbr, _project_15);
         Project _project_16 = this.getProject();
-        EclipseWstProjectFacetCorePrefsTemplateBase _eclipseWstProjectFacetCorePrefsTemplateBase = new EclipseWstProjectFacetCorePrefsTemplateBase(this.stubbr, _project_16);
+        EclipseWstProjectFacetCoreXmlTemplateBase _eclipseWstProjectFacetCoreXmlTemplateBase = new EclipseWstProjectFacetCoreXmlTemplateBase(this.stubbr, _project_16);
         Project _project_17 = this.getProject();
-        EclipseWstProjectFacetCoreXmlTemplateBase _eclipseWstProjectFacetCoreXmlTemplateBase = new EclipseWstProjectFacetCoreXmlTemplateBase(this.stubbr, _project_17);
+        GitKeepTemplateBase _gitKeepTemplateBase = new GitKeepTemplateBase(this.stubbr, _project_17, "/src/main/java/");
         Project _project_18 = this.getProject();
-        PomXmlTemplate _pomXmlTemplate = new PomXmlTemplate(this.stubbr, _project_18);
+        GitKeepTemplateBase _gitKeepTemplateBase_1 = new GitKeepTemplateBase(this.stubbr, _project_18, "/src/main/src-gen/");
         Project _project_19 = this.getProject();
-        ConfigXtendTemplate _configXtendTemplate = new ConfigXtendTemplate(this.stubbr, _project_19);
+        GitKeepTemplateBase _gitKeepTemplateBase_2 = new GitKeepTemplateBase(this.stubbr, _project_19, "/src/main/xtend-gen/");
         Project _project_20 = this.getProject();
-        EnvironmentXtendTemplate _environmentXtendTemplate = new EnvironmentXtendTemplate(this.stubbr, _project_20);
+        GitKeepTemplateBase _gitKeepTemplateBase_3 = new GitKeepTemplateBase(this.stubbr, _project_20, "/src/main/resources/");
         Project _project_21 = this.getProject();
-        SeverityXtendTemplate _severityXtendTemplate = new SeverityXtendTemplate(this.stubbr, _project_21);
+        GitKeepTemplateBase _gitKeepTemplateBase_4 = new GitKeepTemplateBase(this.stubbr, _project_21, "/src/test/java/");
+        Project _project_22 = this.getProject();
+        GitKeepTemplateBase _gitKeepTemplateBase_5 = new GitKeepTemplateBase(this.stubbr, _project_22, "/src/test/src-gen/");
+        Project _project_23 = this.getProject();
+        GitKeepTemplateBase _gitKeepTemplateBase_6 = new GitKeepTemplateBase(this.stubbr, _project_23, "/src/test/xtend-gen/");
+        Project _project_24 = this.getProject();
+        GitKeepTemplateBase _gitKeepTemplateBase_7 = new GitKeepTemplateBase(this.stubbr, _project_24, "/src/test/resources/");
+        Project _project_25 = this.getProject();
+        PomXmlTemplate _pomXmlTemplate = new PomXmlTemplate(this.stubbr, _project_25);
+        Project _project_26 = this.getProject();
+        EclipseDotProjectTemplate _eclipseDotProjectTemplate = new EclipseDotProjectTemplate(this.stubbr, _project_26);
+        Project _project_27 = this.getProject();
+        ConfigXtendTemplate _configXtendTemplate = new ConfigXtendTemplate(this.stubbr, _project_27);
+        Project _project_28 = this.getProject();
+        EnvironmentXtendTemplate _environmentXtendTemplate = new EnvironmentXtendTemplate(this.stubbr, _project_28);
+        Project _project_29 = this.getProject();
+        SeverityXtendTemplate _severityXtendTemplate = new SeverityXtendTemplate(this.stubbr, _project_29);
+        Project _project_30 = this.getProject();
+        UserContextXtendTemplate _userContextXtendTemplate = new UserContextXtendTemplate(this.stubbr, _project_30);
+        Project _project_31 = this.getProject();
+        RoleXtendTemplate _roleXtendTemplate = new RoleXtendTemplate(this.stubbr, _project_31);
+        Project _project_32 = this.getProject();
+        AbstractControllerXtendTemplate _abstractControllerXtendTemplate = new AbstractControllerXtendTemplate(this.stubbr, _project_32);
         _files.addAll(
-          Collections.<AbstractTemplate>unmodifiableList(CollectionLiterals.<AbstractTemplate>newArrayList(_readmeMdTemplateBase, _intellijProjectImlFileBase, _dotGitignoreTemplateBase, _eclipseDotClasspathTemplateBase, _eclipseDotProjectTemplateBase, _readmeMdTemplateBase_1, _intellijProjectImlFileBase_1, _dotGitignoreTemplateBase_1, _eclipseDotClasspathTemplateBase_1, _manifestMfTemplateBase, _ejbJarXmlTemplateBase, _persistenceXmlTemplateBase, _eclipseCoreResourcesPrefsTemplateBase, _eclipseJdtCorePrefsTemplateBase, _eclipseM2eCorePrefsTemplateBase, _eclipseWstProjectFacetCorePrefsTemplateBase, _eclipseWstProjectFacetCoreXmlTemplateBase, _pomXmlTemplate, _configXtendTemplate, _environmentXtendTemplate, _severityXtendTemplate)));
+          Collections.<AbstractTemplate>unmodifiableList(CollectionLiterals.<AbstractTemplate>newArrayList(_readmeMdTemplateBase, _intellijProjectImlFileBase, _dotGitignoreTemplateBase, _eclipseDotClasspathTemplateBase, _readmeMdTemplateBase_1, _intellijProjectImlFileBase_1, _dotGitignoreTemplateBase_1, _eclipseDotClasspathTemplateBase_1, _manifestMfTemplateBase, _ejbJarXmlTemplateBase, _persistenceXmlTemplateBase, _eclipseCoreResourcesPrefsTemplateBase, _eclipseJdtCorePrefsTemplateBase, _eclipseM2eCorePrefsTemplateBase, _eclipseWstProjectFacetCorePrefsTemplateBase, _eclipseWstProjectFacetCoreXmlTemplateBase, _gitKeepTemplateBase, _gitKeepTemplateBase_1, _gitKeepTemplateBase_2, _gitKeepTemplateBase_3, _gitKeepTemplateBase_4, _gitKeepTemplateBase_5, _gitKeepTemplateBase_6, _gitKeepTemplateBase_7, _pomXmlTemplate, _eclipseDotProjectTemplate, _configXtendTemplate, _environmentXtendTemplate, _severityXtendTemplate, _userContextXtendTemplate, _roleXtendTemplate, _abstractControllerXtendTemplate)));
       }
       Stubb _stubb = null;
       if (this.stubbr!=null) {
@@ -173,16 +199,16 @@ public class BusinessProjectGenerator extends AbstractProjectGenerator {
       }
       if (_entities!=null) {
         final Consumer<Entity> _function = (Entity entity) -> {
-          Project _project_22 = this.getProject();
+          Project _project_33 = this.getProject();
           List<AbstractTemplate> _files_1 = null;
-          if (_project_22!=null) {
-            _files_1=_project_22.getFiles();
+          if (_project_33!=null) {
+            _files_1=_project_33.getFiles();
           }
           if (_files_1!=null) {
-            Project _project_23 = this.getProject();
-            EntityControllerXtendTemplate _entityControllerXtendTemplate = new EntityControllerXtendTemplate(this.stubbr, _project_23, entity);
-            Project _project_24 = this.getProject();
-            BusinessObjectXtendTemplate _businessObjectXtendTemplate = new BusinessObjectXtendTemplate(this.stubbr, _project_24, entity);
+            Project _project_34 = this.getProject();
+            EntityControllerXtendTemplate _entityControllerXtendTemplate = new EntityControllerXtendTemplate(this.stubbr, _project_34, entity);
+            Project _project_35 = this.getProject();
+            BusinessObjectXtendTemplate _businessObjectXtendTemplate = new BusinessObjectXtendTemplate(this.stubbr, _project_35, entity);
             _files_1.addAll(
               Collections.<AbstractTemplate>unmodifiableList(CollectionLiterals.<AbstractTemplate>newArrayList(_entityControllerXtendTemplate, _businessObjectXtendTemplate)));
           }

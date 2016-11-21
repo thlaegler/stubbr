@@ -5,12 +5,6 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src-gen"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/xtend-gen"/>
-        <dependent-module archiveName="com.laegler.stubbr.lang-1.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/com.laegler.stubbr.lang/com.laegler.stubbr.lang">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="com.laegler.stubbr.lang.ide-1.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/com.laegler.stubbr.lang.ide/com.laegler.stubbr.lang.ide">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <property name="context-root" value="com.laegler.stubbr.lang.web"/>
         <property name="java-output-path" value="/com.laegler.stubbr.lang.web/target/classes"/>
     </wb-module>

@@ -62,7 +62,7 @@ class ViewPresenterXtendTemplate extends AbstractXtendTemplate {
 			 */
 			@PermitAll
 			def String submitSave() {
-				val long id = getHttpPostParam(HttpPostParam.ID)
+				val long id = getHttpPostParam('id')
 				«loggerName».info('submitSave(id={}) called.', id)
 		
 				//bean.principal = principalService.update(bean.principal)

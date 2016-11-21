@@ -143,6 +143,8 @@ public class BehaviorFeatureStepsXtendTemplate extends AbstractXtendTemplate {
     _builder.newLine();
     _builder.append("import cucumber.api.java.en.When");
     _builder.newLine();
+    _builder.append("import cucumber.api.java.en.And");
+    _builder.newLine();
     _builder.append("import cucumber.api.PendingException");
     _builder.newLine();
     _builder.newLine();

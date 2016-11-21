@@ -7,7 +7,6 @@ import templates._common.EclipseDotClasspathTemplateBase
 import templates._common.IntellijProjectImlFileBase
 import templates._common.src_main_resource.meta_inf.EjbJarXmlTemplateBase
 import templates._common.src_main_resource.meta_inf.ManifestMfTemplateBase
-import templates.persistence.DotProjectTemplate
 import templates.persistence.PomXmlTemplate
 import templates.persistence.src_main_java.basepack.persistence.service.EntityServiceImplXtendTemplate
 import templates.persistence.src_main_java.basepack.persistence.service.EntityServiceInterfaceXtendTemplate
@@ -24,6 +23,8 @@ import templates.persistence.src_main_java.basepack.persistence.spring.mapper.En
 import templates.persistence.src_main_java.basepack.persistence.spring.service.EntitySpringServiceInterfaceXtendTemplate
 import templates.persistence.src_main_java.basepack.persistence.spring.service.EntitySpringServiceImplXtendTemplate
 import templates.persistence.src_main_resources.meta_inf.CreateScriptSqlTemplate
+import templates._common.GitKeepTemplateBase
+import templates.persistence.EclipseDotProjectTemplate
 
 /**
  * Project generator for persistence project
@@ -64,9 +65,17 @@ class PersistenceProjectGenerator extends AbstractProjectGenerator {
 			new EclipseM2eCorePrefsTemplateBase(stubbr, project),
 			new EclipseWstProjectFacetCorePrefsTemplateBase(stubbr, project),
 			new EclipseWstProjectFacetCoreXmlTemplateBase(stubbr, project),
+			new GitKeepTemplateBase(stubbr, project, '/src/main/java/'),
+			new GitKeepTemplateBase(stubbr, project, '/src/main/src-gen/'),
+			new GitKeepTemplateBase(stubbr, project, '/src/main/xtend-gen/'),
+			new GitKeepTemplateBase(stubbr, project, '/src/main/resources/'),
+			new GitKeepTemplateBase(stubbr, project, '/src/test/java/'),
+			new GitKeepTemplateBase(stubbr, project, '/src/test/src-gen/'),
+			new GitKeepTemplateBase(stubbr, project, '/src/test/xtend-gen/'),
+			new GitKeepTemplateBase(stubbr, project, '/src/test/resources/'),
 			// Project-specific singular templates
 			new PomXmlTemplate(stubbr, project),
-			new DotProjectTemplate(stubbr, project)
+			new EclipseDotProjectTemplate(stubbr, project)
 		])
 
 		// SpringMVC entity-specific templates

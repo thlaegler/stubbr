@@ -15,7 +15,7 @@ class BeansXmlTemplateBase extends AbstractXmlTemplate {
 	new(StubbrRegistry stubbr, Project project) {
 		super(stubbr, project)
 		fileName = 'beans'
-		relativPath = '/src/main/webapp/META-INF/'
+		relativPath = '/src/main/resources/META-INF/'
 		header = '''
 			<?xml version="1.0" encoding="UTF-8"?>
 			<beans

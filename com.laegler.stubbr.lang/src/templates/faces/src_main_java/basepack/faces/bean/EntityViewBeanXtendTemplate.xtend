@@ -34,35 +34,23 @@ class EntityViewBeanXtendTemplate extends AbstractXtendTemplate {
 		import javax.annotation.Generated
 		import javax.annotation.security.PermitAll
 		import org.slf4j.Logger
-		import javax.enterprise.context.RequestScoped
 		
 		«javaDocType»
-		@RequestScoped
+		@«asImport('javax.enterprise.context.RequestScoped')»
+		@«asImport('org.eclipse.xtend.lib.annotations.Accessors')»
 		class «fileName» implements «asImport('java.io.Serializable')» {
-			«IF !stubbr?.stubb?.persistence.customIds»
-				
-				/**
-				 * ID / primary key of entity «entity?.name?.toFirstUpper»
-				 */
-				@«asImport('javax.persistence.Id')»
-				@«asImport('javax.persistence.GeneratedValue')»(strategy = «asImport('javax.persistence.GenerationType')».AUTO)
+			
+			«IF !chapterPersistence.customIds»
+				@«asImport('com.google.gson.annotations.Since')»(«project.version.toVersionDouble»)
+				@«asImport('com.google.gson.annotations.Until')»(«project.version.toVersionDouble»)
 				private «asImport(stubbr?.stubb?.persistence?.javaType?.getQualifiedName)» id
+				
 			«ENDIF»
 			«FOR Attribute attribute : entity?.attributes»
-				
-				/**
-				 * «attribute?.documentation»
-				 */
-				«IF attribute.primaryKey»
-					@«asImport('javax.persistence.Id')»
-					@«asImport('javax.persistence.GeneratedValue')»(strategy = «asImport('javax.persistence.GenerationType')».AUTO)
-				«ENDIF»
-				@«asImport('javax.persistence.Column')»(name='«attribute?.name?.toLowerUnderscore»')
+				@«asImport('com.google.gson.annotations.Since')»(«project.version.toVersionDouble»)
 				@«asImport('com.google.gson.annotations.Until')»(«project.version.toVersionDouble»)
-				@«asImport('com.fasterxml.jackson.annotation.JsonProperty')»('«attribute?.name?.toFirstLower»')
-				@«asImport('javax.xml.bind.annotation.XmlElement')»
-				@«asImport('com.google.gson.annotations.Expose')»(serialize=true, deserialize=true)
 				private «IF attribute?.javaType != null»«asImport(attribute?.javaType?.qualifiedName)»«ELSE»«asImport(stubbr?.stubb?.packageName + '.model.entity.' + attribute?.type?.name)»«ENDIF» «attribute?.name?.toFirstLower»
+				
 			«ENDFOR»
 		
 		}

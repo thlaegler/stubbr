@@ -15,6 +15,8 @@ public enum FileType {
 	//
 	GITIGNORE("gitignore", "# ", null, null),
 	//
+	GITKEEP("gitkeep", "# ", null, null),
+	//
 	XHTML("xhtml", null, "<!--", "-->"),
 	//
 	HTML("html", null, "<!--", "-->"),
@@ -30,6 +32,8 @@ public enum FileType {
 	ECLIPSE_CLASSPATH("classpath", null, "<!--", "-->"),
 	//
 	ECLIPSE_PREFS("prefs", null, "<!--", "-->"),
+	//
+	ECLIPSE_COMPONENT("component", null, "<!--", "-->"),
 	//
 	INTELLIJ_PROJECT("iml", null, "<!--", "-->"),
 	//

@@ -279,7 +279,13 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GatewayConverging" eSuperTypes="#//Gateway"/>
   <eClassifiers xsi:type="ecore:EClass" name="OptionFlowNode"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Option"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Option">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="default" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="flowNodes" upperBound="-1"
+        eType="#//OptionFlowNode" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Attachment">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -622,7 +628,7 @@
     <eLiterals name="BE_VISIBLE" value="10" literal="be visible"/>
     <eLiterals name="BE_OPENED" value="11" literal="be opened"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FPool" eSuperTypes="#//Pool">
+  <eClassifiers xsi:type="ecore:EClass" name="Poool" eSuperTypes="#//Pool">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -630,12 +636,5 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="initializing" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="flowNodes" upperBound="-1"
         eType="#//FlowNode" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FOption" eSuperTypes="#//Option">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="default" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="flowNodes" upperBound="-1"
-        eType="#//OptionFlowNode" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

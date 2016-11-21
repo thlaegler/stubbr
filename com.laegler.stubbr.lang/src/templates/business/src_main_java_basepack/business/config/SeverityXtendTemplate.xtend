@@ -14,7 +14,7 @@ class SeverityXtendTemplate extends AbstractXtendTemplate {
 	 */
 	new(StubbrRegistry stubbr, Project project) {
 		super(stubbr, project)
-		fileName = 'Severity'
+		fileName = 'CustomSeverity'
 		header = '''package «project.basePackage».config'''
 		relativPath = '''/src/main/java/«project?.basePackage?.toPath»/config/'''
 		documentation = 'General severity of status messages.'

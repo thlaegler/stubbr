@@ -17,7 +17,7 @@ class ManifestMfTemplateBase extends AbstractTemplate {
 		super(stubbr, project)
 		fileType = FileType.MANIFEST
 		fileName = 'MANIFEST'
-		relativPath = '/src/main/resource/META-INF/'
+		relativPath = '/src/main/resources/META-INF/'
 		documentation = 'OSGi Manifest descriptor'
 
 		content = template

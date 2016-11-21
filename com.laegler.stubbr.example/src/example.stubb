@@ -8,9 +8,9 @@ project MyExample {
 	eMail "thomas.laeger@googlemail.com"
 	
 	globals {
-		loggerName log
-		//loggerType org.slf4j.Logger
-		//useSpringMVC
+		loggerName log // the name of the value holding the Logger
+		loggerType org.slf4j.Logger // the type of the Logger to be used
+		//useSpringMVC // generate Spring MVC classes
 	}
 	stakeholders {
 		organizations

@@ -73,6 +73,28 @@ public class BusinessObjectXtendTemplate extends AbstractXtendTemplate {
   
   private String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("import ");
+    StubbrRegistry _stubbr = this.getStubbr();
+    Stubb _stubb = null;
+    if (_stubbr!=null) {
+      _stubb=_stubbr.getStubb();
+    }
+    String _packageName = null;
+    if (_stubb!=null) {
+      _packageName=_stubb.getPackageName();
+    }
+    _builder.append(_packageName, "");
+    _builder.append(".model.entity.");
+    String _name = null;
+    if (this.entity!=null) {
+      _name=this.entity.getName();
+    }
+    String _firstUpper = null;
+    if (_name!=null) {
+      _firstUpper=StringExtensions.toFirstUpper(_name);
+    }
+    _builder.append(_firstUpper, "");
+    _builder.newLineIfNotEmpty();
     String _javaDocType = this.getJavaDocType();
     _builder.append(_javaDocType, "");
     _builder.newLineIfNotEmpty();
@@ -92,53 +114,62 @@ public class BusinessObjectXtendTemplate extends AbstractXtendTemplate {
     _builder.append(_asImport_2, "");
     _builder.append(" {");
     _builder.newLineIfNotEmpty();
+    _builder.newLine();
     _builder.append("\t");
+    _builder.append("new() {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("super()");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
     _builder.newLine();
     _builder.append("\t");
     _builder.append("new(");
-    String _name = null;
-    if (this.entity!=null) {
-      _name=this.entity.getName();
-    }
-    String _firstUpper = null;
-    if (_name!=null) {
-      _firstUpper=StringExtensions.toFirstUpper(_name);
-    }
-    _builder.append(_firstUpper, "\t");
-    _builder.append(" ");
     String _name_1 = null;
     if (this.entity!=null) {
       _name_1=this.entity.getName();
     }
-    String _firstLower = null;
+    String _firstUpper_1 = null;
     if (_name_1!=null) {
-      _firstLower=StringExtensions.toFirstLower(_name_1);
+      _firstUpper_1=StringExtensions.toFirstUpper(_name_1);
+    }
+    _builder.append(_firstUpper_1, "\t");
+    _builder.append(" ");
+    String _name_2 = null;
+    if (this.entity!=null) {
+      _name_2=this.entity.getName();
+    }
+    String _firstLower = null;
+    if (_name_2!=null) {
+      _firstLower=StringExtensions.toFirstLower(_name_2);
     }
     _builder.append(_firstLower, "\t");
     _builder.append(") {");
     _builder.newLineIfNotEmpty();
     {
-      StubbrRegistry _stubbr = this.getStubbr();
-      Stubb _stubb = null;
-      if (_stubbr!=null) {
-        _stubb=_stubbr.getStubb();
+      StubbrRegistry _stubbr_1 = this.getStubbr();
+      Stubb _stubb_1 = null;
+      if (_stubbr_1!=null) {
+        _stubb_1=_stubbr_1.getStubb();
       }
       ChapterPersistence _persistence = null;
-      if (_stubb!=null) {
-        _persistence=_stubb.getPersistence();
+      if (_stubb_1!=null) {
+        _persistence=_stubb_1.getPersistence();
       }
       boolean _isCustomIds = _persistence.isCustomIds();
       boolean _not = (!_isCustomIds);
       if (_not) {
         _builder.append("\t\t");
         _builder.append("this.id = ");
-        String _name_2 = null;
+        String _name_3 = null;
         if (this.entity!=null) {
-          _name_2=this.entity.getName();
+          _name_3=this.entity.getName();
         }
         String _firstLower_1 = null;
-        if (_name_2!=null) {
-          _firstLower_1=StringExtensions.toFirstLower(_name_2);
+        if (_name_3!=null) {
+          _firstLower_1=StringExtensions.toFirstLower(_name_3);
         }
         _builder.append(_firstLower_1, "\t\t");
         _builder.append(".id");
@@ -153,26 +184,35 @@ public class BusinessObjectXtendTemplate extends AbstractXtendTemplate {
       for(final Attribute attribute : _attributes) {
         _builder.append("\t\t");
         _builder.append("this.");
-        String _name_3 = null;
+        String _name_4 = null;
         if (attribute!=null) {
-          _name_3=attribute.getName();
+          _name_4=attribute.getName();
         }
         String _firstLower_2 = null;
-        if (_name_3!=null) {
-          _firstLower_2=StringExtensions.toFirstLower(_name_3);
+        if (_name_4!=null) {
+          _firstLower_2=StringExtensions.toFirstLower(_name_4);
         }
         _builder.append(_firstLower_2, "\t\t");
         _builder.append(" = ");
-        String _name_4 = null;
+        String _name_5 = null;
         if (this.entity!=null) {
-          _name_4=this.entity.getName();
+          _name_5=this.entity.getName();
         }
         String _firstLower_3 = null;
-        if (_name_4!=null) {
-          _firstLower_3=StringExtensions.toFirstLower(_name_4);
+        if (_name_5!=null) {
+          _firstLower_3=StringExtensions.toFirstLower(_name_5);
         }
         _builder.append(_firstLower_3, "\t\t");
-        _builder.append(".id");
+        _builder.append(".");
+        String _name_6 = null;
+        if (attribute!=null) {
+          _name_6=attribute.getName();
+        }
+        String _firstLower_4 = null;
+        if (_name_6!=null) {
+          _firstLower_4=StringExtensions.toFirstLower(_name_6);
+        }
+        _builder.append(_firstLower_4, "\t\t");
         _builder.newLineIfNotEmpty();
       }
     }
@@ -182,14 +222,14 @@ public class BusinessObjectXtendTemplate extends AbstractXtendTemplate {
     _builder.append("\t");
     _builder.newLine();
     {
-      StubbrRegistry _stubbr_1 = this.getStubbr();
-      Stubb _stubb_1 = null;
-      if (_stubbr_1!=null) {
-        _stubb_1=_stubbr_1.getStubb();
+      StubbrRegistry _stubbr_2 = this.getStubbr();
+      Stubb _stubb_2 = null;
+      if (_stubbr_2!=null) {
+        _stubb_2=_stubbr_2.getStubb();
       }
       ChapterPersistence _persistence_1 = null;
-      if (_stubb_1!=null) {
-        _persistence_1=_stubb_1.getPersistence();
+      if (_stubb_2!=null) {
+        _persistence_1=_stubb_2.getPersistence();
       }
       boolean _isCustomIds_1 = _persistence_1.isCustomIds();
       boolean _not_1 = (!_isCustomIds_1);
@@ -200,15 +240,15 @@ public class BusinessObjectXtendTemplate extends AbstractXtendTemplate {
         _builder.append("\t");
         _builder.append(" ");
         _builder.append("* ID / primary key of entity ");
-        String _name_5 = null;
+        String _name_7 = null;
         if (this.entity!=null) {
-          _name_5=this.entity.getName();
+          _name_7=this.entity.getName();
         }
-        String _firstUpper_1 = null;
-        if (_name_5!=null) {
-          _firstUpper_1=StringExtensions.toFirstUpper(_name_5);
+        String _firstUpper_2 = null;
+        if (_name_7!=null) {
+          _firstUpper_2=StringExtensions.toFirstUpper(_name_7);
         }
-        _builder.append(_firstUpper_1, "\t ");
+        _builder.append(_firstUpper_2, "\t ");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append(" ");
@@ -216,14 +256,14 @@ public class BusinessObjectXtendTemplate extends AbstractXtendTemplate {
         _builder.newLine();
         _builder.append("\t");
         _builder.append("private ");
-        StubbrRegistry _stubbr_2 = this.getStubbr();
-        Stubb _stubb_2 = null;
-        if (_stubbr_2!=null) {
-          _stubb_2=_stubbr_2.getStubb();
+        StubbrRegistry _stubbr_3 = this.getStubbr();
+        Stubb _stubb_3 = null;
+        if (_stubbr_3!=null) {
+          _stubb_3=_stubbr_3.getStubb();
         }
         ChapterPersistence _persistence_2 = null;
-        if (_stubb_2!=null) {
-          _persistence_2=_stubb_2.getPersistence();
+        if (_stubb_3!=null) {
+          _persistence_2=_stubb_3.getPersistence();
         }
         JvmTypeReference _javaType = null;
         if (_persistence_2!=null) {
@@ -279,15 +319,15 @@ public class BusinessObjectXtendTemplate extends AbstractXtendTemplate {
         String _asImport_5 = this.asImport("com.fasterxml.jackson.annotation.JsonProperty");
         _builder.append(_asImport_5, "\t");
         _builder.append("(\'");
-        String _name_6 = null;
+        String _name_8 = null;
         if (attribute_1!=null) {
-          _name_6=attribute_1.getName();
+          _name_8=attribute_1.getName();
         }
-        String _firstLower_4 = null;
-        if (_name_6!=null) {
-          _firstLower_4=StringExtensions.toFirstLower(_name_6);
+        String _firstLower_5 = null;
+        if (_name_8!=null) {
+          _firstLower_5=StringExtensions.toFirstLower(_name_8);
         }
-        _builder.append(_firstLower_4, "\t");
+        _builder.append(_firstLower_5, "\t");
         _builder.append("\')");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
@@ -321,39 +361,39 @@ public class BusinessObjectXtendTemplate extends AbstractXtendTemplate {
             String _asImport_8 = this.asImport(_qualifiedName_1);
             _builder.append(_asImport_8, "\t");
           } else {
-            StubbrRegistry _stubbr_3 = this.getStubbr();
-            Stubb _stubb_3 = null;
-            if (_stubbr_3!=null) {
-              _stubb_3=_stubbr_3.getStubb();
+            StubbrRegistry _stubbr_4 = this.getStubbr();
+            Stubb _stubb_4 = null;
+            if (_stubbr_4!=null) {
+              _stubb_4=_stubbr_4.getStubb();
             }
-            String _packageName = null;
-            if (_stubb_3!=null) {
-              _packageName=_stubb_3.getPackageName();
+            String _packageName_1 = null;
+            if (_stubb_4!=null) {
+              _packageName_1=_stubb_4.getPackageName();
             }
-            String _plus = (_packageName + ".model.entity.");
+            String _plus = (_packageName_1 + ".model.entity.");
             Entity _type = null;
             if (attribute_1!=null) {
               _type=attribute_1.getType();
             }
-            String _name_7 = null;
+            String _name_9 = null;
             if (_type!=null) {
-              _name_7=_type.getName();
+              _name_9=_type.getName();
             }
-            String _plus_1 = (_plus + _name_7);
+            String _plus_1 = (_plus + _name_9);
             String _asImport_9 = this.asImport(_plus_1);
             _builder.append(_asImport_9, "\t");
           }
         }
         _builder.append(" ");
-        String _name_8 = null;
+        String _name_10 = null;
         if (attribute_1!=null) {
-          _name_8=attribute_1.getName();
+          _name_10=attribute_1.getName();
         }
-        String _firstLower_5 = null;
-        if (_name_8!=null) {
-          _firstLower_5=StringExtensions.toFirstLower(_name_8);
+        String _firstLower_6 = null;
+        if (_name_10!=null) {
+          _firstLower_6=StringExtensions.toFirstLower(_name_10);
         }
-        _builder.append(_firstLower_5, "\t");
+        _builder.append(_firstLower_6, "\t");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.newLine();

@@ -10,12 +10,14 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import templates.AbstractTemplate;
 import templates._common.DotGitignoreTemplateBase;
-import templates._common.EclipseDotProjectTemplateBase;
+import templates._common.EclipseDotClasspathTemplateBase;
 import templates._common.IntellijProjectImlFileBase;
 import templates._common.ReadmeMdTemplateBase;
 import templates._common.settings.EclipseCoreResourcesPrefsTemplateBase;
-import templates._common.settings.EclipseWstProjectFacetCoreXmlTemplateBase;
+import templates.ear.EclipseDotProjectTemplate;
 import templates.ear.PomXmlTemplate;
+import templates.ear.settings.EclipseWstCommonComponentTemplate;
+import templates.ear.settings.EclipseWstProjectFacetCoreXmlTemplate;
 
 /**
  * Project Generator for EAR project
@@ -105,15 +107,19 @@ public class EarProjectGenerator extends AbstractProjectGenerator {
         Project _project_3 = this.getProject();
         DotGitignoreTemplateBase _dotGitignoreTemplateBase = new DotGitignoreTemplateBase(this.stubbr, _project_3);
         Project _project_4 = this.getProject();
-        EclipseDotProjectTemplateBase _eclipseDotProjectTemplateBase = new EclipseDotProjectTemplateBase(this.stubbr, _project_4);
+        EclipseDotClasspathTemplateBase _eclipseDotClasspathTemplateBase = new EclipseDotClasspathTemplateBase(this.stubbr, _project_4);
         Project _project_5 = this.getProject();
-        EclipseCoreResourcesPrefsTemplateBase _eclipseCoreResourcesPrefsTemplateBase = new EclipseCoreResourcesPrefsTemplateBase(this.stubbr, _project_5);
+        EclipseDotProjectTemplate _eclipseDotProjectTemplate = new EclipseDotProjectTemplate(this.stubbr, _project_5);
         Project _project_6 = this.getProject();
-        EclipseWstProjectFacetCoreXmlTemplateBase _eclipseWstProjectFacetCoreXmlTemplateBase = new EclipseWstProjectFacetCoreXmlTemplateBase(this.stubbr, _project_6);
+        EclipseCoreResourcesPrefsTemplateBase _eclipseCoreResourcesPrefsTemplateBase = new EclipseCoreResourcesPrefsTemplateBase(this.stubbr, _project_6);
         Project _project_7 = this.getProject();
-        PomXmlTemplate _pomXmlTemplate = new PomXmlTemplate(this.stubbr, _project_7);
+        EclipseWstProjectFacetCoreXmlTemplate _eclipseWstProjectFacetCoreXmlTemplate = new EclipseWstProjectFacetCoreXmlTemplate(this.stubbr, _project_7);
+        Project _project_8 = this.getProject();
+        EclipseWstCommonComponentTemplate _eclipseWstCommonComponentTemplate = new EclipseWstCommonComponentTemplate(this.stubbr, _project_8);
+        Project _project_9 = this.getProject();
+        PomXmlTemplate _pomXmlTemplate = new PomXmlTemplate(this.stubbr, _project_9);
         _files.addAll(
-          Collections.<AbstractTemplate>unmodifiableList(CollectionLiterals.<AbstractTemplate>newArrayList(_readmeMdTemplateBase, _intellijProjectImlFileBase, _dotGitignoreTemplateBase, _eclipseDotProjectTemplateBase, _eclipseCoreResourcesPrefsTemplateBase, _eclipseWstProjectFacetCoreXmlTemplateBase, _pomXmlTemplate)));
+          Collections.<AbstractTemplate>unmodifiableList(CollectionLiterals.<AbstractTemplate>newArrayList(_readmeMdTemplateBase, _intellijProjectImlFileBase, _dotGitignoreTemplateBase, _eclipseDotClasspathTemplateBase, _eclipseDotProjectTemplate, _eclipseCoreResourcesPrefsTemplateBase, _eclipseWstProjectFacetCoreXmlTemplate, _eclipseWstCommonComponentTemplate, _pomXmlTemplate)));
       }
       _xblockexpression = this.getProject();
     }

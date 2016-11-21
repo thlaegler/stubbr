@@ -17,6 +17,7 @@ import templates._common.settings.EclipseJdtCorePrefsTemplateBase
 import templates._common.settings.EclipseM2eCorePrefsTemplateBase
 import templates._common.settings.EclipseWstProjectFacetCoreXmlTemplateBase
 import templates._common.src_main_webapp.web_inf.WebXmlTemplateBase
+import templates._common.GitKeepTemplateBase
 
 /**
  * Project Generator for SOAP server project
@@ -58,6 +59,14 @@ class SoapServerProjectGenerator extends AbstractProjectGenerator {
 			new EclipseWstProjectFacetCoreXmlTemplateBase(stubbr, project),
 			// Project-specific singular templates
 			new PomXmlTemplate(stubbr, project),
+			new GitKeepTemplateBase(stubbr, project, '/src/main/java/'),
+			new GitKeepTemplateBase(stubbr, project, '/src/main/src-gen/'),
+			new GitKeepTemplateBase(stubbr, project, '/src/main/xtend-gen/'),
+			new GitKeepTemplateBase(stubbr, project, '/src/main/resources/'),
+			new GitKeepTemplateBase(stubbr, project, '/src/test/java/'),
+			new GitKeepTemplateBase(stubbr, project, '/src/test/src-gen/'),
+			new GitKeepTemplateBase(stubbr, project, '/src/test/xtend-gen/'),
+			new GitKeepTemplateBase(stubbr, project, '/src/test/resources/'),
 			new SoapEndpointPublisherXtendTemplate(stubbr, project)
 		])
 

@@ -3,6 +3,8 @@
  */
 package com.laegler.stubbr.lang.stubbrLang;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -10,6 +12,15 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Option</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link com.laegler.stubbr.lang.stubbrLang.Option#isDefault <em>Default</em>}</li>
+ *   <li>{@link com.laegler.stubbr.lang.stubbrLang.Option#getName <em>Name</em>}</li>
+ *   <li>{@link com.laegler.stubbr.lang.stubbrLang.Option#getLabel <em>Label</em>}</li>
+ *   <li>{@link com.laegler.stubbr.lang.stubbrLang.Option#getFlowNodes <em>Flow Nodes</em>}</li>
+ * </ul>
  *
  * @see com.laegler.stubbr.lang.stubbrLang.StubbrLangPackage#getOption()
  * @model
@@ -17,4 +28,98 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Option extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Default</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Default</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Default</em>' attribute.
+   * @see #setDefault(boolean)
+   * @see com.laegler.stubbr.lang.stubbrLang.StubbrLangPackage#getOption_Default()
+   * @model
+   * @generated
+   */
+  boolean isDefault();
+
+  /**
+   * Sets the value of the '{@link com.laegler.stubbr.lang.stubbrLang.Option#isDefault <em>Default</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Default</em>' attribute.
+   * @see #isDefault()
+   * @generated
+   */
+  void setDefault(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see com.laegler.stubbr.lang.stubbrLang.StubbrLangPackage#getOption_Name()
+   * @model
+   * @generated
+   */
+  String getName();
+
+  /**
+   * Sets the value of the '{@link com.laegler.stubbr.lang.stubbrLang.Option#getName <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
+   * @generated
+   */
+  void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Label</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Label</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Label</em>' attribute.
+   * @see #setLabel(String)
+   * @see com.laegler.stubbr.lang.stubbrLang.StubbrLangPackage#getOption_Label()
+   * @model
+   * @generated
+   */
+  String getLabel();
+
+  /**
+   * Sets the value of the '{@link com.laegler.stubbr.lang.stubbrLang.Option#getLabel <em>Label</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Label</em>' attribute.
+   * @see #getLabel()
+   * @generated
+   */
+  void setLabel(String value);
+
+  /**
+   * Returns the value of the '<em><b>Flow Nodes</b></em>' containment reference list.
+   * The list contents are of type {@link com.laegler.stubbr.lang.stubbrLang.OptionFlowNode}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Flow Nodes</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Flow Nodes</em>' containment reference list.
+   * @see com.laegler.stubbr.lang.stubbrLang.StubbrLangPackage#getOption_FlowNodes()
+   * @model containment="true"
+   * @generated
+   */
+  EList<OptionFlowNode> getFlowNodes();
+
 } // Option

@@ -49,8 +49,6 @@ import com.laegler.stubbr.lang.stubbrLang.Enumeration;
 import com.laegler.stubbr.lang.stubbrLang.Event;
 import com.laegler.stubbr.lang.stubbrLang.EventDefinitionType;
 import com.laegler.stubbr.lang.stubbrLang.EventType;
-import com.laegler.stubbr.lang.stubbrLang.FOption;
-import com.laegler.stubbr.lang.stubbrLang.FPool;
 import com.laegler.stubbr.lang.stubbrLang.Feature;
 import com.laegler.stubbr.lang.stubbrLang.Flow;
 import com.laegler.stubbr.lang.stubbrLang.FlowNode;
@@ -77,6 +75,7 @@ import com.laegler.stubbr.lang.stubbrLang.Organization;
 import com.laegler.stubbr.lang.stubbrLang.OutputText;
 import com.laegler.stubbr.lang.stubbrLang.Person;
 import com.laegler.stubbr.lang.stubbrLang.Pool;
+import com.laegler.stubbr.lang.stubbrLang.Poool;
 import com.laegler.stubbr.lang.stubbrLang.RadioButtonGroup;
 import com.laegler.stubbr.lang.stubbrLang.Relationship;
 import com.laegler.stubbr.lang.stubbrLang.RestLanguage;
@@ -248,8 +247,7 @@ public class StubbrLangFactoryImpl extends EFactoryImpl implements StubbrLangFac
       case StubbrLangPackage.GIVEN_STEP: return createGivenStep();
       case StubbrLangPackage.WHEN_STEP: return createWhenStep();
       case StubbrLangPackage.THEN_STEP: return createThenStep();
-      case StubbrLangPackage.FPOOL: return createFPool();
-      case StubbrLangPackage.FOPTION: return createFOption();
+      case StubbrLangPackage.POOOL: return createPoool();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -1256,21 +1254,10 @@ public class StubbrLangFactoryImpl extends EFactoryImpl implements StubbrLangFac
    * <!-- end-user-doc -->
    * @generated
    */
-  public FPool createFPool()
+  public Poool createPoool()
   {
-    FPoolImpl fPool = new FPoolImpl();
-    return fPool;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public FOption createFOption()
-  {
-    FOptionImpl fOption = new FOptionImpl();
-    return fOption;
+    PooolImpl poool = new PooolImpl();
+    return poool;
   }
 
   /**

@@ -13,7 +13,7 @@ public class WebXmlTemplateBase extends AbstractXmlTemplate {
   public WebXmlTemplateBase(final StubbrRegistry stubbr, final Project project) {
     super(stubbr, project);
     this.setFileName("web");
-    this.setRelativPath("/src/main/webapp/META-INF/");
+    this.setRelativPath("/src/main/webapp/WEB-INF/");
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
     _builder.newLine();

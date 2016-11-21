@@ -41,8 +41,6 @@ import com.laegler.stubbr.lang.stubbrLang.Element;
 import com.laegler.stubbr.lang.stubbrLang.Entity;
 import com.laegler.stubbr.lang.stubbrLang.Enumeration;
 import com.laegler.stubbr.lang.stubbrLang.Event;
-import com.laegler.stubbr.lang.stubbrLang.FOption;
-import com.laegler.stubbr.lang.stubbrLang.FPool;
 import com.laegler.stubbr.lang.stubbrLang.Feature;
 import com.laegler.stubbr.lang.stubbrLang.Flow;
 import com.laegler.stubbr.lang.stubbrLang.FlowNode;
@@ -64,6 +62,7 @@ import com.laegler.stubbr.lang.stubbrLang.Organization;
 import com.laegler.stubbr.lang.stubbrLang.OutputText;
 import com.laegler.stubbr.lang.stubbrLang.Person;
 import com.laegler.stubbr.lang.stubbrLang.Pool;
+import com.laegler.stubbr.lang.stubbrLang.Poool;
 import com.laegler.stubbr.lang.stubbrLang.RadioButtonGroup;
 import com.laegler.stubbr.lang.stubbrLang.Relationship;
 import com.laegler.stubbr.lang.stubbrLang.RestWebservice;
@@ -809,20 +808,12 @@ public class StubbrLangSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case StubbrLangPackage.FPOOL:
+      case StubbrLangPackage.POOOL:
       {
-        FPool fPool = (FPool)theEObject;
-        T result = caseFPool(fPool);
-        if (result == null) result = casePool(fPool);
-        if (result == null) result = caseInteractionNode(fPool);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case StubbrLangPackage.FOPTION:
-      {
-        FOption fOption = (FOption)theEObject;
-        T result = caseFOption(fOption);
-        if (result == null) result = caseOption(fOption);
+        Poool poool = (Poool)theEObject;
+        T result = casePoool(poool);
+        if (result == null) result = casePool(poool);
+        if (result == null) result = caseInteractionNode(poool);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -2143,33 +2134,17 @@ public class StubbrLangSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>FPool</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Poool</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>FPool</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Poool</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseFPool(FPool object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>FOption</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>FOption</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseFOption(FOption object)
+  public T casePoool(Poool object)
   {
     return null;
   }

@@ -24,7 +24,7 @@ class AbstractPresenterXtendTemplate extends AbstractXtendTemplate {
 
 	private def String getTemplate() '''
 		import «project?.basePackage».*
-		import «stubbr?.stubb?.packageName».business.config.Severity
+		import «stubbr?.stubb?.packageName».business.config.CustomSeverity
 		import java.text.MessageFormat
 		import java.util.Map
 		import java.util.ResourceBundle
@@ -37,7 +37,6 @@ class AbstractPresenterXtendTemplate extends AbstractXtendTemplate {
 		import javax.inject.Inject
 		import javax.servlet.http.HttpServletRequest
 		import org.joda.time.DateTime
-		import org.apache.commons.lang.exception.ExceptionUtils
 		
 		«javaDocType»
 		abstract class AbstractPresenter {
@@ -49,7 +48,7 @@ class AbstractPresenterXtendTemplate extends AbstractXtendTemplate {
 			protected «asImport(stubbr?.stubb?.packageName + '.business.config.Config')» config
 		
 			@«asImport('javax.inject.Inject')»
-			protected «asImport('org.jboss.security.SecurityContext')» securityContext
+			protected «asImport(stubbr?.stubb?.packageName + '.business.context.UserContext')» userContext
 		
 			@PostConstruct
 			def abstract void init()
@@ -72,11 +71,11 @@ class AbstractPresenterXtendTemplate extends AbstractXtendTemplate {
 			 * @param page
 			 * @return
 			 */
-			protected def String getOutcomePage(String page, RoleType roleType, boolean isMobileDevice) {
-				if (isMobileDevice) {
+			protected def String getOutcomePage(String page, «asImport('org.example.stubbr.business.context.Role')» role, boolean isMobile) {
+				if (isMobile) {
 					'pm:pg-' + page + '?transition=slide'
 				} else {
-					Config.PATH_DESKTOP + '/' + roleType.typeName + '/' + page + '.xhtml'
+					Config.PATH_DESKTOP + '/' + role + '/' + page + '.xhtml'
 				}
 			}
 		
@@ -84,36 +83,36 @@ class AbstractPresenterXtendTemplate extends AbstractXtendTemplate {
 			 * 
 			 */
 			protected def String getOutcomePage(String page) {
-				getOutcomePage(page, securityContext.getRoleType(), securityContext.isMobileDevice)
+				getOutcomePage(page, userContext.getRole(), userContext.isMobile)
 			}
 		
-			protected def void handleException(Throwable e) {
-				var String summary = 'Schwerer Technischer Fehler um ' + DateTime.now.toString
-				var String detail = 'Schwerer Technischer Fehler um ' + DateTime.now.toString
-		
-				if (securityContext.roleManagmenet || securityContext.roleAdmin) {
-					val String stackTrace = ExceptionUtils.getStackTrace(e)
-					summary = 'Schwerer Technischer Fehler um ' + DateTime.now.toString + '. Diese Exception ist geflogen: ' +
-						stackTrace
-					detail = 'Schwerer Technischer Fehler um ' + DateTime.now.toString
-				}
-		
-				«loggerName».error('handleException() with {}', e)
-				val FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, summary, detail)
-				facesContext.addMessage('growl', message)
-			}
-		
-			protected def void handleStatus(CQResult response) {
-				if (response.status.isMessage) {
-					val Severity severity = getSeverity(response.status.severity)
-					var String summary = getString(response.status.resourceKey + '.summary', response.params)
-					var String detail = getString(response.status.resourceKey + '.detail', response.params)
-					val FacesMessage message = new FacesMessage(severity, summary, detail)
-					facesContext.addMessage('growl', message)
-				} else {
-					// Exitseite
-				}
-			}
+			//	protected def void handleException(Throwable e) {
+			//		var String summary = 'Schwerer Technischer Fehler um ' + DateTime.now.toString
+			//		var String detail = 'Schwerer Technischer Fehler um ' + DateTime.now.toString
+			//
+			//		if (userContext.roleManagmenet || userContext.roleAdmin) {
+			//			val String stackTrace = ExceptionUtils.getStackTrace(e)
+			//			summary = 'Schwerer Technischer Fehler um ' + DateTime.now.toString + '. Diese Exception ist geflogen: ' +
+			//				stackTrace
+			//			detail = 'Schwerer Technischer Fehler um ' + DateTime.now.toString
+			//		}
+			//
+			//		«loggerName».error('handleException() with {}', e)
+			//		val FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, summary, detail)
+			//		facesContext.addMessage('growl', message)
+			//	}
+			//
+			//	protected def void handleStatus(CQResult response) {
+			//		if (response.status.isMessage) {
+			//			val Severity severity = getSeverity(response.status.severity)
+			//			var String summary = getString(response.status.resourceKey + '.summary', response.params)
+			//			var String detail = getString(response.status.resourceKey + '.detail', response.params)
+			//			val FacesMessage message = new FacesMessage(severity, summary, detail)
+			//			facesContext.addMessage('growl', message)
+			//		} else {
+			//			// Exitseite
+			//		}
+			//	}
 		
 			/**
 			 * 
@@ -160,7 +159,7 @@ class AbstractPresenterXtendTemplate extends AbstractXtendTemplate {
 			 */
 			protected def ResourceBundle getResourceBundle() {
 				val String bundleName = config.getResourceBundleName
-				return ResourceBundle.getBundle(bundleName, securityContext.locale)
+				return ResourceBundle.getBundle(bundleName, userContext.locale)
 			}
 		
 			/**
@@ -168,7 +167,7 @@ class AbstractPresenterXtendTemplate extends AbstractXtendTemplate {
 			 */
 			protected def ResourceBundle getMessageBundle() {
 				val String bundleName = config.getMessageBundleName
-				return ResourceBundle.getBundle(bundleName, securityContext.locale)
+				return ResourceBundle.getBundle(bundleName, userContext.locale)
 			}
 		
 			/**
@@ -181,7 +180,7 @@ class AbstractPresenterXtendTemplate extends AbstractXtendTemplate {
 			/**
 			 * 
 			 */
-			private def Severity getSeverity(CQSeverity severity) {
+			private def Severity getSeverity(CustomSeverity severity) {
 				switch (severity) {
 					case MESSAGE: return FacesMessage.SEVERITY_INFO
 					case INFO: return FacesMessage.SEVERITY_INFO

@@ -29,6 +29,7 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
+import org.eclipse.xtext.xbase.lib.StringExtensions;
 
 /**
  * Reads, parses and generates Cucumber/Gherkin files.
@@ -164,6 +165,8 @@ public class GherkinAdapter implements StubbrAdapter<GherkinDocument> {
     _builder_1.append(_basePackage_1, "");
     _builder_1.append(".*");
     _builder_1.newLineIfNotEmpty();
+    _builder_1.append("import javax.inject.Inject");
+    _builder_1.newLine();
     _builder_1.append("import org.slf4j.Logger");
     _builder_1.newLine();
     _builder_1.append("import cucumber.api.java.en.Given");
@@ -171,6 +174,8 @@ public class GherkinAdapter implements StubbrAdapter<GherkinDocument> {
     _builder_1.append("import cucumber.api.java.en.Then");
     _builder_1.newLine();
     _builder_1.append("import cucumber.api.java.en.When");
+    _builder_1.newLine();
+    _builder_1.append("import cucumber.api.java.en.And");
     _builder_1.newLine();
     _builder_1.append("import cucumber.api.PendingException");
     _builder_1.newLine();
@@ -184,7 +189,15 @@ public class GherkinAdapter implements StubbrAdapter<GherkinDocument> {
     if (_feature_1!=null) {
       _name_1=_feature_1.getName();
     }
-    _builder_1.append(_name_1, "");
+    String _replaceAll_2 = null;
+    if (_name_1!=null) {
+      _replaceAll_2=_name_1.replaceAll(" ", "");
+    }
+    String _firstUpper = null;
+    if (_replaceAll_2!=null) {
+      _firstUpper=StringExtensions.toFirstUpper(_replaceAll_2);
+    }
+    _builder_1.append(_firstUpper, "");
     _builder_1.append("StepDefinitions {");
     _builder_1.newLineIfNotEmpty();
     _builder_1.append("\t");

@@ -13,7 +13,7 @@ public class BeansXmlTemplateBase extends AbstractXmlTemplate {
   public BeansXmlTemplateBase(final StubbrRegistry stubbr, final Project project) {
     super(stubbr, project);
     this.setFileName("beans");
-    this.setRelativPath("/src/main/webapp/META-INF/");
+    this.setRelativPath("/src/main/resources/META-INF/");
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
     _builder.newLine();

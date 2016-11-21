@@ -3079,7 +3079,7 @@ rulePool returns [EObject current=null]
 		(
 			{
 				$current = forceCreateModelElement(
-					grammarAccess.getPoolAccess().getFPoolAction_0(),
+					grammarAccess.getPoolAccess().getPooolAction_0(),
 					$current);
 			}
 		)
@@ -4280,22 +4280,15 @@ ruleOption returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getOptionAccess().getFOptionAction_0(),
-					$current);
-			}
-		)
-		otherlv_1='option'
+		otherlv_0='option'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getOptionAccess().getOptionKeyword_1());
+			newLeafNode(otherlv_0, grammarAccess.getOptionAccess().getOptionKeyword_0());
 		}
 		(
 			(
-				lv_default_2_0='default'
+				lv_default_1_0='default'
 				{
-					newLeafNode(lv_default_2_0, grammarAccess.getOptionAccess().getDefaultDefaultKeyword_2_0());
+					newLeafNode(lv_default_1_0, grammarAccess.getOptionAccess().getDefaultDefaultKeyword_1_0());
 				}
 				{
 					if ($current==null) {
@@ -4307,9 +4300,9 @@ ruleOption returns [EObject current=null]
 		)?
 		(
 			(
-				lv_name_3_0=RULE_ID
+				lv_name_2_0=RULE_ID
 				{
-					newLeafNode(lv_name_3_0, grammarAccess.getOptionAccess().getNameIDTerminalRuleCall_3_0());
+					newLeafNode(lv_name_2_0, grammarAccess.getOptionAccess().getNameIDTerminalRuleCall_2_0());
 				}
 				{
 					if ($current==null) {
@@ -4318,16 +4311,16 @@ ruleOption returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"name",
-						lv_name_3_0,
+						lv_name_2_0,
 						"org.eclipse.xtext.xbase.Xtype.ID");
 				}
 			)
 		)?
 		(
 			(
-				lv_label_4_0=RULE_STRING
+				lv_label_3_0=RULE_STRING
 				{
-					newLeafNode(lv_label_4_0, grammarAccess.getOptionAccess().getLabelSTRINGTerminalRuleCall_4_0());
+					newLeafNode(lv_label_3_0, grammarAccess.getOptionAccess().getLabelSTRINGTerminalRuleCall_3_0());
 				}
 				{
 					if ($current==null) {
@@ -4336,7 +4329,7 @@ ruleOption returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"label",
-						lv_label_4_0,
+						lv_label_3_0,
 						"org.eclipse.xtext.xbase.Xtype.STRING");
 				}
 			)
@@ -4344,9 +4337,9 @@ ruleOption returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getOptionAccess().getFlowNodesOptionFlowNodeParserRuleCall_5_0());
+					newCompositeNode(grammarAccess.getOptionAccess().getFlowNodesOptionFlowNodeParserRuleCall_4_0());
 				}
-				lv_flowNodes_5_0=ruleOptionFlowNode
+				lv_flowNodes_4_0=ruleOptionFlowNode
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getOptionRule());
@@ -4354,7 +4347,7 @@ ruleOption returns [EObject current=null]
 					add(
 						$current,
 						"flowNodes",
-						lv_flowNodes_5_0,
+						lv_flowNodes_4_0,
 						"com.laegler.stubbr.lang.StubbrLang.OptionFlowNode");
 					afterParserOrEnumRuleCall();
 				}

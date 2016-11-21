@@ -112,6 +112,7 @@ abstract class AbstractTemplate {
 					«fileType.lineComment»«documentation»
 					«fileType.lineComment»{{{Version: «version»}}}
 					«fileType.lineComment»{{{Date: «currentDate»}}}
+					«fileType.lineComment»{{{Generator: «templateName»}}}
 				'''
 			} else {
 				return '''
@@ -120,6 +121,7 @@ abstract class AbstractTemplate {
 						«documentation»
 						{{{Version: «version»}}}
 						{{{Date: «currentDate»}}}
+						{{{Generator: «templateName»}}}
 					«fileType.endComment»
 				'''
 			}
@@ -171,6 +173,43 @@ abstract class AbstractTemplate {
 			toLowerCase?.split('.')
 
 		'''http://www.«parts.get(1)».«parts.get(0)»«FOR String part : lastParts»/«part»«ENDFOR»'''
+	}
+
+	protected def getStubb() {
+		return stubbr?.stubb
+	}
+	protected def getChapterGlobals() {
+		return stubbr?.stubb?.globals
+	}
+	protected def getChapterEnvironment() {
+		return stubbr?.stubb.environment
+	}
+	protected def getChapterStructure() {
+		return stubbr?.stubb.structure
+	}
+	protected def getChapterStakeholder() {
+		return stubbr?.stubb.stakeholders
+	}
+	protected def getChapterPersistence() {
+		return stubbr?.stubb.persistence
+	}
+	protected def getChapterBusiness() {
+		return stubbr?.stubb.business
+	}
+	protected def getChapterWebservice() {
+		return stubbr?.stubb.webservice
+	}
+	protected def getChapterPresentation() {
+		return stubbr?.stubb.presentation
+	}
+	protected def getChapterBehavior() {
+		return stubbr?.stubb.behavior
+	}
+	protected def getChapterTesting() {
+		return stubbr?.stubb.testing
+	}
+	protected def getChapterProjectManagement() {
+		return stubbr?.stubb.projectManagement
 	}
 
 	@Deprecated

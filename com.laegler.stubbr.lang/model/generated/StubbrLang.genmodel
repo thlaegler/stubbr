@@ -331,7 +331,12 @@
     </genClasses>
     <genClasses ecoreClass="StubbrLang.ecore#//GatewayConverging"/>
     <genClasses ecoreClass="StubbrLang.ecore#//OptionFlowNode"/>
-    <genClasses ecoreClass="StubbrLang.ecore#//Option"/>
+    <genClasses ecoreClass="StubbrLang.ecore#//Option">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StubbrLang.ecore#//Option/default"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StubbrLang.ecore#//Option/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StubbrLang.ecore#//Option/label"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StubbrLang.ecore#//Option/flowNodes"/>
+    </genClasses>
     <genClasses ecoreClass="StubbrLang.ecore#//Attachment">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StubbrLang.ecore#//Attachment/name"/>
     </genClasses>
@@ -547,19 +552,13 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference StubbrLang.ecore#//ThenStep/subjectElement"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StubbrLang.ecore#//ThenStep/subjectWildcard"/>
     </genClasses>
-    <genClasses ecoreClass="StubbrLang.ecore#//FPool">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StubbrLang.ecore#//FPool/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StubbrLang.ecore#//FPool/label"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StubbrLang.ecore#//FPool/documentation"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference StubbrLang.ecore#//FPool/actor"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StubbrLang.ecore#//FPool/initializing"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StubbrLang.ecore#//FPool/flowNodes"/>
-    </genClasses>
-    <genClasses ecoreClass="StubbrLang.ecore#//FOption">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StubbrLang.ecore#//FOption/default"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StubbrLang.ecore#//FOption/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StubbrLang.ecore#//FOption/label"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StubbrLang.ecore#//FOption/flowNodes"/>
+    <genClasses ecoreClass="StubbrLang.ecore#//Poool">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StubbrLang.ecore#//Poool/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StubbrLang.ecore#//Poool/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StubbrLang.ecore#//Poool/documentation"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference StubbrLang.ecore#//Poool/actor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StubbrLang.ecore#//Poool/initializing"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StubbrLang.ecore#//Poool/flowNodes"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

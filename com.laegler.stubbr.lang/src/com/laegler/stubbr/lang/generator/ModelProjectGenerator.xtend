@@ -7,7 +7,6 @@ import templates._common.EclipseDotClasspathTemplateBase
 import templates._common.IntellijProjectImlFileBase
 import templates._common.src_main_resource.meta_inf.EjbJarXmlTemplateBase
 import templates._common.src_main_resource.meta_inf.ManifestMfTemplateBase
-import templates.model.DotProjectTemplate
 import templates.model.PomXmlTemplate
 import templates._common.ReadmeMdTemplateBase
 import templates._common.settings.EclipseCoreResourcesPrefsTemplateBase
@@ -17,6 +16,8 @@ import templates._common.settings.EclipseJdtCorePrefsTemplateBase
 import templates._common.settings.EclipseM2eCorePrefsTemplateBase
 import templates._common.src_main_resource.meta_inf.PersistenceXmlTemplateBase
 import templates.model.src_main_java.basepack.model.entity.EntityXtendTemplate
+import templates._common.GitKeepTemplateBase
+import templates.model.EclipseDotProjectTemplate
 
 /**
  * Project Generator for Model Project
@@ -57,9 +58,17 @@ class ModelProjectGenerator extends AbstractProjectGenerator {
 			new EclipseM2eCorePrefsTemplateBase(stubbr, project),
 			new EclipseWstProjectFacetCorePrefsTemplateBase(stubbr, project),
 			new EclipseWstProjectFacetCoreXmlTemplateBase(stubbr, project),
+			new GitKeepTemplateBase(stubbr, project, '/src/main/java/'),
+			new GitKeepTemplateBase(stubbr, project, '/src/main/src-gen/'),
+			new GitKeepTemplateBase(stubbr, project, '/src/main/xtend-gen/'),
+			new GitKeepTemplateBase(stubbr, project, '/src/main/resources/'),
+			new GitKeepTemplateBase(stubbr, project, '/src/test/java/'),
+			new GitKeepTemplateBase(stubbr, project, '/src/test/src-gen/'),
+			new GitKeepTemplateBase(stubbr, project, '/src/test/xtend-gen/'),
+			new GitKeepTemplateBase(stubbr, project, '/src/test/resources/'),
 			// Project-specific singular templates
 			new PomXmlTemplate(stubbr, project),
-			new DotProjectTemplate(stubbr, project)
+			new EclipseDotProjectTemplate(stubbr, project)
 		])
 
 		// Entity-specific templates

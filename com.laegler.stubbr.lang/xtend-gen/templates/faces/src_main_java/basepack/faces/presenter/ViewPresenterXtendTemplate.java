@@ -197,7 +197,7 @@ public class ViewPresenterXtendTemplate extends AbstractXtendTemplate {
     _builder.append("def String submitSave() {");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("val long id = getHttpPostParam(HttpPostParam.ID)");
+    _builder.append("val long id = getHttpPostParam(\'id\')");
     _builder.newLine();
     _builder.append("\t\t");
     String _loggerName_1 = this.getLoggerName();

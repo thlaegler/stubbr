@@ -15,7 +15,7 @@ class EjbJarXmlTemplateBase extends AbstractXmlTemplate {
 	new(StubbrRegistry stubbr, Project project) {
 		super(stubbr, project)
 		fileName = 'ejb-jar'
-		relativPath = '/src/main/resource/META-INF/'
+		relativPath = '/src/main/resources/META-INF/'
 		header = '''
 			<?xml version="1.0" encoding="UTF-8"?>
 			<ejb-jar

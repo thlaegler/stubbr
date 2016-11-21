@@ -624,14 +624,7 @@ public class StubbrLangPackageImpl extends EPackageImpl implements StubbrLangPac
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass fPoolEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass fOptionEClass = null;
+  private EClass pooolEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -2516,6 +2509,46 @@ public class StubbrLangPackageImpl extends EPackageImpl implements StubbrLangPac
       optionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(StubbrLangPackage.eNS_URI).getEClassifiers().get(41);
     }
     return optionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getOption_Default()
+  {
+        return (EAttribute)getOption().getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getOption_Name()
+  {
+        return (EAttribute)getOption().getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getOption_Label()
+  {
+        return (EAttribute)getOption().getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getOption_FlowNodes()
+  {
+        return (EReference)getOption().getEStructuralFeatures().get(3);
   }
 
   /**
@@ -4433,13 +4466,13 @@ public class StubbrLangPackageImpl extends EPackageImpl implements StubbrLangPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getFPool()
+  public EClass getPoool()
   {
-    if (fPoolEClass == null)
+    if (pooolEClass == null)
     {
-      fPoolEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(StubbrLangPackage.eNS_URI).getEClassifiers().get(98);
+      pooolEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(StubbrLangPackage.eNS_URI).getEClassifiers().get(98);
     }
-    return fPoolEClass;
+    return pooolEClass;
   }
 
   /**
@@ -4447,9 +4480,9 @@ public class StubbrLangPackageImpl extends EPackageImpl implements StubbrLangPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFPool_Name()
+  public EAttribute getPoool_Name()
   {
-        return (EAttribute)getFPool().getEStructuralFeatures().get(0);
+        return (EAttribute)getPoool().getEStructuralFeatures().get(0);
   }
 
   /**
@@ -4457,9 +4490,9 @@ public class StubbrLangPackageImpl extends EPackageImpl implements StubbrLangPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFPool_Label()
+  public EAttribute getPoool_Label()
   {
-        return (EAttribute)getFPool().getEStructuralFeatures().get(1);
+        return (EAttribute)getPoool().getEStructuralFeatures().get(1);
   }
 
   /**
@@ -4467,9 +4500,9 @@ public class StubbrLangPackageImpl extends EPackageImpl implements StubbrLangPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFPool_Documentation()
+  public EAttribute getPoool_Documentation()
   {
-        return (EAttribute)getFPool().getEStructuralFeatures().get(2);
+        return (EAttribute)getPoool().getEStructuralFeatures().get(2);
   }
 
   /**
@@ -4477,9 +4510,9 @@ public class StubbrLangPackageImpl extends EPackageImpl implements StubbrLangPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFPool_Actor()
+  public EReference getPoool_Actor()
   {
-        return (EReference)getFPool().getEStructuralFeatures().get(3);
+        return (EReference)getPoool().getEStructuralFeatures().get(3);
   }
 
   /**
@@ -4487,9 +4520,9 @@ public class StubbrLangPackageImpl extends EPackageImpl implements StubbrLangPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFPool_Initializing()
+  public EAttribute getPoool_Initializing()
   {
-        return (EAttribute)getFPool().getEStructuralFeatures().get(4);
+        return (EAttribute)getPoool().getEStructuralFeatures().get(4);
   }
 
   /**
@@ -4497,63 +4530,9 @@ public class StubbrLangPackageImpl extends EPackageImpl implements StubbrLangPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFPool_FlowNodes()
+  public EReference getPoool_FlowNodes()
   {
-        return (EReference)getFPool().getEStructuralFeatures().get(5);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getFOption()
-  {
-    if (fOptionEClass == null)
-    {
-      fOptionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(StubbrLangPackage.eNS_URI).getEClassifiers().get(99);
-    }
-    return fOptionEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getFOption_Default()
-  {
-        return (EAttribute)getFOption().getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getFOption_Name()
-  {
-        return (EAttribute)getFOption().getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getFOption_Label()
-  {
-        return (EAttribute)getFOption().getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getFOption_FlowNodes()
-  {
-        return (EReference)getFOption().getEStructuralFeatures().get(3);
+        return (EReference)getPoool().getEStructuralFeatures().get(5);
   }
 
   /**

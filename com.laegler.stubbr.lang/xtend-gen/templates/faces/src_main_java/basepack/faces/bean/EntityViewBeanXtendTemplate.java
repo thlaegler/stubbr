@@ -100,159 +100,37 @@ public class EntityViewBeanXtendTemplate extends AbstractXtendTemplate {
     _builder.newLine();
     _builder.append("import org.slf4j.Logger");
     _builder.newLine();
-    _builder.append("import javax.enterprise.context.RequestScoped");
-    _builder.newLine();
     _builder.newLine();
     String _javaDocType = this.getJavaDocType();
     _builder.append(_javaDocType, "");
     _builder.newLineIfNotEmpty();
-    _builder.append("@RequestScoped");
-    _builder.newLine();
+    _builder.append("@");
+    String _asImport = this.asImport("javax.enterprise.context.RequestScoped");
+    _builder.append(_asImport, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("@");
+    String _asImport_1 = this.asImport("org.eclipse.xtend.lib.annotations.Accessors");
+    _builder.append(_asImport_1, "");
+    _builder.newLineIfNotEmpty();
     _builder.append("class ");
     String _fileName = this.getFileName();
     _builder.append(_fileName, "");
     _builder.append(" implements ");
-    String _asImport = this.asImport("java.io.Serializable");
-    _builder.append(_asImport, "");
+    String _asImport_2 = this.asImport("java.io.Serializable");
+    _builder.append(_asImport_2, "");
     _builder.append(" {");
     _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
     {
-      StubbrRegistry _stubbr_1 = this.getStubbr();
-      Stubb _stubb_1 = null;
-      if (_stubbr_1!=null) {
-        _stubb_1=_stubbr_1.getStubb();
-      }
-      ChapterPersistence _persistence = null;
-      if (_stubb_1!=null) {
-        _persistence=_stubb_1.getPersistence();
-      }
-      boolean _isCustomIds = _persistence.isCustomIds();
+      ChapterPersistence _chapterPersistence = this.getChapterPersistence();
+      boolean _isCustomIds = _chapterPersistence.isCustomIds();
       boolean _not = (!_isCustomIds);
       if (_not) {
         _builder.append("\t");
-        _builder.newLine();
-        _builder.append("\t");
-        _builder.append("/**");
-        _builder.newLine();
-        _builder.append("\t");
-        _builder.append(" ");
-        _builder.append("* ID / primary key of entity ");
-        String _name = null;
-        if (this.entity!=null) {
-          _name=this.entity.getName();
-        }
-        String _firstUpper = null;
-        if (_name!=null) {
-          _firstUpper=StringExtensions.toFirstUpper(_name);
-        }
-        _builder.append(_firstUpper, "\t ");
-        _builder.newLineIfNotEmpty();
-        _builder.append("\t");
-        _builder.append(" ");
-        _builder.append("*/");
-        _builder.newLine();
-        _builder.append("\t");
         _builder.append("@");
-        String _asImport_1 = this.asImport("javax.persistence.Id");
-        _builder.append(_asImport_1, "\t");
-        _builder.newLineIfNotEmpty();
-        _builder.append("\t");
-        _builder.append("@");
-        String _asImport_2 = this.asImport("javax.persistence.GeneratedValue");
-        _builder.append(_asImport_2, "\t");
-        _builder.append("(strategy = ");
-        String _asImport_3 = this.asImport("javax.persistence.GenerationType");
+        String _asImport_3 = this.asImport("com.google.gson.annotations.Since");
         _builder.append(_asImport_3, "\t");
-        _builder.append(".AUTO)");
-        _builder.newLineIfNotEmpty();
-        _builder.append("\t");
-        _builder.append("private ");
-        StubbrRegistry _stubbr_2 = this.getStubbr();
-        Stubb _stubb_2 = null;
-        if (_stubbr_2!=null) {
-          _stubb_2=_stubbr_2.getStubb();
-        }
-        ChapterPersistence _persistence_1 = null;
-        if (_stubb_2!=null) {
-          _persistence_1=_stubb_2.getPersistence();
-        }
-        JvmTypeReference _javaType = null;
-        if (_persistence_1!=null) {
-          _javaType=_persistence_1.getJavaType();
-        }
-        String _qualifiedName = null;
-        if (_javaType!=null) {
-          _qualifiedName=_javaType.getQualifiedName();
-        }
-        String _asImport_4 = this.asImport(_qualifiedName);
-        _builder.append(_asImport_4, "\t");
-        _builder.append(" id");
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    {
-      EList<Attribute> _attributes = null;
-      if (this.entity!=null) {
-        _attributes=this.entity.getAttributes();
-      }
-      for(final Attribute attribute : _attributes) {
-        _builder.append("\t");
-        _builder.newLine();
-        _builder.append("\t");
-        _builder.append("/**");
-        _builder.newLine();
-        _builder.append("\t");
-        _builder.append(" ");
-        _builder.append("* ");
-        String _documentation = null;
-        if (attribute!=null) {
-          _documentation=attribute.getDocumentation();
-        }
-        _builder.append(_documentation, "\t ");
-        _builder.newLineIfNotEmpty();
-        _builder.append("\t");
-        _builder.append(" ");
-        _builder.append("*/");
-        _builder.newLine();
-        {
-          boolean _isPrimaryKey = attribute.isPrimaryKey();
-          if (_isPrimaryKey) {
-            _builder.append("\t");
-            _builder.append("@");
-            String _asImport_5 = this.asImport("javax.persistence.Id");
-            _builder.append(_asImport_5, "\t");
-            _builder.newLineIfNotEmpty();
-            _builder.append("\t");
-            _builder.append("@");
-            String _asImport_6 = this.asImport("javax.persistence.GeneratedValue");
-            _builder.append(_asImport_6, "\t");
-            _builder.append("(strategy = ");
-            String _asImport_7 = this.asImport("javax.persistence.GenerationType");
-            _builder.append(_asImport_7, "\t");
-            _builder.append(".AUTO)");
-            _builder.newLineIfNotEmpty();
-          }
-        }
-        _builder.append("\t");
-        _builder.append("@");
-        String _asImport_8 = this.asImport("javax.persistence.Column");
-        _builder.append(_asImport_8, "\t");
-        _builder.append("(name=\'");
-        String _name_1 = null;
-        if (attribute!=null) {
-          _name_1=attribute.getName();
-        }
-        String _lowerUnderscore = null;
-        if (_name_1!=null) {
-          _lowerUnderscore=this.toLowerUnderscore(_name_1);
-        }
-        _builder.append(_lowerUnderscore, "\t");
-        _builder.append("\')");
-        _builder.newLineIfNotEmpty();
-        _builder.append("\t");
-        _builder.append("@");
-        String _asImport_9 = this.asImport("com.google.gson.annotations.Until");
-        _builder.append(_asImport_9, "\t");
         _builder.append("(");
         Project _project_1 = this.getProject();
         String _version = _project_1.getVersion();
@@ -262,30 +140,69 @@ public class EntityViewBeanXtendTemplate extends AbstractXtendTemplate {
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("@");
-        String _asImport_10 = this.asImport("com.fasterxml.jackson.annotation.JsonProperty");
-        _builder.append(_asImport_10, "\t");
-        _builder.append("(\'");
-        String _name_2 = null;
-        if (attribute!=null) {
-          _name_2=attribute.getName();
+        String _asImport_4 = this.asImport("com.google.gson.annotations.Until");
+        _builder.append(_asImport_4, "\t");
+        _builder.append("(");
+        Project _project_2 = this.getProject();
+        String _version_1 = _project_2.getVersion();
+        String _versionDouble_1 = this.toVersionDouble(_version_1);
+        _builder.append(_versionDouble_1, "\t");
+        _builder.append(")");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("private ");
+        StubbrRegistry _stubbr_1 = this.getStubbr();
+        Stubb _stubb_1 = null;
+        if (_stubbr_1!=null) {
+          _stubb_1=_stubbr_1.getStubb();
         }
-        String _firstLower = null;
-        if (_name_2!=null) {
-          _firstLower=StringExtensions.toFirstLower(_name_2);
+        ChapterPersistence _persistence = null;
+        if (_stubb_1!=null) {
+          _persistence=_stubb_1.getPersistence();
         }
-        _builder.append(_firstLower, "\t");
-        _builder.append("\')");
+        JvmTypeReference _javaType = null;
+        if (_persistence!=null) {
+          _javaType=_persistence.getJavaType();
+        }
+        String _qualifiedName = null;
+        if (_javaType!=null) {
+          _qualifiedName=_javaType.getQualifiedName();
+        }
+        String _asImport_5 = this.asImport(_qualifiedName);
+        _builder.append(_asImport_5, "\t");
+        _builder.append(" id");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.newLine();
+      }
+    }
+    {
+      EList<Attribute> _attributes = null;
+      if (this.entity!=null) {
+        _attributes=this.entity.getAttributes();
+      }
+      for(final Attribute attribute : _attributes) {
+        _builder.append("\t");
+        _builder.append("@");
+        String _asImport_6 = this.asImport("com.google.gson.annotations.Since");
+        _builder.append(_asImport_6, "\t");
+        _builder.append("(");
+        Project _project_3 = this.getProject();
+        String _version_2 = _project_3.getVersion();
+        String _versionDouble_2 = this.toVersionDouble(_version_2);
+        _builder.append(_versionDouble_2, "\t");
+        _builder.append(")");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("@");
-        String _asImport_11 = this.asImport("javax.xml.bind.annotation.XmlElement");
-        _builder.append(_asImport_11, "\t");
-        _builder.newLineIfNotEmpty();
-        _builder.append("\t");
-        _builder.append("@");
-        String _asImport_12 = this.asImport("com.google.gson.annotations.Expose");
-        _builder.append(_asImport_12, "\t");
-        _builder.append("(serialize=true, deserialize=true)");
+        String _asImport_7 = this.asImport("com.google.gson.annotations.Until");
+        _builder.append(_asImport_7, "\t");
+        _builder.append("(");
+        Project _project_4 = this.getProject();
+        String _version_3 = _project_4.getVersion();
+        String _versionDouble_3 = this.toVersionDouble(_version_3);
+        _builder.append(_versionDouble_3, "\t");
+        _builder.append(")");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("private ");
@@ -304,43 +221,45 @@ public class EntityViewBeanXtendTemplate extends AbstractXtendTemplate {
             if (_javaType_2!=null) {
               _qualifiedName_1=_javaType_2.getQualifiedName();
             }
-            String _asImport_13 = this.asImport(_qualifiedName_1);
-            _builder.append(_asImport_13, "\t");
+            String _asImport_8 = this.asImport(_qualifiedName_1);
+            _builder.append(_asImport_8, "\t");
           } else {
-            StubbrRegistry _stubbr_3 = this.getStubbr();
-            Stubb _stubb_3 = null;
-            if (_stubbr_3!=null) {
-              _stubb_3=_stubbr_3.getStubb();
+            StubbrRegistry _stubbr_2 = this.getStubbr();
+            Stubb _stubb_2 = null;
+            if (_stubbr_2!=null) {
+              _stubb_2=_stubbr_2.getStubb();
             }
             String _packageName_1 = null;
-            if (_stubb_3!=null) {
-              _packageName_1=_stubb_3.getPackageName();
+            if (_stubb_2!=null) {
+              _packageName_1=_stubb_2.getPackageName();
             }
             String _plus = (_packageName_1 + ".model.entity.");
             Entity _type = null;
             if (attribute!=null) {
               _type=attribute.getType();
             }
-            String _name_3 = null;
+            String _name = null;
             if (_type!=null) {
-              _name_3=_type.getName();
+              _name=_type.getName();
             }
-            String _plus_1 = (_plus + _name_3);
-            String _asImport_14 = this.asImport(_plus_1);
-            _builder.append(_asImport_14, "\t");
+            String _plus_1 = (_plus + _name);
+            String _asImport_9 = this.asImport(_plus_1);
+            _builder.append(_asImport_9, "\t");
           }
         }
         _builder.append(" ");
-        String _name_4 = null;
+        String _name_1 = null;
         if (attribute!=null) {
-          _name_4=attribute.getName();
+          _name_1=attribute.getName();
         }
-        String _firstLower_1 = null;
-        if (_name_4!=null) {
-          _firstLower_1=StringExtensions.toFirstLower(_name_4);
+        String _firstLower = null;
+        if (_name_1!=null) {
+          _firstLower=StringExtensions.toFirstLower(_name_1);
         }
-        _builder.append(_firstLower_1, "\t");
+        _builder.append(_firstLower, "\t");
         _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.newLine();
       }
     }
     _builder.newLine();

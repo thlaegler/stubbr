@@ -12,7 +12,7 @@ import templates.AbstractXtendTemplate;
 public class SeverityXtendTemplate extends AbstractXtendTemplate {
   public SeverityXtendTemplate(final StubbrRegistry stubbr, final Project project) {
     super(stubbr, project);
-    this.setFileName("Severity");
+    this.setFileName("CustomSeverity");
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("package ");
     String _basePackage = project.getBasePackage();
