@@ -19,10 +19,10 @@ class AbstractPresenterXtendTemplate extends AbstractXtendTemplate {
 		relativPath = '''/src/main/java/«project?.basePackage?.toPath»/presenter/'''
 		documentation = 'Abstract JSF/Faces presenter for all presenters'
 
-		content = withImports(template)
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		import «project?.basePackage».*
 		import «stubbr?.stubb?.packageName».business.config.CustomSeverity
 		import java.text.MessageFormat

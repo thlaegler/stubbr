@@ -37,11 +37,10 @@ public class FacesConfigXmlTemplateBase extends AbstractXmlTemplate {
     this.setHeader(_builder.toString());
     this.setFooter("</faces-config>");
     this.setDocumentation("Java Faces descriptor");
-    String _template = this.getTemplate();
-    this.setContent(_template);
   }
   
-  private String getTemplate() {
+  @Override
+  public String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<!-- TODO -->");
     _builder.newLine();

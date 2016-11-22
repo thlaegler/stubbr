@@ -17,32 +17,52 @@ public class PomXmlTemplate extends PomXmlTemplateBase {
     _builder.append(_documentation, "");
     _builder.append(" for common project");
     this.setDocumentation(_builder.toString());
-    String _template = this.getTemplate();
-    this.setContent(_template);
   }
   
-  private String getTemplate() {
+  @Override
+  public String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
     String _parentSection = this.getParentSection();
     _builder.append(_parentSection, "");
     _builder.newLineIfNotEmpty();
+    _builder.newLine();
     _builder.append("<artifactId>");
     Project _project = this.getProject();
     String _name = _project.getName();
     _builder.append(_name, "");
     _builder.append("</artifactId>");
     _builder.newLineIfNotEmpty();
+    _builder.append("<name>");
+    String _projectName = this.getProjectName();
+    _builder.append(_projectName, "");
+    _builder.append("</name>");
+    _builder.newLineIfNotEmpty();
     _builder.append("<packaging>");
     Project _project_1 = this.getProject();
-    String _packaging = _project_1.getPackaging();
+    String _packaging = null;
+    if (_project_1!=null) {
+      _packaging=_project_1.getPackaging();
+    }
     _builder.append(_packaging, "");
     _builder.append("</packaging>");
     _builder.newLineIfNotEmpty();
+    _builder.append("<description>");
+    Project _project_2 = this.getProject();
+    String _documentation = null;
+    if (_project_2!=null) {
+      _documentation=_project_2.getDocumentation();
+    }
+    _builder.append(_documentation, "");
+    _builder.append("</description>");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
     _builder.append("<dependencyManagement>");
     _builder.newLine();
+    _builder.append("\t");
     _builder.append("<dependencies/>");
     _builder.newLine();
     _builder.append("</dependencyManagement>");
+    _builder.newLine();
     _builder.newLine();
     _builder.append("<dependencies>");
     _builder.newLine();

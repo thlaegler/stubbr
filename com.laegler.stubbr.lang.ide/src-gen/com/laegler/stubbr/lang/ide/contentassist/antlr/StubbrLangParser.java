@@ -138,6 +138,7 @@ public class StubbrLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getChapterProjectManagementAccess().getGroup_3(), "rule__ChapterProjectManagement__Group_3__0");
 					put(grammarAccess.getChapterProjectManagementAccess().getGroup_4(), "rule__ChapterProjectManagement__Group_4__0");
 					put(grammarAccess.getChapterProjectManagementAccess().getGroup_5(), "rule__ChapterProjectManagement__Group_5__0");
+					put(grammarAccess.getChapterProjectManagementAccess().getGroup_6(), "rule__ChapterProjectManagement__Group_6__0");
 					put(grammarAccess.getDevProjectAccess().getGroup(), "rule__DevProject__Group__0");
 					put(grammarAccess.getDevProjectAccess().getGroup_3(), "rule__DevProject__Group_3__0");
 					put(grammarAccess.getDevProjectAccess().getGroup_4(), "rule__DevProject__Group_4__0");
@@ -599,10 +600,11 @@ public class StubbrLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getChapterGlobalsAccess().getLoggerNameAssignment_2_1(), "rule__ChapterGlobals__LoggerNameAssignment_2_1");
 					put(grammarAccess.getChapterGlobalsAccess().getLoggerTypeAssignment_3_1(), "rule__ChapterGlobals__LoggerTypeAssignment_3_1");
 					put(grammarAccess.getChapterGlobalsAccess().getUseSpringMVCAssignment_4(), "rule__ChapterGlobals__UseSpringMVCAssignment_4");
-					put(grammarAccess.getChapterProjectManagementAccess().getProjectAssignment_2_1(), "rule__ChapterProjectManagement__ProjectAssignment_2_1");
+					put(grammarAccess.getChapterProjectManagementAccess().getProjectsAssignment_2_1(), "rule__ChapterProjectManagement__ProjectsAssignment_2_1");
 					put(grammarAccess.getChapterProjectManagementAccess().getScmAssignment_3_1(), "rule__ChapterProjectManagement__ScmAssignment_3_1");
 					put(grammarAccess.getChapterProjectManagementAccess().getIssueManagementAssignment_4_1(), "rule__ChapterProjectManagement__IssueManagementAssignment_4_1");
-					put(grammarAccess.getChapterProjectManagementAccess().getCiAssignment_5_1(), "rule__ChapterProjectManagement__CiAssignment_5_1");
+					put(grammarAccess.getChapterProjectManagementAccess().getDistroManagementAssignment_5_1(), "rule__ChapterProjectManagement__DistroManagementAssignment_5_1");
+					put(grammarAccess.getChapterProjectManagementAccess().getCiAssignment_6_1(), "rule__ChapterProjectManagement__CiAssignment_6_1");
 					put(grammarAccess.getDevProjectAccess().getProjectAssignment_0(), "rule__DevProject__ProjectAssignment_0");
 					put(grammarAccess.getDevProjectAccess().getNameAssignment_1(), "rule__DevProject__NameAssignment_1");
 					put(grammarAccess.getDevProjectAccess().getLabelAssignment_3_1(), "rule__DevProject__LabelAssignment_3_1");

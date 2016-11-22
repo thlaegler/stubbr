@@ -43,17 +43,13 @@ public class BehaviorFeatureStepsXtendTemplate extends AbstractXtendTemplate {
     _builder.append("StepDefinitions");
     this.setFileName(_builder.toString());
     StringConcatenation _builder_1 = new StringConcatenation();
-    _builder_1.append("/src/test/java/");
+    _builder_1.append("package ");
     String _basePackage = null;
     if (project!=null) {
       _basePackage=project.getBasePackage();
     }
-    String _path = null;
-    if (_basePackage!=null) {
-      _path=this.toPath(_basePackage);
-    }
-    _builder_1.append(_path, "");
-    _builder_1.append("/feature/");
+    _builder_1.append(_basePackage, "");
+    _builder_1.append(".feature.");
     String _name_1 = null;
     if (feature!=null) {
       _name_1=feature.getName();
@@ -65,64 +61,66 @@ public class BehaviorFeatureStepsXtendTemplate extends AbstractXtendTemplate {
     String _replaceAll_2 = _replaceAll_1.replaceAll("\"", "");
     String _lowerCase = _replaceAll_2.toLowerCase();
     _builder_1.append(_lowerCase, "");
-    _builder_1.append("/");
-    this.setRelativPath(_builder_1.toString());
+    this.setHeader(_builder_1.toString());
     StringConcatenation _builder_2 = new StringConcatenation();
-    _builder_2.append("Cucumber feature step definitions (glue) for ");
+    _builder_2.append("/src/test/java/");
+    String _basePackage_1 = null;
+    if (project!=null) {
+      _basePackage_1=project.getBasePackage();
+    }
+    String _path = null;
+    if (_basePackage_1!=null) {
+      _path=this.toPath(_basePackage_1);
+    }
+    _builder_2.append(_path, "");
+    _builder_2.append("/feature/");
     String _name_2 = null;
     if (feature!=null) {
       _name_2=feature.getName();
     }
-    String _firstUpper_1 = null;
+    String _replaceAll_3 = null;
     if (_name_2!=null) {
-      _firstUpper_1=StringExtensions.toFirstUpper(_name_2);
+      _replaceAll_3=_name_2.replaceAll(" ", "");
     }
-    _builder_2.append(_firstUpper_1, "");
-    _builder_2.append(" - ");
+    String _replaceAll_4 = _replaceAll_3.replaceAll("\"", "");
+    String _lowerCase_1 = _replaceAll_4.toLowerCase();
+    _builder_2.append(_lowerCase_1, "");
+    _builder_2.append("/");
+    this.setRelativPath(_builder_2.toString());
+    StringConcatenation _builder_3 = new StringConcatenation();
+    _builder_3.append("Cucumber feature step definitions (glue) for ");
+    String _name_3 = null;
+    if (feature!=null) {
+      _name_3=feature.getName();
+    }
+    String _firstUpper_1 = null;
+    if (_name_3!=null) {
+      _firstUpper_1=StringExtensions.toFirstUpper(_name_3);
+    }
+    _builder_3.append(_firstUpper_1, "");
+    _builder_3.append(" - ");
     String _label = null;
     if (feature!=null) {
       _label=feature.getLabel();
     }
-    String _replaceAll_3 = null;
+    String _replaceAll_5 = null;
     if (_label!=null) {
-      _replaceAll_3=_label.replaceAll("\"", "");
+      _replaceAll_5=_label.replaceAll("\"", "");
     }
-    _builder_2.append(_replaceAll_3, "");
-    this.setDocumentation(_builder_2.toString());
-    String _template = this.getTemplate();
-    this.setContent(_template);
+    _builder_3.append(_replaceAll_5, "");
+    this.setDocumentation(_builder_3.toString());
   }
   
-  private String getTemplate() {
+  @Override
+  public String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("package ");
+    _builder.append("import ");
     Project _project = this.getProject();
     String _basePackage = null;
     if (_project!=null) {
       _basePackage=_project.getBasePackage();
     }
     _builder.append(_basePackage, "");
-    _builder.append(".feature.");
-    String _name = null;
-    if (this.feature!=null) {
-      _name=this.feature.getName();
-    }
-    String _replaceAll = null;
-    if (_name!=null) {
-      _replaceAll=_name.replaceAll(" ", "");
-    }
-    String _replaceAll_1 = _replaceAll.replaceAll("\"", "");
-    String _lowerCase = _replaceAll_1.toLowerCase();
-    _builder.append(_lowerCase, "");
-    _builder.newLineIfNotEmpty();
-    _builder.newLine();
-    _builder.append("import ");
-    Project _project_1 = this.getProject();
-    String _basePackage_1 = null;
-    if (_project_1!=null) {
-      _basePackage_1=_project_1.getBasePackage();
-    }
-    _builder.append(_basePackage_1, "");
     _builder.append(".*");
     _builder.newLineIfNotEmpty();
     _builder.append("import com.google.gson.annotations.Until");
@@ -178,8 +176,8 @@ public class BehaviorFeatureStepsXtendTemplate extends AbstractXtendTemplate {
             if (given!=null) {
               _methodName=this.toMethodName(given);
             }
-            String _replaceAll_2 = _methodName.replaceAll(" ", "");
-            final String stepMethodName = _replaceAll_2.replaceAll("\"", "");
+            String _replaceAll = _methodName.replaceAll(" ", "");
+            final String stepMethodName = _replaceAll.replaceAll("\"", "");
             _builder.newLineIfNotEmpty();
             {
               boolean _contains = this.stepMethods.contains(stepMethodName);
@@ -197,11 +195,11 @@ public class BehaviorFeatureStepsXtendTemplate extends AbstractXtendTemplate {
                 if (given!=null) {
                   _actor=given.getActor();
                 }
-                String _name_1 = null;
+                String _name = null;
                 if (_actor!=null) {
-                  _name_1=_actor.getName();
+                  _name=_actor.getName();
                 }
-                String _method = this.toMethod(stepMethodName, _name_1);
+                String _method = this.toMethod(stepMethodName, _name);
                 _builder.append(_method, "\t");
                 _builder.newLineIfNotEmpty();
               }
@@ -221,8 +219,8 @@ public class BehaviorFeatureStepsXtendTemplate extends AbstractXtendTemplate {
             if (when!=null) {
               _methodName_1=this.toMethodName(when);
             }
-            String _replaceAll_3 = _methodName_1.replaceAll(" ", "");
-            final String stepMethodName_1 = _replaceAll_3.replaceAll("\"", "");
+            String _replaceAll_1 = _methodName_1.replaceAll(" ", "");
+            final String stepMethodName_1 = _replaceAll_1.replaceAll("\"", "");
             _builder.newLineIfNotEmpty();
             {
               boolean _contains_1 = this.stepMethods.contains(stepMethodName_1);
@@ -240,11 +238,11 @@ public class BehaviorFeatureStepsXtendTemplate extends AbstractXtendTemplate {
                 if (when!=null) {
                   _actor_1=when.getActor();
                 }
-                String _name_2 = null;
+                String _name_1 = null;
                 if (_actor_1!=null) {
-                  _name_2=_actor_1.getName();
+                  _name_1=_actor_1.getName();
                 }
-                String _method_1 = this.toMethod(stepMethodName_1, _name_2);
+                String _method_1 = this.toMethod(stepMethodName_1, _name_1);
                 _builder.append(_method_1, "\t");
                 _builder.newLineIfNotEmpty();
               }
@@ -264,8 +262,8 @@ public class BehaviorFeatureStepsXtendTemplate extends AbstractXtendTemplate {
             if (then!=null) {
               _methodName_2=this.toMethodName(then);
             }
-            String _replaceAll_4 = _methodName_2.replaceAll(" ", "");
-            final String stepMethodName_2 = _replaceAll_4.replaceAll("\"", "");
+            String _replaceAll_2 = _methodName_2.replaceAll(" ", "");
+            final String stepMethodName_2 = _replaceAll_2.replaceAll("\"", "");
             _builder.newLineIfNotEmpty();
             {
               boolean _contains_2 = this.stepMethods.contains(stepMethodName_2);
@@ -283,11 +281,11 @@ public class BehaviorFeatureStepsXtendTemplate extends AbstractXtendTemplate {
                 if (then!=null) {
                   _actor_2=then.getActor();
                 }
-                String _name_3 = null;
+                String _name_2 = null;
                 if (_actor_2!=null) {
-                  _name_3=_actor_2.getName();
+                  _name_2=_actor_2.getName();
                 }
-                String _method_2 = this.toMethod(stepMethodName_2, _name_3);
+                String _method_2 = this.toMethod(stepMethodName_2, _name_2);
                 _builder.append(_method_2, "\t");
                 _builder.newLineIfNotEmpty();
               }

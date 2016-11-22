@@ -60,6 +60,7 @@ public abstract class AbstractTemplate {
   @Accessors
   private String header;
   
+  @Deprecated
   @Accessors
   private String content;
   
@@ -106,6 +107,8 @@ public abstract class AbstractTemplate {
     this.skipStamping = false;
   }
   
+  public abstract String getTemplate();
+  
   public String getFullPathWithName() {
     StringConcatenation _builder = new StringConcatenation();
     String _relativePath = this.project.getRelativePath();
@@ -138,7 +141,8 @@ public abstract class AbstractTemplate {
         _builder.append(_stamp, "");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
-        _builder.append(this.content, "\t");
+        String _template = this.getTemplate();
+        _builder.append(_template, "\t");
         _builder.newLineIfNotEmpty();
         _builder.append(this.footer, "");
         _builder.newLineIfNotEmpty();
@@ -151,7 +155,8 @@ public abstract class AbstractTemplate {
         _builder_1.append(this.header, "");
         _builder_1.newLineIfNotEmpty();
         _builder_1.append("\t");
-        _builder_1.append(this.content, "\t");
+        String _template_1 = this.getTemplate();
+        _builder_1.append(_template_1, "\t");
         _builder_1.newLineIfNotEmpty();
         _builder_1.append(this.footer, "");
         _builder_1.newLineIfNotEmpty();
@@ -162,7 +167,8 @@ public abstract class AbstractTemplate {
       String _stamp_2 = this.getStamp();
       _builder_2.append(_stamp_2, "");
       _builder_2.newLineIfNotEmpty();
-      _builder_2.append(this.content, "");
+      String _template_2 = this.getTemplate();
+      _builder_2.append(_template_2, "");
       _builder_2.newLineIfNotEmpty();
       return _builder_2.toString();
     }

@@ -19,10 +19,10 @@ class AbstractViewBeanXtendTemplate extends AbstractXtendTemplate {
 		relativPath = '''/src/main/java/«project?.basePackage?.toPath»/bean/'''
 		documentation = 'Abstract JSF/Faces view bean for all view beans'
 
-		content = withImports(template)
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		«javaDocType»
 		abstract class «fileName» {
 		

@@ -15,11 +15,10 @@ public class IndexMobileXhtmlTemplate extends AbstractMobileXhtmlTemplate {
     this.setFileName("index");
     this.setRelativPath("/src/main/webapp/mobile/");
     this.setDocumentation("JSF/XHTML mobile index page.");
-    String _template = this.getTemplate();
-    this.setContent(_template);
   }
   
-  private String getTemplate() {
+  @Override
+  public String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<f:view renderKitId=\"PRIMEFACES_MOBILE\" />");
     _builder.newLine();

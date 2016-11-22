@@ -20,10 +20,8 @@ class EclipseWstCommonComponentTemplate extends AbstractTemplate {
 		relativPath = '/.settings/'
 		documentation = 'Eclipse settings for WST common component.'
 		skipStamping = true
-
-		content = template
 	}
 
-	private def String getTemplate() '''<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId"/>'''
+	override def String getTemplate() '''<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId"/>'''
 
 }

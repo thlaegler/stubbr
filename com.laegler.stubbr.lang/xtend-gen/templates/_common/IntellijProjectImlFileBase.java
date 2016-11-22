@@ -25,11 +25,10 @@ public class IntellijProjectImlFileBase extends AbstractTemplate {
     this.setHeader(_builder.toString());
     this.setFooter("</module>");
     this.setDocumentation("IntelliJ project file");
-    String _template = this.getTemplate();
-    this.setContent(_template);
   }
   
-  private String getTemplate() {
+  @Override
+  public String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<component name=\"EclipseModuleManager\">");
     _builder.newLine();

@@ -59,9 +59,10 @@ ChapterGlobals:
 ;
 ChapterProjectManagement:
 	'management' '{'
-		('projects' project+=DevProject*)?
+		('projects' projects+=DevProject*)?
 		('sourceCodeManagement' scm+=Level1Attribute*)?
 		('issueManagement' issueManagement+=Level1Attribute*)?
+		('distroManagement' distroManagement+=Level1Attribute*)?
 		('continousIntegration' ci+=Level1Attribute*)?
 	'}'
 ;

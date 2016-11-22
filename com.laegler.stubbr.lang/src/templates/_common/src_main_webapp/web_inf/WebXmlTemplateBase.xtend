@@ -28,10 +28,10 @@ class WebXmlTemplateBase extends AbstractXmlTemplate {
 		footer = '</web-app>'
 		documentation = 'Web project descriptor'
 
-		content = template
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		<display-name>pmbok-web</display-name>
 		<description>The WebApp Project. Containing Servlets and Filters, Security and Roles, Session and Cookie Timeouts and much more :)</description>
 		

@@ -25,10 +25,10 @@ class IntellijProjectImlFileBase extends AbstractTemplate {
 		footer = '</module>'
 		documentation = 'IntelliJ project file'
 
-		content = template
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		<component name="EclipseModuleManager">
 			<conelement value="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER" />
 			<src_description expected_position="2">

@@ -26,15 +26,12 @@ class BehaviorFeatureStepsXtendTemplate extends AbstractXtendTemplate {
 		super(stubbr, project)
 		this.feature = feature
 		fileName = '''«feature?.name?.replaceAll(' ', '').toFirstUpper»StepDefinitions'''
+		header = '''package «project?.basePackage».feature.«feature?.name?.replaceAll(' ', '').replaceAll('"', '').toLowerCase»'''
 		relativPath = '''/src/test/java/«project?.basePackage?.toPath»/feature/«feature?.name?.replaceAll(' ', '').replaceAll('"', '').toLowerCase»/'''
 		documentation = '''Cucumber feature step definitions (glue) for «feature?.name?.toFirstUpper» - «feature?.label?.replaceAll('"', '')»'''
-
-		content = template
 	}
 
-	private def String getTemplate() '''
-		package «project?.basePackage».feature.«feature?.name?.replaceAll(' ', '').replaceAll('"', '').toLowerCase»
-		
+	override def String getTemplate() '''
 		import «project?.basePackage».*
 		import com.google.gson.annotations.Until
 		import javax.annotation.Generated

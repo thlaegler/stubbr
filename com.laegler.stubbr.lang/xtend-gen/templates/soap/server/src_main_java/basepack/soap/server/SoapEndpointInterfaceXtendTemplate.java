@@ -67,12 +67,10 @@ public class SoapEndpointInterfaceXtendTemplate extends AbstractXtendTemplate {
     }
     _builder_3.append(_firstUpper_1, "");
     this.setDocumentation(_builder_3.toString());
-    String _template = this.getTemplate();
-    String _withImports = this.withImports(_template);
-    this.setContent(_withImports);
   }
   
-  private String getTemplate() {
+  @Override
+  public String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("import ");
     Project _project = this.getProject();
@@ -120,14 +118,6 @@ public class SoapEndpointInterfaceXtendTemplate extends AbstractXtendTemplate {
     _builder.newLine();
     _builder.append("import javax.jws.WebService");
     _builder.newLine();
-    _builder.append("import javax.jws.soap.SOAPBinding");
-    _builder.newLine();
-    _builder.append("import javax.jws.soap.SOAPBinding.Style");
-    _builder.newLine();
-    _builder.append("import javax.ws.rs.core.SecurityContext");
-    _builder.newLine();
-    _builder.append("import javax.jws.soap.SOAPBinding.Use");
-    _builder.newLine();
     _builder.append("import com.google.gson.annotations.Since");
     _builder.newLine();
     _builder.append("import com.google.gson.annotations.Until");
@@ -140,8 +130,6 @@ public class SoapEndpointInterfaceXtendTemplate extends AbstractXtendTemplate {
     _builder.append(_javaDocType, "");
     _builder.newLineIfNotEmpty();
     _builder.append("@WebService");
-    _builder.newLine();
-    _builder.append("@SOAPBinding(style = Style.DOCUMENT, use=Use.LITERAL)");
     _builder.newLine();
     _builder.append("public interface ");
     String _fileName = this.getFileName();
@@ -227,7 +215,7 @@ public class SoapEndpointInterfaceXtendTemplate extends AbstractXtendTemplate {
         _builder.append(", ");
       }
     }
-    _builder.append("SecurityContext securityContext)");
+    _builder.append("String dummy)");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("\t");
@@ -301,7 +289,7 @@ public class SoapEndpointInterfaceXtendTemplate extends AbstractXtendTemplate {
         _builder.append(", ");
       }
     }
-    _builder.append("SecurityContext securityContext)");
+    _builder.append("String dummy)");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("\t");
@@ -375,7 +363,7 @@ public class SoapEndpointInterfaceXtendTemplate extends AbstractXtendTemplate {
         _builder.append(", ");
       }
     }
-    _builder.append("SecurityContext securityContext)");
+    _builder.append("String dummy)");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("\t");
@@ -449,7 +437,7 @@ public class SoapEndpointInterfaceXtendTemplate extends AbstractXtendTemplate {
         _builder.append(", ");
       }
     }
-    _builder.append("SecurityContext securityContext)");
+    _builder.append("String dummy)");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("}");

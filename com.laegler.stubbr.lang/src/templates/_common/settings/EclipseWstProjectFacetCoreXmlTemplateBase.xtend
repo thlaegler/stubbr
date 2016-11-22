@@ -24,10 +24,10 @@ class EclipseWstProjectFacetCoreXmlTemplateBase extends AbstractXmlTemplate {
 		documentation = 'Eclipse WST project facet prefs xml'
 		skipStamping = true
 
-		content = template
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		<fixed facet="wst.jsdt.web"/>
 		<!-- <runtime name="WildFly 10.x Runtime"/> -->
 		<installed facet="jboss.m2" version="1.0"/>

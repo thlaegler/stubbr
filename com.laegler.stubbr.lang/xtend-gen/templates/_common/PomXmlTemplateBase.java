@@ -5,6 +5,7 @@ import com.laegler.stubbr.lang.genmodel.StubbrRegistry;
 import com.laegler.stubbr.lang.stubbrLang.ChapterProjectStructure;
 import com.laegler.stubbr.lang.stubbrLang.Stubb;
 import org.eclipse.xtend2.lib.StringConcatenation;
+import org.eclipse.xtext.xbase.lib.StringExtensions;
 import templates.AbstractXmlTemplate;
 
 /**
@@ -42,15 +43,15 @@ public class PomXmlTemplateBase extends AbstractXmlTemplate {
       _version=project.getVersion();
     }
     this.setVersion(_version);
-    String _template = this.getTemplate();
-    this.setContent(_template);
   }
   
-  private String getTemplate() {
+  @Override
+  public String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
     String _parentSection = this.getParentSection();
     _builder.append(_parentSection, "");
     _builder.newLineIfNotEmpty();
+    _builder.newLine();
     _builder.append("<artifactId>");
     Project _project = this.getProject();
     String _name = null;
@@ -61,32 +62,29 @@ public class PomXmlTemplateBase extends AbstractXmlTemplate {
     _builder.append("</artifactId>");
     _builder.newLineIfNotEmpty();
     _builder.append("<name>");
-    Project _project_1 = this.getProject();
-    String _canonicalName = null;
-    if (_project_1!=null) {
-      _canonicalName=_project_1.getCanonicalName();
-    }
-    _builder.append(_canonicalName, "");
+    String _projectName = this.getProjectName();
+    _builder.append(_projectName, "");
     _builder.append("</name>");
     _builder.newLineIfNotEmpty();
     _builder.append("<packaging>");
-    Project _project_2 = this.getProject();
+    Project _project_1 = this.getProject();
     String _packaging = null;
-    if (_project_2!=null) {
-      _packaging=_project_2.getPackaging();
+    if (_project_1!=null) {
+      _packaging=_project_1.getPackaging();
     }
     _builder.append(_packaging, "");
     _builder.append("</packaging>");
     _builder.newLineIfNotEmpty();
     _builder.append("<description>");
-    Project _project_3 = this.getProject();
+    Project _project_2 = this.getProject();
     String _documentation = null;
-    if (_project_3!=null) {
-      _documentation=_project_3.getDocumentation();
+    if (_project_2!=null) {
+      _documentation=_project_2.getDocumentation();
     }
     _builder.append(_documentation, "");
     _builder.append("</description>");
     _builder.newLineIfNotEmpty();
+    _builder.newLine();
     _builder.append("<dependencies>");
     _builder.newLine();
     _builder.append("\t");
@@ -546,6 +544,28 @@ public class PomXmlTemplateBase extends AbstractXmlTemplate {
     }
     _builder.append("</parent>");
     _builder.newLine();
+    return _builder.toString();
+  }
+  
+  protected String getProjectName() {
+    StringConcatenation _builder = new StringConcatenation();
+    Stubb _stubb = this.getStubb();
+    String _name = null;
+    if (_stubb!=null) {
+      _name=_stubb.getName();
+    }
+    String _firstUpper = null;
+    if (_name!=null) {
+      _firstUpper=StringExtensions.toFirstUpper(_name);
+    }
+    _builder.append(_firstUpper, "");
+    _builder.append(" - ");
+    Project _project = this.getProject();
+    String _canonicalName = null;
+    if (_project!=null) {
+      _canonicalName=_project.getCanonicalName();
+    }
+    _builder.append(_canonicalName, "");
     return _builder.toString();
   }
 }

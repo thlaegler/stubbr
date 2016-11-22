@@ -19,10 +19,10 @@ class AbstractControllerXtendTemplate extends AbstractXtendTemplate {
 		relativPath = '''/src/main/java/«project?.basePackage?.toPath»/controller/'''
 		documentation = 'Abstract controller'
 
-		content = withImports(template)
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		import «project.basePackage».*
 		import org.eclipse.xtend.lib.annotations.Accessors
 		import com.google.gson.annotations.Expose

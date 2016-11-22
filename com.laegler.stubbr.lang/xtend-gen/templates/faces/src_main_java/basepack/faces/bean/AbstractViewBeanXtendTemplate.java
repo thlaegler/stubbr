@@ -36,12 +36,10 @@ public class AbstractViewBeanXtendTemplate extends AbstractXtendTemplate {
     _builder_1.append("/bean/");
     this.setRelativPath(_builder_1.toString());
     this.setDocumentation("Abstract JSF/Faces view bean for all view beans");
-    String _template = this.getTemplate();
-    String _withImports = this.withImports(_template);
-    this.setContent(_withImports);
   }
   
-  private String getTemplate() {
+  @Override
+  public String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
     String _javaDocType = this.getJavaDocType();
     _builder.append(_javaDocType, "");

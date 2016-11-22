@@ -21,11 +21,10 @@ public class EclipseJdtCorePrefsTemplateBase extends AbstractTemplate {
     this.setRelativPath("/.settings/");
     this.setDocumentation("Eclipse JDT prefs");
     this.setSkipStamping(true);
-    String _template = this.getTemplate();
-    this.setContent(_template);
   }
   
-  private String getTemplate() {
+  @Override
+  public String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("eclipse.preferences.version=1");
     _builder.newLine();

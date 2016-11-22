@@ -38,4 +38,10 @@ public class EjbJarXmlTemplateBase extends AbstractXmlTemplate {
     this.setFooter("</ejb-jar>");
     this.setDocumentation("EJB descriptor");
   }
+  
+  @Override
+  public String getTemplate() {
+    StringConcatenation _builder = new StringConcatenation();
+    return _builder.toString();
+  }
 }

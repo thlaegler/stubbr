@@ -21,8 +21,6 @@ import javax.inject.Inject;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
-import org.eclipse.xtext.xbase.lib.ObjectExtensions;
-import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import templates.AbstractTemplate;
 import templates._common.DotGitignoreTemplateBase;
 import templates._common.EclipseDotClasspathTemplateBase;
@@ -57,6 +55,8 @@ import templates.faces.src_main_webapp.desktop.IndexDesktopXhtmlTemplate;
 import templates.faces.src_main_webapp.mobile.EntityDetailsMobileXhtmlTemplate;
 import templates.faces.src_main_webapp.mobile.EntityListMobileXhtmlTemplate;
 import templates.faces.src_main_webapp.mobile.IndexMobileXhtmlTemplate;
+import templates.faces.src_test_java_basepack.faces.BehaviorFeatureDirectTemplate;
+import templates.faces.src_test_java_basepack.faces.BehaviorFeatureStepsXtendDirectTemplate;
 import templates.faces.src_test_java_basepack.faces.BehaviorFeatureStepsXtendTemplate;
 import templates.faces.src_test_java_basepack.faces.BehaviorFeatureTemplate;
 
@@ -367,30 +367,15 @@ public class FacesProjectGenerator extends AbstractProjectGenerator {
           }
           if (_files_2!=null) {
             Project _project_36 = this.getProject();
-            BehaviorFeatureTemplate _behaviorFeatureTemplate = new BehaviorFeatureTemplate(this.stubbr, _project_36, feature);
-            final Procedure1<BehaviorFeatureTemplate> _function_4 = (BehaviorFeatureTemplate it) -> {
-              File _findFile = this.fileHelper.findFile(specification);
-              String _fileContent = this.fileHelper.getFileContent(_findFile);
-              it.setContent(_fileContent);
-            };
-            BehaviorFeatureTemplate _doubleArrow = ObjectExtensions.<BehaviorFeatureTemplate>operator_doubleArrow(_behaviorFeatureTemplate, _function_4);
-            _files_2.add(_doubleArrow);
-          }
-          Project _project_37 = this.getProject();
-          List<AbstractTemplate> _files_3 = null;
-          if (_project_37!=null) {
-            _files_3=_project_37.getFiles();
-          }
-          if (_files_3!=null) {
+            File _findFile = this.fileHelper.findFile(specification);
+            String _fileContent = this.fileHelper.getFileContent(_findFile);
+            BehaviorFeatureDirectTemplate _behaviorFeatureDirectTemplate = new BehaviorFeatureDirectTemplate(this.stubbr, _project_36, feature, _fileContent);
+            Project _project_37 = this.getProject();
             Project _project_38 = this.getProject();
-            BehaviorFeatureStepsXtendTemplate _behaviorFeatureStepsXtendTemplate = new BehaviorFeatureStepsXtendTemplate(this.stubbr, _project_38, feature);
-            final Procedure1<BehaviorFeatureStepsXtendTemplate> _function_5 = (BehaviorFeatureStepsXtendTemplate it) -> {
-              Project _project_39 = it.getProject();
-              String _generate = this.gherkinAdapter.generate(_project_39, specification);
-              it.setContent(_generate);
-            };
-            BehaviorFeatureStepsXtendTemplate _doubleArrow_1 = ObjectExtensions.<BehaviorFeatureStepsXtendTemplate>operator_doubleArrow(_behaviorFeatureStepsXtendTemplate, _function_5);
-            _files_3.add(_doubleArrow_1);
+            String _generate = this.gherkinAdapter.generate(_project_38, specification);
+            BehaviorFeatureStepsXtendDirectTemplate _behaviorFeatureStepsXtendDirectTemplate = new BehaviorFeatureStepsXtendDirectTemplate(this.stubbr, _project_37, feature, _generate);
+            _files_2.addAll(
+              Collections.<AbstractTemplate>unmodifiableList(CollectionLiterals.<AbstractTemplate>newArrayList(_behaviorFeatureDirectTemplate, _behaviorFeatureStepsXtendDirectTemplate)));
           }
         };
         _specifications.forEach(_function_3);

@@ -23,10 +23,10 @@ class SpringAppXtendTemplate extends AbstractXtendTemplate {
 		relativPath = '''/src/main/java/«project?.basePackage?.toPath»/'''
 		documentation = '''JSF Spring application for «project?.canonicalName»'''
 
-		content = template
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		import «project?.basePackage».config.Constants
 		import «project?.basePackage».config.DefaultProfileUtil
 		import «project?.basePackage».config.Properties

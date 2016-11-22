@@ -8055,6 +8055,7 @@ rule__ChapterProjectManagement__Group__6
 	}
 :
 	rule__ChapterProjectManagement__Group__6__Impl
+	rule__ChapterProjectManagement__Group__7
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -8066,9 +8067,35 @@ rule__ChapterProjectManagement__Group__6__Impl
 	}
 :
 (
-	{ before(grammarAccess.getChapterProjectManagementAccess().getRightCurlyBracketKeyword_6()); }
+	{ before(grammarAccess.getChapterProjectManagementAccess().getGroup_6()); }
+	(rule__ChapterProjectManagement__Group_6__0)?
+	{ after(grammarAccess.getChapterProjectManagementAccess().getGroup_6()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ChapterProjectManagement__Group__7
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__ChapterProjectManagement__Group__7__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ChapterProjectManagement__Group__7__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getChapterProjectManagementAccess().getRightCurlyBracketKeyword_7()); }
 	'}'
-	{ after(grammarAccess.getChapterProjectManagementAccess().getRightCurlyBracketKeyword_6()); }
+	{ after(grammarAccess.getChapterProjectManagementAccess().getRightCurlyBracketKeyword_7()); }
 )
 ;
 finally {
@@ -8120,9 +8147,9 @@ rule__ChapterProjectManagement__Group_2__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getChapterProjectManagementAccess().getProjectAssignment_2_1()); }
-	(rule__ChapterProjectManagement__ProjectAssignment_2_1)*
-	{ after(grammarAccess.getChapterProjectManagementAccess().getProjectAssignment_2_1()); }
+	{ before(grammarAccess.getChapterProjectManagementAccess().getProjectsAssignment_2_1()); }
+	(rule__ChapterProjectManagement__ProjectsAssignment_2_1)*
+	{ after(grammarAccess.getChapterProjectManagementAccess().getProjectsAssignment_2_1()); }
 )
 ;
 finally {
@@ -8256,9 +8283,9 @@ rule__ChapterProjectManagement__Group_5__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getChapterProjectManagementAccess().getContinousIntegrationKeyword_5_0()); }
-	'continousIntegration'
-	{ after(grammarAccess.getChapterProjectManagementAccess().getContinousIntegrationKeyword_5_0()); }
+	{ before(grammarAccess.getChapterProjectManagementAccess().getDistroManagementKeyword_5_0()); }
+	'distroManagement'
+	{ after(grammarAccess.getChapterProjectManagementAccess().getDistroManagementKeyword_5_0()); }
 )
 ;
 finally {
@@ -8282,9 +8309,63 @@ rule__ChapterProjectManagement__Group_5__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getChapterProjectManagementAccess().getCiAssignment_5_1()); }
-	(rule__ChapterProjectManagement__CiAssignment_5_1)*
-	{ after(grammarAccess.getChapterProjectManagementAccess().getCiAssignment_5_1()); }
+	{ before(grammarAccess.getChapterProjectManagementAccess().getDistroManagementAssignment_5_1()); }
+	(rule__ChapterProjectManagement__DistroManagementAssignment_5_1)*
+	{ after(grammarAccess.getChapterProjectManagementAccess().getDistroManagementAssignment_5_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__ChapterProjectManagement__Group_6__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__ChapterProjectManagement__Group_6__0__Impl
+	rule__ChapterProjectManagement__Group_6__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ChapterProjectManagement__Group_6__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getChapterProjectManagementAccess().getContinousIntegrationKeyword_6_0()); }
+	'continousIntegration'
+	{ after(grammarAccess.getChapterProjectManagementAccess().getContinousIntegrationKeyword_6_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ChapterProjectManagement__Group_6__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__ChapterProjectManagement__Group_6__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ChapterProjectManagement__Group_6__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getChapterProjectManagementAccess().getCiAssignment_6_1()); }
+	(rule__ChapterProjectManagement__CiAssignment_6_1)*
+	{ after(grammarAccess.getChapterProjectManagementAccess().getCiAssignment_6_1()); }
 )
 ;
 finally {
@@ -43132,15 +43213,15 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ChapterProjectManagement__ProjectAssignment_2_1
+rule__ChapterProjectManagement__ProjectsAssignment_2_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getChapterProjectManagementAccess().getProjectDevProjectParserRuleCall_2_1_0()); }
+		{ before(grammarAccess.getChapterProjectManagementAccess().getProjectsDevProjectParserRuleCall_2_1_0()); }
 		ruleDevProject
-		{ after(grammarAccess.getChapterProjectManagementAccess().getProjectDevProjectParserRuleCall_2_1_0()); }
+		{ after(grammarAccess.getChapterProjectManagementAccess().getProjectsDevProjectParserRuleCall_2_1_0()); }
 	)
 ;
 finally {
@@ -43177,15 +43258,30 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ChapterProjectManagement__CiAssignment_5_1
+rule__ChapterProjectManagement__DistroManagementAssignment_5_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getChapterProjectManagementAccess().getCiLevel1AttributeParserRuleCall_5_1_0()); }
+		{ before(grammarAccess.getChapterProjectManagementAccess().getDistroManagementLevel1AttributeParserRuleCall_5_1_0()); }
 		ruleLevel1Attribute
-		{ after(grammarAccess.getChapterProjectManagementAccess().getCiLevel1AttributeParserRuleCall_5_1_0()); }
+		{ after(grammarAccess.getChapterProjectManagementAccess().getDistroManagementLevel1AttributeParserRuleCall_5_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ChapterProjectManagement__CiAssignment_6_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getChapterProjectManagementAccess().getCiLevel1AttributeParserRuleCall_6_1_0()); }
+		ruleLevel1Attribute
+		{ after(grammarAccess.getChapterProjectManagementAccess().getCiLevel1AttributeParserRuleCall_6_1_0()); }
 	)
 ;
 finally {

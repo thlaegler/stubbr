@@ -16,21 +16,20 @@ class PomXmlTemplate extends PomXmlTemplateBase {
 	new(StubbrRegistry stubbr, Project project) {
 		super(stubbr, project)
 		documentation = '''«this.documentation» for EAR project'''
-		
-		content = template
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		«parentSection»
 		
-		<artifactId>«project.name»</artifactId>
-		<name>«stubbr.stubb?.name?.toFirstUpper» EAR Project</name>
-		<packaging>«project.packaging»</packaging>
-	
+		<artifactId>«project?.name»</artifactId>
+		<name>«stubb?.name?.toFirstUpper» - «project?.canonicalName»</name>
+		<packaging>«project?.packaging»</packaging>
+		<description>«project?.documentation»</description>
+		
 		<dependencies>
 			<!-- Project internal -->
 			«FOR Project project : stubbr?.projects»
-				«IF project != null && !project.name.nullOrEmpty && project?.projectType != ProjectType.PARENT»
+				«IF project != null && !project.name.nullOrEmpty && project?.projectType != ProjectType.EAR && project?.projectType != ProjectType.PARENT»
 					<dependency>
 						<groupId>${project.groupId}</groupId>
 						<artifactId>«project?.name»</artifactId>
@@ -108,52 +107,52 @@ class PomXmlTemplate extends PomXmlTemplateBase {
 				<scope>test</scope>
 			</dependency>
 		</dependencies>
-	
+		
 		<build>
 			<finalName>${project.artifactId}</finalName>
-	
+		
 			<plugins>
-		<plugin>
-			<groupId>org.apache.maven</groupId>
-			<artifactId>maven-ear-plugin</artifactId>
-			<version>${ear.plugin.version}</version>
-			<configuration>
-				<defaultLibBundleDir>lib/</defaultLibBundleDir>
-				<fileNameMapping>no-version</fileNameMapping>
-				<skinnyWars>true</skinnyWars>
-				<version>7</version>
-				<includeInApplicationXml>true</includeInApplicationXml>
-				<archive>
-					<manifest>
-						<addClasspath>true</addClasspath>
-					</manifest>
-				</archive>
-				<modules>
-					«FOR Project project : stubbr?.projects»
-						«IF project != null && !project.name.nullOrEmpty && project?.projectType != ProjectType.PARENT»
-							«IF project?.getPackaging.equals('jar')»
-								<jarModule>
-									<groupId>${project.groupId}</groupId>
-									<artifactId>«project?.name»</artifactId>
-								</jarModule>
-							«ELSEIF project?.getPackaging.equals('ejb')»
-								<ejbModule>
-									<groupId>${project.groupId}</groupId>
-									<artifactId>«project?.name»</artifactId>
-									<bundleDir>/</bundleDir>
-								</ejbModule>
-							«ELSEIF project?.getPackaging.equals('war')»
-								<webModule>
-									<groupId>${project.groupId}</groupId>
-									<artifactId>«project?.name»</artifactId>
-									<contextRoot>/</contextRoot>
-								</webModule>
-							«ENDIF»
-						«ENDIF»
-					«ENDFOR»
-				</modules>
-			</configuration>
-		</plugin>
+				<plugin>
+					<groupId>org.apache.maven</groupId>
+					<artifactId>maven-ear-plugin</artifactId>
+					<version>${ear.plugin.version}</version>
+					<configuration>
+						<defaultLibBundleDir>lib/</defaultLibBundleDir>
+						<fileNameMapping>no-version</fileNameMapping>
+						<skinnyWars>true</skinnyWars>
+						<version>7</version>
+						<includeInApplicationXml>true</includeInApplicationXml>
+						<archive>
+							<manifest>
+								<addClasspath>true</addClasspath>
+							</manifest>
+						</archive>
+						<modules>
+							«FOR Project project : stubbr?.projects»
+								«IF !project?.name.nullOrEmpty && project?.projectType != ProjectType.EAR && project?.projectType != ProjectType.PARENT»
+									«IF project?.getPackaging.equals('jar')»
+										<jarModule>
+											<groupId>${project.groupId}</groupId>
+											<artifactId>«project?.name»</artifactId>
+										</jarModule>
+									«ELSEIF project?.getPackaging.equals('ejb')»
+										<ejbModule>
+											<groupId>${project.groupId}</groupId>
+											<artifactId>«project?.name»</artifactId>
+											<bundleDir>/</bundleDir>
+										</ejbModule>
+									«ELSEIF project?.getPackaging.equals('war')»
+										<webModule>
+											<groupId>${project.groupId}</groupId>
+											<artifactId>«project?.name»</artifactId>
+											<contextRoot>/</contextRoot>
+										</webModule>
+									«ENDIF»
+								«ENDIF»
+							«ENDFOR»
+						</modules>
+					</configuration>
+				</plugin>
 			</plugins>
 		</build>
 	'''

@@ -21,10 +21,10 @@ class EclipseJdtCorePrefsTemplateBase extends AbstractTemplate {
 		documentation = 'Eclipse JDT prefs'
 		skipStamping = true
 
-		content = template
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		eclipse.preferences.version=1
 		org.eclipse.jdt.core.compiler.codegen.inlineJsrBytecode=enabled
 		org.eclipse.jdt.core.compiler.codegen.targetPlatform=«stubbr?.stubb?.environment?.runtime?.jvm.literal»

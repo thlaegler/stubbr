@@ -95,11 +95,10 @@ public class EntityListMobileXhtmlTemplate extends AbstractMobileXhtmlTemplate {
     }
     _builder_4.append(_firstUpper, "");
     this.setDocumentation(_builder_4.toString());
-    String _template = this.getTemplate();
-    this.setContent(_template);
   }
   
-  private String getTemplate() {
+  @Override
+  public String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<p:dataTable value=\"#{");
     String _name = null;

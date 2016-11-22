@@ -23,11 +23,9 @@ class EclipseWstProjectFacetCoreXmlTemplate extends AbstractXmlTemplate {
 		footer = '</faceted-project>'
 		documentation = 'Eclipse WST project facet prefs xml'
 		skipStamping = true
-
-		content = template
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		<installed facet="jboss.m2" version="1.0"/>
 		<installed facet="java" version="1.8"/>
 		<installed facet="jst.cdi" version="1.2"/>

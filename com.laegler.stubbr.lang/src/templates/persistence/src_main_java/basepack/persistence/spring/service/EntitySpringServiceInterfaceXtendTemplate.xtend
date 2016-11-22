@@ -23,10 +23,10 @@ class EntitySpringServiceInterfaceXtendTemplate extends AbstractXtendTemplate {
 		relativPath = '''/src/main/java/«project?.basePackage?.toPath»/spring/service/'''
 		documentation = '''SpringMVC-based persistence service for managing entity «entity?.name?.toFirstUpper»'''
 
-		content = template
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		import «project.basePackage».*
 		import «stubbr?.stubb?.packageName».model.entity.*
 		import «stubbr?.stubb?.packageName».persistence.dto.«entity?.name.toFirstUpper»Dto

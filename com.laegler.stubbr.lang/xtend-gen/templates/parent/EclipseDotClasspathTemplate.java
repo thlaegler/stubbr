@@ -14,11 +14,10 @@ public class EclipseDotClasspathTemplate extends EclipseDotClasspathTemplateBase
     super(stubbr, project);
     this.setRelativPath("/");
     this.setDocumentation("Eclipse classpath for parent project");
-    String _template = this.getTemplate();
-    this.setContent(_template);
   }
   
-  private String getTemplate() {
+  @Override
+  public String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<classpathentry kind=\"src\" path=\"src\"/>");
     _builder.newLine();

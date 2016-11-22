@@ -16,10 +16,10 @@ class EclipseDotProjectTemplate extends EclipseDotProjectTemplateBase {
 		super(stubbr, project)
 		documentation = '''«documentation» for business project'''
 		
-		content = template
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		<name>«project.name»</name>
 		<comment>«documentation»</comment>
 		<projects>

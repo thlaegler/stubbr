@@ -3,11 +3,18 @@
  */
 package com.laegler.stubbr.lang.web;
 
+import com.google.inject.Provider;
 import com.laegler.stubbr.lang.web.AbstractStubbrLangWebModule;
+import java.util.concurrent.ExecutorService;
+import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 
 /**
  * Use this class to register additional components to be used within the web application.
  */
-/* @FinalFieldsConstructor */@SuppressWarnings("all")
+@FinalFieldsConstructor
+@SuppressWarnings("all")
 public class StubbrLangWebModule extends AbstractStubbrLangWebModule {
+  public StubbrLangWebModule(final Provider<ExecutorService> executorServiceProvider) {
+    super(executorServiceProvider);
+  }
 }

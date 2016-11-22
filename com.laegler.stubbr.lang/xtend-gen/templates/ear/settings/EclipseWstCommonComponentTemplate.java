@@ -18,11 +18,10 @@ public class EclipseWstCommonComponentTemplate extends AbstractTemplate {
     this.setRelativPath("/.settings/");
     this.setDocumentation("Eclipse settings for WST common component.");
     this.setSkipStamping(true);
-    String _template = this.getTemplate();
-    this.setContent(_template);
   }
   
-  private String getTemplate() {
+  @Override
+  public String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?><project-modules id=\"moduleCoreId\"/>");
     return _builder.toString();

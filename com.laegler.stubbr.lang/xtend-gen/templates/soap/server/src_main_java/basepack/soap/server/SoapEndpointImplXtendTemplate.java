@@ -54,12 +54,10 @@ public class SoapEndpointImplXtendTemplate extends AbstractXtendTemplate {
     String _entityUpper_1 = this.getEntityUpper();
     _builder_3.append(_entityUpper_1, "");
     this.setDocumentation(_builder_3.toString());
-    String _template = this.getTemplate();
-    String _withImports = this.withImports(_template);
-    this.setContent(_withImports);
   }
   
-  private String getTemplate() {
+  @Override
+  public String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("import ");
     Project _project = this.getProject();
@@ -198,17 +196,6 @@ public class SoapEndpointImplXtendTemplate extends AbstractXtendTemplate {
     _builder.append(_namespace, "");
     _builder.append("\')");
     _builder.newLineIfNotEmpty();
-    _builder.append("@");
-    String _asImport_1 = this.asImport("javax.jws.soap.SOAPBinding");
-    _builder.append(_asImport_1, "");
-    _builder.append("(style = ");
-    String _asImport_2 = this.asImport("javax.jws.soap.SOAPBinding.Style");
-    _builder.append(_asImport_2, "");
-    _builder.append(".DOCUMENT, use=");
-    String _asImport_3 = this.asImport("javax.jws.soap.SOAPBinding.Use");
-    _builder.append(_asImport_3, "");
-    _builder.append(".LITERAL)");
-    _builder.newLineIfNotEmpty();
     _builder.append("class ");
     String _fileName = this.getFileName();
     _builder.append(_fileName, "");
@@ -292,7 +279,7 @@ public class SoapEndpointImplXtendTemplate extends AbstractXtendTemplate {
         _builder.append(", ");
       }
     }
-    _builder.append("SecurityContext securityContext) {");
+    _builder.append("String dummy) {");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
     _builder.append("val ");
@@ -389,7 +376,7 @@ public class SoapEndpointImplXtendTemplate extends AbstractXtendTemplate {
         _builder.append(", ");
       }
     }
-    _builder.append("SecurityContext securityContext) {");
+    _builder.append("String dummy) {");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.newLine();
@@ -458,7 +445,7 @@ public class SoapEndpointImplXtendTemplate extends AbstractXtendTemplate {
         _builder.append(", ");
       }
     }
-    _builder.append("SecurityContext securityContext) {");
+    _builder.append("String dummy) {");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.newLine();
@@ -527,7 +514,7 @@ public class SoapEndpointImplXtendTemplate extends AbstractXtendTemplate {
         _builder.append(", ");
       }
     }
-    _builder.append("SecurityContext securityContext) {");
+    _builder.append("String dummy) {");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
     String _entityLower_2 = this.getEntityLower();

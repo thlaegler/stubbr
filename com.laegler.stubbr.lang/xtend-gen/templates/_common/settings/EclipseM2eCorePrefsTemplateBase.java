@@ -18,11 +18,10 @@ public class EclipseM2eCorePrefsTemplateBase extends AbstractTemplate {
     this.setRelativPath("/.settings/");
     this.setDocumentation("Eclipse Maven m2e prefs");
     this.setSkipStamping(true);
-    String _template = this.getTemplate();
-    this.setContent(_template);
   }
   
-  private String getTemplate() {
+  @Override
+  public String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("activeProfiles=");
     _builder.newLine();

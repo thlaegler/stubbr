@@ -15,3 +15,7 @@ Stubbr is an Eclipse plugin for defining business models and generating a JEE pr
 * Run Maven command 'mvn clean p2:site' in project com.laegler.stubbr.lang.p2 or just run the Eclipse launcher jar2osgi.launch
 * Open com.laegler.stubbr.lang.target/com.laegler.stubbr.lang.target.target and set as target platform
 * Run project com.laegler.stubbr.lang as Eclipse Application
+
+## Usage
+
+* Import the example project com.laegler.stubbr.example and modify the src/example.stubb

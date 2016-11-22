@@ -24,10 +24,10 @@ class EntitySpringDtoXtendTemplate extends AbstractXtendTemplate {
 		relativPath = '''/src/main/java/«project?.basePackage?.toPath»/spring/dto/'''
 		documentation = '''SpringMVC-based DTO for managing entity «entity?.name?.toFirstUpper»'''
 
-		content = template
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		import «project.basePackage».*
 		import «stubbr?.stubb?.packageName».model.entity.*
 		import org.eclipse.xtend.lib.annotations.Accessors

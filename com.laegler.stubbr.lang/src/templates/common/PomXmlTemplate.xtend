@@ -15,17 +15,20 @@ class PomXmlTemplate extends PomXmlTemplateBase {
 	new(StubbrRegistry stubbr, Project project) {
 		super(stubbr, project)
 		documentation = '''«documentation» for common project'''
-		
-		content = template
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		«parentSection»
+		
 		<artifactId>«project.name»</artifactId>
-		<packaging>«project.packaging»</packaging>
+		<name>«projectName»</name>
+		<packaging>«project?.packaging»</packaging>
+		<description>«project?.documentation»</description>
+		
 		<dependencyManagement>
-		<dependencies/>
+			<dependencies/>
 		</dependencyManagement>
+		
 		<dependencies>
 			<dependency>
 				<groupId>org.wildfly.bom</groupId>

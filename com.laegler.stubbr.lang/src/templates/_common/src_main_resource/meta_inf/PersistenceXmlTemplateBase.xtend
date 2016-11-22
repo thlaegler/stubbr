@@ -29,10 +29,10 @@ class PersistenceXmlTemplateBase extends AbstractXmlTemplate {
 		footer = '</persistence>'
 		documentation = 'JPA descriptor'
 
-		content = template
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		«FOR Level1Attribute persistenceUnit : stubbr?.stubb?.persistence?.persistenceUnits»
 			<persistence-unit name="«persistenceUnit?.name»" transaction-type="JTA">
 				<jta-data-source>java:jboss/datasources/«stubbr?.stubb?.persistence?.datasources?.get(0)?.name»</jta-data-source>

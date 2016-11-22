@@ -179,9 +179,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StubbrLang.ecore#//ChapterGlobals/useSpringMVC"/>
     </genClasses>
     <genClasses ecoreClass="StubbrLang.ecore#//ChapterProjectManagement">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StubbrLang.ecore#//ChapterProjectManagement/project"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StubbrLang.ecore#//ChapterProjectManagement/projects"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StubbrLang.ecore#//ChapterProjectManagement/scm"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StubbrLang.ecore#//ChapterProjectManagement/issueManagement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StubbrLang.ecore#//ChapterProjectManagement/distroManagement"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StubbrLang.ecore#//ChapterProjectManagement/ci"/>
     </genClasses>
     <genClasses ecoreClass="StubbrLang.ecore#//DevProject">

@@ -15,11 +15,9 @@ class EclipseDotProjectTemplate extends EclipseDotProjectTemplateBase {
 	new(StubbrRegistry stubbr, Project project) {
 		super(stubbr, project)
 		documentation = 'Eclipse project file for common project'
-		
-		content = template
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		<name>«project.name»-common</name>
 		<comment>«documentation»</comment>
 		

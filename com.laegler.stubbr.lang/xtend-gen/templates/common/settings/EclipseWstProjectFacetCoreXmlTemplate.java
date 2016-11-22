@@ -23,11 +23,10 @@ public class EclipseWstProjectFacetCoreXmlTemplate extends AbstractXmlTemplate {
     this.setFooter("</faceted-project>");
     this.setDocumentation("Eclipse WST project facet prefs xml");
     this.setSkipStamping(true);
-    String _template = this.getTemplate();
-    this.setContent(_template);
   }
   
-  private String getTemplate() {
+  @Override
+  public String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<installed facet=\"jboss.m2\" version=\"1.0\"/>");
     _builder.newLine();

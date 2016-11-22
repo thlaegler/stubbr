@@ -811,7 +811,7 @@ public class StubbrLangSemanticSequencer extends XbaseSemanticSequencer {
 	 *     ChapterProjectManagement returns ChapterProjectManagement
 	 *
 	 * Constraint:
-	 *     (project+=DevProject* scm+=Level1Attribute* issueManagement+=Level1Attribute* ci+=Level1Attribute*)
+	 *     (projects+=DevProject* scm+=Level1Attribute* issueManagement+=Level1Attribute* distroManagement+=Level1Attribute* ci+=Level1Attribute*)
 	 */
 	protected void sequence_ChapterProjectManagement(ISerializationContext context, ChapterProjectManagement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

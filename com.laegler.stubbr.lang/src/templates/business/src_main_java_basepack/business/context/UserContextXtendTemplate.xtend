@@ -19,10 +19,10 @@ class UserContextXtendTemplate extends AbstractXtendTemplate {
 		relativPath = '''/src/main/java/«project?.basePackage?.toPath»/context/'''
 		documentation = 'User context holding session and security information of current user'
 
-		content = withImports(template)
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		import «project.basePackage».*
 		import java.util.Locale
 		import org.eclipse.xtend.lib.annotations.Accessors

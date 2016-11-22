@@ -49,12 +49,10 @@ public class EntityPresenterXtendTemplate extends AbstractXtendTemplate {
     String _entityUpper_1 = this.getEntityUpper();
     _builder_3.append(_entityUpper_1, "");
     this.setDocumentation(_builder_3.toString());
-    String _template = this.getTemplate();
-    String _withImports = this.withImports(_template);
-    this.setContent(_withImports);
   }
   
-  private String getTemplate() {
+  @Override
+  public String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("import ");
     Project _project = this.getProject();

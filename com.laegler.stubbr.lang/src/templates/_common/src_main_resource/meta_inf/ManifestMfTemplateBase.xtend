@@ -20,10 +20,10 @@ class ManifestMfTemplateBase extends AbstractTemplate {
 		relativPath = '/src/main/resources/META-INF/'
 		documentation = 'OSGi Manifest descriptor'
 
-		content = template
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		Manifest-Version: 1.0
 		Class-Path: 
 		

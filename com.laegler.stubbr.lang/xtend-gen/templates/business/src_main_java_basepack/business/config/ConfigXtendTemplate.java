@@ -33,12 +33,10 @@ public class ConfigXtendTemplate extends AbstractXtendTemplate {
     _builder_1.append("/config/");
     this.setRelativPath(_builder_1.toString());
     this.setDocumentation("General configuration");
-    String _template = this.getTemplate();
-    String _withImports = this.withImports(_template);
-    this.setContent(_withImports);
   }
   
-  private String getTemplate() {
+  @Override
+  public String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("import ");
     Project _project = this.getProject();
@@ -319,10 +317,10 @@ public class ConfigXtendTemplate extends AbstractXtendTemplate {
     _builder.append(".config.\' + environment.name");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
-    _builder.append("val ResourceBundle bundle = ResourceBundle.getBundle(configResourceName, Locale.ROOT);");
+    _builder.append("val ResourceBundle bundle = ResourceBundle.getBundle(configResourceName, Locale.ROOT)");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("bundle.getString(key);");
+    _builder.append("bundle.getString(key)");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("}");

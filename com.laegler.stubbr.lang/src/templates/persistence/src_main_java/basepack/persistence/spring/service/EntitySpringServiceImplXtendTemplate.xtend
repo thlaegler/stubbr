@@ -23,10 +23,10 @@ class EntitySpringServiceImplXtendTemplate extends AbstractXtendTemplate {
 		header = '''package «project.basePackage».spring.service'''
 		documentation = '''SpringMVC-based persistence service implementation for managing entity «entity?.name?.toFirstUpper»'''
 
-		content = template
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		import «project.basePackage».*
 		import «stubbr?.stubb?.packageName».model.entity.*
 		import org.slf4j.Logger

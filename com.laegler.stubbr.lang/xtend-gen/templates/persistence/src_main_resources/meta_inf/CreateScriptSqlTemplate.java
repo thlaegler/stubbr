@@ -23,11 +23,10 @@ public class CreateScriptSqlTemplate extends AbstractSqlTemplate {
     _builder.append("/src/main/resources/META_INF/");
     this.setRelativPath(_builder.toString());
     this.setDocumentation("SQL create-script");
-    String _template = this.getTemplate();
-    this.setContent(_template);
   }
   
-  private String getTemplate() {
+  @Override
+  public String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("CREATE USER \'");
     StubbrRegistry _stubbr = this.getStubbr();

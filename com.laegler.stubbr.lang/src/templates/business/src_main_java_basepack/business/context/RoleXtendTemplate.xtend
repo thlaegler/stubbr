@@ -18,11 +18,9 @@ class RoleXtendTemplate extends AbstractXtendTemplate {
 		header = '''package «project.basePackage».context'''
 		relativPath = '''/src/main/java/«project?.basePackage?.toPath»/context/'''
 		documentation = 'User roles'
-
-		content = withImports(template)
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		«javaDocType»
 		enum «fileName» {
 		

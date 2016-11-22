@@ -59,11 +59,10 @@ public class EntityListDesktopXhtmlTemplate extends AbstractDesktopXhtmlTemplate
     }
     _builder_2.append(_firstUpper, "");
     this.setDocumentation(_builder_2.toString());
-    String _template = this.getTemplate();
-    this.setContent(_template);
   }
   
-  private String getTemplate() {
+  @Override
+  public String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<p:dataTable value=\"#{");
     String _name = null;

@@ -23,10 +23,10 @@ class ViewPresenterXtendTemplate extends AbstractXtendTemplate {
 		relativPath = '''/src/main/java/«project?.basePackage?.toPath»/presenter/'''
 		documentation = '''JSF/Faces presenter for view «view?.name?.toFirstUpper»'''
 
-		content = withImports(template)
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		import «project.basePackage».*
 		«IF !view?.assocEntities.isNullOrEmpty»
 			import «stubbr?.stubb?.packageName».persistence.service.«view?.assocEntities?.get(0)?.name?.toFirstUpper»Service

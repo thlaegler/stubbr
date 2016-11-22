@@ -26,10 +26,10 @@ class EclipseDotProjectTemplateBase extends AbstractTemplate {
 		documentation = 'Eclipse project file'
 		skipStamping = true
 
-		content = template
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		<name>«project.name»</name>
 		<comment>«documentation»</comment>
 		<projects>

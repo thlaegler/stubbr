@@ -26,10 +26,10 @@ class EclipseDotClasspathTemplateBase extends AbstractTemplate {
 		documentation = 'Eclipse classpath'
 		skipStamping = true
 
-		content = template
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		<classpathentry kind="con" path="org.eclipse.xtend.XTEND_CONTAINER"/>
 		<classpathentry kind="src" output="target/classes" path="src/main/java">
 			<attributes>

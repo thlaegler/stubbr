@@ -351,13 +351,13 @@ public interface StubbrLangPackage extends EPackage
   int CHAPTER_PROJECT_MANAGEMENT = 3;
 
   /**
-   * The feature id for the '<em><b>Project</b></em>' containment reference list.
+   * The feature id for the '<em><b>Projects</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CHAPTER_PROJECT_MANAGEMENT__PROJECT = CHAPTER_FEATURE_COUNT + 0;
+  int CHAPTER_PROJECT_MANAGEMENT__PROJECTS = CHAPTER_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Scm</b></em>' containment reference list.
@@ -378,13 +378,22 @@ public interface StubbrLangPackage extends EPackage
   int CHAPTER_PROJECT_MANAGEMENT__ISSUE_MANAGEMENT = CHAPTER_FEATURE_COUNT + 2;
 
   /**
+   * The feature id for the '<em><b>Distro Management</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHAPTER_PROJECT_MANAGEMENT__DISTRO_MANAGEMENT = CHAPTER_FEATURE_COUNT + 3;
+
+  /**
    * The feature id for the '<em><b>Ci</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CHAPTER_PROJECT_MANAGEMENT__CI = CHAPTER_FEATURE_COUNT + 3;
+  int CHAPTER_PROJECT_MANAGEMENT__CI = CHAPTER_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Chapter Project Management</em>' class.
@@ -393,7 +402,7 @@ public interface StubbrLangPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CHAPTER_PROJECT_MANAGEMENT_FEATURE_COUNT = CHAPTER_FEATURE_COUNT + 4;
+  int CHAPTER_PROJECT_MANAGEMENT_FEATURE_COUNT = CHAPTER_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link com.laegler.stubbr.lang.stubbrLang.impl.DevProjectImpl <em>Dev Project</em>}' class.
@@ -5568,15 +5577,15 @@ public interface StubbrLangPackage extends EPackage
   EClass getChapterProjectManagement();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.laegler.stubbr.lang.stubbrLang.ChapterProjectManagement#getProject <em>Project</em>}'.
+   * Returns the meta object for the containment reference list '{@link com.laegler.stubbr.lang.stubbrLang.ChapterProjectManagement#getProjects <em>Projects</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Project</em>'.
-   * @see com.laegler.stubbr.lang.stubbrLang.ChapterProjectManagement#getProject()
+   * @return the meta object for the containment reference list '<em>Projects</em>'.
+   * @see com.laegler.stubbr.lang.stubbrLang.ChapterProjectManagement#getProjects()
    * @see #getChapterProjectManagement()
    * @generated
    */
-  EReference getChapterProjectManagement_Project();
+  EReference getChapterProjectManagement_Projects();
 
   /**
    * Returns the meta object for the containment reference list '{@link com.laegler.stubbr.lang.stubbrLang.ChapterProjectManagement#getScm <em>Scm</em>}'.
@@ -5599,6 +5608,17 @@ public interface StubbrLangPackage extends EPackage
    * @generated
    */
   EReference getChapterProjectManagement_IssueManagement();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.laegler.stubbr.lang.stubbrLang.ChapterProjectManagement#getDistroManagement <em>Distro Management</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Distro Management</em>'.
+   * @see com.laegler.stubbr.lang.stubbrLang.ChapterProjectManagement#getDistroManagement()
+   * @see #getChapterProjectManagement()
+   * @generated
+   */
+  EReference getChapterProjectManagement_DistroManagement();
 
   /**
    * Returns the meta object for the containment reference list '{@link com.laegler.stubbr.lang.stubbrLang.ChapterProjectManagement#getCi <em>Ci</em>}'.

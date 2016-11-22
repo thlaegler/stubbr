@@ -21,10 +21,10 @@ class EclipseM2eCorePrefsTemplateBase extends AbstractTemplate {
 		documentation = 'Eclipse Maven m2e prefs'
 		skipStamping = true
 
-		content = template
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		activeProfiles=
 		eclipse.preferences.version=1
 		resolveWorkspaceProjects=true

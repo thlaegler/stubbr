@@ -21,10 +21,10 @@ class EclipseCoreResourcesPrefsTemplateBase extends AbstractTemplate {
 		documentation = 'Eclipse Core resources prefs'
 		skipStamping = true
 
-		content = template
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		eclipse.preferences.version=1
 		encoding//src/main/java=UTF-8
 		encoding//src-gen/main/java=UTF-8

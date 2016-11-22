@@ -15,11 +15,10 @@ public class IndexDesktopXhtmlTemplate extends AbstractDesktopXhtmlTemplate {
     this.setFileName("index");
     this.setRelativPath("/src/main/webapp/desktop/");
     this.setDocumentation("JSF/XHTML desktop index page.");
-    String _template = this.getTemplate();
-    this.setContent(_template);
   }
   
-  private String getTemplate() {
+  @Override
+  public String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<ui:include src=\"/desktop/index.xhtml\" />");
     _builder.newLine();

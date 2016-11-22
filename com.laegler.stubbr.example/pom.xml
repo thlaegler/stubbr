@@ -8,14 +8,15 @@
 	Generated with Stubbr
 	Maven project object model (pom.xml) for parent project
 	{{{Version: 0.0.1-SNAPSHOT}}}
-	{{{Date: 21.11.2016 - 22:43:03}}}
+	{{{Date: 22.11.2016 - 14:26:15}}}
 	{{{Generator: templates.parent.PomXmlTemplate}}}
 -->
 	<groupId>org.example.stubbr</groupId>
 	<artifactId>myexample-parent</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>MyExample Parent Project</name>
+	<name>MyExample - Parent project</name>
 	<packaging>pom</packaging>
+	<description>This project keeps the deployable enterprise archive (EAR)</description>
 	
 	<properties>
 		<source.plugin.version>2.10.4</source.plugin.version>
@@ -49,9 +50,79 @@
 		<compiler.target.version>1.8</compiler.target.version>
 	</properties>
 	<modules>
+		<module>myexample-common</module>
+		<module>myexample-model</module>
+		<module>myexample-persistence</module>
+		<module>myexample-business</module>
+		<module>myexample-faces</module>
+		<module>myexample-soap-server</module>
+		<module>myexample-soap-client</module>
+		<module>myexample-ear</module>
+		<module>myexample-rest-server-jaxrs-resteasy</module>
+		<module>myexample-rest-client-java</module>
 	</modules>
 	<dependencyManagement>
 		<dependencies>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>myexample-common</artifactId>
+				<version>${project.version}</version>
+				<type>jar</type>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>myexample-model</artifactId>
+				<version>${project.version}</version>
+				<type>ejb</type>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>myexample-persistence</artifactId>
+				<version>${project.version}</version>
+				<type>ejb</type>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>myexample-business</artifactId>
+				<version>${project.version}</version>
+				<type>ejb</type>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>myexample-faces</artifactId>
+				<version>${project.version}</version>
+				<type>war</type>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>myexample-soap-server</artifactId>
+				<version>${project.version}</version>
+				<type>jar</type>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>myexample-soap-client</artifactId>
+				<version>${project.version}</version>
+				<type>war</type>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>myexample-ear</artifactId>
+				<version>${project.version}</version>
+				<type>ear</type>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>myexample-rest-server-jaxrs-resteasy</artifactId>
+				<version>${project.version}</version>
+				<type>jar</type>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>myexample-rest-client-java</artifactId>
+				<version>${project.version}</version>
+				<type>war</type>
+			</dependency>
 			<dependency>
 				<groupId>org.wildfly.bom</groupId>
 				<artifactId>wildfly-javaee7-with-tools</artifactId>
@@ -155,6 +226,7 @@
 	</dependencyManagement>
 	<build>
 		<finalName>${project.artifactId}</finalName>
+	
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

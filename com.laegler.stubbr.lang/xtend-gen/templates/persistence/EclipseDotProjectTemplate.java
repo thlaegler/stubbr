@@ -13,11 +13,10 @@ public class EclipseDotProjectTemplate extends EclipseDotProjectTemplateBase {
   public EclipseDotProjectTemplate(final StubbrRegistry stubbr, final Project project) {
     super(stubbr, project);
     this.setDocumentation("Eclipse project file for persistence project");
-    String _template = this.getTemplate();
-    this.setContent(_template);
   }
   
-  private String getTemplate() {
+  @Override
+  public String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<name>");
     Project _project = this.getProject();

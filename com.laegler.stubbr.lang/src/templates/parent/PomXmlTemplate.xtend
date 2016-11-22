@@ -6,6 +6,7 @@ import java.util.Map
 import java.util.HashMap
 import templates._common.PomXmlTemplateBase
 import com.laegler.stubbr.lang.genmodel.StubbrRegistry
+import com.laegler.stubbr.lang.stubbrLang.Person
 
 /**
  * File Generator for Maven project object model (pom.xml) for parent project.
@@ -19,15 +20,16 @@ class PomXmlTemplate extends PomXmlTemplateBase {
 		super(stubbr, project)
 		documentation = '''«documentation» for parent project'''
 		
-		content = template
+		
 	}
 
-	private def String getTemplate() '''
-		<groupId>«stubbr?.stubb?.packageName»</groupId>
+	override def String getTemplate() '''
+		<groupId>«stubb?.packageName»</groupId>
 		<artifactId>«project?.name»</artifactId>
 		<version>«project?.version»</version>
-		<name>«stubbr?.stubb?.name?.toFirstUpper» Parent Project</name>
+		<name>«projectName»</name>
 		<packaging>«project?.packaging»</packaging>
+		<description>«project?.documentation»</description>
 		
 		<properties>
 			«FOR Object entry : properties?.entrySet»
@@ -35,16 +37,58 @@ class PomXmlTemplate extends PomXmlTemplateBase {
 					<«entry.key»>«entry.value»</«entry.key»>
 				«ENDIF»
 			«ENDFOR»
-			<compiler.source.version>«stubbr?.stubb?.environment?.runtime?.jvm?.literal»</compiler.source.version>
-			<compiler.target.version>«stubbr?.stubb?.environment?.runtime?.jvm?.literal»</compiler.target.version>
+			<compiler.source.version>«chapterEnvironment?.runtime?.jvm?.literal»</compiler.source.version>
+			<compiler.target.version>«chapterEnvironment?.runtime?.jvm?.literal»</compiler.target.version>
 		</properties>
+		
+		<developers>
+			«FOR Person person : chapterStakeholder?.persons»
+				<developer>
+					<name>«person?.name»</name>
+				</developer>
+			«ENDFOR»
+		</developers>
+		
+		«IF !chapterProjectManagement?.issueManagement.nullOrEmpty»
+			<issueManagement>
+				<url>«chapterProjectManagement?.issueManagement?.toString»</url>
+				<system>«chapterProjectManagement?.issueManagement?.toString»</system>
+			</issueManagement>
+		«ENDIF»
+		
+		«IF !chapterProjectManagement?.scm.nullOrEmpty»
+			<scm>
+				<url>«chapterProjectManagement?.scm?.toString»</url>
+				<connection>«chapterProjectManagement?.scm?.toString»</connection>
+				<developerConnection>«chapterProjectManagement?.scm?.toString»</developerConnection>
+			</scm>
+		«ENDIF»
+		
+		«IF !chapterProjectManagement?.ci.nullOrEmpty»
+			<ciManagement>
+				<url>«chapterProjectManagement?.ci?.toString»</url>
+				<system>«chapterProjectManagement?.ci?.toString»</system>
+			</ciManagement>
+		«ENDIF»
+		
+		«IF !chapterProjectManagement?.distroManagement.nullOrEmpty»
+			<distributionManagement>
+				<site>
+					<id>«chapterProjectManagement?.distroManagement?.toString»</id>
+					<name>«chapterProjectManagement?.distroManagement?.toString»</name>
+					<url>«chapterProjectManagement?.distroManagement?.toString»</url>
+				</site>
+			</distributionManagement>
+		«ENDIF»
+		
 		<modules>
 			«FOR Project project : stubbr?.projects»
 				«IF project != null && !project.name.nullOrEmpty && project?.projectType != ProjectType.PARENT»
-					<module>«IF !stubbr?.stubb?.structure.isIsNestedParent»../«ENDIF»«project?.name»</module>
+					<module>«IF !chapterStructure.isIsNestedParent»../«ENDIF»«project?.name»</module>
 				«ENDIF»
 			«ENDFOR»
 		</modules>
+		
 		<dependencyManagement>
 			<dependencies>
 				«FOR Project project : stubbr?.projects»
@@ -160,6 +204,7 @@ class PomXmlTemplate extends PomXmlTemplateBase {
 		</dependencyManagement>
 		<build>
 			<finalName>${project.artifactId}</finalName>
+		
 			<plugins>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>

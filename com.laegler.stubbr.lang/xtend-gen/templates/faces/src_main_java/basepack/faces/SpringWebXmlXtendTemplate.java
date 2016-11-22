@@ -43,11 +43,10 @@ public class SpringWebXmlXtendTemplate extends AbstractXtendTemplate {
     }
     _builder_2.append(_canonicalName, "");
     this.setDocumentation(_builder_2.toString());
-    String _template = this.getTemplate();
-    this.setContent(_template);
   }
   
-  private String getTemplate() {
+  @Override
+  public String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("import ");
     Project _project = this.getProject();

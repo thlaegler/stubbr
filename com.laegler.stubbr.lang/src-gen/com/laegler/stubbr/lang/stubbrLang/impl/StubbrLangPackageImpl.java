@@ -1114,7 +1114,7 @@ public class StubbrLangPackageImpl extends EPackageImpl implements StubbrLangPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getChapterProjectManagement_Project()
+  public EReference getChapterProjectManagement_Projects()
   {
         return (EReference)getChapterProjectManagement().getEStructuralFeatures().get(0);
   }
@@ -1144,9 +1144,19 @@ public class StubbrLangPackageImpl extends EPackageImpl implements StubbrLangPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getChapterProjectManagement_Ci()
+  public EReference getChapterProjectManagement_DistroManagement()
   {
         return (EReference)getChapterProjectManagement().getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getChapterProjectManagement_Ci()
+  {
+        return (EReference)getChapterProjectManagement().getEStructuralFeatures().get(4);
   }
 
   /**

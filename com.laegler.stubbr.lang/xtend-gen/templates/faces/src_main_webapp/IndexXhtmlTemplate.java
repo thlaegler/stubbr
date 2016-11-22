@@ -15,11 +15,10 @@ public class IndexXhtmlTemplate extends AbstractDesktopXhtmlTemplate {
     this.setFileName("index");
     this.setRelativPath("/src/main/webapp/");
     this.setDocumentation("XHTML desktop index page.");
-    String _template = this.getTemplate();
-    this.setContent(_template);
   }
   
-  private String getTemplate() {
+  @Override
+  public String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<ui:include src=\"/mobile/index.xhtml\" />");
     _builder.newLine();

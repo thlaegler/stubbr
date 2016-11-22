@@ -133,36 +133,12 @@ public class GherkinAdapter implements StubbrAdapter<GherkinDocument> {
     ArrayList<String> _arrayList = new ArrayList<String>();
     this.methodSnippets = _arrayList;
     StringConcatenation _builder_1 = new StringConcatenation();
-    _builder_1.append("package ");
+    _builder_1.append("import ");
     String _basePackage = null;
     if (project!=null) {
       _basePackage=project.getBasePackage();
     }
     _builder_1.append(_basePackage, "");
-    _builder_1.append(".feature.");
-    gherkin.ast.Feature _feature = null;
-    if (featureModel!=null) {
-      _feature=featureModel.getFeature();
-    }
-    String _name = null;
-    if (_feature!=null) {
-      _name=_feature.getName();
-    }
-    String _replaceAll = null;
-    if (_name!=null) {
-      _replaceAll=_name.replaceAll(" ", "");
-    }
-    String _replaceAll_1 = _replaceAll.replaceAll("\"", "");
-    String _lowerCase = _replaceAll_1.toLowerCase();
-    _builder_1.append(_lowerCase, "");
-    _builder_1.newLineIfNotEmpty();
-    _builder_1.newLine();
-    _builder_1.append("import ");
-    String _basePackage_1 = null;
-    if (project!=null) {
-      _basePackage_1=project.getBasePackage();
-    }
-    _builder_1.append(_basePackage_1, "");
     _builder_1.append(".*");
     _builder_1.newLineIfNotEmpty();
     _builder_1.append("import javax.inject.Inject");
@@ -181,21 +157,21 @@ public class GherkinAdapter implements StubbrAdapter<GherkinDocument> {
     _builder_1.newLine();
     _builder_1.newLine();
     _builder_1.append("class ");
-    gherkin.ast.Feature _feature_1 = null;
+    gherkin.ast.Feature _feature = null;
     if (featureModel!=null) {
-      _feature_1=featureModel.getFeature();
+      _feature=featureModel.getFeature();
     }
-    String _name_1 = null;
-    if (_feature_1!=null) {
-      _name_1=_feature_1.getName();
+    String _name = null;
+    if (_feature!=null) {
+      _name=_feature.getName();
     }
-    String _replaceAll_2 = null;
-    if (_name_1!=null) {
-      _replaceAll_2=_name_1.replaceAll(" ", "");
+    String _replaceAll = null;
+    if (_name!=null) {
+      _replaceAll=_name.replaceAll(" ", "");
     }
     String _firstUpper = null;
-    if (_replaceAll_2!=null) {
-      _firstUpper=StringExtensions.toFirstUpper(_replaceAll_2);
+    if (_replaceAll!=null) {
+      _firstUpper=StringExtensions.toFirstUpper(_replaceAll);
     }
     _builder_1.append(_firstUpper, "");
     _builder_1.append("StepDefinitions {");
@@ -208,13 +184,13 @@ public class GherkinAdapter implements StubbrAdapter<GherkinDocument> {
     _builder_1.append("\t");
     _builder_1.newLine();
     {
-      gherkin.ast.Feature _feature_2 = null;
+      gherkin.ast.Feature _feature_1 = null;
       if (featureModel!=null) {
-        _feature_2=featureModel.getFeature();
+        _feature_1=featureModel.getFeature();
       }
       List<ScenarioDefinition> _children = null;
-      if (_feature_2!=null) {
-        _children=_feature_2.getChildren();
+      if (_feature_1!=null) {
+        _children=_feature_1.getChildren();
       }
       for(final ScenarioDefinition scenario : _children) {
         {

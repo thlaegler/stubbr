@@ -5,14 +5,20 @@ import com.laegler.stubbr.lang.genmodel.Project;
 import com.laegler.stubbr.lang.genmodel.ProjectType;
 import com.laegler.stubbr.lang.genmodel.StubbrRegistry;
 import com.laegler.stubbr.lang.stubbrLang.ChapterEnvironment;
+import com.laegler.stubbr.lang.stubbrLang.ChapterProjectManagement;
 import com.laegler.stubbr.lang.stubbrLang.ChapterProjectStructure;
+import com.laegler.stubbr.lang.stubbrLang.ChapterStakeholder;
 import com.laegler.stubbr.lang.stubbrLang.JvmEnum;
+import com.laegler.stubbr.lang.stubbrLang.Level1Attribute;
+import com.laegler.stubbr.lang.stubbrLang.Person;
 import com.laegler.stubbr.lang.stubbrLang.Stubb;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
@@ -30,18 +36,13 @@ public class PomXmlTemplate extends PomXmlTemplateBase {
     _builder.append(_documentation, "");
     _builder.append(" for parent project");
     this.setDocumentation(_builder.toString());
-    String _template = this.getTemplate();
-    this.setContent(_template);
   }
   
-  private String getTemplate() {
+  @Override
+  public String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<groupId>");
-    StubbrRegistry _stubbr = this.getStubbr();
-    Stubb _stubb = null;
-    if (_stubbr!=null) {
-      _stubb=_stubbr.getStubb();
-    }
+    Stubb _stubb = this.getStubb();
     String _packageName = null;
     if (_stubb!=null) {
       _packageName=_stubb.getPackageName();
@@ -68,21 +69,9 @@ public class PomXmlTemplate extends PomXmlTemplateBase {
     _builder.append("</version>");
     _builder.newLineIfNotEmpty();
     _builder.append("<name>");
-    StubbrRegistry _stubbr_1 = this.getStubbr();
-    Stubb _stubb_1 = null;
-    if (_stubbr_1!=null) {
-      _stubb_1=_stubbr_1.getStubb();
-    }
-    String _name_1 = null;
-    if (_stubb_1!=null) {
-      _name_1=_stubb_1.getName();
-    }
-    String _firstUpper = null;
-    if (_name_1!=null) {
-      _firstUpper=StringExtensions.toFirstUpper(_name_1);
-    }
-    _builder.append(_firstUpper, "");
-    _builder.append(" Parent Project</name>");
+    String _projectName = this.getProjectName();
+    _builder.append(_projectName, "");
+    _builder.append("</name>");
     _builder.newLineIfNotEmpty();
     _builder.append("<packaging>");
     Project _project_2 = this.getProject();
@@ -92,6 +81,15 @@ public class PomXmlTemplate extends PomXmlTemplateBase {
     }
     _builder.append(_packaging, "");
     _builder.append("</packaging>");
+    _builder.newLineIfNotEmpty();
+    _builder.append("<description>");
+    Project _project_3 = this.getProject();
+    String _documentation = null;
+    if (_project_3!=null) {
+      _documentation=_project_3.getDocumentation();
+    }
+    _builder.append(_documentation, "");
+    _builder.append("</description>");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("<properties>");
@@ -123,18 +121,10 @@ public class PomXmlTemplate extends PomXmlTemplateBase {
     }
     _builder.append("\t");
     _builder.append("<compiler.source.version>");
-    StubbrRegistry _stubbr_2 = this.getStubbr();
-    Stubb _stubb_2 = null;
-    if (_stubbr_2!=null) {
-      _stubb_2=_stubbr_2.getStubb();
-    }
-    ChapterEnvironment _environment = null;
-    if (_stubb_2!=null) {
-      _environment=_stubb_2.getEnvironment();
-    }
+    ChapterEnvironment _chapterEnvironment = this.getChapterEnvironment();
     com.laegler.stubbr.lang.stubbrLang.Runtime _runtime = null;
-    if (_environment!=null) {
-      _runtime=_environment.getRuntime();
+    if (_chapterEnvironment!=null) {
+      _runtime=_chapterEnvironment.getRuntime();
     }
     JvmEnum _jvm = null;
     if (_runtime!=null) {
@@ -149,18 +139,10 @@ public class PomXmlTemplate extends PomXmlTemplateBase {
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("<compiler.target.version>");
-    StubbrRegistry _stubbr_3 = this.getStubbr();
-    Stubb _stubb_3 = null;
-    if (_stubbr_3!=null) {
-      _stubb_3=_stubbr_3.getStubb();
-    }
-    ChapterEnvironment _environment_1 = null;
-    if (_stubb_3!=null) {
-      _environment_1=_stubb_3.getEnvironment();
-    }
+    ChapterEnvironment _chapterEnvironment_1 = this.getChapterEnvironment();
     com.laegler.stubbr.lang.stubbrLang.Runtime _runtime_1 = null;
-    if (_environment_1!=null) {
-      _runtime_1=_environment_1.getRuntime();
+    if (_chapterEnvironment_1!=null) {
+      _runtime_1=_chapterEnvironment_1.getRuntime();
     }
     JvmEnum _jvm_1 = null;
     if (_runtime_1!=null) {
@@ -175,13 +157,254 @@ public class PomXmlTemplate extends PomXmlTemplateBase {
     _builder.newLineIfNotEmpty();
     _builder.append("</properties>");
     _builder.newLine();
+    _builder.newLine();
+    _builder.append("<developers>");
+    _builder.newLine();
+    {
+      ChapterStakeholder _chapterStakeholder = this.getChapterStakeholder();
+      EList<Person> _persons = null;
+      if (_chapterStakeholder!=null) {
+        _persons=_chapterStakeholder.getPersons();
+      }
+      for(final Person person : _persons) {
+        _builder.append("\t");
+        _builder.append("<developer>");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("\t");
+        _builder.append("<name>");
+        String _name_1 = null;
+        if (person!=null) {
+          _name_1=person.getName();
+        }
+        _builder.append(_name_1, "\t\t");
+        _builder.append("</name>");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("</developer>");
+        _builder.newLine();
+      }
+    }
+    _builder.append("</developers>");
+    _builder.newLine();
+    _builder.newLine();
+    {
+      ChapterProjectManagement _chapterProjectManagement = this.getChapterProjectManagement();
+      EList<Level1Attribute> _issueManagement = null;
+      if (_chapterProjectManagement!=null) {
+        _issueManagement=_chapterProjectManagement.getIssueManagement();
+      }
+      boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(_issueManagement);
+      boolean _not = (!_isNullOrEmpty);
+      if (_not) {
+        _builder.append("<issueManagement>");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("<url>");
+        ChapterProjectManagement _chapterProjectManagement_1 = this.getChapterProjectManagement();
+        EList<Level1Attribute> _issueManagement_1 = null;
+        if (_chapterProjectManagement_1!=null) {
+          _issueManagement_1=_chapterProjectManagement_1.getIssueManagement();
+        }
+        String _string = null;
+        if (_issueManagement_1!=null) {
+          _string=_issueManagement_1.toString();
+        }
+        _builder.append(_string, "\t");
+        _builder.append("</url>");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("<system>");
+        ChapterProjectManagement _chapterProjectManagement_2 = this.getChapterProjectManagement();
+        EList<Level1Attribute> _issueManagement_2 = null;
+        if (_chapterProjectManagement_2!=null) {
+          _issueManagement_2=_chapterProjectManagement_2.getIssueManagement();
+        }
+        String _string_1 = null;
+        if (_issueManagement_2!=null) {
+          _string_1=_issueManagement_2.toString();
+        }
+        _builder.append(_string_1, "\t");
+        _builder.append("</system>");
+        _builder.newLineIfNotEmpty();
+        _builder.append("</issueManagement>");
+        _builder.newLine();
+      }
+    }
+    _builder.newLine();
+    {
+      ChapterProjectManagement _chapterProjectManagement_3 = this.getChapterProjectManagement();
+      EList<Level1Attribute> _scm = null;
+      if (_chapterProjectManagement_3!=null) {
+        _scm=_chapterProjectManagement_3.getScm();
+      }
+      boolean _isNullOrEmpty_1 = IterableExtensions.isNullOrEmpty(_scm);
+      boolean _not_1 = (!_isNullOrEmpty_1);
+      if (_not_1) {
+        _builder.append("<scm>");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("<url>");
+        ChapterProjectManagement _chapterProjectManagement_4 = this.getChapterProjectManagement();
+        EList<Level1Attribute> _scm_1 = null;
+        if (_chapterProjectManagement_4!=null) {
+          _scm_1=_chapterProjectManagement_4.getScm();
+        }
+        String _string_2 = null;
+        if (_scm_1!=null) {
+          _string_2=_scm_1.toString();
+        }
+        _builder.append(_string_2, "\t");
+        _builder.append("</url>");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("<connection>");
+        ChapterProjectManagement _chapterProjectManagement_5 = this.getChapterProjectManagement();
+        EList<Level1Attribute> _scm_2 = null;
+        if (_chapterProjectManagement_5!=null) {
+          _scm_2=_chapterProjectManagement_5.getScm();
+        }
+        String _string_3 = null;
+        if (_scm_2!=null) {
+          _string_3=_scm_2.toString();
+        }
+        _builder.append(_string_3, "\t");
+        _builder.append("</connection>");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("<developerConnection>");
+        ChapterProjectManagement _chapterProjectManagement_6 = this.getChapterProjectManagement();
+        EList<Level1Attribute> _scm_3 = null;
+        if (_chapterProjectManagement_6!=null) {
+          _scm_3=_chapterProjectManagement_6.getScm();
+        }
+        String _string_4 = null;
+        if (_scm_3!=null) {
+          _string_4=_scm_3.toString();
+        }
+        _builder.append(_string_4, "\t");
+        _builder.append("</developerConnection>");
+        _builder.newLineIfNotEmpty();
+        _builder.append("</scm>");
+        _builder.newLine();
+      }
+    }
+    _builder.newLine();
+    {
+      ChapterProjectManagement _chapterProjectManagement_7 = this.getChapterProjectManagement();
+      EList<Level1Attribute> _ci = null;
+      if (_chapterProjectManagement_7!=null) {
+        _ci=_chapterProjectManagement_7.getCi();
+      }
+      boolean _isNullOrEmpty_2 = IterableExtensions.isNullOrEmpty(_ci);
+      boolean _not_2 = (!_isNullOrEmpty_2);
+      if (_not_2) {
+        _builder.append("<ciManagement>");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("<url>");
+        ChapterProjectManagement _chapterProjectManagement_8 = this.getChapterProjectManagement();
+        EList<Level1Attribute> _ci_1 = null;
+        if (_chapterProjectManagement_8!=null) {
+          _ci_1=_chapterProjectManagement_8.getCi();
+        }
+        String _string_5 = null;
+        if (_ci_1!=null) {
+          _string_5=_ci_1.toString();
+        }
+        _builder.append(_string_5, "\t");
+        _builder.append("</url>");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("<system>");
+        ChapterProjectManagement _chapterProjectManagement_9 = this.getChapterProjectManagement();
+        EList<Level1Attribute> _ci_2 = null;
+        if (_chapterProjectManagement_9!=null) {
+          _ci_2=_chapterProjectManagement_9.getCi();
+        }
+        String _string_6 = null;
+        if (_ci_2!=null) {
+          _string_6=_ci_2.toString();
+        }
+        _builder.append(_string_6, "\t");
+        _builder.append("</system>");
+        _builder.newLineIfNotEmpty();
+        _builder.append("</ciManagement>");
+        _builder.newLine();
+      }
+    }
+    _builder.newLine();
+    {
+      ChapterProjectManagement _chapterProjectManagement_10 = this.getChapterProjectManagement();
+      EList<Level1Attribute> _distroManagement = null;
+      if (_chapterProjectManagement_10!=null) {
+        _distroManagement=_chapterProjectManagement_10.getDistroManagement();
+      }
+      boolean _isNullOrEmpty_3 = IterableExtensions.isNullOrEmpty(_distroManagement);
+      boolean _not_3 = (!_isNullOrEmpty_3);
+      if (_not_3) {
+        _builder.append("<distributionManagement>");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("<site>");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("<id>");
+        ChapterProjectManagement _chapterProjectManagement_11 = this.getChapterProjectManagement();
+        EList<Level1Attribute> _distroManagement_1 = null;
+        if (_chapterProjectManagement_11!=null) {
+          _distroManagement_1=_chapterProjectManagement_11.getDistroManagement();
+        }
+        String _string_7 = null;
+        if (_distroManagement_1!=null) {
+          _string_7=_distroManagement_1.toString();
+        }
+        _builder.append(_string_7, "\t\t");
+        _builder.append("</id>");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("<name>");
+        ChapterProjectManagement _chapterProjectManagement_12 = this.getChapterProjectManagement();
+        EList<Level1Attribute> _distroManagement_2 = null;
+        if (_chapterProjectManagement_12!=null) {
+          _distroManagement_2=_chapterProjectManagement_12.getDistroManagement();
+        }
+        String _string_8 = null;
+        if (_distroManagement_2!=null) {
+          _string_8=_distroManagement_2.toString();
+        }
+        _builder.append(_string_8, "\t\t");
+        _builder.append("</name>");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("<url>");
+        ChapterProjectManagement _chapterProjectManagement_13 = this.getChapterProjectManagement();
+        EList<Level1Attribute> _distroManagement_3 = null;
+        if (_chapterProjectManagement_13!=null) {
+          _distroManagement_3=_chapterProjectManagement_13.getDistroManagement();
+        }
+        String _string_9 = null;
+        if (_distroManagement_3!=null) {
+          _string_9=_distroManagement_3.toString();
+        }
+        _builder.append(_string_9, "\t\t");
+        _builder.append("</url>");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("</site>");
+        _builder.newLine();
+        _builder.append("</distributionManagement>");
+        _builder.newLine();
+      }
+    }
+    _builder.newLine();
     _builder.append("<modules>");
     _builder.newLine();
     {
-      StubbrRegistry _stubbr_4 = this.getStubbr();
+      StubbrRegistry _stubbr = this.getStubbr();
       List<Project> _projects = null;
-      if (_stubbr_4!=null) {
-        _projects=_stubbr_4.getProjects();
+      if (_stubbr!=null) {
+        _projects=_stubbr.getProjects();
       }
       for(final Project project : _projects) {
         {
@@ -200,18 +423,10 @@ public class PomXmlTemplate extends PomXmlTemplateBase {
             _builder.append("\t");
             _builder.append("<module>");
             {
-              StubbrRegistry _stubbr_5 = this.getStubbr();
-              Stubb _stubb_4 = null;
-              if (_stubbr_5!=null) {
-                _stubb_4=_stubbr_5.getStubb();
-              }
-              ChapterProjectStructure _structure = null;
-              if (_stubb_4!=null) {
-                _structure=_stubb_4.getStructure();
-              }
-              boolean _isIsNestedParent = _structure.isIsNestedParent();
-              boolean _not = (!_isIsNestedParent);
-              if (_not) {
+              ChapterProjectStructure _chapterStructure = this.getChapterStructure();
+              boolean _isIsNestedParent = _chapterStructure.isIsNestedParent();
+              boolean _not_4 = (!_isIsNestedParent);
+              if (_not_4) {
                 _builder.append("../");
               }
             }
@@ -228,16 +443,17 @@ public class PomXmlTemplate extends PomXmlTemplateBase {
     }
     _builder.append("</modules>");
     _builder.newLine();
+    _builder.newLine();
     _builder.append("<dependencyManagement>");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("<dependencies>");
     _builder.newLine();
     {
-      StubbrRegistry _stubbr_6 = this.getStubbr();
+      StubbrRegistry _stubbr_1 = this.getStubbr();
       List<Project> _projects_1 = null;
-      if (_stubbr_6!=null) {
-        _projects_1=_stubbr_6.getProjects();
+      if (_stubbr_1!=null) {
+        _projects_1=_stubbr_1.getProjects();
       }
       for(final Project project_1 : _projects_1) {
         {
@@ -597,6 +813,7 @@ public class PomXmlTemplate extends PomXmlTemplateBase {
     _builder.newLine();
     _builder.append("\t");
     _builder.append("<finalName>${project.artifactId}</finalName>");
+    _builder.newLine();
     _builder.newLine();
     _builder.append("\t");
     _builder.append("<plugins>");

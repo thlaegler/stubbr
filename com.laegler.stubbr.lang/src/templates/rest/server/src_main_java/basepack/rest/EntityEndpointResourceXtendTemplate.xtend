@@ -27,10 +27,10 @@ class EntityEndpointResourceXtendTemplate extends AbstractXtendTemplate {
 		relativPath = '''/src/main/java/«project?.basePackage?.toPath»/rest/server/'''
 		documentation = '''REST endpoint for path «swagger?.info?.title?.toFirstUpper».'''
 
-		content = withImports(template)
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		import «project.basePackage».*
 		
 		import javax.ws.rs.GET

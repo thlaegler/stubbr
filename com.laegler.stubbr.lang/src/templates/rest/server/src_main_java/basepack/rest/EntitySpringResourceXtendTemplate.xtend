@@ -23,10 +23,10 @@ class EntitySpringResourceXtendTemplate extends AbstractXtendTemplate {
 		relativPath = '''/src/main/java/«project?.basePackage?.toPath»/resource/'''
 		documentation = '''Spring REST controller for managing entity «entity?.name?.toFirstUpper»'''
 
-		content = withImports(template)
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		import «project.basePackage».*
 		import com.google.gson.annotations.Until
 		import javax.annotation.Generated

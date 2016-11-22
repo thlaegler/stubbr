@@ -28,7 +28,7 @@ class PomXmlTemplateBase extends AbstractXmlTemplate {
 		documentation = 'Maven project object model (pom.xml)'
 		version = project?.version
 
-		content = template
+		
 
 //		var model = new Model => [
 //			groupId = stubbr?.stubb?.packageName
@@ -44,12 +44,14 @@ class PomXmlTemplateBase extends AbstractXmlTemplate {
 //		val String content = marshal(mavenFactory.createProject(model), Model)
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		«parentSection»
+		
 		<artifactId>«project?.name»</artifactId>
-		<name>«project?.canonicalName»</name>
+		<name>«projectName»</name>
 		<packaging>«project?.packaging»</packaging>
 		<description>«project?.documentation»</description>
+		
 		<dependencies>
 			<!-- Project internal -->
 			<dependency>
@@ -176,5 +178,7 @@ class PomXmlTemplateBase extends AbstractXmlTemplate {
 			«ENDIF»
 		</parent>
 	'''
+	
+	protected def String getProjectName() '''«stubb?.name?.toFirstUpper» - «project?.canonicalName»'''
 
 }

@@ -28,11 +28,10 @@ public class EclipseDotClasspathTemplateBase extends AbstractTemplate {
     this.setFooter("</classpath>");
     this.setDocumentation("Eclipse classpath");
     this.setSkipStamping(true);
-    String _template = this.getTemplate();
-    this.setContent(_template);
   }
   
-  private String getTemplate() {
+  @Override
+  public String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<classpathentry kind=\"con\" path=\"org.eclipse.xtend.XTEND_CONTAINER\"/>");
     _builder.newLine();

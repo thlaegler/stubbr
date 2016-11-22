@@ -25,10 +25,10 @@ class EntityDetailsMobileXhtmlTemplate extends AbstractMobileXhtmlTemplate {
 		relativPath = '''/src/main/webapp/mobile/«entity?.name?.toLowerCase»/'''
 		documentation = '''JSF/XHTML mobile details page for entity «entity?.name?.toFirstUpper»'''
 
-		content = template
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		<f:metadata>
 			<f:viewParam name="#{http.post.param.«entity?.name?.toFirstLower»Id}"
 				value="#{presenter.«entity?.name?.toFirstLower».bean.«entity?.name?.toFirstLower»Id}" />

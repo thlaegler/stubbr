@@ -38,10 +38,10 @@ class BehaviorFeatureTemplate extends AbstractTemplate {
 			</ul>
 		'''
 
-		content = template
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		# language: en
 		Feature: «feature?.name?.toFirstUpper» - «feature?.label?.replaceAll('"', '')»
 		

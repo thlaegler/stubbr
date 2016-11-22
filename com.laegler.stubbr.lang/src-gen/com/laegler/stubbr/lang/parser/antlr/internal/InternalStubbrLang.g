@@ -707,17 +707,17 @@ ruleChapterProjectManagement returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getChapterProjectManagementAccess().getProjectDevProjectParserRuleCall_2_1_0());
+						newCompositeNode(grammarAccess.getChapterProjectManagementAccess().getProjectsDevProjectParserRuleCall_2_1_0());
 					}
-					lv_project_3_0=ruleDevProject
+					lv_projects_3_0=ruleDevProject
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getChapterProjectManagementRule());
 						}
 						add(
 							$current,
-							"project",
-							lv_project_3_0,
+							"projects",
+							lv_projects_3_0,
 							"com.laegler.stubbr.lang.StubbrLang.DevProject");
 						afterParserOrEnumRuleCall();
 					}
@@ -775,16 +775,41 @@ ruleChapterProjectManagement returns [EObject current=null]
 			)*
 		)?
 		(
-			otherlv_8='continousIntegration'
+			otherlv_8='distroManagement'
 			{
-				newLeafNode(otherlv_8, grammarAccess.getChapterProjectManagementAccess().getContinousIntegrationKeyword_5_0());
+				newLeafNode(otherlv_8, grammarAccess.getChapterProjectManagementAccess().getDistroManagementKeyword_5_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getChapterProjectManagementAccess().getCiLevel1AttributeParserRuleCall_5_1_0());
+						newCompositeNode(grammarAccess.getChapterProjectManagementAccess().getDistroManagementLevel1AttributeParserRuleCall_5_1_0());
 					}
-					lv_ci_9_0=ruleLevel1Attribute
+					lv_distroManagement_9_0=ruleLevel1Attribute
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getChapterProjectManagementRule());
+						}
+						add(
+							$current,
+							"distroManagement",
+							lv_distroManagement_9_0,
+							"com.laegler.stubbr.lang.StubbrLang.Level1Attribute");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)*
+		)?
+		(
+			otherlv_10='continousIntegration'
+			{
+				newLeafNode(otherlv_10, grammarAccess.getChapterProjectManagementAccess().getContinousIntegrationKeyword_6_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getChapterProjectManagementAccess().getCiLevel1AttributeParserRuleCall_6_1_0());
+					}
+					lv_ci_11_0=ruleLevel1Attribute
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getChapterProjectManagementRule());
@@ -792,16 +817,16 @@ ruleChapterProjectManagement returns [EObject current=null]
 						add(
 							$current,
 							"ci",
-							lv_ci_9_0,
+							lv_ci_11_0,
 							"com.laegler.stubbr.lang.StubbrLang.Level1Attribute");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)*
 		)?
-		otherlv_10='}'
+		otherlv_12='}'
 		{
-			newLeafNode(otherlv_10, grammarAccess.getChapterProjectManagementAccess().getRightCurlyBracketKeyword_6());
+			newLeafNode(otherlv_12, grammarAccess.getChapterProjectManagementAccess().getRightCurlyBracketKeyword_7());
 		}
 	)
 ;

@@ -17,11 +17,10 @@ public class ManifestMfTemplateBase extends AbstractTemplate {
     this.setFileName("MANIFEST");
     this.setRelativPath("/src/main/resources/META-INF/");
     this.setDocumentation("OSGi Manifest descriptor");
-    String _template = this.getTemplate();
-    this.setContent(_template);
   }
   
-  private String getTemplate() {
+  @Override
+  public String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("Manifest-Version: 1.0");
     _builder.newLine();

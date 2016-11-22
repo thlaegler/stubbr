@@ -18,11 +18,9 @@ class EnvironmentXtendTemplate extends AbstractXtendTemplate {
 		header = '''package «project.basePackage».config'''
 		relativPath = '''/src/main/java/«project?.basePackage?.toPath»/config/'''
 		documentation = 'Environment configuration'
-
-		content = withImports(template)
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		«javaDocType»
 		enum «fileName» {
 			DEFAULT, LOCAL, TEST, STAGE, PROD

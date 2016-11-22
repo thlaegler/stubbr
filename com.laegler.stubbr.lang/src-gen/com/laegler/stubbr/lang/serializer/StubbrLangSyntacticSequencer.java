@@ -28,11 +28,12 @@ public class StubbrLangSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_ChapterPersistence_DatasourcesKeyword_3_0_q;
 	protected AbstractElementAlias match_ChapterPersistence_PersistenceUnitKeyword_4_0_q;
 	protected AbstractElementAlias match_ChapterPersistence___PersistenceUnitKeyword_4_0_or___DatasourcesKeyword_3_0_PersistenceUnitKeyword_4_0____q;
-	protected AbstractElementAlias match_ChapterProjectManagement_ContinousIntegrationKeyword_5_0_q;
+	protected AbstractElementAlias match_ChapterProjectManagement_ContinousIntegrationKeyword_6_0_q;
+	protected AbstractElementAlias match_ChapterProjectManagement_DistroManagementKeyword_5_0_q;
 	protected AbstractElementAlias match_ChapterProjectManagement_IssueManagementKeyword_4_0_q;
 	protected AbstractElementAlias match_ChapterProjectManagement_ProjectsKeyword_2_0_q;
 	protected AbstractElementAlias match_ChapterProjectManagement_SourceCodeManagementKeyword_3_0_q;
-	protected AbstractElementAlias match_ChapterProjectManagement___ContinousIntegrationKeyword_5_0_or___SourceCodeManagementKeyword_3_0_q_ContinousIntegrationKeyword_5_0___or___SourceCodeManagementKeyword_3_0_q_IssueManagementKeyword_4_0_ContinousIntegrationKeyword_5_0____q;
+	protected AbstractElementAlias match_ChapterProjectManagement___ContinousIntegrationKeyword_6_0_or___IssueManagementKeyword_4_0_ContinousIntegrationKeyword_6_0___or___SourceCodeManagementKeyword_3_0___ContinousIntegrationKeyword_6_0_or___IssueManagementKeyword_4_0_ContinousIntegrationKeyword_6_0_______or_____IssueManagementKeyword_4_0_or___SourceCodeManagementKeyword_3_0_IssueManagementKeyword_4_0____q_DistroManagementKeyword_5_0_ContinousIntegrationKeyword_6_0____q;
 	protected AbstractElementAlias match_ChapterProjectStructure_PropertiesKeyword_3_0_q;
 	protected AbstractElementAlias match_ChapterStakeholder_GroupsKeyword_3_0_q;
 	protected AbstractElementAlias match_ChapterStakeholder_OrganizationsKeyword_2_0_q;
@@ -59,11 +60,12 @@ public class StubbrLangSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_ChapterPersistence_DatasourcesKeyword_3_0_q = new TokenAlias(false, true, grammarAccess.getChapterPersistenceAccess().getDatasourcesKeyword_3_0());
 		match_ChapterPersistence_PersistenceUnitKeyword_4_0_q = new TokenAlias(false, true, grammarAccess.getChapterPersistenceAccess().getPersistenceUnitKeyword_4_0());
 		match_ChapterPersistence___PersistenceUnitKeyword_4_0_or___DatasourcesKeyword_3_0_PersistenceUnitKeyword_4_0____q = new AlternativeAlias(false, true, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getChapterPersistenceAccess().getDatasourcesKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getChapterPersistenceAccess().getPersistenceUnitKeyword_4_0())), new TokenAlias(false, false, grammarAccess.getChapterPersistenceAccess().getPersistenceUnitKeyword_4_0()));
-		match_ChapterProjectManagement_ContinousIntegrationKeyword_5_0_q = new TokenAlias(false, true, grammarAccess.getChapterProjectManagementAccess().getContinousIntegrationKeyword_5_0());
+		match_ChapterProjectManagement_ContinousIntegrationKeyword_6_0_q = new TokenAlias(false, true, grammarAccess.getChapterProjectManagementAccess().getContinousIntegrationKeyword_6_0());
+		match_ChapterProjectManagement_DistroManagementKeyword_5_0_q = new TokenAlias(false, true, grammarAccess.getChapterProjectManagementAccess().getDistroManagementKeyword_5_0());
 		match_ChapterProjectManagement_IssueManagementKeyword_4_0_q = new TokenAlias(false, true, grammarAccess.getChapterProjectManagementAccess().getIssueManagementKeyword_4_0());
 		match_ChapterProjectManagement_ProjectsKeyword_2_0_q = new TokenAlias(false, true, grammarAccess.getChapterProjectManagementAccess().getProjectsKeyword_2_0());
 		match_ChapterProjectManagement_SourceCodeManagementKeyword_3_0_q = new TokenAlias(false, true, grammarAccess.getChapterProjectManagementAccess().getSourceCodeManagementKeyword_3_0());
-		match_ChapterProjectManagement___ContinousIntegrationKeyword_5_0_or___SourceCodeManagementKeyword_3_0_q_ContinousIntegrationKeyword_5_0___or___SourceCodeManagementKeyword_3_0_q_IssueManagementKeyword_4_0_ContinousIntegrationKeyword_5_0____q = new AlternativeAlias(false, true, new GroupAlias(false, false, new TokenAlias(false, true, grammarAccess.getChapterProjectManagementAccess().getSourceCodeManagementKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getChapterProjectManagementAccess().getContinousIntegrationKeyword_5_0())), new GroupAlias(false, false, new TokenAlias(false, true, grammarAccess.getChapterProjectManagementAccess().getSourceCodeManagementKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getChapterProjectManagementAccess().getIssueManagementKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getChapterProjectManagementAccess().getContinousIntegrationKeyword_5_0())), new TokenAlias(false, false, grammarAccess.getChapterProjectManagementAccess().getContinousIntegrationKeyword_5_0()));
+		match_ChapterProjectManagement___ContinousIntegrationKeyword_6_0_or___IssueManagementKeyword_4_0_ContinousIntegrationKeyword_6_0___or___SourceCodeManagementKeyword_3_0___ContinousIntegrationKeyword_6_0_or___IssueManagementKeyword_4_0_ContinousIntegrationKeyword_6_0_______or_____IssueManagementKeyword_4_0_or___SourceCodeManagementKeyword_3_0_IssueManagementKeyword_4_0____q_DistroManagementKeyword_5_0_ContinousIntegrationKeyword_6_0____q = new AlternativeAlias(false, true, new GroupAlias(false, false, new AlternativeAlias(false, true, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getChapterProjectManagementAccess().getSourceCodeManagementKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getChapterProjectManagementAccess().getIssueManagementKeyword_4_0())), new TokenAlias(false, false, grammarAccess.getChapterProjectManagementAccess().getIssueManagementKeyword_4_0())), new TokenAlias(false, false, grammarAccess.getChapterProjectManagementAccess().getDistroManagementKeyword_5_0()), new TokenAlias(false, false, grammarAccess.getChapterProjectManagementAccess().getContinousIntegrationKeyword_6_0())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getChapterProjectManagementAccess().getIssueManagementKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getChapterProjectManagementAccess().getContinousIntegrationKeyword_6_0())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getChapterProjectManagementAccess().getSourceCodeManagementKeyword_3_0()), new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getChapterProjectManagementAccess().getIssueManagementKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getChapterProjectManagementAccess().getContinousIntegrationKeyword_6_0())), new TokenAlias(false, false, grammarAccess.getChapterProjectManagementAccess().getContinousIntegrationKeyword_6_0()))), new TokenAlias(false, false, grammarAccess.getChapterProjectManagementAccess().getContinousIntegrationKeyword_6_0()));
 		match_ChapterProjectStructure_PropertiesKeyword_3_0_q = new TokenAlias(false, true, grammarAccess.getChapterProjectStructureAccess().getPropertiesKeyword_3_0());
 		match_ChapterStakeholder_GroupsKeyword_3_0_q = new TokenAlias(false, true, grammarAccess.getChapterStakeholderAccess().getGroupsKeyword_3_0());
 		match_ChapterStakeholder_OrganizationsKeyword_2_0_q = new TokenAlias(false, true, grammarAccess.getChapterStakeholderAccess().getOrganizationsKeyword_2_0());
@@ -131,16 +133,18 @@ public class StubbrLangSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_ChapterPersistence_PersistenceUnitKeyword_4_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_ChapterPersistence___PersistenceUnitKeyword_4_0_or___DatasourcesKeyword_3_0_PersistenceUnitKeyword_4_0____q.equals(syntax))
 				emit_ChapterPersistence___PersistenceUnitKeyword_4_0_or___DatasourcesKeyword_3_0_PersistenceUnitKeyword_4_0____q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_ChapterProjectManagement_ContinousIntegrationKeyword_5_0_q.equals(syntax))
-				emit_ChapterProjectManagement_ContinousIntegrationKeyword_5_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_ChapterProjectManagement_ContinousIntegrationKeyword_6_0_q.equals(syntax))
+				emit_ChapterProjectManagement_ContinousIntegrationKeyword_6_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_ChapterProjectManagement_DistroManagementKeyword_5_0_q.equals(syntax))
+				emit_ChapterProjectManagement_DistroManagementKeyword_5_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_ChapterProjectManagement_IssueManagementKeyword_4_0_q.equals(syntax))
 				emit_ChapterProjectManagement_IssueManagementKeyword_4_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_ChapterProjectManagement_ProjectsKeyword_2_0_q.equals(syntax))
 				emit_ChapterProjectManagement_ProjectsKeyword_2_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_ChapterProjectManagement_SourceCodeManagementKeyword_3_0_q.equals(syntax))
 				emit_ChapterProjectManagement_SourceCodeManagementKeyword_3_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_ChapterProjectManagement___ContinousIntegrationKeyword_5_0_or___SourceCodeManagementKeyword_3_0_q_ContinousIntegrationKeyword_5_0___or___SourceCodeManagementKeyword_3_0_q_IssueManagementKeyword_4_0_ContinousIntegrationKeyword_5_0____q.equals(syntax))
-				emit_ChapterProjectManagement___ContinousIntegrationKeyword_5_0_or___SourceCodeManagementKeyword_3_0_q_ContinousIntegrationKeyword_5_0___or___SourceCodeManagementKeyword_3_0_q_IssueManagementKeyword_4_0_ContinousIntegrationKeyword_5_0____q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_ChapterProjectManagement___ContinousIntegrationKeyword_6_0_or___IssueManagementKeyword_4_0_ContinousIntegrationKeyword_6_0___or___SourceCodeManagementKeyword_3_0___ContinousIntegrationKeyword_6_0_or___IssueManagementKeyword_4_0_ContinousIntegrationKeyword_6_0_______or_____IssueManagementKeyword_4_0_or___SourceCodeManagementKeyword_3_0_IssueManagementKeyword_4_0____q_DistroManagementKeyword_5_0_ContinousIntegrationKeyword_6_0____q.equals(syntax))
+				emit_ChapterProjectManagement___ContinousIntegrationKeyword_6_0_or___IssueManagementKeyword_4_0_ContinousIntegrationKeyword_6_0___or___SourceCodeManagementKeyword_3_0___ContinousIntegrationKeyword_6_0_or___IssueManagementKeyword_4_0_ContinousIntegrationKeyword_6_0_______or_____IssueManagementKeyword_4_0_or___SourceCodeManagementKeyword_3_0_IssueManagementKeyword_4_0____q_DistroManagementKeyword_5_0_ContinousIntegrationKeyword_6_0____q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_ChapterProjectStructure_PropertiesKeyword_3_0_q.equals(syntax))
 				emit_ChapterProjectStructure_PropertiesKeyword_3_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_ChapterStakeholder_GroupsKeyword_3_0_q.equals(syntax))
@@ -292,12 +296,31 @@ public class StubbrLangSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     'continousIntegration'?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) 'management' '{' 'projects'? 'sourceCodeManagement'? 'issueManagement'? (ambiguity) '}' (rule start)
-	 *     issueManagement+=Level1Attribute (ambiguity) '}' (rule end)
-	 *     project+=DevProject 'sourceCodeManagement'? 'issueManagement'? (ambiguity) '}' (rule end)
-	 *     scm+=Level1Attribute 'issueManagement'? (ambiguity) '}' (rule end)
+	 *     (rule start) 'management' '{' 'projects'? 'sourceCodeManagement'? 'issueManagement'? 'distroManagement'? (ambiguity) '}' (rule start)
+	 *     distroManagement+=Level1Attribute (ambiguity) '}' (rule end)
+	 *     issueManagement+=Level1Attribute 'distroManagement'? (ambiguity) '}' (rule end)
+	 *     projects+=DevProject 'sourceCodeManagement'? 'issueManagement'? 'distroManagement'? (ambiguity) '}' (rule end)
+	 *     scm+=Level1Attribute 'issueManagement'? 'distroManagement'? (ambiguity) '}' (rule end)
 	 */
-	protected void emit_ChapterProjectManagement_ContinousIntegrationKeyword_5_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_ChapterProjectManagement_ContinousIntegrationKeyword_6_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'distroManagement'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) 'management' '{' 'projects'? 'sourceCodeManagement'? 'issueManagement'? (ambiguity) 'continousIntegration' ci+=Level1Attribute
+	 *     (rule start) 'management' '{' 'projects'? 'sourceCodeManagement'? 'issueManagement'? (ambiguity) 'continousIntegration'? '}' (rule start)
+	 *     issueManagement+=Level1Attribute (ambiguity) 'continousIntegration' ci+=Level1Attribute
+	 *     issueManagement+=Level1Attribute (ambiguity) 'continousIntegration'? '}' (rule end)
+	 *     projects+=DevProject 'sourceCodeManagement'? 'issueManagement'? (ambiguity) 'continousIntegration' ci+=Level1Attribute
+	 *     projects+=DevProject 'sourceCodeManagement'? 'issueManagement'? (ambiguity) 'continousIntegration'? '}' (rule end)
+	 *     scm+=Level1Attribute 'issueManagement'? (ambiguity) 'continousIntegration' ci+=Level1Attribute
+	 *     scm+=Level1Attribute 'issueManagement'? (ambiguity) 'continousIntegration'? '}' (rule end)
+	 */
+	protected void emit_ChapterProjectManagement_DistroManagementKeyword_5_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -306,12 +329,15 @@ public class StubbrLangSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     'issueManagement'?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) 'management' '{' 'projects'? 'sourceCodeManagement'? (ambiguity) 'continousIntegration' ci+=Level1Attribute
-	 *     (rule start) 'management' '{' 'projects'? 'sourceCodeManagement'? (ambiguity) 'continousIntegration'? '}' (rule start)
-	 *     project+=DevProject 'sourceCodeManagement'? (ambiguity) 'continousIntegration' ci+=Level1Attribute
-	 *     project+=DevProject 'sourceCodeManagement'? (ambiguity) 'continousIntegration'? '}' (rule end)
-	 *     scm+=Level1Attribute (ambiguity) 'continousIntegration' ci+=Level1Attribute
-	 *     scm+=Level1Attribute (ambiguity) 'continousIntegration'? '}' (rule end)
+	 *     (rule start) 'management' '{' 'projects'? 'sourceCodeManagement'? (ambiguity) 'distroManagement' distroManagement+=Level1Attribute
+	 *     (rule start) 'management' '{' 'projects'? 'sourceCodeManagement'? (ambiguity) 'distroManagement'? 'continousIntegration' ci+=Level1Attribute
+	 *     (rule start) 'management' '{' 'projects'? 'sourceCodeManagement'? (ambiguity) 'distroManagement'? 'continousIntegration'? '}' (rule start)
+	 *     projects+=DevProject 'sourceCodeManagement'? (ambiguity) 'distroManagement' distroManagement+=Level1Attribute
+	 *     projects+=DevProject 'sourceCodeManagement'? (ambiguity) 'distroManagement'? 'continousIntegration' ci+=Level1Attribute
+	 *     projects+=DevProject 'sourceCodeManagement'? (ambiguity) 'distroManagement'? 'continousIntegration'? '}' (rule end)
+	 *     scm+=Level1Attribute (ambiguity) 'distroManagement' distroManagement+=Level1Attribute
+	 *     scm+=Level1Attribute (ambiguity) 'distroManagement'? 'continousIntegration' ci+=Level1Attribute
+	 *     scm+=Level1Attribute (ambiguity) 'distroManagement'? 'continousIntegration'? '}' (rule end)
 	 */
 	protected void emit_ChapterProjectManagement_IssueManagementKeyword_4_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -322,11 +348,25 @@ public class StubbrLangSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     'projects'?
 	 *
 	 * This ambiguous syntax occurs at:
+	 *     (
+	 *         (rule start) 
+	 *         'management' 
+	 *         '{' 
+	 *         (ambiguity) 
+	 *         (
+	 *             'continousIntegration' | 
+	 *             ('sourceCodeManagement' ('continousIntegration' | ('issueManagement' 'continousIntegration'))) | 
+	 *             ('issueManagement' 'continousIntegration') | 
+	 *             ((('sourceCodeManagement' 'issueManagement') | 'issueManagement')? 'distroManagement' 'continousIntegration')
+	 *         )? 
+	 *         '}' 
+	 *         (rule start)
+	 *     )
 	 *     (rule start) 'management' '{' (ambiguity) 'sourceCodeManagement' scm+=Level1Attribute
 	 *     (rule start) 'management' '{' (ambiguity) 'sourceCodeManagement'? 'issueManagement' issueManagement+=Level1Attribute
-	 *     (rule start) 'management' '{' (ambiguity) 'sourceCodeManagement'? 'issueManagement'? 'continousIntegration' ci+=Level1Attribute
-	 *     (rule start) 'management' '{' (ambiguity) 'sourceCodeManagement'? 'issueManagement'? 'continousIntegration'? '}' (rule start)
-	 *     (rule start) 'management' '{' (ambiguity) ('continousIntegration' | ('sourceCodeManagement'? 'issueManagement' 'continousIntegration') | ('sourceCodeManagement'? 'continousIntegration'))? '}' (rule start)
+	 *     (rule start) 'management' '{' (ambiguity) 'sourceCodeManagement'? 'issueManagement'? 'distroManagement' distroManagement+=Level1Attribute
+	 *     (rule start) 'management' '{' (ambiguity) 'sourceCodeManagement'? 'issueManagement'? 'distroManagement'? 'continousIntegration' ci+=Level1Attribute
+	 *     (rule start) 'management' '{' (ambiguity) 'sourceCodeManagement'? 'issueManagement'? 'distroManagement'? 'continousIntegration'? '}' (rule start)
 	 */
 	protected void emit_ChapterProjectManagement_ProjectsKeyword_2_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -338,11 +378,13 @@ public class StubbrLangSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) 'management' '{' 'projects'? (ambiguity) 'issueManagement' issueManagement+=Level1Attribute
-	 *     (rule start) 'management' '{' 'projects'? (ambiguity) 'issueManagement'? 'continousIntegration' ci+=Level1Attribute
-	 *     (rule start) 'management' '{' 'projects'? (ambiguity) 'issueManagement'? 'continousIntegration'? '}' (rule start)
-	 *     project+=DevProject (ambiguity) 'issueManagement' issueManagement+=Level1Attribute
-	 *     project+=DevProject (ambiguity) 'issueManagement'? 'continousIntegration' ci+=Level1Attribute
-	 *     project+=DevProject (ambiguity) 'issueManagement'? 'continousIntegration'? '}' (rule end)
+	 *     (rule start) 'management' '{' 'projects'? (ambiguity) 'issueManagement'? 'distroManagement' distroManagement+=Level1Attribute
+	 *     (rule start) 'management' '{' 'projects'? (ambiguity) 'issueManagement'? 'distroManagement'? 'continousIntegration' ci+=Level1Attribute
+	 *     (rule start) 'management' '{' 'projects'? (ambiguity) 'issueManagement'? 'distroManagement'? 'continousIntegration'? '}' (rule start)
+	 *     projects+=DevProject (ambiguity) 'issueManagement' issueManagement+=Level1Attribute
+	 *     projects+=DevProject (ambiguity) 'issueManagement'? 'distroManagement' distroManagement+=Level1Attribute
+	 *     projects+=DevProject (ambiguity) 'issueManagement'? 'distroManagement'? 'continousIntegration' ci+=Level1Attribute
+	 *     projects+=DevProject (ambiguity) 'issueManagement'? 'distroManagement'? 'continousIntegration'? '}' (rule end)
 	 */
 	protected void emit_ChapterProjectManagement_SourceCodeManagementKeyword_3_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -350,12 +392,17 @@ public class StubbrLangSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     ('continousIntegration' | ('sourceCodeManagement'? 'issueManagement' 'continousIntegration') | ('sourceCodeManagement'? 'continousIntegration'))?
+	 *     (
+	  *         'continousIntegration' | 
+	  *         ('sourceCodeManagement' ('continousIntegration' | ('issueManagement' 'continousIntegration'))) | 
+	  *         ('issueManagement' 'continousIntegration') | 
+	  *         ((('sourceCodeManagement' 'issueManagement') | 'issueManagement')? 'distroManagement' 'continousIntegration')
+	  *     )?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) 'management' '{' 'projects'? (ambiguity) '}' (rule start)
 	 */
-	protected void emit_ChapterProjectManagement___ContinousIntegrationKeyword_5_0_or___SourceCodeManagementKeyword_3_0_q_ContinousIntegrationKeyword_5_0___or___SourceCodeManagementKeyword_3_0_q_IssueManagementKeyword_4_0_ContinousIntegrationKeyword_5_0____q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_ChapterProjectManagement___ContinousIntegrationKeyword_6_0_or___IssueManagementKeyword_4_0_ContinousIntegrationKeyword_6_0___or___SourceCodeManagementKeyword_3_0___ContinousIntegrationKeyword_6_0_or___IssueManagementKeyword_4_0_ContinousIntegrationKeyword_6_0_______or_____IssueManagementKeyword_4_0_or___SourceCodeManagementKeyword_3_0_IssueManagementKeyword_4_0____q_DistroManagementKeyword_5_0_ContinousIntegrationKeyword_6_0____q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

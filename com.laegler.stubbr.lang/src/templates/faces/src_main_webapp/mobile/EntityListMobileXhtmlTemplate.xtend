@@ -41,10 +41,10 @@ class EntityListMobileXhtmlTemplate extends AbstractMobileXhtmlTemplate {
 		'''
 		documentation = '''JSF/XHTML mobile list view for entity «entity?.name?.toFirstUpper»'''
 
-		content = template
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		<p:dataTable value="#{«entity?.name?.toLowerCase».presenter.getAll()}" var="«entity?.name?.toLowerCase»"
 			styleClass="order-table" headerClass="order-table-header"
 			rowClasses="order-table-odd-row,order-table-even-row">

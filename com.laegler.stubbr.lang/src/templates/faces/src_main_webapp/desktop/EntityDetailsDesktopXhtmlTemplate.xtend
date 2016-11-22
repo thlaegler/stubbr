@@ -25,10 +25,10 @@ class EntityDetailsDesktopXhtmlTemplate extends AbstractDesktopXhtmlTemplate {
 		relativPath = '''/src/main/webapp/desktop/«entity?.name?.toLowerCase»/'''
 		documentation = '''JSF/XHTML desktop details page for entity «entity?.name?.toFirstUpper»'''
 
-		content = template
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		<f:metadata>
 			<f:viewParam name="id"
 				value="#{presenter.«entity?.name?.toFirstLower».model.id}" />

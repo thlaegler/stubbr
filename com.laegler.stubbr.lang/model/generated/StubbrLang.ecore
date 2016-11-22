@@ -52,11 +52,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="useSpringMVC" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChapterProjectManagement" eSuperTypes="#//Chapter">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="project" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="projects" upperBound="-1"
         eType="#//DevProject" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="scm" upperBound="-1" eType="#//Level1Attribute"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="issueManagement" upperBound="-1"
+        eType="#//Level1Attribute" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="distroManagement" upperBound="-1"
         eType="#//Level1Attribute" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ci" upperBound="-1" eType="#//Level1Attribute"
         containment="true"/>

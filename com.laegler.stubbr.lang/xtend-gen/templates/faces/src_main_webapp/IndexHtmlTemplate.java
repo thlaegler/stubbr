@@ -20,11 +20,10 @@ public class IndexHtmlTemplate extends AbstractTemplate {
     this.setRelativPath("/src/main/webapp/");
     this.setHeader("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">");
     this.setDocumentation("HTML index page");
-    String _template = this.getTemplate();
-    this.setContent(_template);
   }
   
-  private String getTemplate() {
+  @Override
+  public String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<html>");
     _builder.newLine();

@@ -18,10 +18,10 @@ class IndexDesktopXhtmlTemplate extends AbstractDesktopXhtmlTemplate {
 		relativPath = '/src/main/webapp/desktop/'
 		documentation = 'JSF/XHTML desktop index page.'
 
-		content = template
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		<ui:include src="/desktop/index.xhtml" />
 	'''
 

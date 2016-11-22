@@ -24,10 +24,10 @@ class EntityControllerXtendTemplate extends AbstractXtendTemplate {
 		relativPath = '''/src/main/java/«project?.basePackage?.toPath»/controller/'''
 		documentation = '''Controller for entity «entity?.name?.toFirstUpper»'''
 
-		content = withImports(template)
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		import «project.basePackage».*
 		import java.io.Serializable
 		import javax.persistence.Column

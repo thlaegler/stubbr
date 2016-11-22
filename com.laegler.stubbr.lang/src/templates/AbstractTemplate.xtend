@@ -32,6 +32,7 @@ abstract class AbstractTemplate {
 	@Accessors Project project
 
 	@Accessors String header
+	@Deprecated
 	@Accessors String content
 	@Accessors String footer
 
@@ -61,6 +62,8 @@ abstract class AbstractTemplate {
 		this.version = project?.version
 		this.skipStamping = false
 	}
+	
+	abstract def String getTemplate()
 
 	/**
 	 * 
@@ -79,24 +82,26 @@ abstract class AbstractTemplate {
 	public def String getFileContent() {
 		if (!header.nullOrEmpty && !footer.nullOrEmpty) {
 			if (header.contains('xmlns') || header.startsWith('/</?xml')) {
+				// XML file
 				return '''
 					«header»
 					«stamp»
-						«content»
+						«template»
 					«footer»
 				'''
 			} else {
 				return '''
 					«stamp»
 					«header»
-						«content»
+						«template»
 					«footer»
 				'''
 			}
 		} else {
+			// Without header and footer
 			return '''
 				«stamp»
-				«content»
+				«template»
 			'''
 		}
 	}

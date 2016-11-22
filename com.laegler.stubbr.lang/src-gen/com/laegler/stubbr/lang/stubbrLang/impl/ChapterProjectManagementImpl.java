@@ -28,9 +28,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.laegler.stubbr.lang.stubbrLang.impl.ChapterProjectManagementImpl#getProject <em>Project</em>}</li>
+ *   <li>{@link com.laegler.stubbr.lang.stubbrLang.impl.ChapterProjectManagementImpl#getProjects <em>Projects</em>}</li>
  *   <li>{@link com.laegler.stubbr.lang.stubbrLang.impl.ChapterProjectManagementImpl#getScm <em>Scm</em>}</li>
  *   <li>{@link com.laegler.stubbr.lang.stubbrLang.impl.ChapterProjectManagementImpl#getIssueManagement <em>Issue Management</em>}</li>
+ *   <li>{@link com.laegler.stubbr.lang.stubbrLang.impl.ChapterProjectManagementImpl#getDistroManagement <em>Distro Management</em>}</li>
  *   <li>{@link com.laegler.stubbr.lang.stubbrLang.impl.ChapterProjectManagementImpl#getCi <em>Ci</em>}</li>
  * </ul>
  *
@@ -39,14 +40,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class ChapterProjectManagementImpl extends ChapterImpl implements ChapterProjectManagement
 {
   /**
-   * The cached value of the '{@link #getProject() <em>Project</em>}' containment reference list.
+   * The cached value of the '{@link #getProjects() <em>Projects</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getProject()
+   * @see #getProjects()
    * @generated
    * @ordered
    */
-  protected EList<DevProject> project;
+  protected EList<DevProject> projects;
 
   /**
    * The cached value of the '{@link #getScm() <em>Scm</em>}' containment reference list.
@@ -67,6 +68,16 @@ public class ChapterProjectManagementImpl extends ChapterImpl implements Chapter
    * @ordered
    */
   protected EList<Level1Attribute> issueManagement;
+
+  /**
+   * The cached value of the '{@link #getDistroManagement() <em>Distro Management</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDistroManagement()
+   * @generated
+   * @ordered
+   */
+  protected EList<Level1Attribute> distroManagement;
 
   /**
    * The cached value of the '{@link #getCi() <em>Ci</em>}' containment reference list.
@@ -104,13 +115,13 @@ public class ChapterProjectManagementImpl extends ChapterImpl implements Chapter
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<DevProject> getProject()
+  public EList<DevProject> getProjects()
   {
-    if (project == null)
+    if (projects == null)
     {
-      project = new EObjectContainmentEList<DevProject>(DevProject.class, this, StubbrLangPackage.CHAPTER_PROJECT_MANAGEMENT__PROJECT);
+      projects = new EObjectContainmentEList<DevProject>(DevProject.class, this, StubbrLangPackage.CHAPTER_PROJECT_MANAGEMENT__PROJECTS);
     }
-    return project;
+    return projects;
   }
 
   /**
@@ -146,6 +157,20 @@ public class ChapterProjectManagementImpl extends ChapterImpl implements Chapter
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Level1Attribute> getDistroManagement()
+  {
+    if (distroManagement == null)
+    {
+      distroManagement = new EObjectContainmentEList<Level1Attribute>(Level1Attribute.class, this, StubbrLangPackage.CHAPTER_PROJECT_MANAGEMENT__DISTRO_MANAGEMENT);
+    }
+    return distroManagement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Level1Attribute> getCi()
   {
     if (ci == null)
@@ -165,12 +190,14 @@ public class ChapterProjectManagementImpl extends ChapterImpl implements Chapter
   {
     switch (featureID)
     {
-      case StubbrLangPackage.CHAPTER_PROJECT_MANAGEMENT__PROJECT:
-        return ((InternalEList<?>)getProject()).basicRemove(otherEnd, msgs);
+      case StubbrLangPackage.CHAPTER_PROJECT_MANAGEMENT__PROJECTS:
+        return ((InternalEList<?>)getProjects()).basicRemove(otherEnd, msgs);
       case StubbrLangPackage.CHAPTER_PROJECT_MANAGEMENT__SCM:
         return ((InternalEList<?>)getScm()).basicRemove(otherEnd, msgs);
       case StubbrLangPackage.CHAPTER_PROJECT_MANAGEMENT__ISSUE_MANAGEMENT:
         return ((InternalEList<?>)getIssueManagement()).basicRemove(otherEnd, msgs);
+      case StubbrLangPackage.CHAPTER_PROJECT_MANAGEMENT__DISTRO_MANAGEMENT:
+        return ((InternalEList<?>)getDistroManagement()).basicRemove(otherEnd, msgs);
       case StubbrLangPackage.CHAPTER_PROJECT_MANAGEMENT__CI:
         return ((InternalEList<?>)getCi()).basicRemove(otherEnd, msgs);
     }
@@ -187,12 +214,14 @@ public class ChapterProjectManagementImpl extends ChapterImpl implements Chapter
   {
     switch (featureID)
     {
-      case StubbrLangPackage.CHAPTER_PROJECT_MANAGEMENT__PROJECT:
-        return getProject();
+      case StubbrLangPackage.CHAPTER_PROJECT_MANAGEMENT__PROJECTS:
+        return getProjects();
       case StubbrLangPackage.CHAPTER_PROJECT_MANAGEMENT__SCM:
         return getScm();
       case StubbrLangPackage.CHAPTER_PROJECT_MANAGEMENT__ISSUE_MANAGEMENT:
         return getIssueManagement();
+      case StubbrLangPackage.CHAPTER_PROJECT_MANAGEMENT__DISTRO_MANAGEMENT:
+        return getDistroManagement();
       case StubbrLangPackage.CHAPTER_PROJECT_MANAGEMENT__CI:
         return getCi();
     }
@@ -210,9 +239,9 @@ public class ChapterProjectManagementImpl extends ChapterImpl implements Chapter
   {
     switch (featureID)
     {
-      case StubbrLangPackage.CHAPTER_PROJECT_MANAGEMENT__PROJECT:
-        getProject().clear();
-        getProject().addAll((Collection<? extends DevProject>)newValue);
+      case StubbrLangPackage.CHAPTER_PROJECT_MANAGEMENT__PROJECTS:
+        getProjects().clear();
+        getProjects().addAll((Collection<? extends DevProject>)newValue);
         return;
       case StubbrLangPackage.CHAPTER_PROJECT_MANAGEMENT__SCM:
         getScm().clear();
@@ -221,6 +250,10 @@ public class ChapterProjectManagementImpl extends ChapterImpl implements Chapter
       case StubbrLangPackage.CHAPTER_PROJECT_MANAGEMENT__ISSUE_MANAGEMENT:
         getIssueManagement().clear();
         getIssueManagement().addAll((Collection<? extends Level1Attribute>)newValue);
+        return;
+      case StubbrLangPackage.CHAPTER_PROJECT_MANAGEMENT__DISTRO_MANAGEMENT:
+        getDistroManagement().clear();
+        getDistroManagement().addAll((Collection<? extends Level1Attribute>)newValue);
         return;
       case StubbrLangPackage.CHAPTER_PROJECT_MANAGEMENT__CI:
         getCi().clear();
@@ -240,14 +273,17 @@ public class ChapterProjectManagementImpl extends ChapterImpl implements Chapter
   {
     switch (featureID)
     {
-      case StubbrLangPackage.CHAPTER_PROJECT_MANAGEMENT__PROJECT:
-        getProject().clear();
+      case StubbrLangPackage.CHAPTER_PROJECT_MANAGEMENT__PROJECTS:
+        getProjects().clear();
         return;
       case StubbrLangPackage.CHAPTER_PROJECT_MANAGEMENT__SCM:
         getScm().clear();
         return;
       case StubbrLangPackage.CHAPTER_PROJECT_MANAGEMENT__ISSUE_MANAGEMENT:
         getIssueManagement().clear();
+        return;
+      case StubbrLangPackage.CHAPTER_PROJECT_MANAGEMENT__DISTRO_MANAGEMENT:
+        getDistroManagement().clear();
         return;
       case StubbrLangPackage.CHAPTER_PROJECT_MANAGEMENT__CI:
         getCi().clear();
@@ -266,12 +302,14 @@ public class ChapterProjectManagementImpl extends ChapterImpl implements Chapter
   {
     switch (featureID)
     {
-      case StubbrLangPackage.CHAPTER_PROJECT_MANAGEMENT__PROJECT:
-        return project != null && !project.isEmpty();
+      case StubbrLangPackage.CHAPTER_PROJECT_MANAGEMENT__PROJECTS:
+        return projects != null && !projects.isEmpty();
       case StubbrLangPackage.CHAPTER_PROJECT_MANAGEMENT__SCM:
         return scm != null && !scm.isEmpty();
       case StubbrLangPackage.CHAPTER_PROJECT_MANAGEMENT__ISSUE_MANAGEMENT:
         return issueManagement != null && !issueManagement.isEmpty();
+      case StubbrLangPackage.CHAPTER_PROJECT_MANAGEMENT__DISTRO_MANAGEMENT:
+        return distroManagement != null && !distroManagement.isEmpty();
       case StubbrLangPackage.CHAPTER_PROJECT_MANAGEMENT__CI:
         return ci != null && !ci.isEmpty();
     }

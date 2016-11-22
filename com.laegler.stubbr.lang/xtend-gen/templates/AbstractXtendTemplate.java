@@ -38,8 +38,9 @@ public abstract class AbstractXtendTemplate extends AbstractTemplate {
     _builder.append(_header, "");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
-    String _content = this.getContent();
-    _builder.append(_content, "");
+    String _template = this.getTemplate();
+    String _withImports = this.withImports(_template);
+    _builder.append(_withImports, "");
     _builder.newLineIfNotEmpty();
     String _footer = this.getFooter();
     _builder.append(_footer, "");
@@ -117,18 +118,22 @@ public abstract class AbstractXtendTemplate extends AbstractTemplate {
     _builder.newLine();
     _builder.append(" ");
     _builder.append("* @author ");
-    StubbrRegistry _stubbr = this.getStubbr();
-    Stubb _stubb = _stubbr.getStubb();
-    String _author = _stubb.getAuthor();
+    Stubb _stubb = this.getStubb();
+    String _author = null;
+    if (_stubb!=null) {
+      _author=_stubb.getAuthor();
+    }
     String _replaceAll = null;
     if (_author!=null) {
       _replaceAll=_author.replaceAll("\"", "");
     }
     _builder.append(_replaceAll, " ");
     _builder.append(" {@literal <");
-    StubbrRegistry _stubbr_1 = this.getStubbr();
-    Stubb _stubb_1 = _stubbr_1.getStubb();
-    String _email = _stubb_1.getEmail();
+    Stubb _stubb_1 = this.getStubb();
+    String _email = null;
+    if (_stubb_1!=null) {
+      _email=_stubb_1.getEmail();
+    }
     String _replace = null;
     if (_email!=null) {
       _replace=_email.replace("@", "[at]");
@@ -140,13 +145,19 @@ public abstract class AbstractXtendTemplate extends AbstractTemplate {
     _builder.append(" ");
     _builder.append("* @since ");
     String _version = this.getVersion();
-    String _replaceFirst = _version.replaceFirst("v", "");
+    String _replaceFirst = null;
+    if (_version!=null) {
+      _replaceFirst=_version.replaceFirst("v", "");
+    }
     _builder.append(_replaceFirst, " ");
     _builder.newLineIfNotEmpty();
     _builder.append(" ");
     _builder.append("* @version ");
     String _version_1 = this.getVersion();
-    String _replaceFirst_1 = _version_1.replaceFirst("v", "");
+    String _replaceFirst_1 = null;
+    if (_version_1!=null) {
+      _replaceFirst_1=_version_1.replaceFirst("v", "");
+    }
     _builder.append(_replaceFirst_1, " ");
     _builder.newLineIfNotEmpty();
     _builder.append(" ");
@@ -161,9 +172,11 @@ public abstract class AbstractXtendTemplate extends AbstractTemplate {
     String _asImport = this.asImport("com.google.gson.annotations.Since");
     _builder.append(_asImport, "");
     _builder.append("(value = ");
-    Project _project = this.getProject();
-    String _version_2 = _project.getVersion();
-    String _versionDouble = this.toVersionDouble(_version_2);
+    String _version_2 = this.getVersion();
+    String _versionDouble = null;
+    if (_version_2!=null) {
+      _versionDouble=this.toVersionDouble(_version_2);
+    }
     _builder.append(_versionDouble, "");
     _builder.append(")");
     _builder.newLineIfNotEmpty();
@@ -171,9 +184,11 @@ public abstract class AbstractXtendTemplate extends AbstractTemplate {
     String _asImport_1 = this.asImport("com.google.gson.annotations.Until");
     _builder.append(_asImport_1, "");
     _builder.append("(value = ");
-    Project _project_1 = this.getProject();
-    String _version_3 = _project_1.getVersion();
-    String _versionDouble_1 = this.toVersionDouble(_version_3);
+    String _version_3 = this.getVersion();
+    String _versionDouble_1 = null;
+    if (_version_3!=null) {
+      _versionDouble_1=this.toVersionDouble(_version_3);
+    }
     _builder.append(_versionDouble_1, "");
     _builder.append(")");
     _builder.newLineIfNotEmpty();
@@ -205,18 +220,22 @@ public abstract class AbstractXtendTemplate extends AbstractTemplate {
     _builder.newLine();
     _builder.append(" ");
     _builder.append("* @author ");
-    StubbrRegistry _stubbr = this.getStubbr();
-    Stubb _stubb = _stubbr.getStubb();
-    String _author = _stubb.getAuthor();
+    Stubb _stubb = this.getStubb();
+    String _author = null;
+    if (_stubb!=null) {
+      _author=_stubb.getAuthor();
+    }
     String _replaceAll = null;
     if (_author!=null) {
       _replaceAll=_author.replaceAll("\"", "");
     }
     _builder.append(_replaceAll, " ");
     _builder.append(" {@literal <");
-    StubbrRegistry _stubbr_1 = this.getStubbr();
-    Stubb _stubb_1 = _stubbr_1.getStubb();
-    String _email = _stubb_1.getEmail();
+    Stubb _stubb_1 = this.getStubb();
+    String _email = null;
+    if (_stubb_1!=null) {
+      _email=_stubb_1.getEmail();
+    }
     String _replace = null;
     if (_email!=null) {
       _replace=_email.replace("@", "[at]");
@@ -228,13 +247,19 @@ public abstract class AbstractXtendTemplate extends AbstractTemplate {
     _builder.append(" ");
     _builder.append("* @since ");
     String _version = this.getVersion();
-    String _replaceFirst = _version.replaceFirst("v", "");
+    String _replaceFirst = null;
+    if (_version!=null) {
+      _replaceFirst=_version.replaceFirst("v", "");
+    }
     _builder.append(_replaceFirst, " ");
     _builder.newLineIfNotEmpty();
     _builder.append(" ");
     _builder.append("* @version ");
     String _version_1 = this.getVersion();
-    String _replaceFirst_1 = _version_1.replaceFirst("v", "");
+    String _replaceFirst_1 = null;
+    if (_version_1!=null) {
+      _replaceFirst_1=_version_1.replaceFirst("v", "");
+    }
     _builder.append(_replaceFirst_1, " ");
     _builder.newLineIfNotEmpty();
     _builder.append(" ");
@@ -249,9 +274,11 @@ public abstract class AbstractXtendTemplate extends AbstractTemplate {
     String _asImport = this.asImport("com.google.gson.annotations.Since");
     _builder.append(_asImport, "");
     _builder.append("(value = ");
-    Project _project = this.getProject();
-    String _version_2 = _project.getVersion();
-    String _versionDouble = this.toVersionDouble(_version_2);
+    String _version_2 = this.getVersion();
+    String _versionDouble = null;
+    if (_version_2!=null) {
+      _versionDouble=this.toVersionDouble(_version_2);
+    }
     _builder.append(_versionDouble, "");
     _builder.append(")");
     _builder.newLineIfNotEmpty();
@@ -259,9 +286,11 @@ public abstract class AbstractXtendTemplate extends AbstractTemplate {
     String _asImport_1 = this.asImport("com.google.gson.annotations.Until");
     _builder.append(_asImport_1, "");
     _builder.append("(value = ");
-    Project _project_1 = this.getProject();
-    String _version_3 = _project_1.getVersion();
-    String _versionDouble_1 = this.toVersionDouble(_version_3);
+    String _version_3 = this.getVersion();
+    String _versionDouble_1 = null;
+    if (_version_3!=null) {
+      _versionDouble_1=this.toVersionDouble(_version_3);
+    }
     _builder.append(_versionDouble_1, "");
     _builder.append(")");
     _builder.newLineIfNotEmpty();
@@ -277,33 +306,17 @@ public abstract class AbstractXtendTemplate extends AbstractTemplate {
   }
   
   protected String getLoggerName() {
-    StubbrRegistry _stubbr = this.getStubbr();
-    Stubb _stubb = null;
-    if (_stubbr!=null) {
-      _stubb=_stubbr.getStubb();
-    }
-    ChapterGlobals _globals = null;
-    if (_stubb!=null) {
-      _globals=_stubb.getGlobals();
-    }
+    ChapterGlobals _chapterGlobals = this.getChapterGlobals();
     String _loggerName = null;
-    if (_globals!=null) {
-      _loggerName=_globals.getLoggerName();
+    if (_chapterGlobals!=null) {
+      _loggerName=_chapterGlobals.getLoggerName();
     }
     boolean _notEquals = (!Objects.equal(_loggerName, null));
     if (_notEquals) {
-      StubbrRegistry _stubbr_1 = this.getStubbr();
-      Stubb _stubb_1 = null;
-      if (_stubbr_1!=null) {
-        _stubb_1=_stubbr_1.getStubb();
-      }
-      ChapterGlobals _globals_1 = null;
-      if (_stubb_1!=null) {
-        _globals_1=_stubb_1.getGlobals();
-      }
+      ChapterGlobals _chapterGlobals_1 = this.getChapterGlobals();
       String _loggerName_1 = null;
-      if (_globals_1!=null) {
-        _loggerName_1=_globals_1.getLoggerName();
+      if (_chapterGlobals_1!=null) {
+        _loggerName_1=_chapterGlobals_1.getLoggerName();
       }
       return _loggerName_1;
     } else {
@@ -312,33 +325,17 @@ public abstract class AbstractXtendTemplate extends AbstractTemplate {
   }
   
   protected String getLoggerType() {
-    StubbrRegistry _stubbr = this.getStubbr();
-    Stubb _stubb = null;
-    if (_stubbr!=null) {
-      _stubb=_stubbr.getStubb();
-    }
-    ChapterGlobals _globals = null;
-    if (_stubb!=null) {
-      _globals=_stubb.getGlobals();
-    }
+    ChapterGlobals _chapterGlobals = this.getChapterGlobals();
     String _loggerType = null;
-    if (_globals!=null) {
-      _loggerType=_globals.getLoggerType();
+    if (_chapterGlobals!=null) {
+      _loggerType=_chapterGlobals.getLoggerType();
     }
     boolean _notEquals = (!Objects.equal(_loggerType, null));
     if (_notEquals) {
-      StubbrRegistry _stubbr_1 = this.getStubbr();
-      Stubb _stubb_1 = null;
-      if (_stubbr_1!=null) {
-        _stubb_1=_stubbr_1.getStubb();
-      }
-      ChapterGlobals _globals_1 = null;
-      if (_stubb_1!=null) {
-        _globals_1=_stubb_1.getGlobals();
-      }
+      ChapterGlobals _chapterGlobals_1 = this.getChapterGlobals();
       String _loggerType_1 = null;
-      if (_globals_1!=null) {
-        _loggerType_1=_globals_1.getLoggerType();
+      if (_chapterGlobals_1!=null) {
+        _loggerType_1=_chapterGlobals_1.getLoggerType();
       }
       return _loggerType_1;
     } else {
@@ -347,33 +344,17 @@ public abstract class AbstractXtendTemplate extends AbstractTemplate {
   }
   
   protected String getEntityIdType() {
-    StubbrRegistry _stubbr = this.getStubbr();
-    Stubb _stubb = null;
-    if (_stubbr!=null) {
-      _stubb=_stubbr.getStubb();
-    }
-    ChapterPersistence _persistence = null;
-    if (_stubb!=null) {
-      _persistence=_stubb.getPersistence();
-    }
+    ChapterPersistence _chapterPersistence = this.getChapterPersistence();
     JvmTypeReference _javaType = null;
-    if (_persistence!=null) {
-      _javaType=_persistence.getJavaType();
+    if (_chapterPersistence!=null) {
+      _javaType=_chapterPersistence.getJavaType();
     }
     boolean _notEquals = (!Objects.equal(_javaType, null));
     if (_notEquals) {
-      StubbrRegistry _stubbr_1 = this.getStubbr();
-      Stubb _stubb_1 = null;
-      if (_stubbr_1!=null) {
-        _stubb_1=_stubbr_1.getStubb();
-      }
-      ChapterPersistence _persistence_1 = null;
-      if (_stubb_1!=null) {
-        _persistence_1=_stubb_1.getPersistence();
-      }
+      ChapterPersistence _chapterPersistence_1 = this.getChapterPersistence();
       JvmTypeReference _javaType_1 = null;
-      if (_persistence_1!=null) {
-        _javaType_1=_persistence_1.getJavaType();
+      if (_chapterPersistence_1!=null) {
+        _javaType_1=_chapterPersistence_1.getJavaType();
       }
       return _javaType_1.getQualifiedName();
     } else {

@@ -28,10 +28,10 @@ class FacesConfigXmlTemplateBase extends AbstractXmlTemplate {
 		footer = '</faces-config>'
 		documentation = 'Java Faces descriptor'
 
-		content = template
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		<!-- TODO -->
 	'''
 

@@ -22,11 +22,9 @@ class EntityServiceImplXtendTemplate extends AbstractXtendTemplate {
 		header = '''package «project.basePackage».service'''
 		relativPath = '''/src/main/java/«project?.basePackage?.toPath»/service/'''
 		documentation = '''Simple persistence service implementation for managing entity «entity?.name?.toFirstUpper».'''
-
-		content = withImports(template)
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		import «project.basePackage».*
 		import «stubbr?.stubb?.packageName».model.entity.*
 		import java.util.List

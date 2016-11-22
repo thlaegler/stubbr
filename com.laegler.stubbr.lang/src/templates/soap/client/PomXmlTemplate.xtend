@@ -16,15 +16,17 @@ class PomXmlTemplate extends PomXmlTemplateBase {
 		super(stubbr, project)
 		documentation = 'Maven project object model (pom.xml)'
 
-		content = template
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		«parentSection»
+		
 		<artifactId>«project?.name»</artifactId>
-		<name>«project?.canonicalName»</name>
+		<name>«projectName»</name>
 		<packaging>«project?.packaging»</packaging>
 		<description>«project?.documentation»</description>
+		
 		<dependencies>
 			<!-- Project internal -->
 			<dependency>

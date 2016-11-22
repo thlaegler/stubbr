@@ -17,11 +17,10 @@ public class EclipseDotProjectTemplate extends EclipseDotProjectTemplateBase {
     _builder.append(_documentation, "");
     _builder.append(" for business project");
     this.setDocumentation(_builder.toString());
-    String _template = this.getTemplate();
-    this.setContent(_template);
   }
   
-  private String getTemplate() {
+  @Override
+  public String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<name>");
     Project _project = this.getProject();

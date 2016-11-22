@@ -21,10 +21,10 @@ class IndexHtmlTemplate extends AbstractTemplate {
 		header = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
 		documentation = 'HTML index page'
 
-		content = template
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		<html>
 			<head>
 				<title>«stubbr?.stubb?.name?.toFirstUpper»</title>

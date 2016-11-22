@@ -23,10 +23,10 @@ class SpringWebXmlXtendTemplate extends AbstractXtendTemplate {
 		relativPath = '''/src/main/java/«project?.basePackage?.toPath»/'''
 		documentation = '''JSF Spring programmatical web.xml for «project?.canonicalName»'''
 
-		content = template
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		import «project.basePackage».config.DefaultProfileUtil
 		import org.springframework.boot.builder.SpringApplicationBuilder
 		import org.springframework.boot.web.support.SpringBootServletInitializer

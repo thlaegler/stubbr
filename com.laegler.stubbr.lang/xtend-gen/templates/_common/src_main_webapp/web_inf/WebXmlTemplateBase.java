@@ -37,11 +37,10 @@ public class WebXmlTemplateBase extends AbstractXmlTemplate {
     this.setHeader(_builder.toString());
     this.setFooter("</web-app>");
     this.setDocumentation("Web project descriptor");
-    String _template = this.getTemplate();
-    this.setContent(_template);
   }
   
-  private String getTemplate() {
+  @Override
+  public String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<display-name>pmbok-web</display-name>");
     _builder.newLine();

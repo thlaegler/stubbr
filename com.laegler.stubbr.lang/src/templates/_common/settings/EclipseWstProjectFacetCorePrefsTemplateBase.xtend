@@ -23,10 +23,10 @@ class EclipseWstProjectFacetCorePrefsTemplateBase extends AbstractTemplate {
 		documentation = 'Eclipse WST project facet prefs'
 		skipStamping = true
 
-		content = template
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		<facet id="jst.jaxrs">
 			<node name="libprov">
 				<attribute name="provider-id" value="runtime-library-provider"/>

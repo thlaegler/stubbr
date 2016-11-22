@@ -20,10 +20,10 @@ class DotGitignoreTemplateBase extends AbstractTemplate {
 		relativPath = '/'
 		documentation = 'Git ignore file'
 
-		content = template
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		# Compiled source #
 		###################
 		*.com

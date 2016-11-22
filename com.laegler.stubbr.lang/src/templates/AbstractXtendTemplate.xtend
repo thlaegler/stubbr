@@ -15,7 +15,7 @@ abstract class AbstractXtendTemplate extends AbstractTemplate {
 
 	new(StubbrRegistry stubbr, Project project) {
 		super(stubbr, project)
-		this.fileType = FileType.XTEND
+		fileType = FileType.XTEND
 	}
 
 	/**
@@ -25,7 +25,7 @@ abstract class AbstractXtendTemplate extends AbstractTemplate {
 		«stamp»
 		«header»
 		
-		«content»
+		«withImports(template)»
 		«footer»
 	'''
 	
@@ -72,13 +72,13 @@ abstract class AbstractXtendTemplate extends AbstractTemplate {
 		/**
 		 * «documentation»
 		 * 
-		 * @author «stubbr.stubb.author?.replaceAll('"','')» {@literal <«stubbr.stubb.email?.replace('@', '[at]').replaceAll('"','')»>} 
-		 * @since «version.replaceFirst('v', '')»
-		 * @version «version.replaceFirst('v', '')»
+		 * @author «stubb?.author?.replaceAll('"','')» {@literal <«stubb?.email?.replace('@', '[at]').replaceAll('"','')»>} 
+		 * @since «version?.replaceFirst('v', '')»
+		 * @version «version?.replaceFirst('v', '')»
 		 * @generated «currentDate»
 		 */
-		@«asImport('com.google.gson.annotations.Since')»(value = «project.version.toVersionDouble»)
-		@«asImport('com.google.gson.annotations.Until')»(value = «project.version.toVersionDouble»)
+		@«asImport('com.google.gson.annotations.Since')»(value = «version?.toVersionDouble»)
+		@«asImport('com.google.gson.annotations.Until')»(value = «version?.toVersionDouble»)
 		@«asImport('javax.annotation.Generated')»(value = '«templateName»')
 	'''
 
@@ -89,35 +89,35 @@ abstract class AbstractXtendTemplate extends AbstractTemplate {
 		/**
 		 * «documentation»
 		 * 
-		 * @author «stubbr.stubb.author?.replaceAll('"','')» {@literal <«stubbr.stubb.email?.replace('@', '[at]').replaceAll('"','')»>} 
-		 * @since «version.replaceFirst('v', '')»
-		 * @version «version.replaceFirst('v', '')»
+		 * @author «stubb?.author?.replaceAll('"','')» {@literal <«stubb?.email?.replace('@', '[at]').replaceAll('"','')»>} 
+		 * @since «version?.replaceFirst('v', '')»
+		 * @version «version?.replaceFirst('v', '')»
 		 * @generated «currentDate»
 		 */
-		@«asImport('com.google.gson.annotations.Since')»(value = «project.version.toVersionDouble»)
-		@«asImport('com.google.gson.annotations.Until')»(value = «project.version.toVersionDouble»)
+		@«asImport('com.google.gson.annotations.Since')»(value = «version?.toVersionDouble»)
+		@«asImport('com.google.gson.annotations.Until')»(value = «version?.toVersionDouble»)
 		@«asImport('javax.annotation.Generated')»(value = '«templateName»')
 	'''
 
 	protected def String getLoggerName() {
-		if(stubbr?.stubb?.globals?.loggerName != null) {
-			return stubbr?.stubb?.globals?.loggerName
+		if(chapterGlobals?.loggerName != null) {
+			return chapterGlobals?.loggerName
 		} else {
 			return 'log'
 		}
 	}
 	
 	protected def String getLoggerType() {
-		if(stubbr?.stubb?.globals?.loggerType != null) {
-			return stubbr?.stubb?.globals?.loggerType
+		if(chapterGlobals?.loggerType != null) {
+			return chapterGlobals?.loggerType
 		} else {
 			return 'org.slf4j.Logger'
 		}
 	}
 	
 	protected def String getEntityIdType() {
-		if(stubbr?.stubb?.persistence?.javaType != null) {
-			return stubbr?.stubb?.persistence?.javaType.qualifiedName
+		if(chapterPersistence?.javaType != null) {
+			return chapterPersistence?.javaType.qualifiedName
 		} else {
 			return 'long'
 		}

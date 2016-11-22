@@ -24,10 +24,10 @@ class EntityPresenterXtendTemplate extends AbstractXtendTemplate {
 		relativPath = '''/src/main/java/«project?.basePackage?.toPath»/presenter/'''
 		documentation = '''JSF/Faces presenter for managing entity «entityUpper»'''
 
-		content = withImports(template)
+		
 	}
 	
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		import «project.basePackage».*
 		import com.google.gson.annotations.Until
 		import javax.annotation.Generated

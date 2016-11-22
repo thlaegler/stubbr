@@ -448,8 +448,8 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cProjectsKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cProjectAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cProjectDevProjectParserRuleCall_2_1_0 = (RuleCall)cProjectAssignment_2_1.eContents().get(0);
+		private final Assignment cProjectsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cProjectsDevProjectParserRuleCall_2_1_0 = (RuleCall)cProjectsAssignment_2_1.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cSourceCodeManagementKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cScmAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
@@ -459,18 +459,24 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cIssueManagementAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
 		private final RuleCall cIssueManagementLevel1AttributeParserRuleCall_4_1_0 = (RuleCall)cIssueManagementAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cContinousIntegrationKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cCiAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cCiLevel1AttributeParserRuleCall_5_1_0 = (RuleCall)cCiAssignment_5_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Keyword cDistroManagementKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cDistroManagementAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cDistroManagementLevel1AttributeParserRuleCall_5_1_0 = (RuleCall)cDistroManagementAssignment_5_1.eContents().get(0);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cContinousIntegrationKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cCiAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cCiLevel1AttributeParserRuleCall_6_1_0 = (RuleCall)cCiAssignment_6_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//ChapterProjectManagement:
-		//	'management' '{' ('projects' project+=DevProject*)? ('sourceCodeManagement' scm+=Level1Attribute*)?
-		//	('issueManagement' issueManagement+=Level1Attribute*)? ('continousIntegration' ci+=Level1Attribute*)? '}';
+		//	'management' '{' ('projects' projects+=DevProject*)? ('sourceCodeManagement' scm+=Level1Attribute*)?
+		//	('issueManagement' issueManagement+=Level1Attribute*)? ('distroManagement' distroManagement+=Level1Attribute*)?
+		//	('continousIntegration' ci+=Level1Attribute*)? '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'management' '{' ('projects' project+=DevProject*)? ('sourceCodeManagement' scm+=Level1Attribute*)? ('issueManagement'
-		//issueManagement+=Level1Attribute*)? ('continousIntegration' ci+=Level1Attribute*)? '}'
+		//'management' '{' ('projects' projects+=DevProject*)? ('sourceCodeManagement' scm+=Level1Attribute*)? ('issueManagement'
+		//issueManagement+=Level1Attribute*)? ('distroManagement' distroManagement+=Level1Attribute*)? ('continousIntegration'
+		//ci+=Level1Attribute*)? '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'management'
@@ -479,17 +485,17 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 		
-		//('projects' project+=DevProject*)?
+		//('projects' projects+=DevProject*)?
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//'projects'
 		public Keyword getProjectsKeyword_2_0() { return cProjectsKeyword_2_0; }
 		
-		//project+=DevProject*
-		public Assignment getProjectAssignment_2_1() { return cProjectAssignment_2_1; }
+		//projects+=DevProject*
+		public Assignment getProjectsAssignment_2_1() { return cProjectsAssignment_2_1; }
 		
 		//DevProject
-		public RuleCall getProjectDevProjectParserRuleCall_2_1_0() { return cProjectDevProjectParserRuleCall_2_1_0; }
+		public RuleCall getProjectsDevProjectParserRuleCall_2_1_0() { return cProjectsDevProjectParserRuleCall_2_1_0; }
 		
 		//('sourceCodeManagement' scm+=Level1Attribute*)?
 		public Group getGroup_3() { return cGroup_3; }
@@ -515,20 +521,32 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 		//Level1Attribute
 		public RuleCall getIssueManagementLevel1AttributeParserRuleCall_4_1_0() { return cIssueManagementLevel1AttributeParserRuleCall_4_1_0; }
 		
-		//('continousIntegration' ci+=Level1Attribute*)?
+		//('distroManagement' distroManagement+=Level1Attribute*)?
 		public Group getGroup_5() { return cGroup_5; }
 		
-		//'continousIntegration'
-		public Keyword getContinousIntegrationKeyword_5_0() { return cContinousIntegrationKeyword_5_0; }
+		//'distroManagement'
+		public Keyword getDistroManagementKeyword_5_0() { return cDistroManagementKeyword_5_0; }
 		
-		//ci+=Level1Attribute*
-		public Assignment getCiAssignment_5_1() { return cCiAssignment_5_1; }
+		//distroManagement+=Level1Attribute*
+		public Assignment getDistroManagementAssignment_5_1() { return cDistroManagementAssignment_5_1; }
 		
 		//Level1Attribute
-		public RuleCall getCiLevel1AttributeParserRuleCall_5_1_0() { return cCiLevel1AttributeParserRuleCall_5_1_0; }
+		public RuleCall getDistroManagementLevel1AttributeParserRuleCall_5_1_0() { return cDistroManagementLevel1AttributeParserRuleCall_5_1_0; }
+		
+		//('continousIntegration' ci+=Level1Attribute*)?
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//'continousIntegration'
+		public Keyword getContinousIntegrationKeyword_6_0() { return cContinousIntegrationKeyword_6_0; }
+		
+		//ci+=Level1Attribute*
+		public Assignment getCiAssignment_6_1() { return cCiAssignment_6_1; }
+		
+		//Level1Attribute
+		public RuleCall getCiLevel1AttributeParserRuleCall_6_1_0() { return cCiLevel1AttributeParserRuleCall_6_1_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 	}
 	public class DevProjectElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.laegler.stubbr.lang.StubbrLang.DevProject");
@@ -8213,8 +8231,9 @@ public class StubbrLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ChapterProjectManagement:
-	//	'management' '{' ('projects' project+=DevProject*)? ('sourceCodeManagement' scm+=Level1Attribute*)?
-	//	('issueManagement' issueManagement+=Level1Attribute*)? ('continousIntegration' ci+=Level1Attribute*)? '}';
+	//	'management' '{' ('projects' projects+=DevProject*)? ('sourceCodeManagement' scm+=Level1Attribute*)?
+	//	('issueManagement' issueManagement+=Level1Attribute*)? ('distroManagement' distroManagement+=Level1Attribute*)?
+	//	('continousIntegration' ci+=Level1Attribute*)? '}';
 	public ChapterProjectManagementElements getChapterProjectManagementAccess() {
 		return pChapterProjectManagement;
 	}

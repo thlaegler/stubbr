@@ -24,10 +24,10 @@ class SoapClientXtendTemplate extends AbstractXtendTemplate {
 		relativPath = '''/src/main/java/«project?.basePackage?.toPath»/'''
 		documentation = '''SOAP client for entity «entity?.name?.toFirstUpper»'''
 
-		content = withImports(template)
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		import «project?.basePackage».*
 		import «stubbr?.stubb?.packageName».soap.server.*
 		import java.net.URL

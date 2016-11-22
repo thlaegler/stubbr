@@ -33,12 +33,10 @@ public class EnvironmentXtendTemplate extends AbstractXtendTemplate {
     _builder_1.append("/config/");
     this.setRelativPath(_builder_1.toString());
     this.setDocumentation("Environment configuration");
-    String _template = this.getTemplate();
-    String _withImports = this.withImports(_template);
-    this.setContent(_withImports);
   }
   
-  private String getTemplate() {
+  @Override
+  public String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
     String _javaDocType = this.getJavaDocType();
     _builder.append(_javaDocType, "");

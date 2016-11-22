@@ -124,11 +124,10 @@ public class BehaviorFeatureTemplate extends AbstractTemplate {
     _builder_2.append("</ul>");
     _builder_2.newLine();
     this.setDocumentation(_builder_2.toString());
-    String _template = this.getTemplate();
-    this.setContent(_template);
   }
   
-  private String getTemplate() {
+  @Override
+  public String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("# language: en");
     _builder.newLine();

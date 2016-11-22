@@ -41,6 +41,8 @@ import templates.faces.src_main_java.basepack.faces.bean.EntityViewBeanXtendTemp
 import templates.faces.src_main_java.basepack.faces.bean.AbstractViewBeanXtendTemplate
 import templates._common.GitKeepTemplateBase
 import templates.faces.EclipseDotProjectTemplate
+import templates.faces.src_test_java_basepack.faces.BehaviorFeatureDirectTemplate
+import templates.faces.src_test_java_basepack.faces.BehaviorFeatureStepsXtendDirectTemplate
 
 /**
  * Project Generator for JSF/Faces Project
@@ -143,11 +145,9 @@ class FacesProjectGenerator extends AbstractProjectGenerator {
 
 		stubbr?.stubb?.behavior?.specifications?.forEach [ specification |
 			val Feature feature = gherkinAdapter.parseToFeature(specification)
-			project?.files?.add(new BehaviorFeatureTemplate(stubbr, project, feature) => [
-				content = fileHelper.getFileContent(fileHelper.findFile(specification))
-			])
-			project?.files?.add(new BehaviorFeatureStepsXtendTemplate(stubbr, project, feature) => [
-				content = gherkinAdapter.generate(project, specification)
+			project?.files?.addAll(#[
+				new BehaviorFeatureDirectTemplate(stubbr, project, feature, fileHelper.getFileContent(fileHelper.findFile(specification))),
+				new BehaviorFeatureStepsXtendDirectTemplate(stubbr, project, feature, gherkinAdapter.generate(project, specification))
 			])
 		]
 

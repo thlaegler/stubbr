@@ -18,11 +18,9 @@ class SeverityXtendTemplate extends AbstractXtendTemplate {
 		header = '''package «project.basePackage».config'''
 		relativPath = '''/src/main/java/«project?.basePackage?.toPath»/config/'''
 		documentation = 'General severity of status messages.'
-
-		content = withImports(template)
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		«javaDocType»
 		enum «fileName» {
 			MESSAGE, INFO, WARNING, ERROR;

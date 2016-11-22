@@ -14,15 +14,15 @@ public class PomXmlTemplate extends PomXmlTemplateBase {
   public PomXmlTemplate(final StubbrRegistry stubbr, final Project project) {
     super(stubbr, project);
     this.setDocumentation("Maven project object model (pom.xml)");
-    String _template = this.getTemplate();
-    this.setContent(_template);
   }
   
-  private String getTemplate() {
+  @Override
+  public String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
     String _parentSection = this.getParentSection();
     _builder.append(_parentSection, "");
     _builder.newLineIfNotEmpty();
+    _builder.newLine();
     _builder.append("<artifactId>");
     Project _project = this.getProject();
     String _name = null;
@@ -33,32 +33,29 @@ public class PomXmlTemplate extends PomXmlTemplateBase {
     _builder.append("</artifactId>");
     _builder.newLineIfNotEmpty();
     _builder.append("<name>");
-    Project _project_1 = this.getProject();
-    String _canonicalName = null;
-    if (_project_1!=null) {
-      _canonicalName=_project_1.getCanonicalName();
-    }
-    _builder.append(_canonicalName, "");
+    String _projectName = this.getProjectName();
+    _builder.append(_projectName, "");
     _builder.append("</name>");
     _builder.newLineIfNotEmpty();
     _builder.append("<packaging>");
-    Project _project_2 = this.getProject();
+    Project _project_1 = this.getProject();
     String _packaging = null;
-    if (_project_2!=null) {
-      _packaging=_project_2.getPackaging();
+    if (_project_1!=null) {
+      _packaging=_project_1.getPackaging();
     }
     _builder.append(_packaging, "");
     _builder.append("</packaging>");
     _builder.newLineIfNotEmpty();
     _builder.append("<description>");
-    Project _project_3 = this.getProject();
+    Project _project_2 = this.getProject();
     String _documentation = null;
-    if (_project_3!=null) {
-      _documentation=_project_3.getDocumentation();
+    if (_project_2!=null) {
+      _documentation=_project_2.getDocumentation();
     }
     _builder.append(_documentation, "");
     _builder.append("</description>");
     _builder.newLineIfNotEmpty();
+    _builder.newLine();
     _builder.append("<dependencies>");
     _builder.newLine();
     _builder.append("\t");

@@ -24,10 +24,10 @@ class EntityViewBeanXtendTemplate extends AbstractXtendTemplate {
 		relativPath = '''/src/main/java/«project?.basePackage?.toPath»/bean/'''
 		documentation = '''JSF/Faces view bean for entity «entity?.name?.toFirstUpper»'''
 
-		content = withImports(template)
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		import «project.basePackage».*
 		import «stubbr?.stubb?.packageName».model.entity.*
 		import com.google.gson.annotations.Until

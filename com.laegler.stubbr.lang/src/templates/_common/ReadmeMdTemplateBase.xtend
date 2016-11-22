@@ -22,23 +22,21 @@ class ReadmeMdTemplateBase extends AbstractTemplate {
 		relativPath = '/'
 		documentation = 'Github documentation (README.MD)'
 		skipStamping = true
-
-		content = template
 	}
 
-	private def String getTemplate() '''
-		«project?.canonicalName»
+	override def String getTemplate() '''
+		# «stubb?.name?.toFirstUpper» - «project?.canonicalName»
 				
-		«stubbr?.stubb?.documentation»
+		«stubb?.documentation»
 		
-		# Stakeholders
-		## Organizations
-		«FOR Organization organization : stubbr?.stubb?.stakeholders?.organizations»
+		## Stakeholders
+		### Organizations
+		«FOR Organization organization : chapterStakeholder?.organizations»
 			* «organization?.name»
 		«ENDFOR»
 		
-		## Developers
-		«FOR Person person : stubbr?.stubb?.stakeholders?.persons»
+		### Developers
+		«FOR Person person : chapterStakeholder?.persons»
 			* «person?.name»
 		«ENDFOR»
 	'''

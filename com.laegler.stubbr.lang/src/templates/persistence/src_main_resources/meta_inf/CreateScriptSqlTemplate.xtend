@@ -20,10 +20,10 @@ class CreateScriptSqlTemplate extends AbstractSqlTemplate {
 		relativPath = '''/src/main/resources/META_INF/'''
 		documentation = 'SQL create-script'
 
-		content = template
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		CREATE USER '«stubbr?.stubb?.name»'@'%' IDENTIFIED BY '***';
 		
 		GRANT USAGE ON * . * TO '«stubbr?.stubb?.name»'@'%' IDENTIFIED BY '***' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0 ;

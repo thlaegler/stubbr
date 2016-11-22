@@ -18,10 +18,10 @@ class IndexMobileXhtmlTemplate extends AbstractMobileXhtmlTemplate {
 		relativPath = '/src/main/webapp/mobile/'
 		documentation = 'JSF/XHTML mobile index page.'
 
-		content = template
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		<f:view renderKitId="PRIMEFACES_MOBILE" />
 		<ui:include src="/mobile/index.xhtml" />
 	'''

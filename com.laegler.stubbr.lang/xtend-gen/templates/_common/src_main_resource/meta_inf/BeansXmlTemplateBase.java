@@ -41,4 +41,10 @@ public class BeansXmlTemplateBase extends AbstractXmlTemplate {
     this.setFooter("</beans>");
     this.setDocumentation("EJB descriptor");
   }
+  
+  @Override
+  public String getTemplate() {
+    StringConcatenation _builder = new StringConcatenation();
+    return _builder.toString();
+  }
 }

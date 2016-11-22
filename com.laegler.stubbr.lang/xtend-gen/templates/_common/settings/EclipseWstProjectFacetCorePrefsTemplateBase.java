@@ -20,11 +20,10 @@ public class EclipseWstProjectFacetCorePrefsTemplateBase extends AbstractTemplat
     this.setFooter("</root>");
     this.setDocumentation("Eclipse WST project facet prefs");
     this.setSkipStamping(true);
-    String _template = this.getTemplate();
-    this.setContent(_template);
   }
   
-  private String getTemplate() {
+  @Override
+  public String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<facet id=\"jst.jaxrs\">");
     _builder.newLine();

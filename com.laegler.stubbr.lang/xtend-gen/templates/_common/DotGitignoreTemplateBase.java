@@ -17,11 +17,10 @@ public class DotGitignoreTemplateBase extends AbstractTemplate {
     this.setFileName("");
     this.setRelativPath("/");
     this.setDocumentation("Git ignore file");
-    String _template = this.getTemplate();
-    this.setContent(_template);
   }
   
-  private String getTemplate() {
+  @Override
+  public String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("# Compiled source #");
     _builder.newLine();

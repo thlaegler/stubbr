@@ -91,8 +91,6 @@ class GherkinAdapter implements StubbrAdapter<GherkinDocument> {
 		methodSnippets = new ArrayList<String>
 
 		return '''
-			package «project?.basePackage».feature.«featureModel?.feature?.name?.replaceAll(' ', '').replaceAll('"', '').toLowerCase»
-			
 			import «project?.basePackage».*
 			import javax.inject.Inject
 			import org.slf4j.Logger

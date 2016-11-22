@@ -24,10 +24,10 @@ class BusinessObjectXtendTemplate extends AbstractXtendTemplate {
 		relativPath = '''/src/main/java/«project?.basePackage?.toPath»/object/'''
 		documentation = '''Business object for entity «entity?.name?.toFirstUpper»'''
 
-		content = withImports(template)
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		import «stubbr?.stubb?.packageName».model.entity.«entity?.name?.toFirstUpper»
 		«javaDocType»
 		@«asImport('org.eclipse.xtend.lib.annotations.Accessors')»

@@ -23,11 +23,9 @@ class SoapEndpointImplXtendTemplate extends AbstractXtendTemplate {
 		header = '''package «project?.basePackage».impl'''
 		relativPath = '''/src/main/java/«project?.basePackage?.toPath»/impl/'''
 		documentation = '''SOAP endpoint implementation for entity «entityUpper»'''
-
-		content = withImports(template)
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		import «project?.basePackage».*
 		import «stubbr?.stubb?.packageName».persistence.service.«entityUpper»Service
 		import «stubbr?.stubb?.packageName».model.entity.*
@@ -41,7 +39,6 @@ class SoapEndpointImplXtendTemplate extends AbstractXtendTemplate {
 		
 		«javaDocType»
 		@«asImport('javax.jws.WebService')»(endpointInterface = '«project?.basePackage».«entityUpper»Soap', targetNamespace = '«project?.basePackage?.toNamespace»')
-		@«asImport('javax.jws.soap.SOAPBinding')»(style = «asImport('javax.jws.soap.SOAPBinding.Style')».DOCUMENT, use=«asImport('javax.jws.soap.SOAPBinding.Use')».LITERAL)
 		class «fileName» implements «entityUpper»Soap {
 		
 			@Inject
@@ -50,7 +47,7 @@ class SoapEndpointImplXtendTemplate extends AbstractXtendTemplate {
 			/**
 			 * Get «entityUpper» with given ID.
 			 */
-			override def get(«FOR Attribute attribute : entity?.attributes»«IF attribute?.javaType != null»«attribute?.javaType?.qualifiedName»«ELSE»«attribute?.type?.name»«ENDIF» «attribute?.name?.toFirstLower», «ENDFOR»SecurityContext securityContext) {
+			override def get(«FOR Attribute attribute : entity?.attributes»«IF attribute?.javaType != null»«attribute?.javaType?.qualifiedName»«ELSE»«attribute?.type?.name»«ENDIF» «attribute?.name?.toFirstLower», «ENDFOR»String dummy) {
 				val «entity?.name.toFirstUpper»BusinessObject «entity?.name.toFirstLower»BusinessObject = «entityLower»Controller.findById(1)
 				return «entity?.name.toFirstLower»BusinessObject
 			}
@@ -58,21 +55,21 @@ class SoapEndpointImplXtendTemplate extends AbstractXtendTemplate {
 			/**
 			 * Create new «entityUpper».
 			 */
-			override def create(«FOR Attribute attribute : entity?.attributes»«IF attribute?.javaType != null»«attribute?.javaType?.qualifiedName»«ELSE»«attribute?.type?.name»«ENDIF» «attribute?.name?.toFirstLower», «ENDFOR»SecurityContext securityContext) {
+			override def create(«FOR Attribute attribute : entity?.attributes»«IF attribute?.javaType != null»«attribute?.javaType?.qualifiedName»«ELSE»«attribute?.type?.name»«ENDIF» «attribute?.name?.toFirstLower», «ENDFOR»String dummy) {
 			
 			}
 		
 			/**
 			 * Update given «entityUpper».
 			 */
-			override def update(«FOR Attribute attribute : entity?.attributes»«IF attribute?.javaType != null»«attribute?.javaType?.qualifiedName»«ELSE»«attribute?.type?.name»«ENDIF» «attribute?.name?.toFirstLower», «ENDFOR»SecurityContext securityContext) {
+			override def update(«FOR Attribute attribute : entity?.attributes»«IF attribute?.javaType != null»«attribute?.javaType?.qualifiedName»«ELSE»«attribute?.type?.name»«ENDIF» «attribute?.name?.toFirstLower», «ENDFOR»String dummy) {
 			
 			}
 		
 			/**
 			 * Delete given «entityUpper».
 			 */
-			override def delete(«FOR Attribute attribute : entity?.attributes»«IF attribute?.javaType != null»«attribute?.javaType?.qualifiedName»«ELSE»«attribute?.type?.name»«ENDIF» «attribute?.name?.toFirstLower», «ENDFOR»SecurityContext securityContext) {
+			override def delete(«FOR Attribute attribute : entity?.attributes»«IF attribute?.javaType != null»«attribute?.javaType?.qualifiedName»«ELSE»«attribute?.type?.name»«ENDIF» «attribute?.name?.toFirstLower», «ENDFOR»String dummy) {
 				«entityLower»Controller.remove(1)
 				return 'removed «entityUpper»'
 			}

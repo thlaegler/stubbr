@@ -43,11 +43,10 @@ public class PersistenceXmlTemplateBase extends AbstractXmlTemplate {
     this.setHeader(_builder.toString());
     this.setFooter("</persistence>");
     this.setDocumentation("JPA descriptor");
-    String _template = this.getTemplate();
-    this.setContent(_template);
   }
   
-  private String getTemplate() {
+  @Override
+  public String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
     {
       StubbrRegistry _stubbr = this.getStubbr();

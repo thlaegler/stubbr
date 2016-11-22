@@ -24,10 +24,10 @@ class EntityXtendTemplate extends AbstractXtendTemplate {
 		header = '''package «project.basePackage».entity'''
 		documentation = '''Entity model for «entity?.name?.toFirstUpper»'''
 
-		content = withImports(template)
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		«javaDocType»
 		@«asImport('org.eclipse.xtend.lib.annotations.Accessors')»
 		@«asImport('javax.persistence.Entity')»

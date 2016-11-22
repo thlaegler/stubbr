@@ -29,5 +29,7 @@ class BeansXmlTemplateBase extends AbstractXmlTemplate {
 		footer = '</beans>'
 		documentation = 'EJB descriptor'
 	}
+	
+	override def String getTemplate() ''''''
 
 }

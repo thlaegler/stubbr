@@ -19,11 +19,9 @@ class SoapEndpointPublisherXtendTemplate extends AbstractXtendTemplate {
 		header = '''package «project?.basePackage»'''
 		relativPath = '''/src/main/java/«project?.basePackage?.toPath»/'''
 		documentation = 'SOAP endpoint publisher'
-
-		content = withImports(template)
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		import «project?.basePackage».*
 		import com.google.gson.annotations.Since
 		import com.google.gson.annotations.Until

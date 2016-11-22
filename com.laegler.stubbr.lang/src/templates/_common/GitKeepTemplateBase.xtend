@@ -17,8 +17,8 @@ class GitKeepTemplateBase extends AbstractTemplate {
 		relativPath = directory
 		documentation = 'Git keep source directories'
 		skipStamping = true
-
-		content = ''
 	}
+	
+	override def String getTemplate() ''''''
 
 }

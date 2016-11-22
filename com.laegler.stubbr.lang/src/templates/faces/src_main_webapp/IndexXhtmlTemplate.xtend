@@ -18,10 +18,10 @@ class IndexXhtmlTemplate extends AbstractDesktopXhtmlTemplate {
 		relativPath = '/src/main/webapp/'
 		documentation = 'XHTML desktop index page.'
 
-		content = template
+		
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		<ui:include src="/mobile/index.xhtml" />
 	'''
 

@@ -18,11 +18,9 @@ class ConfigXtendTemplate extends AbstractXtendTemplate {
 		header = '''package «project.basePackage».config'''
 		relativPath = '''/src/main/java/«project?.basePackage?.toPath»/config/'''
 		documentation = 'General configuration'
-
-		content = withImports(template)
 	}
 
-	private def String getTemplate() '''
+	override def String getTemplate() '''
 		import «project.basePackage».*
 		import java.io.Serializable
 		import javax.enterprise.context.ApplicationScoped
@@ -129,8 +127,8 @@ class ConfigXtendTemplate extends AbstractXtendTemplate {
 		
 				// TEST, STAGE, PROD, LOCAL, DEFAULT
 				val String configResourceName = '«project.basePackage».config.' + environment.name
-				val ResourceBundle bundle = ResourceBundle.getBundle(configResourceName, Locale.ROOT);
-				bundle.getString(key);
+				val ResourceBundle bundle = ResourceBundle.getBundle(configResourceName, Locale.ROOT)
+				bundle.getString(key)
 			}
 		}
 	'''

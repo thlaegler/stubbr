@@ -25,11 +25,10 @@ public class EclipseDotProjectTemplateBase extends AbstractTemplate {
     this.setFooter("</projectDescription>");
     this.setDocumentation("Eclipse project file");
     this.setSkipStamping(true);
-    String _template = this.getTemplate();
-    this.setContent(_template);
   }
   
-  private String getTemplate() {
+  @Override
+  public String getTemplate() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<name>");
     Project _project = this.getProject();

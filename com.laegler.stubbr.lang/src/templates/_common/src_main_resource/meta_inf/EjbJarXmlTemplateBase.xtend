@@ -28,5 +28,7 @@ class EjbJarXmlTemplateBase extends AbstractXmlTemplate {
 		footer = '</ejb-jar>'
 		documentation = 'EJB descriptor'
 	}
+	
+	override def String getTemplate() ''''''
 
 }

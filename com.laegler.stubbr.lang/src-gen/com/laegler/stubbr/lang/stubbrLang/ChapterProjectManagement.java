@@ -14,9 +14,10 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.laegler.stubbr.lang.stubbrLang.ChapterProjectManagement#getProject <em>Project</em>}</li>
+ *   <li>{@link com.laegler.stubbr.lang.stubbrLang.ChapterProjectManagement#getProjects <em>Projects</em>}</li>
  *   <li>{@link com.laegler.stubbr.lang.stubbrLang.ChapterProjectManagement#getScm <em>Scm</em>}</li>
  *   <li>{@link com.laegler.stubbr.lang.stubbrLang.ChapterProjectManagement#getIssueManagement <em>Issue Management</em>}</li>
+ *   <li>{@link com.laegler.stubbr.lang.stubbrLang.ChapterProjectManagement#getDistroManagement <em>Distro Management</em>}</li>
  *   <li>{@link com.laegler.stubbr.lang.stubbrLang.ChapterProjectManagement#getCi <em>Ci</em>}</li>
  * </ul>
  *
@@ -27,20 +28,20 @@ import org.eclipse.emf.common.util.EList;
 public interface ChapterProjectManagement extends Chapter
 {
   /**
-   * Returns the value of the '<em><b>Project</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Projects</b></em>' containment reference list.
    * The list contents are of type {@link com.laegler.stubbr.lang.stubbrLang.DevProject}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Project</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Projects</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Project</em>' containment reference list.
-   * @see com.laegler.stubbr.lang.stubbrLang.StubbrLangPackage#getChapterProjectManagement_Project()
+   * @return the value of the '<em>Projects</em>' containment reference list.
+   * @see com.laegler.stubbr.lang.stubbrLang.StubbrLangPackage#getChapterProjectManagement_Projects()
    * @model containment="true"
    * @generated
    */
-  EList<DevProject> getProject();
+  EList<DevProject> getProjects();
 
   /**
    * Returns the value of the '<em><b>Scm</b></em>' containment reference list.
@@ -73,6 +74,22 @@ public interface ChapterProjectManagement extends Chapter
    * @generated
    */
   EList<Level1Attribute> getIssueManagement();
+
+  /**
+   * Returns the value of the '<em><b>Distro Management</b></em>' containment reference list.
+   * The list contents are of type {@link com.laegler.stubbr.lang.stubbrLang.Level1Attribute}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Distro Management</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Distro Management</em>' containment reference list.
+   * @see com.laegler.stubbr.lang.stubbrLang.StubbrLangPackage#getChapterProjectManagement_DistroManagement()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Level1Attribute> getDistroManagement();
 
   /**
    * Returns the value of the '<em><b>Ci</b></em>' containment reference list.
